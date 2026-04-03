@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Volume2, Lightbulb, MonitorPlay, ShoppingCart, MapPin, Phone, Wrench } from "lucide-react";
+import { Menu, X, Volume2, Lightbulb, MonitorPlay, ShoppingCart, Phone, Wrench } from "lucide-react";
 
 const categorias = [
   { label: "Audio", href: "/audio", icon: Volume2 },
