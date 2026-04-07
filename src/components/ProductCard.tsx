@@ -26,10 +26,11 @@ export default function ProductCard({ producto, onVerDetalle, index = 0 }: Produ
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.03 }}
-      className="group relative rounded-xl bg-dark-800/60 border border-white/5 hover:border-violet-500/30 transition-all duration-500 hover:-translate-y-1 overflow-hidden flex flex-col cursor-pointer"
+      className="group relative rounded-xl bg-dark-800/60 border border-white/5 hover:border-violet-500/30 transition-all duration-500 hover:-translate-y-1 overflow-hidden h-[250px] flex flex-col cursor-pointer"
       onClick={() => onVerDetalle(producto)}
     >
-      <div className="relative aspect-square overflow-hidden">
+      {/* COntenedor de la Imagen */}
+      <div className="relative aspect-square overflow-hidden bg-white">
         <img
           src={imgs[imgIdx]}
           alt={producto.nombre}

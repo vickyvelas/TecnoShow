@@ -5,8 +5,8 @@ import { Award, Users, Zap, Shield, CheckCircle2, Star, ArrowRight, Building2, W
 const features = [
   {
     icon: Award,
-    title: "+25 Años de Experiencia",
-    description: "Empresa líder en Cuyo con más de 25 años en asesoramiento, ventas y servicio post venta.",
+    title: "+30 Años de Experiencia",
+    description: "Empresa líder en Cuyo con más de 30 años en asesoramiento, ventas y servicio post venta.",
   },
   {
     icon: Users,
@@ -26,7 +26,7 @@ const features = [
 ];
 
 const stats = [
-  { value: "25+", label: "Años de trayectoria" },
+  { value: "30+", label: "Años de trayectoria" },
   { value: "1M+", label: "Ventas realizadas" },
   { value: "50+", label: "Marcas oficiales" },
   { value: "1", label: "Local (Mendoza)" },
@@ -116,7 +116,7 @@ export default function SobreNosotros() {
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
                 Somos la <strong className="text-white">empresa líder en Cuyo</strong> con más de
-                25 años de experiencia en asesoramiento, ventas y servicio post venta
+                30 años de experiencia en asesoramiento, ventas y servicio post venta
                 del mercado de audio, sonido, iluminación y pantallas LED.
               </p>
               <p>
@@ -169,7 +169,7 @@ export default function SobreNosotros() {
               <h3 className="text-lg font-bold font-heading text-white mb-4">
                 ¿Por qué elegirnos?
               </h3>
-              <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
                 {highlights.map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <CheckCircle2 size={18} className="text-cyan-400 mt-0.5 flex-shrink-0" />

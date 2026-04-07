@@ -1,0 +1,12 @@
+[
+    {
+      "nombre": "Dicroica RGB",
+      "marca": "Genérica",
+      "categoria": "iluminacion",
+      "subcategoria": "led",
+      "precio": 15000,
+      "stock": 10,
+      "descripcion": "Luz LED RGB para eventos",
+      "imagenes": ["https://via.placeholder.com/300"]
+    }
+  ]
