@@ -601,9 +601,15 @@ function start(items){
   $("#factN").textContent="+"+(Math.floor(P.length/100)*100);
   route();
 }
-Promise.all(FUENTES.map(u=>fetch(u).then(r=>r.ok?r.json():[]).then(d=>Array.isArray(d)?d:[]).catch(()=>[]))).then(listas=>{
+Promise.all(FUENTES.map(u=>fetch(u).then(r=>r.ok?r.json():[]).then(d=>Array.isArray(d)?d:[]).catch(()=>[]))).then(([form,planilla,copia])=>{
+  // La pestaña "mercadolibre" pisa solo las celdas que tengan algo escrito; fotos y descripción salen de la copia.
+  const base={};copia.forEach(f=>{if(f.sku)base[String(f.sku).trim()]=f});
+  const filas=[...form];
+  planilla.forEach(f=>{const k=String(f.sku??"").trim();const b=base[k]||{};const m=Object.assign({},b);
+    Object.entries(f).forEach(([c,v])=>{if(String(v??"").trim()!=="")m[c]=v});filas.push(m)});
+  filas.push(...copia);
   const out=[],vistos=new Set();
-  listas.forEach(l=>l.forEach((f,i)=>{const o=aItem(f,i);if(o&&!vistos.has(o.id)){vistos.add(o.id);out.push(o)}}));
+  filas.forEach((f,i)=>{const o=aItem(f,i);if(o&&!vistos.has(o.id)){vistos.add(o.id);out.push(o)}});
   if(!out.length)throw 0;
   start(out);
 }).catch(()=>{$("#view").innerHTML=`<div class="empty">No pudimos cargar el catálogo. Recargá la página o escribinos al 261 418 9999.</div>`});
