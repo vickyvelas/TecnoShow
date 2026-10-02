@@ -563,7 +563,7 @@ window.addEventListener("popstate",route);
    3) catalogo-ml.json (copia de Mercado Libre que se actualiza sola) */
 const SHEET_ID="1JkdHHbBojA0vDSJO4zkQVbrexuAQKFKWfBPeisP25l4";
 const SHEET_ML="1JwkT3fv9DmZi4esw3Fw6sgc71hg-1xOS4gS__yxFBsc"; // "TecnoShow-mercadolibre" (vicvelasco23@gmail.com)
-const FUENTES=[`https://opensheet.elk.sh/${SHEET_ID}/productos`,`https://opensheet.elk.sh/${SHEET_ML}/mercadolibre`,"catalogo-ml.json"];
+const FUENTES=[`https://opensheet.elk.sh/${SHEET_ID}/productos`,`https://opensheet.elk.sh/${SHEET_ML}/1`,"catalogo-ml.json"];
 const CATS_ORDEN=["Iluminación","Máquinas de humo","Parlantes y amplificación","Micrófonos","DJ y consolas","Video y pantallas","Cables y conectores","Soportes, fundas y estructuras","Auriculares","Instrumentos","Electrónica y repuestos","Accesorios","Otros"];
 const REGLAS=[["Máquinas de humo",["liquido","maquina de humo","maquina de burbuja","maquina de niebla","fluido"]],["Soportes, fundas y estructuras",["soporte","tripode","truss","morsa","clamp","funda","estuche"]],["Video y pantallas",["pantalla","video","proyector","camara"]],["Iluminación",["luz","luces","led","laser","foco","lampara","iluminacion","strobo","cabezal","esfera"]],["Micrófonos",["microfono"]],["Auriculares",["auricular"]],["DJ y consolas",["consola","mixer","mezcladora","dj","controlador","interfaz"]],["Parlantes y amplificación",["parlante","bafle","amplificador","potencia","driver","subwoofer","monitor"]],["Cables y conectores",["cable","conector","ficha","plug","adaptador","canon","xlr"]]];
 function categoria(cat,sub,nombre){
