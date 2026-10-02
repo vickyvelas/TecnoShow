@@ -277,6 +277,8 @@ main .wrap.solo .side{display:none}
 .reelv[hidden]{display:none}
 .reelv-box{display:flex;flex-direction:column;width:min(420px,100%);max-height:100%}
 .reelv-frame{width:100%;aspect-ratio:9/16;max-height:calc(100dvh - 150px);background:#000;border-radius:14px;overflow:hidden;margin-inline:auto}
+.reelv-box.h{width:min(960px,100%)}
+.reelv-box.h .reelv-frame{aspect-ratio:16/9;max-height:calc(100dvh - 150px)}
 .reelv-frame iframe{width:100%;height:100%;border:0;display:block}
 .reelv-info{background:#fff;border-radius:12px;margin-top:10px;padding:10px 12px;display:flex;align-items:center;gap:10px}
 .reelv-info div{flex:1;min-width:0}
@@ -419,7 +421,6 @@ function card(p){
       <div class="ctitle">${esc(p.t)}</div>
       ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span>${p.s?`<span>+${p.s} vendidos</span>`:""}</div>`:(p.s?`<div class="rating">+${p.s} vendidos</div>`:"")}
       ${priceHTML(p)}
-      ${REELS.some(r=>r.p===p)?`<button class="pv-video" data-reel="${REELS.findIndex(r=>r.p===p)}">▶ Ver video del producto</button>`:""}
     </div></a>`;
 }
 
@@ -532,6 +533,7 @@ function renderProduct(id){
       <h1>${esc(p.t)}</h1>
       ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span></div>`:""}
       ${priceHTML(p)}
+      ${REELS.some(r=>r.ps.includes(p))?`<button class="pv-video" data-reel="${REELS.findIndex(r=>r.ps.includes(p))}">▶ Ver video del producto</button>`:""}
       ${p.a&&p.p?`<div class="transf-box"><b>10% OFF pagando por transferencia</b><span>Comprando por WhatsApp te queda en <strong>${fmt(Math.round(p.p*0.9))}</strong></span></div>`:""}
       ${p.a?"":`<p style="margin:0;color:var(--muted);font-size:14px">Por ahora no tenemos stock de este producto. Escribinos y te avisamos cuando reingresa o te ofrecemos una alternativa.</p>`}
       <div class="buy">
@@ -627,19 +629,24 @@ function buscarProducto(v){
   const n=norm(v);return P.find(p=>norm(p.t)===n)||null;
 }
 function cargarReels(){
-  if(REELS_SHEET.startsWith("__"))return;
-  fetch(`https://opensheet.elk.sh/${REELS_SHEET}/1`).then(r=>r.ok?r.json():[]).then(rows=>{
-    if(!Array.isArray(rows))return;
-    const col=(f,re)=>{const k=Object.keys(f).find(k=>re.test(norm(k)));return k?String(f[k]||"").trim():""};
+  const col=(f,re)=>{const k=Object.keys(f).find(k=>re.test(norm(k)));return k?String(f[k]||"").trim():""};
+  const planilla=REELS_SHEET.startsWith("__")?Promise.resolve([]):fetch(`https://opensheet.elk.sh/${REELS_SHEET}/1`).then(r=>r.ok?r.json():[]).catch(()=>[]);
+  // reels.json: videos vinculados a mano (un video puede ir a varias publicaciones del mismo producto)
+  const extra=fetch("reels.json").then(r=>r.ok?r.json():[]).catch(()=>[]);
+  Promise.all([planilla,extra]).then(([rows,ex])=>{
     const out=[];
-    rows.slice().reverse().forEach(f=>{
+    (Array.isArray(rows)?rows:[]).slice().reverse().forEach(f=>{
       const p=buscarProducto(col(f,/producto/));if(!p)return;
       const src=videoSrc(col(f,/instagram/))||videoSrc(col(f,/video|archivo/));if(!src)return;
       if(/^(no|ocultar|borrar)/.test(norm(col(f,/mostrar|ocultar|estado/))))return;
-      out.push({p,src});
+      out.push({p,ps:[p],src,h:/drive\.google/.test(src)});
+    });
+    (Array.isArray(ex)?ex:[]).forEach(e=>{
+      const ps=[].concat(e.productos||e.producto||[]).map(buscarProducto).filter(Boolean);const src=videoSrc(e.video);
+      if(ps.length&&src)out.push({p:ps.find(x=>x.a)||ps[0],ps,src,h:e.formato?/^h/i.test(e.formato):/drive\.google/.test(src)});
     });
     REELS=out;if(REELS.length)route();
-  }).catch(()=>{});
+  });
 }
 function reelsRow(){
   if(!REELS.length)return "";
@@ -648,6 +655,7 @@ function reelsRow(){
 }
 function abrirReel(i){
   if(!REELS.length)return;ri=(i+REELS.length)%REELS.length;const r=REELS[ri],p=r.p;
+  document.querySelector(".reelv-box").classList.toggle("h",!!r.h);
   $("#rvF").innerHTML=`<iframe src="${r.src}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video: ${esc(p.t)}"></iframe>`;
   $("#rvI").innerHTML=`<div><b>${esc(p.t)}</b><small>${p.a&&p.p?fmt(p.p)+" · 10% OFF por transferencia":"Consultá disponibilidad"}</small></div><a href="#${p.slug}" id="rvGo">Ver producto</a>`;
   $("#rvP").hidden=$("#rvN").hidden=REELS.length<2;
@@ -668,7 +676,7 @@ function renderAdmin(){
   const pintar=()=>{const q=norm($("#admQ").value).split(/\s+/).filter(Boolean);
     const l=q.length?P.filter(p=>q.every(w=>p._s.includes(w))).slice(0,40):[];
     $("#admL").innerHTML=l.map(p=>{const link=`https://tecnoshow.vercel.app/#${p.slug}`;
-      return `<li>${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="">`:""}<span>${esc(p.t)}${REELS.some(r=>r.p===p)?` <small style="color:var(--violet)">· ya tiene video</small>`:""}</span><a href="${FORM_REEL}${encodeURIComponent(link)}" target="_blank" rel="noopener">Cargar video</a></li>`}).join("")||(q.length?`<li>No encontramos ese producto.</li>`:"")};
+      return `<li>${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="">`:""}<span>${esc(p.t)}${REELS.some(r=>r.ps.includes(p))?` <small style="color:var(--violet)">· ya tiene video</small>`:""}</span><a href="${FORM_REEL}${encodeURIComponent(link)}" target="_blank" rel="noopener">Cargar video</a></li>`}).join("")||(q.length?`<li>No encontramos ese producto.</li>`:"")};
   $("#admQ").addEventListener("input",pintar);$("#admQ").focus();window.scrollTo(0,0);
 }
 /* ====== DATOS ======
