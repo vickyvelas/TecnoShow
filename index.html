@@ -1,17 +1,571 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="TecnoShow - Audio, iluminación y video profesional para eventos en Mendoza, Argentina. Fiestas, eventos corporativos, recitales, boliches y shows en vivo." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <title>TecnoShow | Audio, Iluminación y Video Profesional para Eventos</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="TecnoShow Mendoza: audio profesional, iluminación, DJ, micrófonos y pantallas LED. Salta 1577, Ciudad de Mendoza.">
+<link rel="icon" href="/logo.png">
+<title>TecnoShow | Audio, iluminación y video en Mendoza</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: marketplace on white — light header with search, category rail, filter sidebar + product grid, product sheet */
+:root{
+  --night:#121028;          /* brand black, from the logo */
+  --blue:#1d8bff;           /* electric blue */
+  --violet:#6f35f0;         /* violet */
+  --grad:linear-gradient(90deg,#1d8bff,#6f35f0);
+  --bg:#ffffff;
+  --surface:#ffffff;
+  --surface-2:#f6f6fb;
+  --tint:#f3f1ff;           /* faint violet wash */
+  --fg:#121028;
+  --muted:#6a6880;
+  --line:#e6e5ef;
+  --ok:#00a650;
+  --link:#3a5cf0;
+  --star:#3a5cf0;
+  --shadow:0 1px 2px rgba(18,16,40,.06);
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.45;margin:0}
+a{color:var(--link)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:16px}
+
+/* header */
+.top{background:#fff;color:var(--fg);position:sticky;top:env(safe-area-inset-top,0px);z-index:20;border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(18,16,40,.04)}
+.top:before{content:"";display:block;height:3px;background:var(--grad)}
+.top .wrap{display:flex;align-items:center;gap:18px;padding-block:10px}
+.brand{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:var(--fg);flex:none}
+.brand img{height:38px;width:auto;display:block}
+.brand small{font-family:var(--f-display);letter-spacing:.18em;font-size:10.5px;text-transform:uppercase;color:var(--violet);margin-top:2px}
+.search{flex:1;min-width:0;display:flex;background:var(--surface-2);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.search:focus-within{border-color:var(--violet);background:#fff}
+.search input{flex:1;min-width:0;border:0;background:transparent;padding:11px 18px;font:inherit;color:var(--fg);outline:none}
+.search button{border:0;background:var(--grad);padding:0 18px;color:#fff}
+.contact-top{display:flex;align-items:center;gap:8px;flex:none;color:var(--fg);text-decoration:none;font-weight:600;font-size:14px}
+.contact-top svg{width:22px;height:22px}
+.contact-top span small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
+.cats{background:#fff;border-top:1px solid var(--line)}
+.cats .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:0;scrollbar-width:none}
+.cats .wrap::-webkit-scrollbar{display:none}
+.top .cats .wrap{flex-wrap:nowrap}
+.cats button{flex:none;background:none;border:0;color:var(--muted);padding:10px 12px;font-size:14px;border-bottom:2px solid transparent;white-space:nowrap}
+.cats button:hover{color:var(--fg)}
+.cats button[aria-pressed="true"]{color:var(--violet);border-bottom-color:var(--violet);font-weight:600}
+
+/* hero strip */
+.strip{background:linear-gradient(115deg,#f2f7ff 0%,#f5f1ff 100%);color:var(--fg);overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
+.strip .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;padding-block:26px}
+.strip h1{font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(30px,5vw,54px);line-height:.95;margin:0;text-wrap:balance}
+.strip h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.strip p{color:var(--muted);margin:10px 0 0;max-width:52ch}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fact{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.fact b{display:block;font-family:var(--f-display);font-size:22px;font-weight:700;color:var(--fg);line-height:1}
+.fact span{font-size:13px;color:var(--muted)}
+.strip:after{content:"";position:absolute;inset:auto -10% -60% 40%;height:120%;background:radial-gradient(closest-side,rgba(111,53,240,.10),transparent);pointer-events:none}
+
+/* layout */
+main .wrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;padding-block:22px 40px}
+.side h2{font-size:22px;font-weight:600;margin:0 0 2px;line-height:1.15}
+.side .count{color:var(--muted);font-size:14px;margin-bottom:16px}
+.fgroup{margin-bottom:20px}
+.fgroup h3{font-size:15px;margin:0 0 8px;font-weight:600}
+.fgroup ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.fgroup li button{background:none;border:0;padding:0;text-align:left;color:var(--fg);font-size:14px;width:100%}
+.fgroup li button:hover{color:var(--link)}
+.fgroup li button[aria-pressed="true"]{color:var(--link);font-weight:600}
+.fgroup li button span{color:var(--muted)}
+.fgroup .more{color:var(--link);font-size:14px;background:none;border:0;padding:4px 0 0}
+.toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;padding:6px 0}
+.toggle input{width:36px;height:20px;accent-color:var(--blue)}
+.price-in{display:flex;gap:6px;align-items:center}
+.price-in input{width:100%;min-width:0;border:1px solid var(--line);border-radius:4px;padding:7px 8px;background:var(--surface);color:var(--fg);font:inherit;font-size:14px}
+.price-in button{border:0;background:var(--blue);color:#fff;border-radius:50%;width:30px;height:30px;flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 10px;font-size:13px;color:var(--fg)}
+.chip button{border:0;background:none;color:var(--muted);padding:0;font-size:15px;line-height:1}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.bar .crumbs{font-size:13px;color:var(--muted)}
+.bar label{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.bar select{border:0;background:transparent;color:var(--fg);font:inherit;font-weight:600}
+.filt-btn{display:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:4px;padding:7px 12px;font-size:14px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.card{background:var(--surface);border-radius:8px;border:1px solid var(--line);display:flex;flex-direction:column;cursor:pointer;text-decoration:none;color:inherit;transition:box-shadow .15s,transform .15s;min-width:0;padding:0;text-align:left}
+.card:hover{box-shadow:0 6px 22px rgba(18,16,40,.10);border-color:#d8d4f5}
+.thumb{aspect-ratio:1;max-width:100%;border-radius:6px 6px 0 0;background-color:#fff;background-repeat:no-repeat;border-bottom:1px solid var(--line);position:relative}
+.thumb .tag{position:absolute;left:8px;top:8px;font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:3px;background:var(--night);color:#fff}
+.thumb .tag.out{background:#5b5873;opacity:1}
+.cbody{padding:12px 14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.ctitle{font-size:14px;line-height:1.3;color:var(--fg);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.6em}
+.rating{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px}
+.rating b{color:var(--fg);font-weight:500}
+.stars{color:var(--star);letter-spacing:1px;font-size:11px}
+.prev{font-size:12.5px;color:var(--muted);text-decoration:line-through;font-variant-numeric:tabular-nums}
+.price{font-size:24px;font-weight:400;font-variant-numeric:tabular-nums;line-height:1.1;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.price sup{font-size:.5em;vertical-align:super}
+.off{font-size:13px;color:var(--ok);font-weight:500}
+.inst{font-size:13px;color:var(--fg)}
+.inst.free{color:var(--ok)}
+.ship{font-size:13px;color:var(--ok);font-weight:600}
+.ask{font-size:14px;color:var(--violet);font-weight:600}
+
+.card.out .thumb{filter:grayscale(1);opacity:.55}
+.card.out .ctitle{color:var(--muted)}
+.card.out:hover .thumb{opacity:.7}
+.nostock{font-size:15px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.pv.out .gmain,.pv.out .gthumbs{filter:grayscale(1);opacity:.6}
+.pv.out .nostock{font-size:18px}
+.pager{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:26px;flex-wrap:wrap}
+.pager button{min-width:38px;height:38px;border:0;border-radius:4px;background:transparent;color:var(--link);font-size:15px}
+.pager button[aria-current="true"]{background:var(--tint);color:var(--violet);font-weight:600}
+.pager button:disabled{color:var(--muted);cursor:default}
+.empty{background:var(--surface-2);border-radius:8px;padding:40px 24px;text-align:center;color:var(--muted)}
+
+/* product view */
+.pv{background:var(--surface);border-radius:8px;border:1px solid var(--line);padding:22px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px}
+.back{background:none;border:0;color:var(--link);padding:0;margin-bottom:12px;font-size:14px}
+.gallery{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:start}
+.gthumbs{display:grid;gap:8px}
+.gthumbs button{width:64px;height:64px;border:1px solid var(--line);border-radius:4px;background:#fff center/contain no-repeat;padding:0}
+.gthumbs button[aria-current="true"]{border:2px solid var(--blue)}
+.gmain{aspect-ratio:1;max-width:100%;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.gmain img{max-width:100%;max-height:100%;object-fit:contain}
+.gmain .loading{color:#888;font-size:14px}
+.pinfo{display:flex;flex-direction:column;gap:10px;min-width:0}
+.pinfo .cond{font-size:13px;color:var(--muted)}
+.pinfo h1{font-size:22px;line-height:1.25;margin:0;font-weight:600;text-wrap:balance}
+.pinfo .price{font-size:36px}
+.buy{display:grid;gap:8px;margin-top:6px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:6px;padding:13px 16px;font-weight:600;text-decoration:none;border:0;font-size:15px}
+.btn.wa{background:#25d366;color:#08331a}
+.btn.ml{background:var(--grad);color:#fff}
+.btn.ghost{background:var(--surface-2);color:var(--link)}
+.btn svg{width:20px;height:20px}
+.perks{display:grid;gap:8px;margin-top:6px;font-size:14px;color:var(--muted)}
+.perks div{display:flex;gap:8px;align-items:flex-start}
+.perks b{color:var(--fg);font-weight:600}
+.sec{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px}
+.sec h2{font-size:22px;font-weight:500;margin:0 0 14px}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
+.specs table{width:100%;border-collapse:collapse;font-size:14px}
+.specs th,.specs td{text-align:left;padding:9px 12px;vertical-align:top}
+.specs th{background:var(--surface-2);font-weight:600;width:48%}
+.specs tr:nth-child(even) th{background:color-mix(in srgb,var(--surface-2) 70%,var(--line))}
+.specs tr:nth-child(even) td{background:var(--surface-2)}
+.desc{white-space:pre-line;color:var(--muted);font-size:15.5px;max-width:75ch}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.rel .card{box-shadow:none;border:1px solid var(--line)}
+.rel .price{font-size:19px}
+
+.ig-top{flex:none;display:flex;width:38px;height:38px;border-radius:50%;align-items:center;justify-content:center;color:#fff;background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#7b3dff)}
+.ig-top svg{width:20px;height:20px}
+.review{background:linear-gradient(115deg,#f2f7ff,#f5f1ff);border-top:1px solid var(--line)}
+.review .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:26px}
+.rv-txt{display:flex;align-items:center;gap:16px;min-width:0}
+.rv-stars{font-size:26px;letter-spacing:2px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;flex:none}
+.review h2{font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:26px;margin:0;line-height:1}
+.review p{margin:4px 0 0;color:var(--muted)}
+.rv-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn.rv{background:var(--grad);color:#fff}
+.btn.ig{background:#fff;color:var(--fg);border:1px solid var(--line)}
+.btn.ig svg{color:#e1306c}
+.btn.ch{background:#fff;color:var(--fg);border:1px solid var(--line)}
+.btn.ch svg{color:#25d366}
+/* footer */
+footer{background:var(--surface-2);color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer:before{content:"";display:block;height:3px;background:var(--grad)}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;padding-block:32px}
+footer h4{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.08em;color:var(--fg);font-size:16px;margin:0 0 10px}
+footer p{margin:0 0 6px}
+footer .num{font-family:var(--f-display);font-size:28px;color:var(--fg);font-weight:700;letter-spacing:.02em;user-select:all}
+footer a{color:var(--link)}
+.qrs{display:flex;gap:14px;flex-wrap:wrap}
+.qrs figure{margin:0;text-align:center;font-size:12px}
+.qrs img{width:110px;height:110px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px;display:block;margin-bottom:6px}
+.legal{border-top:1px solid var(--line);padding-block:12px;padding-inline:16px;font-size:12px;color:var(--muted);text-align:center}
+
+/* drawer for mobile filters */
+.scrim{display:none}
+@media (max-width:860px){
+  main .wrap{grid-template-columns:minmax(0,1fr)}
+  .side{position:fixed;inset:0 25% 0 0;max-width:340px;background:var(--surface);z-index:40;padding:20px 16px;overflow:auto;transform:translateX(-105%);transition:transform .2s}
+  .side.open{transform:none}
+  .scrim.open{display:block;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:39}
+  .filt-btn{display:inline-block}
+  .pv{grid-template-columns:minmax(0,1fr);padding:16px}
+  .specs{grid-template-columns:minmax(0,1fr)}
+  .strip .wrap{grid-template-columns:minmax(0,1fr)}
+  footer .wrap{grid-template-columns:minmax(0,1fr)}
+  .contact-top span{display:none}
+}
+@media (max-width:560px){
+  .top .wrap{flex-wrap:wrap;gap:10px}
+  .search{order:3;flex-basis:100%}
+  .brand img{height:30px}
+  .ig-top{margin-left:auto;width:34px;height:34px}
+  .contact-top{margin-left:0}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .cbody{padding:10px}
+  .price{font-size:19px}
+  .gallery{grid-template-columns:minmax(0,1fr)}
+  .gthumbs{grid-auto-flow:column;justify-content:start;order:2}
+  .gthumbs button{width:54px;height:54px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" id="home" aria-label="TecnoShow, inicio"><img src="logo.png" alt="TecnoShow" width="144" height="38"><small>Audio · Video · Iluminación</small></a>
+    <form class="search" id="searchForm" role="search">
+      <input id="q" type="search" placeholder="Buscar productos, marcas y más…" autocomplete="off" aria-label="Buscar">
+      <button type="submit" aria-label="Buscar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+    </form>
+    <a class="ig-top" href="https://www.instagram.com/tecnoshowarg/" target="_blank" rel="noopener" aria-label="Instagram de TecnoShow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a class="contact-top" href="https://wa.me/5492614189999" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="#25d366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>
+      <span>261 418 9999<small>Consultas por WhatsApp</small></span>
+    </a>
+  </div>
+  <nav class="cats" aria-label="Categorías"><div class="wrap" id="cats"></div></nav>
+</header>
+
+<section class="strip" id="strip">
+  <div class="wrap">
+    <div>
+      <h1>Todo para tu <em>sonido</em>, tus <em>luces</em> y tu set</h1>
+      <p>Audio profesional, iluminación, DJ, micrófonos y pantallas LED. Atendemos en Salta 1577, Ciudad de Mendoza, y enviamos a todo el país.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>40 años</b><span>de experiencia en el rubro</span></div>
+      <div class="fact"><b id="factN">+800</b><span>productos publicados</span></div>
+      <div class="fact"><b>Envíos</b><span>a todo el país</span></div>
+      <div class="fact"><b>Cuyo</b><span>Mendoza · San Juan · San Luis</span></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <aside class="side" id="side" aria-label="Filtros"></aside>
+    <div class="scrim" id="scrim"></div>
+    <section id="view" aria-live="polite"><div class="empty">Cargando productos…</div></section>
+  </div>
+</main>
+
+<section class="review" aria-label="Reseñas en Google">
+  <div class="wrap">
+    <div class="rv-txt">
+      <span class="rv-stars" aria-hidden="true">★★★★★</span>
+      <div><h2>¿Te atendimos bien?</h2><p>Tu reseña en Google nos ayuda muchísimo. Te lleva un minuto.</p></div>
+    </div>
+    <div class="rv-btns">
+      <a class="btn rv" href="https://search.google.com/local/writereview?placeid=ChIJR26k8CEJfpYRD_7q823Gb1I" target="_blank" rel="noopener">Dejar una reseña en Google</a>
+      <a class="btn ig" href="https://www.instagram.com/tecnoshowarg/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Seguinos en Instagram</a>
+      <a class="btn ch" href="https://whatsapp.com/channel/0029VbD5UeP3WHTWDNI92c2L" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg> Unite al canal de WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="logo.png" alt="TecnoShow" width="160" height="42" style="height:42px;width:auto;margin-bottom:10px">
+      <p>Audio, tecnología, iluminación, sonido profesional y pantallas LED. 40 años de experiencia en Cuyo.</p>
+      <p>Salta 1577, Ciudad de Mendoza · <a href="https://www.google.com/maps/search/?api=1&query=Tecnoshow%20Salta%201577%20Mendoza&query_place_id=ChIJR26k8CEJfpYRD_7q823Gb1I" target="_blank" rel="noopener">Cómo llegar</a></p>
+      <p>Lunes a viernes de 10 a 17 hs</p>
+      <p>Email: <span style="user-select:all">tecnoshow@hotmail.com.ar</span></p>
+    </div>
+    <div>
+      <h4>Consultas y ventas</h4>
+      <div class="num">261 418 9999</div>
+      <p>WhatsApp: <a href="https://wa.me/5492614189999" target="_blank" rel="noopener">abrir chat</a></p>
+      <p>Instagram: <a href="https://www.instagram.com/tecnoshowarg/" target="_blank" rel="noopener">@tecnoshowarg</a></p>
+      <p>Tienda oficial en Mercado Libre: <a href="https://listado.mercadolibre.com.ar/pagina/tecnoshowvelas/" target="_blank" rel="noopener">tecnoshowvelas</a></p>
+    </div>
+    <div>
+      <h4>Escaneá y escribinos</h4>
+      <div class="qrs">
+        <figure><img src="qr-wa.png" alt="Código QR del WhatsApp de TecnoShow">WhatsApp</figure>
+        <figure><a href="https://whatsapp.com/channel/0029VbD5UeP3WHTWDNI92c2L" target="_blank" rel="noopener"><img src="qr-canal.png" alt="Código QR del canal de WhatsApp de TecnoShow"></a>Canal de novedades</figure>
+      </div>
+    </div>
+  </div>
+  <div class="legal">Precios y stock sujetos a cambios. Las compras se realizan por Mercado Libre o consultando por WhatsApp.</div>
+</footer>
+
+<script>
+(function(){
+const WA="5492614189999";
+const PER=48;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=n=>"$ "+Math.round(n).toLocaleString("es-AR");
+const norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const waIcon='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>';
+
+let P=[],byId={},CATS=[],META={};
+const st={cat:"",sub:"",brand:"",q:"",min:null,max:null,stock:false,free:false,sort:"rel",page:1,showAll:{}};
+try{const s=localStorage.getItem("ts_stock2");if(s!==null)st.stock=s==="1"}catch(e){}
+
+function thumbStyle(p){
+  if(p.ph&&p.ph.length) return `background-image:url('${encodeURI(p.ph[0]).replace(/'/g,"%27")}');background-size:88% auto;background-position:center`;
+  if(!p.th) return "background:#fff";
+  const [sheet,cell]=p.th, cols=META.cols||10;
+  const r=Math.floor(cell/cols), c=cell%cols;
+  return `background-image:url(${META.thumbDir}/s${sheet}.webp);background-size:${cols*100}% auto;background-position:${c*100/(cols-1)}% ${r*100/((META.rows||cols)-1)}%`;
+}
+function stars(r){const f=Math.round(r);return "★★★★★".slice(0,f)+"☆☆☆☆☆".slice(0,5-f)}
+function priceHTML(p,big){
+  if(!p.a) return `<div class="nostock">Sin stock</div><div class="ask">Consultá disponibilidad</div>`;
+  if(!p.p) return `<div class="ask">Consultar precio</div>`;
+  let h="";
+  if(p.pp&&p.pp>p.p) h+=`<div class="prev">${fmt(p.pp)}</div>`;
+  h+=`<div class="price">${fmt(p.p)}${p.pp&&p.pp>p.p?`<span class="off">${Math.round((1-p.p/p.pp)*100)}% OFF</span>`:""}</div>`;
+  return h;
+}
+function card(p){
+  return `<a class="card${p.a?"":" out"}" href="#${encodeURIComponent(p.id)}" data-id="${esc(p.id)}">
+    <div class="thumb" style="${thumbStyle(p)}" role="img" aria-label="${esc(p.t)}">${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}</div>
+    <div class="cbody">
+      <div class="ctitle">${esc(p.t)}</div>
+      ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span>${p.s?`<span>+${p.s} vendidos</span>`:""}</div>`:(p.s?`<div class="rating">+${p.s} vendidos</div>`:"")}
+      ${priceHTML(p)}
+    </div></a>`;
+}
+
+/* filtering */
+function base(ignore){
+  const q=norm(st.q).split(/\s+/).filter(Boolean);
+  return P.filter(p=>{
+    if(st.stock&&!p.a) return false;
+    if(ignore!=="cat"&&st.cat&&p.c!==st.cat) return false;
+    if(ignore!=="sub"&&st.sub&&p.sc!==st.sub) return false;
+    if(ignore!=="brand"&&st.brand&&p.b!==st.brand) return false;
+    if(st.free&&!p.f) return false;
+    if(st.min!=null&&(!p.p||p.p<st.min)) return false;
+    if(st.max!=null&&(!p.p||p.p>st.max)) return false;
+    if(q.length){const h=p._s;for(const w of q) if(!h.includes(w)) return false;}
+    return true;
+  });
+}
+function sorted(list){
+  const a=list.slice();
+  if(st.sort==="lo") a.sort((x,y)=>(x.p||1e15)-(y.p||1e15));
+  else if(st.sort==="hi") a.sort((x,y)=>(y.p||0)-(x.p||0));
+  else if(st.sort==="az") a.sort((x,y)=>x.t.localeCompare(y.t,"es"));
+  else a.sort((x,y)=>(y.a-x.a)||((y.s||0)-(x.s||0))||((y.r||0)-(x.r||0)));
+  return a;
+}
+function counts(list,key){const m=new Map();list.forEach(p=>{const k=p[key];if(k)m.set(k,(m.get(k)||0)+1)});return [...m].sort((a,b)=>b[1]-a[1])}
+
+function facet(title,key,stKey,list){
+  const c=counts(list,key);if(c.length<2&&!st[stKey]) return "";
+  const lim=st.showAll[stKey]?c.length:8;
+  return `<div class="fgroup"><h3>${title}</h3><ul>${c.slice(0,lim).map(([k,n])=>`<li><button data-f="${stKey}" data-v="${esc(k)}" aria-pressed="${st[stKey]===k}">${esc(k)} <span>(${n})</span></button></li>`).join("")}</ul>${c.length>lim?`<button class="more" data-more="${stKey}">Mostrar más</button>`:""}</div>`;
+}
+function renderSide(total){
+  const title=st.q?esc(st.q):(st.sub||st.cat||"Todos los productos");
+  $("#side").innerHTML=`<h2>${title}</h2><div class="count">${total.toLocaleString("es-AR")} resultados</div>
+   <div class="fgroup">
+     <label class="toggle"><span>Solo productos en stock</span><input type="checkbox" id="fStock" ${st.stock?"checked":""}></label>
+   </div>
+   ${st.cat?"":facet("Categorías","c","cat",base("cat"))}
+   ${facet(st.cat?"Tipo de producto":"Tipo de producto","sc","sub",base("sub"))}
+   ${facet("Marca","b","brand",base("brand"))}
+   <div class="fgroup"><h3>Precio</h3>
+     <form class="price-in" id="priceForm"><input id="pmin" inputmode="numeric" placeholder="Mínimo" value="${st.min??""}" aria-label="Precio mínimo"><span>–</span><input id="pmax" inputmode="numeric" placeholder="Máximo" value="${st.max??""}" aria-label="Precio máximo"><button aria-label="Aplicar precio">›</button></form>
+   </div>`;
+}
+function chips(){
+  const c=[];
+  if(st.q)c.push(["q",`“${st.q}”`]);if(st.cat)c.push(["cat",st.cat]);if(st.sub)c.push(["sub",st.sub]);if(st.brand)c.push(["brand",st.brand]);
+  if(st.min!=null||st.max!=null)c.push(["price",`${st.min!=null?fmt(st.min):"$ 0"} a ${st.max!=null?fmt(st.max):"más"}`]);
+  return c.length?`<div class="chips">${c.map(([k,l])=>`<span class="chip">${esc(l)}<button data-rm="${k}" aria-label="Quitar filtro">×</button></span>`).join("")}</div>`:"";
+}
+function renderList(){
+  $("#strip").hidden=!!(st.q||st.cat||st.sub||st.brand)||st.page>1;
+  const list=sorted(base());
+  renderSide(list.length);
+  const pages=Math.max(1,Math.ceil(list.length/PER));
+  if(st.page>pages)st.page=pages;
+  const slice=list.slice((st.page-1)*PER,st.page*PER);
+  const crumbs=["Inicio",st.cat,st.sub].filter(Boolean).join(" › ");
+  let pg="";
+  if(pages>1){
+    const nums=[];const s=Math.max(1,st.page-2),e=Math.min(pages,s+4);
+    for(let i=s;i<=e;i++)nums.push(`<button data-pg="${i}" aria-current="${i===st.page}">${i}</button>`);
+    pg=`<nav class="pager" aria-label="Páginas"><button data-pg="${st.page-1}" ${st.page===1?"disabled":""}>‹ Anterior</button>${nums.join("")}${e<pages?`<span>de ${pages}</span>`:""}<button data-pg="${st.page+1}" ${st.page===pages?"disabled":""}>Siguiente ›</button></nav>`;
+  }
+  $("#view").innerHTML=`<div class="bar"><span class="crumbs">${esc(crumbs)}</span>
+    <button class="filt-btn" id="openF">Filtros</button>
+    <label>Ordenar por <select id="sort"><option value="rel">Más relevantes</option><option value="lo">Menor precio</option><option value="hi">Mayor precio</option><option value="az">Nombre A–Z</option></select></label></div>
+    ${chips()}
+    ${slice.length?`<div class="grid">${slice.map(card).join("")}</div>`:`<div class="empty">No encontramos productos con esos filtros. Probá quitando alguno o <a href="https://wa.me/${WA}" target="_blank" rel="noopener">consultanos por WhatsApp</a>.</div>`}
+    ${pg}`;
+  $("#sort").value=st.sort;
+  [...document.querySelectorAll("#cats button")].forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.c===st.cat&&!st.q)));
+}
+
+/* gallery bundles */
+const bundleCache={};
+function loadBundle(n){
+  if(!bundleCache[n]) bundleCache[n]=fetch(`${META.galDir}/g${n}.json`).then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>{delete bundleCache[n];return null});
+  return bundleCache[n];
+}
+function renderProduct(id){
+  const p=byId[id]; if(!p){location.hash="";return}
+  const showImgs=(imgs,src)=>{if(!imgs.length)return;const gm=$("#gmain");
+    const show=k=>{gm.style.background="#fff";gm.innerHTML=`<img src="${src(imgs[k])}" alt="${esc(p.t)} – foto ${k+1}">`;
+      [...document.querySelectorAll("#gthumbs button")].forEach((b,i)=>b.setAttribute("aria-current",String(i===k)))};
+    $("#gthumbs").innerHTML=imgs.map((s,k)=>`<button data-k="${k}" aria-label="Foto ${k+1}" style="background-image:url('${src(s)}')"></button>`).join("");
+    $("#gthumbs").onclick=e=>{const b=e.target.closest("button");if(b)show(+b.dataset.k)};
+    show(0)};
+  $("#strip").hidden=true;
+  const rel=P.filter(x=>x.sc===p.sc&&x.id!==p.id&&(x.a||!st.stock)).sort((a,b)=>(b.a-a.a)||((b.s||0)-(a.s||0))).slice(0,6);
+  const msg=encodeURIComponent(`Hola TecnoShow! Quería consultar por: ${p.t} (${p.id})`);
+  const specs=(p.at||[]);
+  const half=Math.ceil(specs.length/2);
+  const tbl=rows=>`<table><tbody>${rows.map(([k,v])=>`<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</tbody></table>`;
+  $("#side").innerHTML="";
+  $("#view").innerHTML=`<button class="back" id="back">‹ Volver al listado</button>
+  <article class="pv${p.a?"":" out"}">
+    <div class="gallery">
+      <div class="gthumbs" id="gthumbs"></div>
+      <div class="gmain" id="gmain" style="${thumbStyle(p)}"><span class="loading" hidden>Cargando fotos…</span></div>
+    </div>
+    <div class="pinfo">
+      ${p.s?`<div class="cond">+${p.s} vendidos</div>`:""}
+      <h1>${esc(p.t)}</h1>
+      ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span></div>`:""}
+      ${priceHTML(p)}
+      ${p.a?"":`<p style="margin:0;color:var(--muted);font-size:14px">Por ahora no tenemos stock de este producto. Escribinos y te avisamos cuando reingresa o te ofrecemos una alternativa.</p>`}
+      <div class="buy">
+        <a class="btn wa" href="https://wa.me/${WA}?text=${msg}" target="_blank" rel="noopener">${waIcon} Consultar por WhatsApp</a>
+        ${p.u?`<a class="btn ${p.a?"ml":"ghost"}" href="https://${p.u}" target="_blank" rel="noopener">${p.a?"Comprar en Mercado Libre":"Ver publicación en Mercado Libre"}</a>`:""}
+      </div>
+      <div class="perks">
+        <div><b>Retiro en el local:</b> Salta 1577, Ciudad de Mendoza</div>
+        <div><b>Asesoramiento</b> de 40 años en audio, video e iluminación</div>
+      </div>
+    </div>
+    ${specs.length?`<section class="sec"><h2>Características del producto</h2><div class="specs">${tbl(specs.slice(0,half))}${tbl(specs.slice(half))}</div></section>`:""}
+    <section class="sec" id="descSec" hidden><h2>Descripción</h2><div class="desc" id="desc"></div></section>
+    ${rel.length?`<section class="sec"><h2>Productos relacionados</h2><div class="rel">${rel.map(card).join("")}</div></section>`:""}
+  </article>`;
+  window.scrollTo(0,0);
+  if(p.d){$("#desc").textContent=p.d;$("#descSec").hidden=false}
+  if(p.ph&&p.ph.length){showImgs(p.ph,u=>encodeURI(u))}
+  if(p.g!=null&&!(p.ph&&p.ph.length&&p.d)){
+    const gm=$("#gmain"); gm.querySelector(".loading").hidden=false;
+    loadBundle(p.g).then(b=>{
+      if(location.hash.slice(1)!==id) return;
+      const d=b&&b[p.k];
+      gm.querySelector(".loading").hidden=true;
+      if(!d) return;
+      if(d.d&&!p.d){$("#desc").textContent=d.d;$("#descSec").hidden=false}
+      if(!(p.ph&&p.ph.length)) showImgs(d.i||[],s=>"data:image/webp;base64,"+s);
+    });
+  }
+}
+
+function route(){
+  let id=location.hash.slice(1);try{id=decodeURIComponent(id)}catch(e){}
+  if(id&&byId[id]) renderProduct(id); else renderList();
+}
+function go(){ if(location.hash){history.pushState(null,"",location.pathname+location.search)} st.page=1; renderList(); window.scrollTo(0,0) }
+
+/* events */
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button,a"); if(!t) return;
+  if(t.dataset.f){const k=t.dataset.f,v=t.dataset.v;st[k]=st[k]===v?"":v;if(k==="cat"){st.sub="";st.brand=""}if(k==="sub")st.brand=st.brand;closeF();go();}
+  else if(t.dataset.more){st.showAll[t.dataset.more]=true;renderSide(base().length)}
+  else if(t.dataset.rm){const k=t.dataset.rm;if(k==="price"){st.min=st.max=null}else if(k==="free")st.free=false;else if(k==="q"){st.q="";$("#q").value=""}else st[k]="";go()}
+  else if(t.dataset.pg){st.page=+t.dataset.pg;renderList();window.scrollTo({top:0})}
+  else if(t.dataset.c!==undefined&&t.closest("#cats")){st.cat=t.dataset.c;st.sub="";st.brand="";st.q="";$("#q").value="";go()}
+  else if(t.id==="back"){history.length>1&&document.referrer!==null?history.back():go(); if(!location.hash) renderList()}
+  else if(t.id==="home"){e.preventDefault();Object.assign(st,{cat:"",sub:"",brand:"",q:"",min:null,max:null,free:false});$("#q").value="";go()}
+  else if(t.id==="openF"){$("#side").classList.add("open");$("#scrim").classList.add("open")}
+});
+function closeF(){$("#side").classList.remove("open");$("#scrim").classList.remove("open")}
+$("#scrim").addEventListener("click",closeF);
+document.addEventListener("change",e=>{
+  if(e.target.id==="sort"){st.sort=e.target.value;st.page=1;renderList()}
+  if(e.target.id==="fStock"){st.stock=e.target.checked;try{localStorage.setItem("ts_stock2",st.stock?"1":"0")}catch(x){}go()}
+  if(e.target.id==="fFree"){st.free=e.target.checked;go()}
+});
+document.addEventListener("submit",e=>{
+  e.preventDefault();
+  if(e.target.id==="searchForm"){st.q=$("#q").value.trim();st.cat="";st.sub="";st.brand="";go()}
+  if(e.target.id==="priceForm"){const n=v=>{v=String(v).replace(/\D/g,"");return v?+v:null};st.min=n($("#pmin").value);st.max=n($("#pmax").value);closeF();go()}
+});
+window.addEventListener("hashchange",route);
+window.addEventListener("popstate",route);
+
+/* ====== DATOS ======
+   Se juntan 3 fuentes (si un código se repite, gana la primera):
+   1) Pestaña "productos" de la planilla (la llena el formulario de Google)
+   2) Pestaña "mercadolibre" de la planilla (precios y stock que editás a mano)
+   3) catalogo-ml.json (copia de Mercado Libre que se actualiza sola) */
+const SHEET_ID="1JkdHHbBojA0vDSJO4zkQVbrexuAQKFKWfBPeisP25l4";
+const FUENTES=[`https://opensheet.elk.sh/${SHEET_ID}/productos`,`https://opensheet.elk.sh/${SHEET_ID}/mercadolibre`,"catalogo-ml.json"];
+const CATS_ORDEN=["Iluminación","Parlantes y amplificación","Micrófonos","DJ y consolas","Video y pantallas","Cables y conectores","Auriculares","Instrumentos","Electrónica y repuestos","Accesorios","Otros"];
+const REGLAS=[["Video y pantallas",["pantalla","video","proyector","camara"]],["Iluminación",["luz","luces","led","laser","foco","lampara","iluminacion","strobo","humo","burbuja","cabezal","esfera"]],["Micrófonos",["microfono"]],["Auriculares",["auricular"]],["DJ y consolas",["consola","mixer","mezcladora","dj","controlador","interfaz"]],["Parlantes y amplificación",["parlante","bafle","amplificador","potencia","driver","subwoofer","monitor"]],["Cables y conectores",["cable","conector","ficha","plug","adaptador","canon","xlr"]]];
+function categoria(cat,sub,nombre){
+  if(CATS_ORDEN.includes(cat))return cat;
+  const t=norm(sub+" "+nombre);for(const [c,k] of REGLAS)if(k.some(x=>t.includes(x)))return c;
+  const c=norm(cat);if(c.startsWith("audio"))return "Parlantes y amplificación";if(c.startsWith("ilumin"))return "Iluminación";if(c.startsWith("video"))return "Video y pantallas";if(c.startsWith("acces"))return "Accesorios";return "Otros";
+}
+const num=v=>{const s=String(v??"").replace(/[^0-9.,]/g,"").replace(/\./g,"").replace(",",".");const n=Math.round(parseFloat(s));return n>0?n:0};
+const hayStock=v=>{const s=norm(String(v??"")).trim();if(!s)return 1;if(/^(0|no|sin stock|agotado|consultar)$/.test(s))return 0;const n=parseFloat(s);return isNaN(n)||n>0?1:0};
+const LOCALES={"1o7Ky3H5L0wjTrDzRBD125rqrWL9lk6TS":"/productos/dicroica-rgb/1.jpg","1oVqchlAYhQ9NyCJHcELfDEuVh0g3F_3B":"/productos/dicroica-rgb/2.jpg","1QP4AkAEWpybMxnKjOf2b1OoxjvG_iver":"/productos/dicroica-rgb/3.jpg","1cX_eYZOQY8fvtovzAE2kXdZYPoy5uCcW":"/productos/dicroica-rgb/4.jpg","1fvVHjhCjwPjs3mr-RTs23vExQ1ruoUyU":"/productos/dicroica-rgb/5.jpg"};
+const foto=u=>{const m=u.match(/drive\.google\.com\/file\/d\/([\w-]+)/)||u.match(/drive\.google\.com\/.*[?&]id=([\w-]+)/);return m?(LOCALES[m[1]]||`https://drive.google.com/thumbnail?id=${m[1]}&sz=w800`):u};
+function aItem(f,i){
+  const g=k=>String(f[k]??"").trim();const t=g("nombre");if(!t)return null;
+  const o={id:g("sku")||("prod-"+i),t,p:num(g("precio")),a:hayStock(g("stock"))};
+  const pp=num(g("precio_anterior"));if(pp>o.p&&o.p)o.pp=pp;
+  o.c=categoria(g("categoria"),g("subcategoria"),t);
+  let sc=g("subcategoria");if(sc.includes(" - "))sc=sc.split(" - ").pop().trim();o.sc=sc?sc.charAt(0).toUpperCase()+sc.slice(1):o.c;
+  if(g("marca"))o.b=g("marca");
+  o.ph=g("imagenes").split(/[\s,]+/).filter(x=>/^https?:\/\//.test(x)).map(foto).slice(0,6);
+  if(g("descripcion"))o.d=g("descripcion");
+  o.at=g("caracteristicas").split(/\s*\|\s*|\n/).map(x=>{const k=x.indexOf(":");return k>0?[x.slice(0,k).trim(),x.slice(k+1).trim()]:null}).filter(Boolean);
+  if(o.b&&!o.at.some(a=>norm(a[0])==="marca"))o.at.unshift(["Marca",o.b]);
+  if(g("link"))o.u=g("link").replace(/^https?:\/\//,"");
+  const s=num(g("vendidos"));if(s)o.s=s;const r=parseFloat(g("calificacion"));if(r)o.r=r;
+  return o;
+}
+function start(items){
+  P=items;byId={};
+  P.forEach(p=>{byId[p.id]=p;p._s=norm([p.t,p.b,p.sc,p.c,p.id].join(" "))});
+  CATS=CATS_ORDEN.filter(c=>P.some(p=>p.c===c));
+  $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button>`+CATS.map(c=>`<button data-c="${esc(c)}">${esc(c)}</button>`).join("");
+  $("#factN").textContent="+"+(Math.floor(P.length/100)*100);
+  route();
+}
+Promise.all(FUENTES.map(u=>fetch(u).then(r=>r.ok?r.json():[]).then(d=>Array.isArray(d)?d:[]).catch(()=>[]))).then(listas=>{
+  const out=[],vistos=new Set();
+  listas.forEach(l=>l.forEach((f,i)=>{const o=aItem(f,i);if(o&&!vistos.has(o.id)){vistos.add(o.id);out.push(o)}}));
+  if(!out.length)throw 0;
+  start(out);
+}).catch(()=>{$("#view").innerHTML=`<div class="empty">No pudimos cargar el catálogo. Recargá la página o escribinos al 261 418 9999.</div>`});
+})();
+</script>
+
+</body>
 </html>
