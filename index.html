@@ -212,6 +212,15 @@ main .wrap.solo .side{display:none}
 .tdots i.on{background:var(--violet)}
 @media (hover:none){.tnav{opacity:1;width:30px;height:30px;font-size:19px}}
 .gmain{margin-inline:auto}
+.promo{display:block;background:var(--grad);color:#fff;text-align:center;font-size:14px;padding:7px 16px;text-decoration:none}
+.promo b{font-weight:800;letter-spacing:.02em}
+.promo span{opacity:.9;margin-left:6px;white-space:nowrap}
+.transf{font-size:13px;color:var(--ok);font-weight:600;font-variant-numeric:tabular-nums}
+.transf span{font-weight:400}
+.transf-box{display:grid;gap:2px;border:1px solid #bfe8cf;background:#effaf3;border-radius:8px;padding:10px 12px;font-size:14px;color:#0b5a2e}
+.transf-box strong{font-size:17px}
+.fact.hot{border-color:transparent;background:var(--grad)}
+.fact.hot b,.fact.hot span{color:#fff}
 /* drawer for mobile filters */
 .scrim{display:none}
 @media (max-width:860px){
@@ -244,6 +253,7 @@ main .wrap.solo .side{display:none}
 
 </head>
 <body>
+<a class="promo" href="https://wa.me/5492614189999?text=Hola%20TecnoShow!%20Quiero%20comprar%20con%20el%2010%25%20OFF%20por%20transferencia" target="_blank" rel="noopener"><b>10% OFF</b> pagando por transferencia y comprando por WhatsApp <span>Escribinos al 261 418 9999 ›</span></a>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#" id="home" aria-label="TecnoShow, inicio"><img src="logo.png" alt="TecnoShow" width="144" height="38"><small>Audio · Video · Iluminación</small></a>
@@ -270,7 +280,7 @@ main .wrap.solo .side{display:none}
       <div class="fact"><b>40 años</b><span>de experiencia en el rubro</span></div>
       <div class="fact"><b id="factN">+800</b><span>productos publicados</span></div>
       <div class="fact"><b>Envíos</b><span>a todo el país</span></div>
-      <div class="fact"><b>Cuyo</b><span>Mendoza · San Juan · San Luis</span></div>
+      <div class="fact hot"><b>10% OFF</b><span>por transferencia comprando por WhatsApp</span></div>
     </div>
   </div>
 </section>
@@ -321,7 +331,7 @@ main .wrap.solo .side{display:none}
       </div>
     </div>
   </div>
-  <div class="legal">Precios y stock sujetos a cambios. Las compras se realizan por Mercado Libre o consultando por WhatsApp.</div>
+  <div class="legal"><b>10% OFF pagando por transferencia y comprando por WhatsApp.</b> Precios y stock sujetos a cambios. Las compras se realizan por Mercado Libre o por WhatsApp.</div>
 </footer>
 
 <script>
@@ -352,6 +362,7 @@ function priceHTML(p,big){
   let h="";
   if(p.pp&&p.pp>p.p) h+=`<div class="prev">${fmt(p.pp)}</div>`;
   h+=`<div class="price">${fmt(p.p)}${p.pp&&p.pp>p.p?`<span class="off">${Math.round((1-p.p/p.pp)*100)}% OFF</span>`:""}</div>`;
+  h+=`<div class="transf">${fmt(Math.round(p.p*0.9))} <span>con transferencia</span></div>`;
   return h;
 }
 function card(p){
@@ -454,7 +465,7 @@ function renderProduct(id){
     show(0)};
   $("#strip").hidden=true;
   const rel=P.filter(x=>x.sc===p.sc&&x.id!==p.id&&(x.a||!st.stock)).sort((a,b)=>(b.a-a.a)||((b.s||0)-(a.s||0))).slice(0,6);
-  const msg=encodeURIComponent(`Hola TecnoShow! Quería consultar por: ${p.t} (${p.id})`);
+  const msg=encodeURIComponent(p.a&&p.p?`Hola TecnoShow! Quiero comprar con el 10% OFF por transferencia: ${p.t} (${p.id})`:`Hola TecnoShow! Quería consultar por: ${p.t} (${p.id})`);
   const specs=(p.at||[]);
   const half=Math.ceil(specs.length/2);
   const tbl=rows=>`<table><tbody>${rows.map(([k,v])=>`<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</tbody></table>`;
@@ -470,9 +481,10 @@ function renderProduct(id){
       <h1>${esc(p.t)}</h1>
       ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span></div>`:""}
       ${priceHTML(p)}
+      ${p.a&&p.p?`<div class="transf-box"><b>10% OFF pagando por transferencia</b><span>Comprando por WhatsApp te queda en <strong>${fmt(Math.round(p.p*0.9))}</strong></span></div>`:""}
       ${p.a?"":`<p style="margin:0;color:var(--muted);font-size:14px">Por ahora no tenemos stock de este producto. Escribinos y te avisamos cuando reingresa o te ofrecemos una alternativa.</p>`}
       <div class="buy">
-        <a class="btn wa" href="https://wa.me/${WA}?text=${msg}" target="_blank" rel="noopener">${waIcon} Consultar por WhatsApp</a>
+        <a class="btn wa" href="https://wa.me/${WA}?text=${msg}" target="_blank" rel="noopener">${waIcon} ${p.a&&p.p?"Comprar por WhatsApp con 10% OFF":"Consultar por WhatsApp"}</a>
         ${p.u?`<a class="btn ${p.a?"ml":"ghost"}" href="https://${p.u}" target="_blank" rel="noopener">${p.a?"Comprar en Mercado Libre":"Ver publicación en Mercado Libre"}</a>`:""}
       </div>
       <div class="perks">
