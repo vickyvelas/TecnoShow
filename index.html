@@ -221,6 +221,9 @@ main .wrap.solo .side{display:none}
 .transf-box strong{font-size:17px}
 .fact.hot{border-color:transparent;background:var(--grad)}
 .fact.hot b,.fact.hot span{color:#fff}
+.cats button.ofertas{color:#c2187a;font-weight:700}
+.cats button.ofertas[aria-pressed="true"]{border-bottom-color:#c2187a;color:#c2187a}
+.thumb .tag.of{left:auto;right:8px;background:linear-gradient(90deg,#ff2b9c,#6f35f0)}
 /* drawer for mobile filters */
 .scrim{display:none}
 @media (max-width:860px){
@@ -345,7 +348,7 @@ const norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""
 const waIcon='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>';
 
 let P=[],byId={},CATS=[],META={};
-const st={cat:"",sub:"",brand:"",q:"",min:null,max:null,stock:false,free:false,sort:"rel",page:1,showAll:{}};
+const st={cat:"",sub:"",brand:"",q:"",min:null,max:null,stock:false,oferta:false,free:false,sort:"rel",page:1,showAll:{}};
 try{const s=localStorage.getItem("ts_stock2");if(s!==null)st.stock=s==="1"}catch(e){}
 
 function thumbStyle(p){
@@ -366,8 +369,8 @@ function priceHTML(p,big){
   return h;
 }
 function card(p){
-  return `<a class="card${p.a?"":" out"}" href="#${encodeURIComponent(p.id)}" data-id="${esc(p.id)}">
-    <div class="thumb" data-i="0">${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
+  return `<a class="card${p.a?"":" out"}" href="#${p.slug}" data-id="${p.slug}">
+    <div class="thumb" data-i="0">${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.of&&p.a?'<span class="tag of">OFERTA</span>':""}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
     <div class="cbody">
       <div class="ctitle">${esc(p.t)}</div>
       ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span>${p.s?`<span>+${p.s} vendidos</span>`:""}</div>`:(p.s?`<div class="rating">+${p.s} vendidos</div>`:"")}
@@ -380,6 +383,7 @@ function base(ignore){
   const q=norm(st.q).split(/\s+/).filter(Boolean);
   return P.filter(p=>{
     if(st.stock&&!p.a) return false;
+    if(st.oferta&&!p.of) return false;
     if(ignore!=="cat"&&st.cat&&p.c!==st.cat) return false;
     if(ignore!=="sub"&&st.sub&&p.sc!==st.sub) return false;
     if(ignore!=="brand"&&st.brand&&p.b!==st.brand) return false;
@@ -406,7 +410,7 @@ function facet(title,key,stKey,list){
   return `<div class="fgroup"><h3>${title}</h3><ul>${c.slice(0,lim).map(([k,n])=>`<li><button data-f="${stKey}" data-v="${esc(k)}" aria-pressed="${st[stKey]===k}">${esc(k)} <span>(${n})</span></button></li>`).join("")}</ul>${c.length>lim?`<button class="more" data-more="${stKey}">Mostrar más</button>`:""}</div>`;
 }
 function renderSide(total){
-  const title=st.q?esc(st.q):(st.sub||st.cat||"Todos los productos");
+  const title=st.q?esc(st.q):(st.sub||st.cat||(st.oferta?"Ofertas":"Todos los productos"));
   $("#side").innerHTML=`<h2>${title}</h2><div class="count">${total.toLocaleString("es-AR")} resultados</div>
    <div class="fgroup">
      <label class="toggle"><span>Solo productos en stock</span><input type="checkbox" id="fStock" ${st.stock?"checked":""}></label>
@@ -420,13 +424,14 @@ function renderSide(total){
 }
 function chips(){
   const c=[];
+  if(st.oferta)c.push(["oferta","Ofertas"]);
   if(st.q)c.push(["q",`“${st.q}”`]);if(st.cat)c.push(["cat",st.cat]);if(st.sub)c.push(["sub",st.sub]);if(st.brand)c.push(["brand",st.brand]);
   if(st.min!=null||st.max!=null)c.push(["price",`${st.min!=null?fmt(st.min):"$ 0"} a ${st.max!=null?fmt(st.max):"más"}`]);
   return c.length?`<div class="chips">${c.map(([k,l])=>`<span class="chip">${esc(l)}<button data-rm="${k}" aria-label="Quitar filtro">×</button></span>`).join("")}</div>`:"";
 }
 function renderList(){
   document.querySelector("main .wrap").classList.remove("solo");
-  $("#strip").hidden=!!(st.q||st.cat||st.sub||st.brand)||st.page>1;
+  $("#strip").hidden=!!(st.q||st.cat||st.sub||st.brand||st.oferta)||st.page>1;
   const list=sorted(base());
   renderSide(list.length);
   const pages=Math.max(1,Math.ceil(list.length/PER));
@@ -443,10 +448,10 @@ function renderList(){
     <button class="filt-btn" id="openF">Filtros</button>
     <label>Ordenar por <select id="sort"><option value="rel">Más relevantes</option><option value="lo">Menor precio</option><option value="hi">Mayor precio</option><option value="az">Nombre A–Z</option></select></label></div>
     ${chips()}
-    ${slice.length?`<div class="grid">${slice.map(card).join("")}</div>`:`<div class="empty">No encontramos productos con esos filtros. Probá quitando alguno o <a href="https://wa.me/${WA}" target="_blank" rel="noopener">consultanos por WhatsApp</a>.</div>`}
+    ${slice.length?`<div class="grid">${slice.map(card).join("")}</div>`:st.oferta?`<div class="empty">Todavía no hay ofertas publicadas. <a href="https://wa.me/${WA}?text=${encodeURIComponent("Hola TecnoShow! Qué ofertas tienen hoy?")}" target="_blank" rel="noopener">Escribinos</a> y te contamos las promos del momento.</div>`:`<div class="empty">No encontramos productos con esos filtros. Probá quitando alguno o <a href="https://wa.me/${WA}" target="_blank" rel="noopener">consultanos por WhatsApp</a>.</div>`}
     ${pg}`;
   $("#sort").value=st.sort;
-  [...document.querySelectorAll("#cats button")].forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.c===st.cat&&!st.q)));
+  [...document.querySelectorAll("#cats button")].forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.o?st.oferta:(!st.oferta&&b.dataset.c===st.cat&&!st.q&&(b.dataset.s?st.sub===b.dataset.s:st.sub!=="Líquidos")))));
 }
 
 /* gallery bundles */
@@ -528,11 +533,12 @@ document.addEventListener("click",e=>{
   const t=e.target.closest("button,a"); if(!t) return;
   if(t.dataset.f){const k=t.dataset.f,v=t.dataset.v;st[k]=st[k]===v?"":v;if(k==="cat"){st.sub="";st.brand=""}if(k==="sub")st.brand=st.brand;closeF();go();}
   else if(t.dataset.more){st.showAll[t.dataset.more]=true;renderSide(base().length)}
-  else if(t.dataset.rm){const k=t.dataset.rm;if(k==="price"){st.min=st.max=null}else if(k==="free")st.free=false;else if(k==="q"){st.q="";$("#q").value=""}else st[k]="";go()}
+  else if(t.dataset.rm){const k=t.dataset.rm;if(k==="price"){st.min=st.max=null}else if(k==="free")st.free=false;else if(k==="oferta")st.oferta=false;else if(k==="q"){st.q="";$("#q").value=""}else st[k]="";go()}
   else if(t.dataset.pg){st.page=+t.dataset.pg;renderList();window.scrollTo({top:0})}
-  else if(t.dataset.c!==undefined&&t.closest("#cats")){st.cat=t.dataset.c;st.sub="";st.brand="";st.q="";$("#q").value="";go()}
+  else if(t.dataset.o&&t.closest("#cats")){Object.assign(st,{oferta:true,cat:"",sub:"",brand:"",q:""});$("#q").value="";go()}
+  else if(t.dataset.c!==undefined&&t.closest("#cats")){st.oferta=false;st.cat=t.dataset.c;st.sub=t.dataset.s||"";st.brand="";st.q="";$("#q").value="";go()}
   else if(t.id==="back"){history.length>1&&document.referrer!==null?history.back():go(); if(!location.hash) renderList()}
-  else if(t.id==="home"){e.preventDefault();Object.assign(st,{cat:"",sub:"",brand:"",q:"",min:null,max:null,free:false});$("#q").value="";go()}
+  else if(t.id==="home"){e.preventDefault();Object.assign(st,{cat:"",sub:"",brand:"",q:"",min:null,max:null,free:false,oferta:false});$("#q").value="";go()}
   else if(t.id==="openF"){$("#side").classList.add("open");$("#scrim").classList.add("open")}
 });
 function closeF(){$("#side").classList.remove("open");$("#scrim").classList.remove("open")}
@@ -557,8 +563,8 @@ window.addEventListener("popstate",route);
    3) catalogo-ml.json (copia de Mercado Libre que se actualiza sola) */
 const SHEET_ID="1JkdHHbBojA0vDSJO4zkQVbrexuAQKFKWfBPeisP25l4";
 const FUENTES=[`https://opensheet.elk.sh/${SHEET_ID}/productos`,`https://opensheet.elk.sh/${SHEET_ID}/mercadolibre`,"catalogo-ml.json"];
-const CATS_ORDEN=["Iluminación","Parlantes y amplificación","Micrófonos","DJ y consolas","Video y pantallas","Cables y conectores","Auriculares","Instrumentos","Electrónica y repuestos","Accesorios","Otros"];
-const REGLAS=[["Video y pantallas",["pantalla","video","proyector","camara"]],["Iluminación",["luz","luces","led","laser","foco","lampara","iluminacion","strobo","humo","burbuja","cabezal","esfera"]],["Micrófonos",["microfono"]],["Auriculares",["auricular"]],["DJ y consolas",["consola","mixer","mezcladora","dj","controlador","interfaz"]],["Parlantes y amplificación",["parlante","bafle","amplificador","potencia","driver","subwoofer","monitor"]],["Cables y conectores",["cable","conector","ficha","plug","adaptador","canon","xlr"]]];
+const CATS_ORDEN=["Iluminación","Máquinas de humo","Parlantes y amplificación","Micrófonos","DJ y consolas","Video y pantallas","Cables y conectores","Soportes, fundas y estructuras","Auriculares","Instrumentos","Electrónica y repuestos","Accesorios","Otros"];
+const REGLAS=[["Máquinas de humo",["liquido","maquina de humo","maquina de burbuja","maquina de niebla","fluido"]],["Soportes, fundas y estructuras",["soporte","tripode","truss","morsa","clamp","funda","estuche"]],["Video y pantallas",["pantalla","video","proyector","camara"]],["Iluminación",["luz","luces","led","laser","foco","lampara","iluminacion","strobo","cabezal","esfera"]],["Micrófonos",["microfono"]],["Auriculares",["auricular"]],["DJ y consolas",["consola","mixer","mezcladora","dj","controlador","interfaz"]],["Parlantes y amplificación",["parlante","bafle","amplificador","potencia","driver","subwoofer","monitor"]],["Cables y conectores",["cable","conector","ficha","plug","adaptador","canon","xlr"]]];
 function categoria(cat,sub,nombre){
   if(CATS_ORDEN.includes(cat))return cat;
   const t=norm(sub+" "+nombre);for(const [c,k] of REGLAS)if(k.some(x=>t.includes(x)))return c;
@@ -572,6 +578,7 @@ function aItem(f,i){
   const g=k=>String(f[k]??"").trim();const t=g("nombre");if(!t)return null;
   const o={id:g("sku")||("prod-"+i),t,p:num(g("precio")),a:hayStock(g("stock"))};
   const pp=num(g("precio_anterior"));if(pp>o.p&&o.p)o.pp=pp;
+  o.of=/^(s|x|1|oferta)/i.test(norm(g("oferta")))||!!o.pp?1:0;
   o.c=categoria(g("categoria"),g("subcategoria"),t);
   let sc=g("subcategoria");if(sc.includes(" - "))sc=sc.split(" - ").pop().trim();o.sc=sc?sc.charAt(0).toUpperCase()+sc.slice(1):o.c;
   if(g("marca"))o.b=g("marca");
@@ -585,9 +592,12 @@ function aItem(f,i){
 }
 function start(items){
   P=items;byId={};
-  P.forEach(p=>{byId[p.id]=p;p._s=norm([p.t,p.b,p.sc,p.c,p.id].join(" "))});
+  const usados=new Set();
+  P.forEach(p=>{let b=norm(p.t).replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,80).replace(/-+$/,"")||"producto",sl=b,k=2;while(usados.has(sl))sl=b+"-"+(k++);usados.add(sl);p.slug=sl;
+    byId[sl]=p;if(!byId[p.id])byId[p.id]=p;p._s=norm([p.t,p.b,p.sc,p.c,p.id].join(" "))});
   CATS=CATS_ORDEN.filter(c=>P.some(p=>p.c===c));
-  $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button>`+CATS.map(c=>`<button data-c="${esc(c)}">${esc(c)}</button>`).join("");
+  const liq=P.some(p=>p.sc==="Líquidos");
+  $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button><button data-o="1" class="ofertas">Ofertas</button>`+CATS.map(c=>`<button data-c="${esc(c)}">${esc(c)}</button>`+(c==="Máquinas de humo"&&liq?`<button data-c="${esc(c)}" data-s="Líquidos">Líquidos</button>`:"")).join("");
   $("#factN").textContent="+"+(Math.floor(P.length/100)*100);
   route();
 }
