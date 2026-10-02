@@ -39,7 +39,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15
 a{color:var(--link)}
 button{font:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-.wrap{max-width:1240px;margin:0 auto;padding-inline:16px}
+.wrap{max-width:2000px;margin:0 auto;padding-inline:clamp(16px,2.5vw,48px)}
 
 /* header */
 .top{background:#fff;color:var(--fg);position:sticky;top:env(safe-area-inset-top,0px);z-index:20;border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(18,16,40,.04)}
@@ -102,10 +102,14 @@ main .wrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;paddi
 .bar select{border:0;background:transparent;color:var(--fg);font:inherit;font-weight:600}
 .filt-btn{display:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:4px;padding:7px 12px;font-size:14px}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+@media (min-width:1500px){main .wrap{grid-template-columns:260px minmax(0,1fr)}}
 .card{background:var(--surface);border-radius:8px;border:1px solid var(--line);display:flex;flex-direction:column;cursor:pointer;text-decoration:none;color:inherit;transition:box-shadow .15s,transform .15s;min-width:0;padding:0;text-align:left}
 .card:hover{box-shadow:0 6px 22px rgba(18,16,40,.10);border-color:#d8d4f5}
-.thumb{aspect-ratio:1;max-width:100%;border-radius:6px 6px 0 0;background-color:#fff;background-repeat:no-repeat;border-bottom:1px solid var(--line);position:relative}
+.thumb{aspect-ratio:1;max-width:100%;border-radius:8px 8px 0 0;background:#fff;border-bottom:1px solid var(--line);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.thumb img{width:100%;height:100%;object-fit:contain;padding:8%;box-sizing:border-box;transition:transform .2s}
+.card:hover .thumb img{transform:scale(1.03)}
+.thumb .tag{z-index:1}
 .thumb .tag{position:absolute;left:8px;top:8px;font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:3px;background:var(--night);color:#fff}
 .thumb .tag.out{background:#5b5873;opacity:1}
 .cbody{padding:12px 14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
@@ -122,9 +126,9 @@ main .wrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;paddi
 .ship{font-size:13px;color:var(--ok);font-weight:600}
 .ask{font-size:14px;color:var(--violet);font-weight:600}
 
-.card.out .thumb{filter:grayscale(1);opacity:.55}
+.card.out .thumb img{filter:grayscale(1);opacity:.5}
 .card.out .ctitle{color:var(--muted)}
-.card.out:hover .thumb{opacity:.7}
+.card.out:hover .thumb img{opacity:.7}
 .nostock{font-size:15px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
 .pv.out .gmain,.pv.out .gthumbs{filter:grayscale(1);opacity:.6}
 .pv.out .nostock{font-size:18px}
@@ -139,10 +143,10 @@ main .wrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;paddi
 .back{background:none;border:0;color:var(--link);padding:0;margin-bottom:12px;font-size:14px}
 .gallery{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:start}
 .gthumbs{display:grid;gap:8px}
-.gthumbs button{width:64px;height:64px;border:1px solid var(--line);border-radius:4px;background:#fff center/contain no-repeat;padding:0}
+.gthumbs button{width:64px;height:64px;border:1px solid var(--line);border-radius:4px;background-color:#fff;background-position:center;background-size:contain;background-repeat:no-repeat;background-origin:content-box;padding:4px}
 .gthumbs button[aria-current="true"]{border:2px solid var(--blue)}
-.gmain{aspect-ratio:1;max-width:100%;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.gmain img{max-width:100%;max-height:100%;object-fit:contain}
+.gmain{aspect-ratio:1;max-height:min(72vh,680px);max-width:100%;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.gmain img{width:100%;height:100%;object-fit:contain;padding:4%;box-sizing:border-box}
 .gmain .loading{color:#888;font-size:14px}
 .pinfo{display:flex;flex-direction:column;gap:10px;min-width:0}
 .pinfo .cond{font-size:13px;color:var(--muted)}
@@ -197,6 +201,17 @@ footer a{color:var(--link)}
 .qrs img{width:110px;height:110px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px;display:block;margin-bottom:6px}
 .legal{border-top:1px solid var(--line);padding-block:12px;padding-inline:16px;font-size:12px;color:var(--muted);text-align:center}
 
+main .wrap.solo{grid-template-columns:minmax(0,1fr)}
+main .wrap.solo .side{display:none}
+.tnav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.95);color:var(--fg);font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(18,16,40,.15);opacity:0;transition:opacity .15s;cursor:pointer;padding:0 0 2px}
+.tnav.prev{left:6px}.tnav.next{right:6px}
+.card:hover .tnav,.tnav:focus-visible{opacity:1}
+.tnav:hover{background:#fff;color:var(--violet)}
+.tdots{position:absolute;bottom:6px;left:0;right:0;display:flex;justify-content:center;gap:4px;z-index:1;pointer-events:none}
+.tdots i{width:6px;height:6px;border-radius:50%;background:#cfcde0}
+.tdots i.on{background:var(--violet)}
+@media (hover:none){.tnav{opacity:1;width:30px;height:30px;font-size:19px}}
+.gmain{margin-inline:auto}
 /* drawer for mobile filters */
 .scrim{display:none}
 @media (max-width:860px){
@@ -341,7 +356,7 @@ function priceHTML(p,big){
 }
 function card(p){
   return `<a class="card${p.a?"":" out"}" href="#${encodeURIComponent(p.id)}" data-id="${esc(p.id)}">
-    <div class="thumb" style="${thumbStyle(p)}" role="img" aria-label="${esc(p.t)}">${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}</div>
+    <div class="thumb" data-i="0">${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
     <div class="cbody">
       <div class="ctitle">${esc(p.t)}</div>
       ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span>${p.s?`<span>+${p.s} vendidos</span>`:""}</div>`:(p.s?`<div class="rating">+${p.s} vendidos</div>`:"")}
@@ -399,6 +414,7 @@ function chips(){
   return c.length?`<div class="chips">${c.map(([k,l])=>`<span class="chip">${esc(l)}<button data-rm="${k}" aria-label="Quitar filtro">×</button></span>`).join("")}</div>`:"";
 }
 function renderList(){
+  document.querySelector("main .wrap").classList.remove("solo");
   $("#strip").hidden=!!(st.q||st.cat||st.sub||st.brand)||st.page>1;
   const list=sorted(base());
   renderSide(list.length);
@@ -442,12 +458,12 @@ function renderProduct(id){
   const specs=(p.at||[]);
   const half=Math.ceil(specs.length/2);
   const tbl=rows=>`<table><tbody>${rows.map(([k,v])=>`<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</tbody></table>`;
-  $("#side").innerHTML="";
+  $("#side").innerHTML="";document.querySelector("main .wrap").classList.add("solo");
   $("#view").innerHTML=`<button class="back" id="back">‹ Volver al listado</button>
   <article class="pv${p.a?"":" out"}">
     <div class="gallery">
       <div class="gthumbs" id="gthumbs"></div>
-      <div class="gmain" id="gmain" style="${thumbStyle(p)}"><span class="loading" hidden>Cargando fotos…</span></div>
+      <div class="gmain" id="gmain"><span class="loading" hidden>Cargando fotos…</span></div>
     </div>
     <div class="pinfo">
       ${p.s?`<div class="cond">+${p.s} vendidos</div>`:""}
@@ -492,6 +508,11 @@ function go(){ if(location.hash){history.pushState(null,"",location.pathname+loc
 
 /* events */
 document.addEventListener("click",e=>{
+  const nb=e.target.closest(".tnav");
+  if(nb){e.preventDefault();e.stopPropagation();
+    const card=nb.closest(".card"),p=byId[card.dataset.id],th=nb.closest(".thumb");if(!p||!p.ph)return;
+    const n=p.ph.length,i=((+th.dataset.i||0)+(+nb.dataset.nav)+n)%n;th.dataset.i=i;
+    th.querySelector("img").src=p.ph[i];th.querySelectorAll(".tdots i").forEach((d,k)=>d.classList.toggle("on",k===i));return}
   const t=e.target.closest("button,a"); if(!t) return;
   if(t.dataset.f){const k=t.dataset.f,v=t.dataset.v;st[k]=st[k]===v?"":v;if(k==="cat"){st.sub="";st.brand=""}if(k==="sub")st.brand=st.brand;closeF();go();}
   else if(t.dataset.more){st.showAll[t.dataset.more]=true;renderSide(base().length)}
