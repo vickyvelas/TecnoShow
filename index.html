@@ -261,6 +261,22 @@ main .wrap.solo .side{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
+
+.cats .reels-tab{flex:none;align-self:center;text-decoration:none;color:#fff;background:var(--grad);font-weight:600;font-size:13px;padding:5px 12px;border-radius:16px;margin-inline:4px;white-space:nowrap}
+.reels-page{padding:6px 0 30px}
+.reels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.reels-grid .reel-t{width:100%}
+.bnav{display:none}
+@media (max-width:900px){
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+  .bnav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:50;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(18,16,40,.06);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .bnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:60px;text-decoration:none;color:var(--muted);font-size:11.5px;font-weight:600}
+  .bnav svg{width:24px;height:24px}
+  .bnav a[aria-current="true"]{color:var(--violet)}
+  .bnav a.wa{color:#1faa53}
+  .bnav .rl i{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--grad);color:#fff}
+  .bnav .rl i svg{width:16px;height:16px}
+}
 /* ===== Reels ===== */
 .reels{margin:4px 0 22px}
 .reels-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:6px 0 10px}
@@ -382,6 +398,12 @@ main .wrap.solo .side{display:none}
   <div class="legal"><b>10% OFF pagando por transferencia y comprando por WhatsApp.</b> Precios y stock sujetos a cambios. Las compras se realizan por Mercado Libre o por WhatsApp.</div>
 </footer>
 
+<nav class="bnav" id="bnav" aria-label="Accesos rápidos">
+  <a href="#" data-nav="home" aria-current="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Inicio</a>
+  <a href="#reels" data-nav="reels" class="rl"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></i>Reels</a>
+  <a href="#" data-nav="ofertas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg>Ofertas</a>
+  <a class="wa" href="https://wa.me/5492614189999?text=Hola%20TecnoShow!" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.9 13.9c-.2.6-1.2 1.1-1.7 1.2-.5.1-1 .1-3.1-.7-2.6-1-4.3-3.6-4.4-3.8-.1-.2-1-1.4-1-2.6s.6-1.9.9-2.1c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3 0 .2 0 .7-.2 1.4Z"/></svg>WhatsApp</a>
+</nav>
 <div class="reelv" id="rv" hidden role="dialog" aria-modal="true" aria-label="Reels"><button class="reelv-x" id="rvX" aria-label="Cerrar">×</button><button class="reelv-nav p" id="rvP" aria-label="Video anterior">‹</button><div class="reelv-box"><div class="reelv-frame" id="rvF"></div><div class="reelv-info" id="rvI"></div></div><button class="reelv-nav n" id="rvN" aria-label="Video siguiente">›</button></div>
 <script>
 (function(){
@@ -451,12 +473,12 @@ function sorted(list){
 function counts(list,key){const m=new Map();list.forEach(p=>{const k=p[key];if(k)m.set(k,(m.get(k)||0)+1)});return [...m].sort((a,b)=>b[1]-a[1])}
 
 function facet(title,key,stKey,list){
-  const c=counts(list,key);if(c.length<2&&!st[stKey]) return "";
+  let c=counts(list,key);if(key==="c")c=c.sort((a,b)=>CATS_ORDEN.indexOf(a[0])-CATS_ORDEN.indexOf(b[0]));if(c.length<2&&!st[stKey]) return "";
   const lim=st.showAll[stKey]?c.length:8;
-  return `<div class="fgroup"><h3>${title}</h3><ul>${c.slice(0,lim).map(([k,n])=>`<li><button data-f="${stKey}" data-v="${esc(k)}" aria-pressed="${st[stKey]===k}">${esc(k)} <span>(${n})</span></button></li>`).join("")}</ul>${c.length>lim?`<button class="more" data-more="${stKey}">Mostrar más</button>`:""}</div>`;
+  return `<div class="fgroup"><h3>${title}</h3><ul>${c.slice(0,lim).map(([k,n])=>`<li><button data-f="${stKey}" data-v="${esc(k)}" aria-pressed="${st[stKey]===k}">${esc(key==="c"?catL(k):k)} <span>(${n})</span></button></li>`).join("")}</ul>${c.length>lim?`<button class="more" data-more="${stKey}">Mostrar más</button>`:""}</div>`;
 }
 function renderSide(total){
-  const title=st.q?esc(st.q):(st.sub||st.cat||(st.oferta?"Ofertas":"Todos los productos"));
+  const title=st.q?esc(st.q):(st.sub||catL(st.cat)||(st.oferta?"Ofertas":"Todos los productos"));
   $("#side").innerHTML=`<h2>${title}</h2><div class="count">${total.toLocaleString("es-AR")} resultados</div>
    <div class="fgroup">
      <label class="toggle"><span>Solo productos en stock</span><input type="checkbox" id="fStock" ${st.stock?"checked":""}></label>
@@ -483,7 +505,7 @@ function renderList(){
   const pages=Math.max(1,Math.ceil(list.length/PER));
   if(st.page>pages)st.page=pages;
   const slice=list.slice((st.page-1)*PER,st.page*PER);
-  const crumbs=["Inicio",st.cat,st.sub].filter(Boolean).join(" › ");
+  const crumbs=["Inicio",st.cat&&catL(st.cat),st.sub].filter(Boolean).join(" › ");
   let pg="";
   if(pages>1){
     const nums=[];const s=Math.max(1,st.page-2),e=Math.min(pages,s+4);
@@ -567,7 +589,8 @@ function renderProduct(id){
 
 function route(){
   let id=location.hash.slice(1);try{id=decodeURIComponent(id)}catch(e){}
-  if(id==="cargar-reel") renderAdmin(); else if(id&&byId[id]) renderProduct(id); else renderList();
+  setNav(id);
+  if(id==="cargar-reel") renderAdmin(); else if(id==="reels") renderReels(); else if(id&&byId[id]) renderProduct(id); else renderList();
 }
 function go(){ if(location.hash){history.pushState(null,"",location.pathname+location.search)} st.page=1; renderList(); window.scrollTo(0,0) }
 
@@ -587,6 +610,8 @@ document.addEventListener("click",e=>{
   else if(t.dataset.o&&t.closest("#cats")){Object.assign(st,{oferta:true,cat:"",sub:"",brand:"",q:""});$("#q").value="";go()}
   else if(t.dataset.c!==undefined&&t.closest("#cats")){st.oferta=false;st.cat=t.dataset.c;st.sub=t.dataset.s||"";st.brand="";st.q="";$("#q").value="";go()}
   else if(t.id==="back"){history.length>1&&document.referrer!==null?history.back():go(); if(!location.hash) renderList()}
+  else if(t.dataset.nav==="ofertas"){e.preventDefault();Object.assign(st,{oferta:true,cat:"",sub:"",brand:"",q:""});$("#q").value="";go();setNav("")}
+  else if(t.dataset.nav==="home"){e.preventDefault();Object.assign(st,{cat:"",sub:"",brand:"",q:"",min:null,max:null,free:false,oferta:false});$("#q").value="";go();setNav("")}
   else if(t.id==="home"){e.preventDefault();Object.assign(st,{cat:"",sub:"",brand:"",q:"",min:null,max:null,free:false,oferta:false});$("#q").value="";go()}
   else if(t.id==="openF"){$("#side").classList.add("open");$("#scrim").classList.add("open")}
 });
@@ -611,7 +636,7 @@ window.addEventListener("popstate",route);
    y un link de Instagram o un video subido a Drive. */
 const REELS_SHEET="1Q088s0KeJQPXdf_XSCd1sQgIFCPbnlx5i4Friuqn5ts"; // "TecnoShow-reels" (vicvelasco23@gmail.com)
 const FORM_REEL="https://docs.google.com/forms/d/e/1FAIpQLScM4xUG1ZUPLtyMgWkyxPgFLO4hUWn2nwlkEMC6XF0nwVoVog/viewform?usp=pp_url&entry.908390523=";
-let REELS=[],ri=0;
+let REELS=[],ri=0;const REELS_ON=true;
 function videoSrc(u){
   u=String(u||"").trim();
   let m=u.match(/instagram\.com\/(?:[\w.]+\/)?(reel|reels|p|tv)\/([\w-]+)/);
@@ -668,6 +693,18 @@ document.addEventListener("keydown",e=>{if($("#rv").hidden)return;if(e.key==="Es
 {let x0=null;$("#rvF").addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
  $("#rv").addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>60)abrirReel(ri+(dx<0?1:-1))})}
 
+
+function renderReels(){
+  $("#strip").hidden=true;$("#side").innerHTML="";document.querySelector("main .wrap").classList.add("solo");
+  $("#view").innerHTML=`<section class="reels-page"><div class="reels-h"><h2>Reels</h2><small>Mirá los productos funcionando. Tocá uno para verlo.</small></div>
+  ${REELS.length?`<div class="reels-grid">${REELS.map((r,i)=>`<button class="reel-t" data-reel="${i}" aria-label="Ver video: ${esc(r.p.t)}">${r.p.ph&&r.p.ph[0]?`<img src="${esc(r.p.ph[0])}" alt="" loading="lazy">`:""}<i class="play"></i><span>${esc(r.p.t)}</span></button>`).join("")}</div>`:`<div class="empty">Pronto vas a ver acá videos de nuestros productos.</div>`}</section>`;
+  window.scrollTo(0,0);
+}
+function setNav(id){
+  const k=id==="reels"?"reels":(!id?(st.oferta?"ofertas":"home"):"");
+  document.querySelectorAll("#bnav [data-nav]").forEach(a=>a.setAttribute("aria-current",String(a.dataset.nav===k)));
+}
+
 /* Página para cargar reels: tecnoshow.vercel.app/#cargar-reel (no aparece en el menú) */
 function renderAdmin(){
   $("#strip").hidden=true;$("#side").innerHTML="";document.querySelector("main .wrap").classList.add("solo");
@@ -687,7 +724,9 @@ function renderAdmin(){
 const SHEET_ID="1JkdHHbBojA0vDSJO4zkQVbrexuAQKFKWfBPeisP25l4";
 const SHEET_ML="1JwkT3fv9DmZi4esw3Fw6sgc71hg-1xOS4gS__yxFBsc"; // "TecnoShow-mercadolibre" (vicvelasco23@gmail.com)
 const FUENTES=[null,`https://opensheet.elk.sh/${SHEET_ML}/1`,"catalogo-ml.json"]; // el formulario viejo ya no se usa
-const CATS_ORDEN=["Iluminación","Máquinas de humo","Parlantes y amplificación","Micrófonos","DJ y consolas","Video y pantallas","Cables y conectores","Soportes, fundas y estructuras","Auriculares","Instrumentos","Electrónica y repuestos","Accesorios","Otros"];
+const CATS_ORDEN=["Parlantes y amplificación","Iluminación","Auriculares","DJ y consolas","Máquinas de humo","Micrófonos","Video y pantallas","Cables y conectores","Soportes, fundas y estructuras","Instrumentos","Electrónica y repuestos","Accesorios","Otros"];
+const CAT_LABEL={"Parlantes y amplificación":"Audio: parlantes y potencias","DJ y consolas":"DJ"};
+const catL=c=>CAT_LABEL[c]||c;
 const REGLAS=[["Máquinas de humo",["liquido","maquina de humo","maquina de burbuja","maquina de niebla","fluido"]],["Soportes, fundas y estructuras",["soporte","tripode","truss","morsa","clamp","funda","estuche"]],["Video y pantallas",["pantalla","video","proyector","camara"]],["Iluminación",["luz","luces","led","laser","foco","lampara","iluminacion","strobo","cabezal","esfera"]],["Micrófonos",["microfono"]],["Auriculares",["auricular"]],["DJ y consolas",["consola","mixer","mezcladora","dj","controlador","interfaz"]],["Parlantes y amplificación",["parlante","bafle","amplificador","potencia","driver","subwoofer","monitor"]],["Cables y conectores",["cable","conector","ficha","plug","adaptador","canon","xlr"]]];
 function categoria(cat,sub,nombre){
   if(CATS_ORDEN.includes(cat))return cat;
@@ -721,7 +760,7 @@ function start(items){
     byId[sl]=p;if(!byId[p.id])byId[p.id]=p;p._s=norm([p.t,p.b,p.sc,p.c,p.id].join(" "))});
   CATS=CATS_ORDEN.filter(c=>P.some(p=>p.c===c));
   const liq=P.some(p=>p.sc==="Líquidos");
-  $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button><button data-o="1" class="ofertas">Ofertas</button>`+CATS.map(c=>`<button data-c="${esc(c)}">${esc(c)}</button>`+(c==="Máquinas de humo"&&liq?`<button data-c="${esc(c)}" data-s="Líquidos">Líquidos</button>`:"")).join("");
+  $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button><button data-o="1" class="ofertas">Ofertas</button>`+(REELS_ON?`<a class="reels-tab" href="#reels">▶ Reels</a>`:"")+CATS.map(c=>`<button data-c="${esc(c)}">${esc(catL(c))}</button>`+(c==="Máquinas de humo"&&liq?`<button data-c="${esc(c)}" data-s="Líquidos">Líquidos</button>`:"")).join("");
   $("#factN").textContent="+"+(Math.floor(P.length/100)*100);
   route();
   cargarReels();
