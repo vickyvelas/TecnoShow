@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Catálogo WhatsApp · TecnoShow</title>
+<link rel="icon" href="/logo.png">
+<style>
+:root{--night:#121028;--blue:#1d8bff;--violet:#6f35f0;--grad:linear-gradient(90deg,#1d8bff,#6f35f0);--muted:#6a6880;--line:#e6e5ef;--bg:#f6f6fb;--ok:#1faa53}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--night);font:15px/1.45 "Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+header:before{content:"";display:block;height:3px;background:var(--grad)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;gap:12px;padding:10px 0}
+.top img{height:30px}
+.top h1{font-size:17px;margin:0;flex:1}
+.prog{font-size:13px;color:var(--muted);white-space:nowrap}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.bar i{display:block;height:100%;background:var(--grad);width:0;transition:width .3s}
+.cols{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.cols a{flex:none;font-size:13px;text-decoration:none;color:var(--violet);border:1px solid var(--line);background:#fff;border-radius:16px;padding:5px 11px}
+.intro{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:14px 0;font-size:14px}
+.intro ol{margin:6px 0 0;padding-left:20px}
+h2{font-size:18px;margin:22px 0 4px}
+h2 small{display:block;font-size:13px;color:var(--muted);font-weight:400}
+.it{background:#fff;border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden}
+.it.done{opacity:.55}
+.it.done .ph{filter:grayscale(1)}
+.head{display:flex;gap:12px;padding:12px}
+.ph{width:96px;height:96px;flex:none;border-radius:8px;border:1px solid var(--line);background:#fff;object-fit:contain;cursor:zoom-in}
+.head .t{flex:1;min-width:0}
+.n{font-size:12px;color:var(--muted)}
+.name{font-weight:600;margin:2px 0 4px}
+.price{font-size:20px;font-weight:700}
+.price small{display:block;font-size:12.5px;color:var(--ok);font-weight:600}
+.f{border-top:1px solid var(--line);padding:9px 12px;display:flex;align-items:flex-start;gap:10px}
+.f b{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;width:88px;flex:none;padding-top:2px}
+.f span{flex:1;min-width:0;font-size:14px;white-space:pre-wrap;word-break:break-word}
+.f.desc span{max-height:7.5em;overflow:hidden}
+button.cp{flex:none;border:1px solid var(--violet);background:#fff;color:var(--violet);border-radius:16px;font:600 13px inherit;font-family:inherit;padding:5px 12px}
+button.cp.ok{background:var(--violet);color:#fff}
+.foot{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line);background:#fbfbfe;flex-wrap:wrap}
+.foot a{font-size:13px;color:var(--violet)}
+label.chk{margin-left:auto;display:flex;align-items:center;gap:7px;font-weight:600;font-size:14px}
+label.chk input{width:20px;height:20px;accent-color:var(--ok)}
+.lb{position:fixed;inset:0;background:rgba(10,8,24,.9);display:flex;align-items:center;justify-content:center;z-index:10;padding:16px}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:85vh;background:#fff;border-radius:8px}
+.lb p{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#fff;font-size:13px;margin:0}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--night);color:#fff;padding:8px 14px;border-radius:18px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:11}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="top"><img src="/logo.png" alt="TecnoShow"><h1>Catálogo de WhatsApp</h1><span class="prog" id="prog"></span></div>
+  <div class="bar"><i id="barI"></i></div>
+  <nav class="cols" id="cols"></nav>
+</div></header>
+<main class="wrap">
+  <div class="intro"><b>Cómo cargarlos</b> (en WhatsApp Business: Herramientas para la empresa → Catálogo)
+    <ol>
+      <li>Tocá la foto y mantené apretado para guardarla en el celu.</li>
+      <li>En WhatsApp tocá <b>Añadir artículo nuevo</b> y subí la foto.</li>
+      <li>Copiá y pegá nombre, precio, descripción, enlace y código con los botones.</li>
+      <li>En "País de origen" poné el que corresponda (si no sabés, Argentina).</li>
+      <li>Al terminar, tildá <b>Cargado</b> acá para no repetir.</li>
+    </ol>
+    Hacé de a pocos por día (por ejemplo 10). Cuando termines una categoría, armá una <b>colección</b> en WhatsApp con ese nombre y sumale esos artículos.</div>
+  <div id="list">Cargando productos…</div>
+</main>
+<div class="lb" id="lb" hidden><img id="lbI" alt=""><p>Mantené apretada la foto para guardarla</p></div>
+<div class="toast" id="toast"></div>
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const num=v=>{const s=String(v??"").replace(/[^0-9.,]/g,"").replace(/\./g,"").replace(",",".");const n=Math.round(parseFloat(s));return n>0?n:0};
+const fmt=n=>"$ "+Math.round(n).toLocaleString("es-AR");
+const SHEET="https://opensheet.elk.sh/1JwkT3fv9DmZi4esw3Fw6sgc71hg-1xOS4gS__yxFBsc/1";
+let hechos={};try{hechos=JSON.parse(localStorage.getItem("ts_wa_hechos")||"{}")}catch(e){}
+const guardar=()=>{try{localStorage.setItem("ts_wa_hechos",JSON.stringify(hechos))}catch(e){}};
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("on"),1300)}
+function corta(r){
+  // descripción corta: características clave + descuento + enlace
+  const at=String(r.caracteristicas||"").split("|").map(x=>x.trim()).filter(x=>x&&!/certificaci|OCP|IRAM/i.test(x)).slice(0,7);
+  let d=String(r.descripcion||"").replace(/\s+/g," ").trim();
+  if(d.length>260){d=d.slice(0,260);d=d.slice(0,Math.max(d.lastIndexOf(". ")+1,d.lastIndexOf(" ")))+"…"}
+  const partes=[];if(d)partes.push(d);if(at.length)partes.push(at.map(a=>"• "+a).join("\n"));
+  partes.push("💸 10% OFF pagando por transferencia.\n📍 Salta 1577, Ciudad de Mendoza.");
+  return partes.join("\n\n");
+}
+Promise.all([
+  fetch("/whatsapp-lista.json").then(r=>r.json()),
+  fetch("/catalogo-ml.json").then(r=>r.json()),
+  fetch(SHEET).then(r=>r.ok?r.json():[]).catch(()=>[])
+]).then(([lista,cat,planilla])=>{
+  const by={};cat.forEach(r=>by[r.sku]=Object.assign({},r));
+  (Array.isArray(planilla)?planilla:[]).forEach(f=>{const k=String(f.sku??"").trim();if(by[k])Object.entries(f).forEach(([c,v])=>{if(String(v??"").trim()!=="")by[k][c]=v})});
+  const items=lista.map((x,i)=>({...x,i:i+1,r:by[x.sku]})).filter(x=>x.r);
+  const cols=[...new Set(items.map(x=>x.col))];
+  $("#cols").innerHTML=cols.map((c,k)=>`<a href="#c${k}">${esc(c)}</a>`).join("");
+  let h="";
+  cols.forEach((c,k)=>{
+    const g=items.filter(x=>x.col===c);
+    h+=`<h2 id="c${k}">${esc(c)}<small>Colección en WhatsApp: "${esc(c)}" · ${g.length} productos</small></h2>`;
+    g.forEach(x=>{const r=x.r,p=num(r.precio),foto=String(r.imagenes||"").split(",")[0].trim().replace("-F.webp","-F.jpg");
+      const link=`https://tecnoshow.vercel.app/#${r.sku}`;const d=corta(r);
+      h+=`<article class="it${hechos[r.sku]?" done":""}" data-sku="${r.sku}">
+        <div class="head"><img class="ph" src="${esc(foto)}" alt="${esc(r.nombre)}" loading="lazy">
+          <div class="t"><div class="n">#${x.i} · ${esc(r.marca||"")}</div><div class="name">${esc(r.nombre)}</div>
+          <div class="price">${p?fmt(p):"Consultar"}${p?`<small>${fmt(p*0.9)} con transferencia</small>`:""}</div></div></div>
+        <div class="f"><b>Nombre</b><span>${esc(r.nombre)}</span><button class="cp" data-v="${esc(r.nombre)}">Copiar</button></div>
+        <div class="f"><b>Precio</b><span>${p||""}</span><button class="cp" data-v="${p||""}">Copiar</button></div>
+        <div class="f desc"><b>Descripción</b><span>${esc(d)}</span><button class="cp" data-v="${esc(d)}">Copiar</button></div>
+        <div class="f"><b>Enlace</b><span>${esc(link)}</span><button class="cp" data-v="${esc(link)}">Copiar</button></div>
+        <div class="f"><b>Código</b><span>${esc(r.sku)}</span><button class="cp" data-v="${esc(r.sku)}">Copiar</button></div>
+        <div class="foot"><a href="${esc(link)}" target="_blank" rel="noopener">Ver en la página</a>
+          <label class="chk"><input type="checkbox" ${hechos[r.sku]?"checked":""}> Cargado</label></div>
+      </article>`});
+  });
+  $("#list").innerHTML=h;
+  const prog=()=>{const n=items.filter(x=>hechos[x.sku]).length;$("#prog").textContent=`${n} de ${items.length} cargados`;$("#barI").style.width=(n/items.length*100)+"%"};prog();
+  document.addEventListener("click",e=>{
+    const b=e.target.closest("button.cp");
+    if(b){const v=b.dataset.v;(navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).catch(()=>{const t=document.createElement("textarea");t.value=v;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove()}).finally(()=>{b.textContent="Copiado ✓";b.classList.add("ok");toast("Copiado, pegalo en WhatsApp");setTimeout(()=>{b.textContent="Copiar";b.classList.remove("ok")},1500)});return}
+    const im=e.target.closest(".ph");if(im){$("#lbI").src=im.src;$("#lb").hidden=false;return}
+    if(e.target.closest("#lb")&&e.target.id!=="lbI")$("#lb").hidden=true;
+  });
+  document.addEventListener("change",e=>{const c=e.target.closest(".chk input");if(!c)return;const a=c.closest(".it");const s=a.dataset.sku;if(c.checked)hechos[s]=1;else delete hechos[s];guardar();a.classList.toggle("done",c.checked);prog()});
+}).catch(()=>{$("#list").textContent="No se pudo cargar la lista. Recargá la página."});
+})();
+</script>
+</body>
+</html>
