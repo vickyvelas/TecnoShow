@@ -559,10 +559,11 @@ window.addEventListener("popstate",route);
 /* ====== DATOS ======
    Se juntan 3 fuentes (si un código se repite, gana la primera):
    1) Pestaña "productos" de la planilla (la llena el formulario de Google)
-   2) Pestaña "mercadolibre" de la planilla (precios y stock que editás a mano)
+   2) Planilla "TecnoShow-mercadolibre", pestaña "mercadolibre" (precios, stock y ofertas que editás a mano)
    3) catalogo-ml.json (copia de Mercado Libre que se actualiza sola) */
 const SHEET_ID="1JkdHHbBojA0vDSJO4zkQVbrexuAQKFKWfBPeisP25l4";
-const FUENTES=[`https://opensheet.elk.sh/${SHEET_ID}/productos`,`https://opensheet.elk.sh/${SHEET_ID}/mercadolibre`,"catalogo-ml.json"];
+const SHEET_ML="1JwkT3fv9DmZi4esw3Fw6sgc71hg-1xOS4gS__yxFBsc"; // "TecnoShow-mercadolibre" (vicvelasco23@gmail.com)
+const FUENTES=[`https://opensheet.elk.sh/${SHEET_ID}/productos`,`https://opensheet.elk.sh/${SHEET_ML}/mercadolibre`,"catalogo-ml.json"];
 const CATS_ORDEN=["Iluminación","Máquinas de humo","Parlantes y amplificación","Micrófonos","DJ y consolas","Video y pantallas","Cables y conectores","Soportes, fundas y estructuras","Auriculares","Instrumentos","Electrónica y repuestos","Accesorios","Otros"];
 const REGLAS=[["Máquinas de humo",["liquido","maquina de humo","maquina de burbuja","maquina de niebla","fluido"]],["Soportes, fundas y estructuras",["soporte","tripode","truss","morsa","clamp","funda","estuche"]],["Video y pantallas",["pantalla","video","proyector","camara"]],["Iluminación",["luz","luces","led","laser","foco","lampara","iluminacion","strobo","cabezal","esfera"]],["Micrófonos",["microfono"]],["Auriculares",["auricular"]],["DJ y consolas",["consola","mixer","mezcladora","dj","controlador","interfaz"]],["Parlantes y amplificación",["parlante","bafle","amplificador","potencia","driver","subwoofer","monitor"]],["Cables y conectores",["cable","conector","ficha","plug","adaptador","canon","xlr"]]];
 function categoria(cat,sub,nombre){
