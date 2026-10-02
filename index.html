@@ -516,7 +516,6 @@ function renderList(){
     <button class="filt-btn" id="openF">Filtros</button>
     <label>Ordenar por <select id="sort"><option value="rel">Más relevantes</option><option value="lo">Menor precio</option><option value="hi">Mayor precio</option><option value="az">Nombre A–Z</option></select></label></div>
     ${chips()}
-    ${!(st.q||st.cat||st.sub||st.brand||st.oferta)&&st.page===1?reelsRow():""}
     ${slice.length?`<div class="grid">${slice.map(card).join("")}</div>`:st.oferta?`<div class="empty">Todavía no hay ofertas publicadas. <a href="https://wa.me/${WA}?text=${encodeURIComponent("Hola TecnoShow! Qué ofertas tienen hoy?")}" target="_blank" rel="noopener">Escribinos</a> y te contamos las promos del momento.</div>`:`<div class="empty">No encontramos productos con esos filtros. Probá quitando alguno o <a href="https://wa.me/${WA}" target="_blank" rel="noopener">consultanos por WhatsApp</a>.</div>`}
     ${pg}`;
   $("#sort").value=st.sort;
