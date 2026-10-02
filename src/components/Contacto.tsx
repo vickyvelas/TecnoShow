@@ -50,6 +50,17 @@ export default function Contacto() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const texto = [
+      "Hola TecnoShow! Quiero pedir un presupuesto.",
+      `Nombre: ${formData.nombre}`,
+      `Email: ${formData.email}`,
+      formData.telefono && `Teléfono: ${formData.telefono}`,
+      formData.categoria && `Producto: ${formData.categoria}`,
+      formData.finalidad && `Para: ${formData.finalidad}`,
+      formData.presupuesto && `Presupuesto estimado: ${formData.presupuesto}`,
+      `Mensaje: ${formData.mensaje}`,
+    ].filter(Boolean).join("\n");
+    window.open(`https://wa.me/5492614189999?text=${encodeURIComponent(texto)}`, "_blank");
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
     setFormData({
@@ -75,16 +86,16 @@ export default function Contacto() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-violet-400 border border-violet-400/20 bg-violet-400/5 mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-violet-600 border border-violet-200 bg-violet-50 mb-4">
             CONTACTO
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-slate-900 mb-4">
             Solicitá tu{" "}
-            <span style={{background: "linear-gradient(to right, #a78bfa, #22d3ee)", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent", color: "transparent"}}>
+            <span style={{background: "linear-gradient(to right, #1d8bff, #6f35f0)", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent", color: "transparent"}}>
               presupuesto
             </span>
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
             Contanos qué necesitás, para qué espacio y te asesoramos con el equipamiento ideal.
           </p>
         </motion.div>
@@ -98,59 +109,59 @@ export default function Contacto() {
             className="lg:col-span-2 space-y-6"
           >
             {/* Locations */}
-            <div className="p-6 rounded-2xl bg-dark-800/50 border border-white/5 space-y-5">
-              <h4 className="text-white font-semibold font-heading flex items-center gap-2">
-                <Building2 size={18} className="text-violet-400" />
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-5">
+              <h4 className="text-slate-900 font-semibold font-heading flex items-center gap-2">
+                <Building2 size={18} className="text-violet-600" />
                 Nuestro local
               </h4>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-violet-600/20 flex items-center justify-center flex-shrink-0">
-                  <MapPin size={20} className="text-violet-400" />
+                  <MapPin size={20} className="text-violet-600" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold text-sm">Mendoza</h4>
-                  <p className="text-gray-300 text-sm">Salta 1577, Capital Mendoza</p>
-                  <p className="text-gray-400 text-xs mt-1">Enviamos a San Juan, San Luis y todo el país</p>
+                  <h4 className="text-slate-900 font-semibold text-sm">Mendoza</h4>
+                  <p className="text-slate-600 text-sm">Salta 1577, Capital Mendoza</p>
+                  <p className="text-slate-500 text-xs mt-1">Enviamos a San Juan, San Luis y todo el país</p>
                 </div>
               </div>
             </div>
 
             {/* Hours + contact */}
-            <div className="p-6 rounded-2xl bg-dark-800/50 border border-white/5 space-y-5">
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-5">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-violet-600/20 flex items-center justify-center flex-shrink-0">
-                  <Clock size={20} className="text-violet-400" />
+                  <Clock size={20} className="text-violet-600" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold text-sm">Horarios</h4>
-                  <p className="text-gray-300 text-sm">Lunes a Viernes: 10:00 a 17:00</p>
+                  <h4 className="text-slate-900 font-semibold text-sm">Horarios</h4>
+                  <p className="text-slate-600 text-sm">Lunes a Viernes: 10:00 a 17:00</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                  <Mail size={20} className="text-cyan-400" />
+                  <Mail size={20} className="text-blue-600" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold text-sm">Email</h4>
-                  <p className="text-gray-300 text-sm">tecnoshowargentina@hotmail.com</p>
+                  <h4 className="text-slate-900 font-semibold text-sm">Email</h4>
+                  <p className="text-slate-600 text-sm">tecnoshowargentina@hotmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-violet-600/20 flex items-center justify-center flex-shrink-0">
-                  <Phone size={20} className="text-violet-400" />
+                  <Phone size={20} className="text-violet-600" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold text-sm">Teléfono</h4>
-                  <p className="text-gray-300 text-sm">+54 9 261 418-9999</p>
+                  <h4 className="text-slate-900 font-semibold text-sm">Teléfono</h4>
+                  <p className="text-slate-600 text-sm">+54 9 261 418-9999</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                  <CreditCard size={20} className="text-cyan-400" />
+                  <CreditCard size={20} className="text-blue-600" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold text-sm">Formas de pago</h4>
-                  <p className="text-gray-300 text-sm">Efectivo, Mercado Pago o débito</p>
+                  <h4 className="text-slate-900 font-semibold text-sm">Formas de pago</h4>
+                  <p className="text-slate-600 text-sm">Efectivo, Mercado Pago o débito</p>
                 </div>
               </div>
             </div>
@@ -169,17 +180,17 @@ export default function Contacto() {
 
               <a
                 href="tel:+5492614189999"
-                className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-2xl bg-violet-600/10 border border-violet-500/20 text-violet-400 font-semibold hover:bg-violet-600/20 hover:scale-[1.02] transition-all duration-300"
+                className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-2xl bg-violet-600/10 border border-violet-500/20 text-violet-600 font-semibold hover:bg-violet-600/20 hover:scale-[1.02] transition-all duration-300"
               >
                 <Phone size={22} />
                 Llamar ahora
               </a>
 
               <a
-                href="https://listado.mercadolibre.com.ar/tecno-show"
+                href="https://listado.mercadolibre.com.ar/pagina/tecnoshowvelas/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 font-semibold hover:bg-yellow-500/20 hover:scale-[1.02] transition-all duration-300"
+                className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 text-amber-600 font-semibold hover:bg-yellow-500/20 hover:scale-[1.02] transition-all duration-300"
               >
                 Comprar en MercadoLibre
               </a>
@@ -195,15 +206,15 @@ export default function Contacto() {
           >
             <form
               onSubmit={handleSubmit}
-              className="p-6 sm:p-8 rounded-2xl bg-dark-800/50 border border-white/5"
+              className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200"
             >
-              <h3 className="text-lg font-bold text-white mb-6 font-heading">
+              <h3 className="text-lg font-bold text-slate-900 mb-6 font-heading">
                 Pedir presupuesto
               </h3>
 
               <div className="grid sm:grid-cols-2 gap-5 mb-5">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-600 mb-2">
                     Nombre *
                   </label>
                   <input
@@ -214,11 +225,11 @@ export default function Contacto() {
                       setFormData({ ...formData, nombre: e.target.value })
                     }
                     placeholder="Tu nombre"
-                    className="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-white/10 text-white placeholder-gray-500 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-600 mb-2">
                     Email *
                   </label>
                   <input
@@ -229,14 +240,14 @@ export default function Contacto() {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     placeholder="tu@email.com"
-                    className="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-white/10 text-white placeholder-gray-500 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all"
                   />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-5 mb-5">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-600 mb-2">
                     <Phone size={14} className="inline mr-1" /> Teléfono
                   </label>
                   <input
@@ -246,11 +257,11 @@ export default function Contacto() {
                       setFormData({ ...formData, telefono: e.target.value })
                     }
                     placeholder="+54 261 ..."
-                    className="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-white/10 text-white placeholder-gray-500 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-600 mb-2">
                     <DollarSign size={14} className="inline mr-1" /> Presupuesto estimado
                   </label>
                   <input
@@ -260,14 +271,14 @@ export default function Contacto() {
                       setFormData({ ...formData, presupuesto: e.target.value })
                     }
                     placeholder="Ej: $500.000"
-                    className="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-white/10 text-white placeholder-gray-500 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all"
                   />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-5 mb-5">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-600 mb-2">
                     Categoría de producto
                   </label>
                   <select
@@ -275,18 +286,18 @@ export default function Contacto() {
                     onChange={(e) =>
                       setFormData({ ...formData, categoria: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-white/10 text-white focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all appearance-none cursor-pointer"
                   >
-                    <option value="" className="bg-dark-900">Seleccionar...</option>
+                    <option value="" className="bg-white">Seleccionar...</option>
                     {categorias.map((t) => (
-                      <option key={t} value={t} className="bg-dark-900">
+                      <option key={t} value={t} className="bg-white">
                         {t}
                       </option>
                     ))}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-600 mb-2">
                     ¿Para qué espacio / finalidad?
                   </label>
                   <select
@@ -294,11 +305,11 @@ export default function Contacto() {
                     onChange={(e) =>
                       setFormData({ ...formData, finalidad: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-white/10 text-white focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all appearance-none cursor-pointer"
                   >
-                    <option value="" className="bg-dark-900">Seleccionar...</option>
+                    <option value="" className="bg-white">Seleccionar...</option>
                     {finalidades.map((t) => (
-                      <option key={t} value={t} className="bg-dark-900">
+                      <option key={t} value={t} className="bg-white">
                         {t}
                       </option>
                     ))}
@@ -307,7 +318,7 @@ export default function Contacto() {
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Mensaje *
                 </label>
                 <textarea
@@ -318,19 +329,19 @@ export default function Contacto() {
                     setFormData({ ...formData, mensaje: e.target.value })
                   }
                   placeholder="Contanos qué necesitás: tipo de producto, marca de preferencia, características del espacio (tamaño, capacidad), si necesitás instalación..."
-                  className="w-full px-4 py-3 rounded-xl bg-dark-900/80 border border-white/10 text-white placeholder-gray-500 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 outline-none transition-all resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold hover:shadow-lg hover:shadow-violet-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-violet-600 text-white font-semibold hover:shadow-lg hover:shadow-violet-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
               >
                 <Send size={18} />
-                {submitted ? "¡Consulta enviada! Te respondemos en 24hs" : "Enviar Consulta"}
+                {submitted ? "Se abrió WhatsApp con tu consulta" : "Enviar consulta por WhatsApp"}
               </button>
 
-              <p className="text-xs text-gray-500 text-center mt-4">
+              <p className="text-xs text-slate-500 text-center mt-4">
                 También podés visitar nuestro local en Mendoza para ver los productos funcionando antes de comprar.
               </p>
             </form>

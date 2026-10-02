@@ -1,88 +1,89 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, MapPin, ShoppingCart } from "lucide-react";
-import { useProductos, categoriaNombres } from "../data/useProductos";
-import ProductCarousel from "../components/ProductCarousel";
-import ProductDetail from "../components/ProductDetail";
+import { ArrowRight, MapPin, ShoppingCart, Award, Truck, Wrench } from "lucide-react";
+import { useProductos } from "../data/useProductos";
+import ProductCard from "../components/ProductCard";
 import SobreNosotros from "../components/SobreNosotros";
 import Contacto from "../components/Contacto";
 import LoadingSpinner from "../components/LoadingSpinner";
-import type { Producto } from "../data/useProductos";
 
 export default function Home() {
   const { productos, loading, error, categorias } = useProductos();
-  const [sel, setSel] = useState<Producto | null>(null);
 
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920&q=80"
-            alt="Show de luces"
-            style={{ filter: "brightness(0.5)", width: "100%", height: "100%", objectFit: "cover" }}
-          />
-          <div className="absolute inset-0 bg-dark-950/90" />
-          <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-950/90 to-dark-950" />
-        </div>
-
-        <motion.div animate={{ y: [-20, 20, -20] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-violet-600/20 blur-3xl" />
-        <motion.div animate={{ y: [20, -20, 20] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-cyan-500/15 blur-3xl" />
-
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-24">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/30 bg-violet-500/10 backdrop-blur-sm mb-8">
-            <Sparkles size={16} className="text-cyan-400" />
-            <span className="text-sm text-gray-200">Distribuidores oficiales en Cuyo · +25 años</span>
-          </motion.div>
-
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="text-5xl sm:text-6xl md:text-7xl font-bold font-heading mb-6">
-            <img src="/logo.png" alt="TecnoShow" className="h-20 sm:h-24 md:h-28 mx-auto" />
-          </motion.h1>
-
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="text-lg sm:text-xl text-gray-300 mb-4 max-w-2xl mx-auto">
-            Venta e instalación de audio, iluminación <span className="text-cyan-400">y pantallas LED profesionales</span>
-          </motion.p>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="flex items-center justify-center gap-2 text-gray-400 text-sm mb-10">
-            <MapPin size={14} className="text-violet-400" />
-            <span>Local en Mendoza · Envíos a todo el país</span>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/contacto" className="px-8 py-4 rounded-full font-semibold text-lg bg-gradient-to-r from-violet-600 to-cyan-500 text-white hover:shadow-lg hover:shadow-violet-500/30 transition-all hover:scale-105 flex items-center gap-2">
-              <ShoppingCart size={20} /> Solicitar Presupuesto
-            </Link>
-            <Link to="/productos" className="px-8 py-4 rounded-full font-semibold text-lg border border-white/20 text-white hover:border-violet-500/50 transition-all">
-              Ver Productos
-            </Link>
-          </motion.div>
+      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-blue-50 via-white to-violet-50 pt-[120px] md:pt-[128px] pb-14">
+        <div className="pointer-events-none absolute -right-24 -bottom-40 h-[28rem] w-[28rem] rounded-full bg-violet-300/20 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 grid lg:grid-cols-[1.2fr_1fr] gap-10 items-center">
+          <div>
+            <p className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white px-3 py-1 text-xs font-semibold tracking-wider text-violet-700 mb-5">
+              <MapPin size={13} /> Salta 1577 · Ciudad de Mendoza
+            </p>
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold italic uppercase leading-[0.95] text-slate-900 [text-wrap:balance]">
+              Todo para tu{" "}
+              <span className="bg-gradient-to-r from-blue-500 to-violet-600 bg-clip-text text-transparent">sonido</span>, tus{" "}
+              <span className="bg-gradient-to-r from-blue-500 to-violet-600 bg-clip-text text-transparent">luces</span> y tu set
+            </h1>
+            <p className="mt-5 max-w-xl text-lg text-slate-600">
+              Venta e instalación de audio profesional, iluminación, DJ, micrófonos y pantallas LED. Enviamos a todo el país.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link to="/productos" className="flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-violet-600 px-7 py-3.5 font-semibold text-white hover:shadow-lg hover:shadow-violet-500/25 transition-shadow">
+                <ShoppingCart size={19} /> Ver productos
+              </Link>
+              <Link to="/contacto" className="rounded-full border border-slate-300 bg-white px-7 py-3.5 font-semibold text-slate-900 hover:border-violet-400">
+                Pedir presupuesto
+              </Link>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { i: Award, t: "40 años", d: "de experiencia en el rubro" },
+              { i: ShoppingCart, t: productos.length ? `+${Math.floor(productos.length / 100) * 100}` : "+1000", d: "productos publicados" },
+              { i: Truck, t: "Envíos", d: "a todo el país" },
+              { i: Wrench, t: "Instalación", d: "y servicio técnico" },
+            ].map(({ i: Icon, t, d }) => (
+              <div key={t} className="rounded-xl border border-slate-200 bg-white p-4">
+                <Icon size={20} className="text-violet-600 mb-2" />
+                <b className="block font-heading text-2xl leading-none text-slate-900">{t}</b>
+                <span className="text-sm text-slate-500">{d}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Category carousels */}
+      {/* Más vendidos por categoría */}
       {loading ? (
         <LoadingSpinner />
       ) : error ? (
-        <div className="text-center py-16 text-red-400">Error al cargar productos: {error}</div>
+        <div className="py-16 text-center text-slate-500">No pudimos cargar los productos. Recargá la página.</div>
       ) : (
         categorias.map((cat) => {
-          const items = productos.filter((p) => p.categoria === cat);
-          if (items.length === 0) return null;
+          const items = productos
+            .filter((p) => p.categoria === cat && p.enStock)
+            .sort((a, b) => b.vendidos - a.vendidos || b.calificacion - a.calificacion)
+            .slice(0, 12);
+          if (items.length < 4) return null;
           return (
-            <section key={cat} className="py-16 px-4">
+            <section key={cat} className="py-10 px-4 border-b border-slate-100">
               <div className="max-w-7xl mx-auto">
-                <div className="flex items-center justify-between mb-2">
-                  <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white">
-                    {categoriaNombres[cat] || cat}
-                  </h2>
-                  <Link to={`/${cat}`} className="text-sm text-cyan-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+                <div className="flex items-end justify-between gap-4 mb-4">
+                  <div>
+                    <h2 className="text-2xl sm:text-3xl font-bold font-heading text-slate-900">{cat}</h2>
+                    <p className="text-sm text-slate-500">Los más vendidos</p>
+                  </div>
+                  <Link to={`/productos?cat=${encodeURIComponent(cat)}`} className="flex flex-none items-center gap-1 text-sm font-semibold text-blue-600 hover:text-violet-700">
                     Ver todo <ArrowRight size={14} />
                   </Link>
                 </div>
-                <p className="text-gray-400 text-sm mb-6">{items.length} productos</p>
-                <ProductCarousel productos={items} onVerDetalle={setSel} />
+                <div className="flex gap-3 overflow-x-auto pb-2 snap-x [scrollbar-width:thin]">
+                  {items.map((p) => (
+                    <div key={p.id} className="w-[46%] sm:w-[220px] flex-none snap-start">
+                      <ProductCard producto={p} />
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
           );
@@ -91,8 +92,6 @@ export default function Home() {
 
       <SobreNosotros />
       <Contacto />
-
-      {sel && <ProductDetail producto={sel} onClose={() => setSel(null)} />}
     </>
   );
 }

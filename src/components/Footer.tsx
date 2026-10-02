@@ -1,148 +1,109 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+import { MapPin, Phone, Mail, Clock, MessageCircle, Star } from "lucide-react";
+import { GRUPOS, INSTAGRAM, CANAL_WHATSAPP, RESENA_GOOGLE, MAPA, WHATSAPP } from "../data/useProductos";
 
-const SocialIcon = ({ type }: { type: string }) => {
-  switch (type) {
-    case "instagram":
-      return (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-        </svg>
-      );
-    case "facebook":
-      return (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-        </svg>
-      );
-    case "youtube":
-      return (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
-        </svg>
-      );
-    case "tiktok":
-      return (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-        </svg>
-      );
-    default:
-      return null;
-  }
-};
-
-const socialLinks = [
-  { type: "instagram", href: "https://instagram.com/tecnoshow", label: "Instagram" },
-  { type: "facebook", href: "https://facebook.com/tecnoshow", label: "Facebook" },
-  { type: "youtube", href: "https://youtube.com/@tecnoshow", label: "YouTube" },
-  { type: "tiktok", href: "https://tiktok.com/@tecnoshow", label: "TikTok" },
-];
+const Instagram = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+  </svg>
+);
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-[4fr_2fr_3fr_4fr] gap-10">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="TecnoShow" className="h-12 w-auto" />
+    <>
+      <section className="bg-gradient-to-r from-blue-50 to-violet-50 border-t border-slate-200" aria-label="Reseñas y redes">
+        <div className="max-w-7xl mx-auto px-4 py-7 flex flex-wrap items-center justify-between gap-5">
+          <div className="flex items-center gap-4 min-w-0">
+            <div className="flex flex-none text-violet-600" aria-hidden="true">
+              {[0, 1, 2, 3, 4].map((i) => <Star key={i} size={22} className="fill-current" />)}
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              Empresa líder en Cuyo con más de 25 años de experiencia en audio,
-              iluminación y video profesional.
+            <div>
+              <h2 className="font-heading text-2xl font-extrabold italic uppercase leading-none text-slate-900">¿Te atendimos bien?</h2>
+              <p className="text-slate-500 mt-1">Tu reseña en Google nos ayuda muchísimo. Te lleva un minuto.</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2.5">
+            <a href={RESENA_GOOGLE} target="_blank" rel="noopener noreferrer" className="rounded-lg bg-gradient-to-r from-blue-500 to-violet-600 px-4 py-3 text-sm font-semibold text-white">
+              Dejar una reseña en Google
+            </a>
+            <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900">
+              <span className="text-[#e1306c]"><Instagram /></span> Seguinos en Instagram
+            </a>
+            <a href={CANAL_WHATSAPP} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900">
+              <MessageCircle size={18} className="text-[#25D366]" /> Unite al canal de WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-slate-50 border-t border-slate-200 text-slate-600">
+        <div className="h-[3px] bg-gradient-to-r from-blue-500 to-violet-600" />
+        <div className="max-w-7xl mx-auto px-4 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-[4fr_2fr_3fr_3fr]">
+          <div>
+            <img src="/logo-color.png" alt="TecnoShow" className="h-11 w-auto mb-4" />
+            <p className="text-sm leading-relaxed mb-4">
+              Empresa líder en Cuyo con 40 años de experiencia en audio, iluminación, video y pantallas LED.
             </p>
             <div className="flex gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-dark-800/50 border border-white/5 flex items-center justify-center text-gray-400 hover:text-violet-400 hover:border-violet-500/30 transition-all duration-300"
-                >
-                  <SocialIcon type={social.type} />
-                </a>
+              <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-violet-600"><Instagram /></a>
+              <a href={CANAL_WHATSAPP} target="_blank" rel="noopener noreferrer" aria-label="Canal de WhatsApp" className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#25D366]"><MessageCircle size={18} /></a>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-heading font-semibold text-slate-900 mb-4">Productos</h4>
+            <div className="space-y-2 text-sm">
+              {Object.entries(GRUPOS).map(([k, g]) => (
+                <Link key={k} to={`/productos?grupo=${k}`} className="block hover:text-violet-600">{g.nombre}</Link>
               ))}
+              <Link to="/productos" className="block hover:text-violet-600">Todos los productos</Link>
+              <Link to="/contacto" className="block hover:text-violet-600">Pedir presupuesto</Link>
             </div>
           </div>
 
-          {/* Links */}
           <div>
-            <h4 className="text-white font-semibold font-heading mb-4">Enlaces</h4>
-            <div className="space-y-2">
-              {["Inicio", "Servicios", "Galería", "Nosotros", "Contacto"].map(
-                (label) => (
-                  <a
-                    key={label}
-                    href={`#${label === "Inicio" ? "hero" : label === "Nosotros" ? "nosotros" : label.toLowerCase()}`}
-                    className="block text-sm text-gray-400 hover:text-violet-400 transition-colors"
-                  >
-                    {label}
+            <h4 className="font-heading font-semibold text-slate-900 mb-4">Ubicación</h4>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-start gap-2">
+                <MapPin size={16} className="text-violet-600 mt-0.5 flex-none" />
+                <div>
+                  <p className="text-slate-900 font-medium">Salta 1577, Ciudad de Mendoza</p>
+                  <a href={MAPA} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Cómo llegar</a>
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <Clock size={16} className="text-violet-600 mt-0.5 flex-none" />
+                <p>Lunes a viernes de 10 a 17 hs</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-heading font-semibold text-slate-900 mb-4">Contacto</h4>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center gap-2"><Phone size={16} className="text-violet-600 flex-none" /><span className="select-all">261 418 9999</span></div>
+              <div className="flex items-center gap-2"><Mail size={16} className="text-violet-600 flex-none" /><span className="select-all break-all">tecnoshowargentina@hotmail.com</span></div>
+              <div className="flex gap-3 pt-1">
+                <figure className="text-center text-xs">
+                  <img src="/qr-wa.png" alt="QR del WhatsApp de TecnoShow" className="w-24 h-24 bg-white border border-slate-200 rounded-lg p-1 mb-1" />
+                  <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </figure>
+                <figure className="text-center text-xs">
+                  <a href={CANAL_WHATSAPP} target="_blank" rel="noopener noreferrer">
+                    <img src="/qr-canal.png" alt="QR del canal de WhatsApp de TecnoShow" className="w-24 h-24 bg-white border border-slate-200 rounded-lg p-1 mb-1" />
+                    Canal de novedades
                   </a>
-                )
-              )}
-            </div>
-          </div>
-
-          {/* Locations */}
-          <div>
-            <h4 className="text-white font-semibold font-heading mb-4">Ubicación</h4>
-            <div className="space-y-3">
-              <div className="flex items-start gap-2">
-                <MapPin size={16} className="text-violet-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-white font-medium">Mendoza</p>
-                  <p className="text-xs text-gray-400">Salta 1577, Capital, Mendoza</p>
-                </div>
+                </figure>
               </div>
-              <div className="flex items-start gap-2">
-                <Clock size={16} className="text-cyan-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-white font-medium">Horarios</p>
-                  <p className="text-xs text-gray-400">L a V: 10:00 a 17:00</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold font-heading mb-4">Contacto</h4>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <Phone size={16} className="text-violet-400 flex-shrink-0" />
-                <span className="text-sm text-gray-400">+54 9 261 418-9999</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail size={16} className="text-cyan-400 flex-shrink-0" />
-                <span className="text-sm text-gray-400">tecnoshowargentina@hotmail.com</span>
-              </div>
-              <a
-                href="https://wa.me/5492614189999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] text-sm font-medium hover:bg-[#25D366]/20 transition-all"
-              >
-                WhatsApp
-              </a>
             </div>
           </div>
         </div>
-
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} TecnoShow. Todos los derechos reservados.
-          </p>
-          <p className="text-xs text-gray-500">
-            Mendoza, Argentina
-          </p>
+        <div className="border-t border-slate-200 px-4 py-4 text-center text-xs text-slate-500">
+          © {new Date().getFullYear()} TecnoShow · Mendoza, Argentina. Precios y stock sujetos a cambios.
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }

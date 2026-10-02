@@ -5,8 +5,8 @@ import { Award, Users, Zap, Shield, CheckCircle2, Star, ArrowRight, Building2, W
 const features = [
   {
     icon: Award,
-    title: "+30 Años de Experiencia",
-    description: "Empresa líder en Cuyo con más de 30 años en asesoramiento, ventas y servicio post venta.",
+    title: "40 años de experiencia",
+    description: "Empresa líder en Cuyo con 40 años en asesoramiento, ventas y servicio post venta.",
   },
   {
     icon: Users,
@@ -26,7 +26,7 @@ const features = [
 ];
 
 const stats = [
-  { value: "30+", label: "Años de trayectoria" },
+  { value: "40", label: "Años de trayectoria" },
   { value: "1M+", label: "Ventas realizadas" },
   { value: "50+", label: "Marcas oficiales" },
   { value: "1", label: "Local (Mendoza)" },
@@ -76,12 +76,12 @@ export default function SobreNosotros() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-cyan-400 border border-cyan-400/20 bg-cyan-400/5 mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-blue-600 border border-blue-200 bg-blue-50 mb-4">
             SOBRE NOSOTROS
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-slate-900 mb-4">
             Empresa líder en{" "}
-            <span style={{background: "linear-gradient(to right, #a78bfa, #22d3ee)", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent", color: "transparent"}}>
+            <span style={{background: "linear-gradient(to right, #1d8bff, #6f35f0)", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent", color: "transparent"}}>
               Cuyo
             </span>
           </h2>
@@ -100,23 +100,22 @@ export default function SobreNosotros() {
                 alt="Showroom TecnoShow"
                 className="w-full h-64 sm:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-cyan-400 animate-pulse" />
                   <span className="text-sm text-white font-medium">Showrooms en Cuyo</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Star size={14} className="text-yellow-400 fill-yellow-400" />
+                  <Star size={14} className="text-amber-600 fill-yellow-400" />
                   <span className="text-xs text-white">Líder en Cuyo</span>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-4 text-gray-300 leading-relaxed">
+            <div className="space-y-4 text-slate-600 leading-relaxed">
               <p>
-                Somos la <strong className="text-white">empresa líder en Cuyo</strong> con más de
-                30 años de experiencia en asesoramiento, ventas y servicio post venta
+                Somos la <strong className="text-slate-900">empresa líder en Cuyo</strong> con 40 años de experiencia en asesoramiento, ventas y servicio post venta
                 del mercado de audio, sonido, iluminación y pantallas LED.
               </p>
               <p>
@@ -126,21 +125,21 @@ export default function SobreNosotros() {
                 que el mercado exige, con altos niveles de calidad y compromiso.
               </p>
               <p>
-                Contamos con local comercial en <strong className="text-white">Mendoza (Salta 1577)</strong>,{" "}
+                Contamos con local comercial en <strong className="text-slate-900">Mendoza (Salta 1577)</strong>,{" "}
                 y realizamos envíos personalizados a San Juan y San Luis, además de envíos a todo el país.
                 y realizamos envíos a todo el país.
               </p>
             </div>
 
             {/* Usos / ideal para */}
-            <div className="mt-6 p-5 rounded-xl bg-dark-800/50 border border-white/5">
+            <div className="mt-6 p-5 rounded-xl bg-slate-50 border border-slate-200">
               <div className="flex items-center gap-2 mb-3">
-                <Wrench size={16} className="text-cyan-400" />
-                <h4 className="text-sm font-bold text-white">Ideal para sonido e iluminación de:</h4>
+                <Wrench size={16} className="text-blue-600" />
+                <h4 className="text-sm font-bold text-slate-900">Ideal para sonido e iluminación de:</h4>
               </div>
               <div className="flex flex-wrap gap-2">
                 {usos.map((uso) => (
-                  <span key={uso} className="px-2.5 py-1 rounded-lg bg-dark-700/50 border border-white/5 text-gray-300 text-xs">
+                  <span key={uso} className="px-2.5 py-1 rounded-lg bg-dark-700/50 border border-slate-200 text-slate-600 text-xs">
                     {uso}
                   </span>
                 ))}
@@ -150,7 +149,7 @@ export default function SobreNosotros() {
             <div className="flex flex-wrap gap-3 mt-6">
               <a
                 href="#contacto"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold hover:shadow-lg hover:shadow-violet-500/30 transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-violet-600 text-white font-semibold hover:shadow-lg hover:shadow-violet-500/30 transition-all duration-300 hover:scale-105"
               >
                 Contactanos
                 <ArrowRight size={16} />
@@ -165,15 +164,15 @@ export default function SobreNosotros() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="space-y-6"
           >
-            <div className="p-6 rounded-2xl bg-dark-800/50 border border-white/5">
-              <h3 className="text-lg font-bold font-heading text-white mb-4">
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+              <h3 className="text-lg font-bold font-heading text-slate-900 mb-4">
                 ¿Por qué elegirnos?
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {highlights.map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-cyan-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-300 text-sm">{item}</span>
+                    <CheckCircle2 size={18} className="text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-slate-600 text-sm">{item}</span>
                   </div>
                 ))}
               </div>
@@ -186,15 +185,15 @@ export default function SobreNosotros() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="p-5 rounded-xl bg-dark-800/50 border border-white/5 hover:border-violet-500/20 transition-all duration-300 group"
+                  className="p-5 rounded-xl bg-slate-50 border border-slate-200 hover:border-violet-500/20 transition-all duration-300 group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-violet-600/20 to-cyan-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    <feature.icon size={20} className="text-violet-400" />
+                    <feature.icon size={20} className="text-violet-600" />
                   </div>
-                  <h4 className="font-bold text-white mb-1 font-heading text-sm">
+                  <h4 className="font-bold text-slate-900 mb-1 font-heading text-sm">
                     {feature.title}
                   </h4>
-                  <p className="text-gray-400 text-xs leading-relaxed">
+                  <p className="text-slate-500 text-xs leading-relaxed">
                     {feature.description}
                   </p>
                 </motion.div>
@@ -211,8 +210,8 @@ export default function SobreNosotros() {
           className="mb-16"
         >
           <div className="flex items-center gap-2 mb-6 justify-center">
-            <Building2 size={18} className="text-violet-400" />
-            <h3 className="text-lg font-bold font-heading text-white">
+            <Building2 size={18} className="text-violet-600" />
+            <h3 className="text-lg font-bold font-heading text-slate-900">
               Distribuidores oficiales de las mejores marcas
             </h3>
           </div>
@@ -220,7 +219,7 @@ export default function SobreNosotros() {
             {marcas.map((marca) => (
               <span
                 key={marca}
-                className="px-3 py-1.5 rounded-lg bg-dark-800/60 border border-white/5 text-gray-400 text-xs font-medium hover:border-violet-500/20 hover:text-white transition-all"
+                className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-500 text-xs font-medium hover:border-violet-500/20 hover:text-white transition-all"
               >
                 {marca}
               </span>
@@ -237,10 +236,10 @@ export default function SobreNosotros() {
         >
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold" style={{background: "linear-gradient(to right, #a78bfa, #22d3ee)", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent", color: "transparent"}}>
+              <div className="text-3xl md:text-4xl font-bold" style={{background: "linear-gradient(to right, #1d8bff, #6f35f0)", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent", color: "transparent"}}>
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+              <div className="text-sm text-slate-500 mt-1">{stat.label}</div>
             </div>
           ))}
         </motion.div>
