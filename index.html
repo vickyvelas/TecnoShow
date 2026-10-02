@@ -260,6 +260,41 @@ main .wrap.solo .side{display:none}
   .gthumbs button{width:54px;height:54px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ===== Reels ===== */
+.reels{margin:4px 0 22px}
+.reels-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:6px 0 10px}
+.reels-h h2{font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:26px;margin:0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.reels-h small{color:var(--muted)}
+.reel-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:thin}
+.reel-t{flex:none;width:clamp(128px,15vw,170px);aspect-ratio:9/16;border-radius:14px;overflow:hidden;position:relative;border:0;padding:0;background:#fff;scroll-snap-align:start;cursor:pointer;box-shadow:0 0 0 1px var(--line)}
+.reel-t img{width:100%;height:100%;object-fit:contain;padding:10%;background:#fff}
+.reel-t:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,16,40,0) 45%,rgba(18,16,40,.85))}
+.reel-t .play{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;background:var(--grad);display:grid;place-items:center;z-index:1}
+.reel-t .play:before{content:"";border-left:10px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:3px}
+.reel-t span{position:absolute;left:10px;right:10px;bottom:10px;color:#fff;font-size:12.5px;line-height:1.25;text-align:left;z-index:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.rv{position:fixed;inset:0;z-index:60;background:rgba(10,8,24,.92);display:flex;align-items:center;justify-content:center;gap:14px;padding:16px}
+.rv[hidden]{display:none}
+.rv-box{display:flex;flex-direction:column;width:min(420px,100%);max-height:100%}
+.rv-frame{width:100%;aspect-ratio:9/16;max-height:calc(100dvh - 150px);background:#000;border-radius:14px;overflow:hidden;margin-inline:auto}
+.rv-frame iframe{width:100%;height:100%;border:0;display:block}
+.rv-info{background:#fff;border-radius:12px;margin-top:10px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.rv-info div{flex:1;min-width:0}
+.rv-info b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rv-info small{color:var(--muted)}
+.rv-info a{flex:none;background:var(--grad);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:9px 14px;border-radius:20px}
+.rv-nav,.rv-x{border:0;background:rgba(255,255,255,.14);color:#fff;width:46px;height:46px;border-radius:50%;font-size:26px;line-height:1;flex:none}
+.rv-x{position:absolute;top:14px;right:14px}
+@media (max-width:620px){.rv{padding:8px}.rv-nav{position:absolute;bottom:calc(50% - 23px);z-index:2}.rv-nav.p{left:6px}.rv-nav.n{right:6px}}
+.pv-video{display:inline-flex;align-items:center;gap:8px;margin-top:4px;border:1px solid var(--violet);color:var(--violet);background:var(--tint);border-radius:20px;padding:8px 14px;font-weight:600;font-size:14px}
+.admin{max-width:760px;margin:10px auto 40px}
+.admin h1{font-family:var(--f-display);font-size:30px;margin:0 0 4px}
+.admin input{width:100%;padding:12px 16px;border:1px solid var(--line);border-radius:24px;font:inherit;margin:12px 0}
+.admin li{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.admin li img{width:52px;height:52px;object-fit:contain;flex:none}
+.admin li span{flex:1;min-width:0}
+.admin li a{flex:none;background:var(--grad);color:#fff;text-decoration:none;font-weight:600;font-size:13.5px;padding:8px 12px;border-radius:18px}
+.admin ul{list-style:none;margin:0;padding:0}
 </style>
 
 </head>
@@ -345,6 +380,7 @@ main .wrap.solo .side{display:none}
   <div class="legal"><b>10% OFF pagando por transferencia y comprando por WhatsApp.</b> Precios y stock sujetos a cambios. Las compras se realizan por Mercado Libre o por WhatsApp.</div>
 </footer>
 
+<div class="rv" id="rv" hidden role="dialog" aria-modal="true" aria-label="Reels"><button class="rv-x" id="rvX" aria-label="Cerrar">×</button><button class="rv-nav p" id="rvP" aria-label="Video anterior">‹</button><div class="rv-box"><div class="rv-frame" id="rvF"></div><div class="rv-info" id="rvI"></div></div><button class="rv-nav n" id="rvN" aria-label="Video siguiente">›</button></div>
 <script>
 (function(){
 const WA="5492614189999";
@@ -383,6 +419,7 @@ function card(p){
       <div class="ctitle">${esc(p.t)}</div>
       ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span>${p.s?`<span>+${p.s} vendidos</span>`:""}</div>`:(p.s?`<div class="rating">+${p.s} vendidos</div>`:"")}
       ${priceHTML(p)}
+      ${REELS.some(r=>r.p===p)?`<button class="pv-video" data-reel="${REELS.findIndex(r=>r.p===p)}">▶ Ver video del producto</button>`:""}
     </div></a>`;
 }
 
@@ -456,6 +493,7 @@ function renderList(){
     <button class="filt-btn" id="openF">Filtros</button>
     <label>Ordenar por <select id="sort"><option value="rel">Más relevantes</option><option value="lo">Menor precio</option><option value="hi">Mayor precio</option><option value="az">Nombre A–Z</option></select></label></div>
     ${chips()}
+    ${!(st.q||st.cat||st.sub||st.brand||st.oferta)&&st.page===1?reelsRow():""}
     ${slice.length?`<div class="grid">${slice.map(card).join("")}</div>`:st.oferta?`<div class="empty">Todavía no hay ofertas publicadas. <a href="https://wa.me/${WA}?text=${encodeURIComponent("Hola TecnoShow! Qué ofertas tienen hoy?")}" target="_blank" rel="noopener">Escribinos</a> y te contamos las promos del momento.</div>`:`<div class="empty">No encontramos productos con esos filtros. Probá quitando alguno o <a href="https://wa.me/${WA}" target="_blank" rel="noopener">consultanos por WhatsApp</a>.</div>`}
     ${pg}`;
   $("#sort").value=st.sort;
@@ -527,7 +565,7 @@ function renderProduct(id){
 
 function route(){
   let id=location.hash.slice(1);try{id=decodeURIComponent(id)}catch(e){}
-  if(id&&byId[id]) renderProduct(id); else renderList();
+  if(id==="cargar-reel") renderAdmin(); else if(id&&byId[id]) renderProduct(id); else renderList();
 }
 function go(){ if(location.hash){history.pushState(null,"",location.pathname+location.search)} st.page=1; renderList(); window.scrollTo(0,0) }
 
@@ -539,6 +577,7 @@ document.addEventListener("click",e=>{
     const n=p.ph.length,i=((+th.dataset.i||0)+(+nb.dataset.nav)+n)%n;th.dataset.i=i;
     th.querySelector("img").src=p.ph[i];th.querySelectorAll(".tdots i").forEach((d,k)=>d.classList.toggle("on",k===i));return}
   const t=e.target.closest("button,a"); if(!t) return;
+  if(t.dataset.reel!==undefined){e.preventDefault();abrirReel(+t.dataset.reel);return}
   if(t.dataset.f){const k=t.dataset.f,v=t.dataset.v;st[k]=st[k]===v?"":v;if(k==="cat"){st.sub="";st.brand=""}if(k==="sub")st.brand=st.brand;closeF();go();}
   else if(t.dataset.more){st.showAll[t.dataset.more]=true;renderSide(base().length)}
   else if(t.dataset.rm){const k=t.dataset.rm;if(k==="price"){st.min=st.max=null}else if(k==="free")st.free=false;else if(k==="oferta")st.oferta=false;else if(k==="q"){st.q="";$("#q").value=""}else st[k]="";go()}
@@ -564,6 +603,74 @@ document.addEventListener("submit",e=>{
 window.addEventListener("hashchange",route);
 window.addEventListener("popstate",route);
 
+
+/* ====== REELS ======
+   Se cargan con el formulario "TecnoShow - Cargar reel". Cada respuesta trae el link del producto
+   y un link de Instagram o un video subido a Drive. */
+const REELS_SHEET="__REELS_SHEET__";
+const FORM_REEL="__FORM_REEL__";
+let REELS=[],ri=0;
+function videoSrc(u){
+  u=String(u||"").trim();
+  let m=u.match(/instagram\.com\/(?:[\w.]+\/)?(reel|reels|p|tv)\/([\w-]+)/);
+  if(m)return `https://www.instagram.com/${m[1]==="reels"?"reel":m[1]}/${m[2]}/embed`;
+  m=u.match(/drive\.google\.com\/file\/d\/([\w-]+)/)||u.match(/drive\.google\.com\/.*[?&]id=([\w-]+)/);
+  if(m)return `https://drive.google.com/file/d/${m[1]}/preview`;
+  m=u.match(/(?:youtube\.com\/(?:shorts\/|watch\?v=)|youtu\.be\/)([\w-]{6,})/);
+  if(m)return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
+  return "";
+}
+function buscarProducto(v){
+  v=String(v||"").trim();if(!v)return null;
+  const h=v.includes("#")?v.split("#").pop():v;let k=h;try{k=decodeURIComponent(h)}catch(e){}
+  if(byId[k])return byId[k];
+  const n=norm(v);return P.find(p=>norm(p.t)===n)||null;
+}
+function cargarReels(){
+  if(REELS_SHEET.startsWith("__"))return;
+  fetch(`https://opensheet.elk.sh/${REELS_SHEET}/1`).then(r=>r.ok?r.json():[]).then(rows=>{
+    if(!Array.isArray(rows))return;
+    const col=(f,re)=>{const k=Object.keys(f).find(k=>re.test(norm(k)));return k?String(f[k]||"").trim():""};
+    const out=[];
+    rows.slice().reverse().forEach(f=>{
+      const p=buscarProducto(col(f,/producto/));if(!p)return;
+      const src=videoSrc(col(f,/instagram/))||videoSrc(col(f,/video|archivo/));if(!src)return;
+      if(/^(no|ocultar|borrar)/.test(norm(col(f,/mostrar|ocultar|estado/))))return;
+      out.push({p,src});
+    });
+    REELS=out;if(REELS.length)route();
+  }).catch(()=>{});
+}
+function reelsRow(){
+  if(!REELS.length)return "";
+  return `<section class="reels" aria-label="Reels"><div class="reels-h"><h2>Reels</h2><small>Mirá los productos funcionando</small></div>
+  <div class="reel-row">${REELS.map((r,i)=>`<button class="reel-t" data-reel="${i}" aria-label="Ver video: ${esc(r.p.t)}">${r.p.ph&&r.p.ph[0]?`<img src="${esc(r.p.ph[0])}" alt="" loading="lazy">`:""}<i class="play"></i><span>${esc(r.p.t)}</span></button>`).join("")}</div></section>`;
+}
+function abrirReel(i){
+  if(!REELS.length)return;ri=(i+REELS.length)%REELS.length;const r=REELS[ri],p=r.p;
+  $("#rvF").innerHTML=`<iframe src="${r.src}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video: ${esc(p.t)}"></iframe>`;
+  $("#rvI").innerHTML=`<div><b>${esc(p.t)}</b><small>${p.a&&p.p?fmt(p.p)+" · 10% OFF por transferencia":"Consultá disponibilidad"}</small></div><a href="#${p.slug}" id="rvGo">Ver producto</a>`;
+  $("#rvP").hidden=$("#rvN").hidden=REELS.length<2;
+  $("#rv").hidden=false;document.body.style.overflow="hidden";
+}
+function cerrarReel(){$("#rv").hidden=true;$("#rvF").innerHTML="";document.body.style.overflow=""}
+$("#rvX").onclick=cerrarReel;$("#rvP").onclick=()=>abrirReel(ri-1);$("#rvN").onclick=()=>abrirReel(ri+1);
+$("#rv").addEventListener("click",e=>{if(e.target.id==="rv")cerrarReel();if(e.target.id==="rvGo")cerrarReel()});
+document.addEventListener("keydown",e=>{if($("#rv").hidden)return;if(e.key==="Escape")cerrarReel();if(e.key==="ArrowRight")abrirReel(ri+1);if(e.key==="ArrowLeft")abrirReel(ri-1)});
+{let x0=null;$("#rvF").addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
+ $("#rv").addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>60)abrirReel(ri+(dx<0?1:-1))})}
+
+/* Página para cargar reels: tecnoshow.vercel.app/#cargar-reel (no aparece en el menú) */
+function renderAdmin(){
+  $("#strip").hidden=true;$("#side").innerHTML="";document.querySelector("main .wrap").classList.add("solo");
+  $("#view").innerHTML=`<div class="admin"><h1>Cargar un reel</h1><p style="margin:0;color:var(--muted)">Buscá el producto y tocá <b>Cargar video</b>. Se abre el formulario con el producto ya puesto: solo pegás el link de Instagram o subís el video.</p>
+  <input id="admQ" type="search" placeholder="Buscar producto por nombre, marca o código…" autocomplete="off"><ul id="admL"></ul></div>`;
+  const pintar=()=>{const q=norm($("#admQ").value).split(/\s+/).filter(Boolean);
+    const l=q.length?P.filter(p=>q.every(w=>p._s.includes(w))).slice(0,40):[];
+    $("#admL").innerHTML=l.map(p=>{const link=`https://tecnoshow.vercel.app/#${p.slug}`;
+      return `<li>${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="">`:""}<span>${esc(p.t)}${REELS.some(r=>r.p===p)?` <small style="color:var(--violet)">· ya tiene video</small>`:""}</span><a href="${FORM_REEL}${encodeURIComponent(link)}" target="_blank" rel="noopener">Cargar video</a></li>`}).join("")||(q.length?`<li>No encontramos ese producto.</li>`:"")};
+  $("#admQ").addEventListener("input",pintar);$("#admQ").focus();window.scrollTo(0,0);
+}
 /* ====== DATOS ======
    Se juntan 3 fuentes (si un código se repite, gana la primera):
    1) Pestaña "productos" de la planilla (la llena el formulario de Google)
@@ -609,6 +716,7 @@ function start(items){
   $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button><button data-o="1" class="ofertas">Ofertas</button>`+CATS.map(c=>`<button data-c="${esc(c)}">${esc(c)}</button>`+(c==="Máquinas de humo"&&liq?`<button data-c="${esc(c)}" data-s="Líquidos">Líquidos</button>`:"")).join("");
   $("#factN").textContent="+"+(Math.floor(P.length/100)*100);
   route();
+  cargarReels();
 }
 Promise.all(FUENTES.map(u=>!u?Promise.resolve([]):fetch(u).then(r=>r.ok?r.json():[]).then(d=>Array.isArray(d)?d:[]).catch(()=>[]))).then(([form,planilla,copia])=>{
   // La pestaña "mercadolibre" pisa solo las celdas que tengan algo escrito; fotos y descripción salen de la copia.
@@ -624,6 +732,7 @@ Promise.all(FUENTES.map(u=>!u?Promise.resolve([]):fetch(u).then(r=>r.ok?r.json()
 }).catch(()=>{$("#view").innerHTML=`<div class="empty">No pudimos cargar el catálogo. Recargá la página o escribinos al 261 418 9999.</div>`});
 })();
 </script>
+
 
 </body>
 </html>
