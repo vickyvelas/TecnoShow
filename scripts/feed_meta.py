@@ -1,5 +1,6 @@
 """Genera public/catalogo-meta.csv: catálogo para Meta Commerce Manager (WhatsApp, Instagram, Facebook).
-Toma hasta 500 productos con stock (límite de WhatsApp), primero las categorías principales.
+Toma hasta 500 productos con stock (límite de WhatsApp): primero los 100 más recientes
+(los nuevos se agregan al principio de catalogo-ml.json) y después las categorías principales.
 Uso: python3 scripts/feed_meta.py"""
 import csv, json, os, re
 R = os.path.join(os.path.dirname(__file__), '..', 'public')
@@ -11,8 +12,10 @@ def num(v):
     try: return float(re.sub(r'[^\d.]', '', str(v)) or 0)
     except ValueError: return 0
 ok = [r for r in rows if r.get('stock') == 'Sí' and num(r.get('precio')) > 0 and r.get('imagenes')]
-ok.sort(key=lambda r: (PRIORIDAD.index(r['categoria']) if r.get('categoria') in PRIORIDAD else 99, -num(r.get('vendidos')), -num(r.get('precio'))))
-ok = ok[:500]
+recientes = ok[:100]  # siempre entran los productos publicados más recientemente
+resto = [r for r in ok[100:]]
+resto.sort(key=lambda r: (PRIORIDAD.index(r['categoria']) if r.get('categoria') in PRIORIDAD else 99, -num(r.get('vendidos')), -num(r.get('precio'))))
+ok = (recientes + resto)[:500]
 jpg = lambda u: u.strip().replace('-F.webp', '-F.jpg')
 with open(os.path.join(R, 'catalogo-meta.csv'), 'w', newline='', encoding='utf-8') as f:
     w = csv.writer(f)

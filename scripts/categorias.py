@@ -19,7 +19,7 @@ OVERRIDES={ # revisados a mano
  'MLA764056612':'Auriculares','MLA1504959604':'Auriculares','MLA3168246272':'Auriculares','MLA758324173':'Auriculares','MLA1260369993':'Auriculares',
  'MLA1803973171':'Micrófonos','MLA764539487':'Instrumentos','MLA731247567':'Soportes, fundas y estructuras',
  'MLA1434513602':'Soportes, fundas y estructuras','MLA2055217473':'DJ y consolas',
- 'MLA1779007360':'Video y pantallas','MLA1410102498':'Video y pantallas','MLA1893000823':'Otros',
+ 'MLA1779007360':'Video y pantallas','MLA1410102498':'Video y pantallas','MLA1893000823':'Otros','MLA4031444148':'Instrumentos',
 }
 def cat(title):
     t=n(title)
