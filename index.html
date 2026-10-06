@@ -771,8 +771,10 @@ Promise.all(FUENTES.map(u=>!u?Promise.resolve([]):fetch(u).then(r=>r.ok?r.json()
   planilla.forEach(f=>{const k=String(f.sku??"").trim();const b=base[k]||{};const m=Object.assign({},b);
     Object.entries(f).forEach(([c,v])=>{if(String(v??"").trim()!=="")m[c]=v});filas.push(m)});
   filas.push(...copia);
+  // Para sacar un producto de la página: en la planilla escribir ELIMINAR en la columna "stock" (o "ocultar"/"borrar")
+  const ocultos=new Set(planilla.filter(f=>Object.entries(f).some(([c,v])=>/^(stock|ocultar|eliminar|estado)$/i.test(c.trim())&&/^(eliminar|eliminado|borrar|ocultar|oculto)$/i.test(norm(String(v??"")).trim()))).map(f=>String(f.sku??"").trim()));
   const out=[],vistos=new Set();
-  filas.forEach((f,i)=>{const o=aItem(f,i);if(o&&!vistos.has(o.id)){vistos.add(o.id);out.push(o)}});
+  filas.forEach((f,i)=>{const k=String(f.sku??"").trim();if(k&&ocultos.has(k))return;const o=aItem(f,i);if(o&&!vistos.has(o.id)){vistos.add(o.id);out.push(o)}});
   if(!out.length)throw 0;
   start(out);
 }).catch(()=>{$("#view").innerHTML=`<div class="empty">No pudimos cargar el catálogo. Recargá la página o escribinos al 261 418 9999.</div>`});
