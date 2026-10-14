@@ -13,6 +13,9 @@ COL = {'Parlantes y amplificación': 'Audio: parlantes y potencias', 'DJ y conso
 def grupo(r):
     if r['categoria'] == 'Máquinas de humo' and r.get('subcategoria') == 'Líquidos': return 'Líquidos'
     return r['categoria']
+# Victoria: no cargar fichas ni repuestos
+EXCLUIR = re.compile(r'\bfichas?\b|repuesto|reemplazo|z[oó]calo|par[aá]bola|vidrio|ignitor|almohadillas|bocha|'
+                     r'interruptor|l[aá]mpara de descarga|dicroica|hal[oó]gen|circolina|osram|bryte', re.I)
 usado = lambda r: re.search(r'\busad[oa]s?\b|\bdemo\b|exhibici', (r['nombre'] + ' ' + r.get('descripcion', '')).lower())
 def desc(r):
     at = [a.strip() for a in r.get('caracteristicas', '').split('|') if a.strip()
@@ -25,13 +28,18 @@ def desc(r):
     return s + '💸 10% OFF pagando por transferencia. 📍 Salta 1577, Ciudad de Mendoza.'
 rows = json.load(open(R))
 ok = [r for r in rows if r.get('stock') == 'Sí' and num(r.get('precio')) > 0 and r.get('imagenes')
-      and grupo(r) in ORDEN and not usado(r)]
+      and grupo(r) in ORDEN and not usado(r) and not EXCLUIR.search(r['nombre'])]
 ok.sort(key=lambda r: (ORDEN.index(grupo(r)), -num(r['precio'])))
 prev = json.load(open(COLA)) if os.path.exists(COLA) else []
 ya = {x['sku'] for x in prev}
 by = {r['sku']: r for r in rows}
+CARG = os.path.join(D, 'whatsapp', 'cargados.json')
+hechos = set()
+if os.path.exists(CARG):
+    c = json.load(open(CARG)); hechos = set(c.get('cargados', [])) | set(c.get('ya_estaban', []))
 cola = []
-for x in prev:  # refresca datos de los que siguen en la cola
+for x in prev:
+    if x['sku'] not in hechos and EXCLUIR.search(x['nombre']): continue  # sacar fichas/repuestos pendientes  # refresca datos de los que siguen en la cola
     r = by.get(x['sku'])
     if r: x.update(nombre=r['nombre'].strip(), precio=num(r['precio']))
     cola.append(x)
