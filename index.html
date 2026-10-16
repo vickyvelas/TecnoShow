@@ -13,6 +13,7 @@
 <meta property="og:locale" content="es_AR">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"TecnoShow","description":"Audio profesional, iluminación, DJ, micrófonos y pantallas LED en Mendoza.","url":"https://tecnoshow.vercel.app/","logo":"https://tecnoshow.vercel.app/logo.png","telephone":"+54 9 261 418-9999","email":"tecnoshowargentina@hotmail.com","address":{"@type":"PostalAddress","streetAddress":"Salta 1577","addressLocality":"Mendoza","addressRegion":"Mendoza","postalCode":"5500","addressCountry":"AR"},"geo":{"@type":"GeoCoordinates","latitude":-32.8852116,"longitude":-68.833946},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"17:00"}],"sameAs":["https://www.instagram.com/tecnoshowarg/","https://listado.mercadolibre.com.ar/pagina/tecnoshowvelas/"]}</script>
 <link rel="icon" href="/logo.png">
+<link rel="preload" href="/catalogo-ml.json" as="fetch" crossorigin>
 <title>TecnoShow | Audio, iluminación y video en Mendoza</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -295,7 +296,23 @@ main .wrap.solo .side{display:none}
 .reelv-frame{width:100%;aspect-ratio:9/16;max-height:calc(100dvh - 150px);background:#000;border-radius:14px;overflow:hidden;margin-inline:auto}
 .reelv-box.h{width:min(960px,100%)}
 .reelv-box.h .reelv-frame{aspect-ratio:16/9;max-height:calc(100dvh - 150px)}
+.reelv-frame{position:relative}
 .reelv-frame iframe{width:100%;height:100%;border:0;display:block}
+.rv-block{position:absolute;top:0;right:0;width:72px;height:72px;z-index:2}
+.reel-t img.vid{object-fit:cover;padding:0;background:#000}
+.rp{display:grid;grid-template-columns:minmax(0,auto) minmax(0,340px);justify-content:center;gap:18px;align-items:center;margin:4px 0 26px}
+.rp-stage{display:flex;align-items:center;gap:10px}
+.rp-frame{position:relative;height:min(78dvh,760px);aspect-ratio:9/16;max-width:calc(100vw - 32px);background:#000;border-radius:16px;overflow:hidden}
+.rp-frame iframe{width:100%;height:100%;border:0;display:block}
+.rp-nav{display:flex;flex-direction:column;gap:10px}
+.rp-nav button{border:0;background:var(--grad);color:#fff;width:46px;height:46px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer}
+.rp-info{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.rp-info small{color:var(--muted)}
+.rp-info b{font-size:16px;line-height:1.3}
+.rp-info a{align-self:flex-start;background:var(--grad);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:9px 16px;border-radius:20px}
+.rp-more{margin:6px 0 10px;font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:22px}
+.reel-t[aria-current="true"]{box-shadow:0 0 0 3px var(--violet)}
+@media (max-width:760px){.rp{grid-template-columns:1fr;justify-items:center;gap:10px}.rp-stage{position:relative}.rp-frame{height:max(360px,calc(100dvh - 330px))}.rp-nav{position:absolute;right:8px;top:50%;transform:translateY(-50%);z-index:3}.rp-nav button{width:42px;height:42px;background:rgba(18,16,40,.55)}.rp-info{width:100%}}
 .reelv-info{background:#fff;border-radius:12px;margin-top:10px;padding:10px 12px;display:flex;align-items:center;gap:10px}
 .reelv-info div{flex:1;min-width:0}
 .reelv-info b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -652,35 +669,44 @@ function buscarProducto(v){
   if(byId[k])return byId[k];
   const n=norm(v);return P.find(p=>norm(p.t)===n)||null;
 }
-function cargarReels(){
+const driveId=u=>{const m=String(u||"").match(/drive\.google\.com\/file\/d\/([\w-]+)/)||String(u||"").match(/drive\.google\.com\/.*[?&]id=([\w-]+)/);return m?m[1]:""};
+const mezclar=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let RAW_REELS=null,reelsPedidos=false;
+function armarReels(){
+  if(!RAW_REELS)return;const [rows,ex]=RAW_REELS;
   const col=(f,re)=>{const k=Object.keys(f).find(k=>re.test(norm(k)));return k?String(f[k]||"").trim():""};
-  const planilla=REELS_SHEET.startsWith("__")?Promise.resolve([]):fetch(`https://opensheet.elk.sh/${REELS_SHEET}/1`).then(r=>r.ok?r.json():[]).catch(()=>[]);
+  const out=[],vistos=new Set();
+  const add=(p,ps,u)=>{const src=videoSrc(u);if(!p||!src||vistos.has(src))return;vistos.add(src);const id=driveId(u);
+    out.push({p,ps,src,th:id?`https://drive.google.com/thumbnail?id=${id}&sz=w480`:"",h:false})};
+  (Array.isArray(rows)?rows:[]).forEach(f=>{
+    if(/^(no|ocultar|borrar)/.test(norm(col(f,/mostrar|ocultar|estado/))))return;
+    const p=buscarProducto(col(f,/producto/));const ig=col(f,/instagram/);
+    add(p,[p],videoSrc(ig)?ig:col(f,/video|archivo/));
+  });
+  (Array.isArray(ex)?ex:[]).forEach(e=>{
+    const ps=[].concat(e.productos||e.producto||[]).map(buscarProducto).filter(Boolean);
+    if(ps.length)add(ps.find(x=>x.a)||ps[0],ps,e.video);
+  });
+  REELS=mezclar(out);
+}
+function cargarReels(){
+  if(reelsPedidos){armarReels();return}reelsPedidos=true;
+  const planilla=REELS_SHEET.startsWith("__")?Promise.resolve([]):hoja(REELS_SHEET);
   // reels.json: videos vinculados a mano (un video puede ir a varias publicaciones del mismo producto)
   const extra=fetch("reels.json").then(r=>r.ok?r.json():[]).catch(()=>[]);
-  Promise.all([planilla,extra]).then(([rows,ex])=>{
-    const out=[];
-    (Array.isArray(rows)?rows:[]).slice().reverse().forEach(f=>{
-      const p=buscarProducto(col(f,/producto/));if(!p)return;
-      const src=videoSrc(col(f,/instagram/))||videoSrc(col(f,/video|archivo/));if(!src)return;
-      if(/^(no|ocultar|borrar)/.test(norm(col(f,/mostrar|ocultar|estado/))))return;
-      out.push({p,ps:[p],src,h:/drive\.google/.test(src)});
-    });
-    (Array.isArray(ex)?ex:[]).forEach(e=>{
-      const ps=[].concat(e.productos||e.producto||[]).map(buscarProducto).filter(Boolean);const src=videoSrc(e.video);
-      if(ps.length&&src)out.push({p:ps.find(x=>x.a)||ps[0],ps,src,h:e.formato?/^h/i.test(e.formato):/drive\.google/.test(src)});
-    });
-    REELS=out;if(REELS.length)route();
-  });
+  Promise.all([planilla,extra]).then(d=>{RAW_REELS=d;armarReels();if(REELS.length&&$("#rv").hidden)route()});
 }
+const reelThumb=(r,i)=>`<button class="reel-t" data-reel="${i}" aria-label="Ver video: ${esc(r.p.t)}">${r.th?`<img class="vid" src="${esc(r.th)}" alt="" loading="lazy">`:(r.p.ph&&r.p.ph[0]?`<img src="${esc(r.p.ph[0])}" alt="" loading="lazy">`:"")}<i class="play"></i><span>${esc(r.p.t)}</span></button>`;
+const reelFrame=r=>`<iframe src="${r.src}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video: ${esc(r.p.t)}"></iframe>${/drive\.google/.test(r.src)?'<i class="rv-block" aria-hidden="true"></i>':""}`;
 function reelsRow(){
   if(!REELS.length)return "";
   return `<section class="reels" aria-label="Reels"><div class="reels-h"><h2>Reels</h2><small>Mirá los productos funcionando</small></div>
-  <div class="reel-row">${REELS.map((r,i)=>`<button class="reel-t" data-reel="${i}" aria-label="Ver video: ${esc(r.p.t)}">${r.p.ph&&r.p.ph[0]?`<img src="${esc(r.p.ph[0])}" alt="" loading="lazy">`:""}<i class="play"></i><span>${esc(r.p.t)}</span></button>`).join("")}</div></section>`;
+  <div class="reel-row">${REELS.map(reelThumb).join("")}</div></section>`;
 }
 function abrirReel(i){
   if(!REELS.length)return;ri=(i+REELS.length)%REELS.length;const r=REELS[ri],p=r.p;
   document.querySelector(".reelv-box").classList.toggle("h",!!r.h);
-  $("#rvF").innerHTML=`<iframe src="${r.src}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video: ${esc(p.t)}"></iframe>`;
+  $("#rvF").innerHTML=reelFrame(r);
   $("#rvI").innerHTML=`<div><b>${esc(p.t)}</b><small>${p.a&&p.p?fmt(p.p)+" · 10% OFF por transferencia":"Consultá disponibilidad"}</small></div><a href="#${p.slug}" id="rvGo">Ver producto</a>`;
   $("#rvP").hidden=$("#rvN").hidden=REELS.length<2;
   $("#rv").hidden=false;document.body.style.overflow="hidden";
@@ -688,15 +714,30 @@ function abrirReel(i){
 function cerrarReel(){$("#rv").hidden=true;$("#rvF").innerHTML="";document.body.style.overflow=""}
 $("#rvX").onclick=cerrarReel;$("#rvP").onclick=()=>abrirReel(ri-1);$("#rvN").onclick=()=>abrirReel(ri+1);
 $("#rv").addEventListener("click",e=>{if(e.target.id==="rv")cerrarReel();if(e.target.id==="rvGo")cerrarReel()});
-document.addEventListener("keydown",e=>{if($("#rv").hidden)return;if(e.key==="Escape")cerrarReel();if(e.key==="ArrowRight")abrirReel(ri+1);if(e.key==="ArrowLeft")abrirReel(ri-1)});
+document.addEventListener("keydown",e=>{if($("#rv").hidden){if($("#rpF")&&!/INPUT|TEXTAREA|SELECT/.test((document.activeElement||{}).tagName||"")){if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();verReel(rpi+1)}if(e.key==="ArrowUp"||e.key==="ArrowLeft"){e.preventDefault();verReel(rpi-1)}}return}if(e.key==="Escape")cerrarReel();if(e.key==="ArrowRight")abrirReel(ri+1);if(e.key==="ArrowLeft")abrirReel(ri-1)});
 {let x0=null;$("#rvF").addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
  $("#rv").addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>60)abrirReel(ri+(dx<0?1:-1))})}
 
 
+let rpi=0;
+function verReel(i){
+  if(!REELS.length||!$("#rpF"))return;rpi=(i+REELS.length)%REELS.length;const r=REELS[rpi],p=r.p;
+  $("#rpF").innerHTML=reelFrame(r);
+  $("#rpI").innerHTML=`<small>Video ${rpi+1} de ${REELS.length}</small><b>${esc(p.t)}</b><small>${p.a&&p.p?fmt(p.p)+" · 10% OFF por transferencia":"Consultá disponibilidad"}</small><a href="#${p.slug}">Ver producto</a>`;
+  document.querySelectorAll("#rpG [data-rp]").forEach(b=>b.setAttribute("aria-current",String(+b.dataset.rp===rpi)));
+}
 function renderReels(){
   $("#strip").hidden=true;$("#side").innerHTML="";document.querySelector("main .wrap").classList.add("solo");
-  $("#view").innerHTML=`<section class="reels-page"><div class="reels-h"><h2>Reels</h2><small>Mirá los productos funcionando. Tocá uno para verlo.</small></div>
-  ${REELS.length?`<div class="reels-grid">${REELS.map((r,i)=>`<button class="reel-t" data-reel="${i}" aria-label="Ver video: ${esc(r.p.t)}">${r.p.ph&&r.p.ph[0]?`<img src="${esc(r.p.ph[0])}" alt="" loading="lazy">`:""}<i class="play"></i><span>${esc(r.p.t)}</span></button>`).join("")}</div>`:`<div class="empty">Pronto vas a ver acá videos de nuestros productos.</div>`}</section>`;
+  if(!REELS.length){$("#view").innerHTML=`<section class="reels-page"><div class="reels-h"><h2>Reels</h2></div><div class="empty">${reelsPedidos&&RAW_REELS?"Pronto vas a ver acá videos de nuestros productos.":"Cargando videos…"}</div></section>`;window.scrollTo(0,0);return}
+  mezclar(REELS);rpi=0;
+  $("#view").innerHTML=`<section class="reels-page"><div class="reels-h"><h2>Reels</h2><small>Mirá los productos funcionando</small></div>
+  <div class="rp"><div class="rp-stage"><div class="rp-frame" id="rpF"></div><div class="rp-nav"><button id="rpP" aria-label="Video anterior">▲</button><button id="rpN" aria-label="Video siguiente">▼</button></div></div><div class="rp-info" id="rpI"></div></div>
+  <h3 class="rp-more">Más videos</h3><div class="reels-grid" id="rpG">${REELS.map((r,i)=>reelThumb(r,i).replace('data-reel=','data-rp=')).join("")}</div></section>`;
+  $("#rpP").onclick=()=>verReel(rpi-1);$("#rpN").onclick=()=>verReel(rpi+1);
+  $("#rpG").onclick=e=>{const t=e.target.closest("[data-rp]");if(!t)return;e.preventDefault();e.stopPropagation();verReel(+t.dataset.rp);window.scrollTo({top:0,behavior:"smooth"})};
+  {let y0=null,x0=null;const z=$("#rpI");z.addEventListener("touchstart",e=>{y0=e.touches[0].clientY;x0=e.touches[0].clientX},{passive:true});
+   z.addEventListener("touchend",e=>{if(y0==null)return;const dy=e.changedTouches[0].clientY-y0,dx=e.changedTouches[0].clientX-x0;y0=null;const d=Math.abs(dy)>Math.abs(dx)?dy:dx;if(Math.abs(d)>50)verReel(rpi+(d<0?1:-1))})}
+  verReel(0);
   window.scrollTo(0,0);
 }
 function setNav(id){
@@ -722,7 +763,18 @@ function renderAdmin(){
    3) catalogo-ml.json (copia de Mercado Libre que se actualiza sola) */
 const SHEET_ID="1JkdHHbBojA0vDSJO4zkQVbrexuAQKFKWfBPeisP25l4";
 const SHEET_ML="1JwkT3fv9DmZi4esw3Fw6sgc71hg-1xOS4gS__yxFBsc"; // "TecnoShow-mercadolibre" (vicvelasco23@gmail.com)
-const FUENTES=[null,`https://opensheet.elk.sh/${SHEET_ML}/1`,"catalogo-ml.json"]; // el formulario viejo ya no se usa
+function csv(t){
+  const rows=[];let row=[],c="",q=false;
+  for(let i=0;i<t.length;i++){const ch=t[i];
+    if(q){if(ch==='"'){if(t[i+1]==='"'){c+='"';i++}else q=false}else c+=ch}
+    else if(ch==='"')q=true;else if(ch===","){row.push(c);c=""}else if(ch==="\n"||ch==="\r"){if(ch==="\r"&&t[i+1]==="\n")i++;row.push(c);rows.push(row);row=[];c=""}else c+=ch}
+  if(c!==""||row.length){row.push(c);rows.push(row)}
+  const h=(rows.shift()||[]).map(x=>x.trim());
+  return rows.filter(r=>r.some(x=>x.trim()!=="")).map(r=>{const o={};h.forEach((k,j)=>{if(k&&r[j]!==undefined&&r[j]!=="")o[k]=r[j]});return o});
+}
+// Lee la primera pestaña de una planilla de Google publicada con link
+const hoja=id=>fetch(`https://docs.google.com/spreadsheets/d/${id}/export?format=csv`).then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{if(/^\s*</.test(t))throw 0;return csv(t)})
+  .catch(()=>fetch(`https://opensheet.elk.sh/${id}/1`).then(r=>r.ok?r.json():[])).then(d=>Array.isArray(d)?d:[]).catch(()=>[]);
 const CATS_ORDEN=["Parlantes y amplificación","Iluminación","Auriculares","DJ y consolas","Máquinas de humo","Micrófonos","Video y pantallas","Cables y conectores","Soportes, fundas y estructuras","Instrumentos","Electrónica y repuestos","Accesorios","Otros"];
 const CAT_LABEL={"Parlantes y amplificación":"Audio: parlantes y potencias","DJ y consolas":"DJ"};
 const catL=c=>CAT_LABEL[c]||c;
@@ -752,7 +804,7 @@ function aItem(f,i){
   const s=num(g("vendidos"));if(s)o.s=s;const r=parseFloat(g("calificacion"));if(r)o.r=r;
   return o;
 }
-function start(items){
+function start(items,act){
   P=items;byId={};
   const usados=new Set();
   P.forEach(p=>{let b=norm(p.t).replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,80).replace(/-+$/,"")||"producto",sl=b,k=2;while(usados.has(sl))sl=b+"-"+(k++);usados.add(sl);p.slug=sl;
@@ -761,13 +813,14 @@ function start(items){
   const liq=P.some(p=>p.sc==="Líquidos");
   $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button><button data-o="1" class="ofertas">Ofertas</button>`+(REELS_ON?`<a class="reels-tab" href="#reels">▶ Reels</a>`:"")+CATS.map(c=>`<button data-c="${esc(c)}">${esc(catL(c))}</button>`+(c==="Máquinas de humo"&&liq?`<button data-c="${esc(c)}" data-s="Líquidos">Líquidos</button>`:"")).join("");
   $("#factN").textContent="+"+(Math.floor(P.length/100)*100);
+  if(act){armarReels();const v=location.hash.slice(1);if(v!=="reels"&&$("#rv").hidden)route();return}
   route();
   cargarReels();
 }
-Promise.all(FUENTES.map(u=>!u?Promise.resolve([]):fetch(u).then(r=>r.ok?r.json():[]).then(d=>Array.isArray(d)?d:[]).catch(()=>[]))).then(([form,planilla,copia])=>{
+function armar(planilla,copia){
   // La pestaña "mercadolibre" pisa solo las celdas que tengan algo escrito; fotos y descripción salen de la copia.
   const base={};copia.forEach(f=>{if(f.sku)base[String(f.sku).trim()]=f});
-  const filas=[...form];
+  const filas=[];
   planilla.forEach(f=>{const k=String(f.sku??"").trim();const b=base[k]||{};const m=Object.assign({},b);
     // El precio de Mercado Libre gana: la planilla solo pone precio a los productos que no están en ML.
     Object.entries(f).forEach(([c,v])=>{if(String(v??"").trim()==="")return;if(/^precio(_anterior)?$/.test(c.trim())&&num(b.precio))return;m[c]=v});filas.push(m)});
@@ -776,8 +829,31 @@ Promise.all(FUENTES.map(u=>!u?Promise.resolve([]):fetch(u).then(r=>r.ok?r.json()
   const ocultos=new Set(planilla.filter(f=>Object.entries(f).some(([c,v])=>/^(stock|ocultar|eliminar|estado)$/i.test(c.trim())&&/^(eliminar|eliminado|borrar|ocultar|oculto)$/i.test(norm(String(v??"")).trim()))).map(f=>String(f.sku??"").trim()));
   const out=[],vistos=new Set();
   filas.forEach((f,i)=>{const k=String(f.sku??"").trim();if(k&&ocultos.has(k))return;const o=aItem(f,i);if(o&&!vistos.has(o.id)){vistos.add(o.id);out.push(o)}});
-  if(!out.length)throw 0;
-  start(out);
+  return out;
+}
+// Guarda en el navegador solo lo que la planilla cambia respecto de la copia, para mostrar los productos al instante la próxima vez.
+function resumir(planilla,copia){
+  const base={};copia.forEach(f=>{if(f.sku)base[String(f.sku).trim()]=f});
+  return planilla.map(f=>{const k=String(f.sku??"").trim(),b=base[k];if(!b)return f;const o={sku:k};
+    Object.entries(f).forEach(([c,v])=>{v=String(v??"").trim();if(v&&v!==String(b[c]??"").trim())o[c]=v});return o}).filter(o=>Object.keys(o).length>1);
+}
+const firma=out=>out.map(o=>[o.id,o.p,o.pp||0,o.a,o.of,o.c,o.t].join("~")).join("|");
+let PLAN_CACHE=null;try{PLAN_CACHE=JSON.parse(localStorage.getItem("ts_plan2")||"null")}catch(e){}
+const pCopia=fetch("catalogo-ml.json").then(r=>r.ok?r.json():[]).then(d=>Array.isArray(d)?d:[]).catch(()=>[]);
+const pPlan=hoja(SHEET_ML);
+pCopia.then(copia=>{
+  const tieneCache=PLAN_CACHE&&Array.isArray(PLAN_CACHE.rows);
+  const espera=tieneCache?Promise.resolve(null):Promise.race([pPlan,new Promise(r=>setTimeout(()=>r(null),2000))]);
+  return espera.then(pl=>{
+    const out=armar(pl||(tieneCache?PLAN_CACHE.rows:[]),copia);
+    if(!out.length)throw 0;
+    start(out);const f0=firma(out);
+    pPlan.then(pl2=>{
+      if(!pl2.length)return;
+      try{localStorage.setItem("ts_plan2",JSON.stringify({t:Date.now(),rows:resumir(pl2,copia)}))}catch(e){}
+      if(pl)return;const o2=armar(pl2,copia);if(o2.length&&firma(o2)!==f0)start(o2,true);
+    });
+  });
 }).catch(()=>{$("#view").innerHTML=`<div class="empty">No pudimos cargar el catálogo. Recargá la página o escribinos al 261 418 9999.</div>`});
 })();
 </script>
