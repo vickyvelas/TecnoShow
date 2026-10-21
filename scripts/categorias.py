@@ -16,6 +16,7 @@ G=[ # (categoria, patrones)  -- el orden desempata
 ]
 OTROS=[r'big max',r'cocina',r'cuchillo',r'ducha',r'planchita',r'almohada',r'pantalones',r'guantes',r'paleta',r'golf',r'droid',r'caja fuerte',r'cierre giratorio',r'rueda',r'mesa de luz',r'meza de luz',r'sacacorcho',r'destapador',r'arco nerf',r'nerf',r'monopatin',r'piedra',r'diccionario',r'flores? de ducha',r'organizador',r'cerradura',r'protector',r'casco',r'tarjeta',r'invitacion',r'album',r'disco de vinilo',r'cd original',r'baliza triangular']
 OVERRIDES={ # revisados a mano
+ 'MLA4086392848':'Video y pantallas',
  'MLA2195994315':'Iluminación',
  'MLA4040047284':'Accesorios',
  'MLA764056612':'Auriculares','MLA1504959604':'Auriculares','MLA3168246272':'Auriculares','MLA758324173':'Auriculares','MLA1260369993':'Auriculares',
