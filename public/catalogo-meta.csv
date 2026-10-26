@@ -1,4 +1,90 @@
 id,title,description,availability,condition,price,link,image_link,additional_image_link,brand,product_type
+MLA1370027419,Crossover Behringer CX3400 activo,"Crossover Behringer CX3400 Super X-Pro
+Especificaciones técnicas
+* Entradas
+- Conexiones: XLR
+- Tipo: servosimétrica controlada electrónicamente, supresión de interferencias de AF
+- Impedancia: simétrico 50k Ohmios, asimétrico 25k Ohmios
+- Máx. nivel de entrada: +20 dBu típica, simétrica o asimétrica
+- CMRR: 40 dB, típico 55 dB @ 1 kHz
+* Salidas
+- Conexiones: XLR
+- Tipo: servosimétrica controlada electrónicamente, supresión de interferencias de AF
+- Impedancia: simétrico 60 Ohmios, asimétrico 30 Ohmios
+- Máx. nivel de salida: +20 dBm simétrica/asimétrica
+* Rendimiento
+- Ancho de banda: 20 Hz a 20 kHz, +0/-0.5 dB
+- Respuesta frecuencia: 5 Hz a 90 kHz, +0/-3 dB
+- Relación señal/ruido: Ref.: +4 dBu, 20 Hz a 20 kHz, no ponderado
+- Low Output: Modo estéreo: 93 dBu Modo mono: 93 dBu
+- Low-Mid Output: 93 dBu, 94 dBu
+- Mid Output: 95 dBu
+- High-Mid Output: 93 dBu, 94 dBu
+- High Output: 90 dBu, 88 dBu
+- Margen dinámico: 106 dB, no ponderado
+- THD & Noise: Limiter Off: 0.04% Limiter On: 0.5%
+- Diafonía: High to Low: 93 dB, High to Mid: 94 dBu, Mid to Low: 95 dBu, High to High-Mid: 95 dBu, High-Mid to Low-Mid: 95 dBu, Low-Mid to Low: 92 dBu
+* Crossover
+- Tipo filtro: Linkwitz-Riley, 24 dB/octava, estado variable
+- Modo estéreo frecuencias: x1 / x10
+- Low/High: 44 a 930 Hz / 440 Hz a 9.3 kHz
+- Low/Mid: 44 a 930 Hz / 440 Hz a 9.3 kHz
+- Mid/High: 440 Hz a 9.3 kHz
+- Modo mono frecuencias: x1 / x10
+- Low/Low-Mid: 44 a 930 Hz / 440 Hz a 9.3 kHz
+- Low-Mid/High-Mid: 440 Hz a 9.3 kHz
+- High-Mid/High: 440 Hz a 9.3 kHz
+* Interruptor de Función
+Lado Anterior:
+- Low Cut: Activa el filtro alto paso 25 Hz Butterworth, 12 dB/octava
+- Mute: Silencia la salida correspondiente
+- Phase Invert: Invierte la fase de la salida correspondiente
+- CD Horn: Corrige la respuesta de frecuencia del CD Horn 3.5 kHz
+- Limiter: Activa la función del limitador para todas las salidas
+Lado posterior:
+- Xover Frequency: Multiplica la respuesta de frecuencia XOver por 10
+- Mode: Selecciona entre modo estéreo/mono y 2/3/4 vías
+- LF Sum: Selecciona entre bajo mono y estéreo
+* Regulador
+- Input: Controla la amplificación de entrada (+/-12 dB)
+- Xover Frequency: Controla la frecuencia de recepción de desviación
+- Delay: Controla el retraso de la salida Low (0 a 2 ms)
+- Gain: Controla la amplificación de salida (+/-6 dB)
+- Threshold: Controla el umbral del limitador (-6 dB a OFF)
+* Power Supply
+- Tensión de Red: 100 - 120 V~, 200 - 240 V~, 50 - 60 Hz
+- Consumo de energía máx.: 22 W
+- Fusible: 100 - 120 V~: T 630 mA H / 200 - 240 V~: T 315 mA H
+- Conexión de red: Conexión estándar para aparatos fríos
+* Dimensiones/Peso
+- Dimensiones: 44,5 x 482,6 x 215 mm
+- Peso: 2.5 kg
+- Peso de transporte: 3.5 kg",in stock,new,429999.00 ARS,https://tecnoshow.vercel.app/#MLA1370027419,https://http2.mlstatic.com/D_NQ_NP_2X_909061-MLA99508297748_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_642385-MLU75179798798_032024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_955548-MLU75327108181_032024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_656826-MLU75179633642_032024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_816791-MLU75327108193_032024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_824910-MLU75128434467_032024-F.jpg",Behringer,Parlantes y amplificación
+MLA2221094459,Bañador Led Compacto Nebula Quad 14 Tecshow Para Rack S/caja,"**NEBULA QUAD 14**
+SIN CAJA, IDEAL PARA RACK
+Tenemos el RACK de 10 Unidades
+Ideal para escenarios, eventos y aplicaciones donde se requiera una iluminación versátil y de alto rendimiento, el Nebula Quad 14 es la elección perfecta para crear ambientes vibrantes y profesionales.
+Bañador LED compacto – 14 LEDs 4-en-1 de 6W
+14 LEDs 4-en-1 RGBW de 6W
+Ángulo de haz: 25º
+Diseño delgado
+Nebula Quad 14 es un bañador LED liviano y compacto que incorpora 14 LEDs 4-en-1 de 6W. Ideal para cobertura de espacios o creación de efectos, Nebula Quad 14 posee tecnología LED de cuatro colores que permite una mezcla RGBW suave sin sombras multicolores.
+**Ficha Técnica - Nebula Quad 14**
+Fuente & Óptica
+Fuente de Luz: 14 LEDs 4-en-1 de 6W cada uno
+Vida Útil: 50,000 horas
+Ángulo de Haz: 25º
+Efectos & Funciones
+Dimmer: Rango completo de 0-100% para todos los colores
+Efecto Estrobo: Incluido
+Programas Integrados: Variados efectos preprogramados
+Tecnología LED 4-en-1: Mezcla suave RGBW sin sombras multicolores
+Control
+Canales DMX: 4/8
+Modos de Operación: Automático, audiorítmico, control remoto y DMX
+Físico
+Dimensiones: 180x80x155 mm
+Peso: 0.90 kg",in stock,new,82999.00 ARS,https://tecnoshow.vercel.app/#MLA2221094459,https://http2.mlstatic.com/D_NQ_NP_2X_614845-MLA118519888873_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_794472-MLA118519044035_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_817079-MLA97123899673_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_992399-MLA97123997009_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_955227-MLA119928950289_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_954532-MLA119929066399_102026-F.jpg",Tecshow,Iluminación
 MLA850380157,Cable Minidin 8 Pines Con 2 Conectores Machos Para Cd Doble,"Características
 Marca Moon
 Modelo CMD8P
@@ -539,11 +625,6 @@ Incluye:
 2 Pipetas para micrófono
 2 Broches para micrófono",in stock,new,289999.00 ARS,https://tecnoshow.vercel.app/#MLA4040018620,https://http2.mlstatic.com/D_NQ_NP_2X_815703-MLA117319691718_102026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_883035-MLA118913145123_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_729721-MLA118912761813_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_734187-MLA118914389419_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_957776-MLA117320958862_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_655046-MLA117320899170_102026-F.jpg",Novik,Micrófonos
 MLA2168969063,Combo 2 Sparta X L Cabezal Móvil Doble Cara: Wash & Strobo,"2 Sparta XL es un cabezal móvil compacto y liviano con diseño de doble cara. Este equipo combina las funciones wash y estrobo en la misma cabeza haciéndolo ideal para mútiples aplicaciones. La Cara 1 cuenta con 7 LEDs RGBW de 12W 4-en-1 y además incorpora un efecto strip con 60 LEDs RGB de 0.2W 3-en-1 instalados a modo de contorno luminoso alrededor de la lente principal. Esta cara permite ajustar la temperatura de color entre 2800K y 5600K . La Cara 2 está equipada con 324 LEDs blanco cálidos + blanco frío de 0.5W distribuidos en 9 anillos individuales, con ajuste de temperatura de color de 2500K a 4600K. El Sparta XL no solo funciona como un potente wash con movimiento, sino también como un destacado estrobo móvil, ideal para quienes buscan versatilidad y creatividad en un solo equipo.",in stock,new,1799999.00 ARS,https://tecnoshow.vercel.app/#MLA2168969063,https://http2.mlstatic.com/D_NQ_NP_2X_985560-MLA119033957115_102026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_780048-MLA117433873390_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_701635-MLA117434377028_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_899708-MLA117434080400_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_998589-MLA119034870677_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_850684-MLA117435195968_102026-F.jpg",Tecshow,Iluminación
-MLA4044653628,Bandeja Giradisco Tocadiscos Pioneer Pl-z85,"Esta bandeja giradisco Pioneer PL-Z85 está pensada para quienes buscan recuperar la escucha de vinilos con un equipo de funcionamiento sencillo y enfoque clásico. Su diseño apunta a una reproducción estable dentro de un sistema doméstico, con una experiencia directa y sin funciones complejas.
-Trabaja con alimentación de corriente alterna AC, lo que facilita su uso en entornos habituales de audio. La marca Pioneer aporta una referencia conocida por muchos aficionados al sonido analógico, especialmente en equipos de línea tradicional.
-El mecanismo de transmisión por correa ayuda a separar el giro del motor de la superficie de lectura, una solución común en tocadiscos de este tipo. También incorpora brazo recto, una elección que encaja con sesiones de escucha orientadas a la simplicidad y al manejo práctico.
-Ofrece dos velocidades de rotación, 33 1/3 y 45 rpm, para reproducir distintos formatos de disco sin complicaciones. No incorpora control de pitch ni anti-skating, por lo que su enfoque se mantiene directo y fácil de entender. Tampoco cuenta con Bluetooth, algo a considerar si prefieres una experiencia analógica pura.
-Es una opción interesante para coleccionistas y personas que desean incorporar un tocadiscos de uso doméstico con funciones esenciales bien definidas. Si buscas una bandeja giradisco centrada en lo fundamental, este modelo reúne los elementos clave para disfrutar de tus vinilos con un manejo claro.",in stock,new,225999.00 ARS,https://tecnoshow.vercel.app/#MLA4044653628,https://http2.mlstatic.com/D_NQ_NP_2X_808962-MLA118970627529_102026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_843250-MLA118971566745_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_924614-MLA118975806369_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_633141-MLA118970922719_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_750755-MLA118971334531_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_625659-MLA117374516218_102026-F.jpg",Pioneer,DJ y consolas
 MLA4030623746,Bafle Potenciado Behringer Eurolive B112w Bluetooth Color Negro,"Behringer B112W Wireless Altavoz de PA Activo Características clave Behringer B112W Wireless Altavoz de PA Activo Conectividad Bluetooth Sistema Ultra Compacto y Ligero 2 Entradas de Micrófono/Línea con Controles de Volumen Diseño Inclinado para su Uso como Monitor de Suelo Características Altavoz de refuerzo de sonido PA con potencia de 1000 W para directo y playback Sistema ultracompacto y ligero para ofrecer sonido excelente en todo momento Tecnología A2DP de alto rendimiento para reproducir audio desde cualquier dispositivo compatible con Bluetooth Se puede usar de modo inalámbrico con los micrófonos de Behringer (no incluidos) Mezclador de dos canales con entradas individuales Mic/Línea, controles de volumen y clips de LED Ecualizador de dos bandas con procesador de sonido integrado para control del sistema y protección del altavoz Tecnología de amplificador revolucionaria de clase D: potencia enorme, rendimiento acústico increíble y ligereza excelente Driver de 12'' Driver de compresión de 1'' para reproducción excepcional de alta frecuencia Dispersión ultra ancha Salida de línea adicional que permite conectar sistemas de altavoces adicionales Diseño versátil en forma de trapecio Asas ergonómicas para transporte fácil Componentes de alta calidad y construcción resistente
 Aviso legal
 • La duración de la batería depende del uso que se le de al producto.",in stock,new,1199990.00 ARS,https://tecnoshow.vercel.app/#MLA4030623746,https://http2.mlstatic.com/D_NQ_NP_2X_767685-MLA105887494580_022026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_946935-MLA108022280187_032026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_985299-MLU74139442066_012024-F.jpg",Behringer,Parlantes y amplificación
@@ -571,25 +652,6 @@ INCLUYE:
 * 1 clip de micrófono",in stock,new,35999.00 ARS,https://tecnoshow.vercel.app/#MLA2154549139,https://http2.mlstatic.com/D_NQ_NP_2X_952149-MLA112591309097_062026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_808818-MLA113920276465_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_871238-MLA113920539621_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_716506-MLA113920451971_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_858919-MLA111529605046_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_717658-MLA113920451985_062026-F.jpg",Senon,Micrófonos
 MLA4031449260,Par De Soportes De Bafle Para Pared Moon Pbp02 Negro,"El soporte para sistemas de reproducción sonora está diseñado para su instalación en superficies verticales o planos elevados como paredes y techos. Este dispositivo se compone de una estructura rígida fabricada íntegramente en hierro, material seleccionado por su alta resistencia mecánica y estabilidad estructural ante vibraciones.
 El diseño presenta una configuración de ajuste telescópico que permite modificar la extensión del brazo desde una longitud mínima de 20 cm hasta un máximo de 28 cm, facilitando el posicionamiento preciso del componente acústico. El sistema posee una capacidad de carga física de hasta 25 kg, garantizando una fijación estable y segura para equipos de audio de diversas dimensiones. La presentación consta de un conjunto de dos unidades, optimizadas para garantizar la compatibilidad mecánica con bafles estándar en configuraciones de audio profesional o doméstico.",in stock,new,69999.00 ARS,https://tecnoshow.vercel.app/#MLA4031449260,https://http2.mlstatic.com/D_NQ_NP_2X_805887-MLA109978242965_042026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_797064-MLA109978568313_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_676258-MLA109137484398_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_957128-MLA109977978569_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_858194-MLA109978421229_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_837969-MLA109978153843_042026-F.jpg",Moon,"Soportes, fundas y estructuras"
-MLA3286946364,Pandereta Doble Sonaja Medialuna Colores Varios (20 Sonajas),"Pandereta Genérica Doble Sonaja Medialuna de Colores Varios. Ideal para músicos que buscan calidad y durabilidad en sus instrumentos. Este modelo cuenta con doble sonaja que enriquece el sonido, proporcionando un tono vibrante y claro. Su diseño en forma de medialuna facilita el agarre y manejo durante la interpretación. El acabado en colores le da un toque divertido y profesional. Perfecta para presentaciones en vivo, estudios de grabación o prácticas musicales.
-Garantía de fábrica: 30 días",in stock,new,35000.00 ARS,https://tecnoshow.vercel.app/#MLA3286946364,https://http2.mlstatic.com/D_NQ_NP_2X_882476-MLA81967900366_022025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_729399-MLA118782761273_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_818732-MLA117195157060_102026-F.jpg",Genérica,Instrumentos
-MLA4031541524,Pie Recto Para Micrófono Con Soporte Senon Ms02r,"* SOPORTE PIE RECTO PARA MICRÓFONO MS02R SENON
-Soporte recto para micrófono con altura regulable, base trípode y clip de micrófono incluido.
-Cuenta con diseño compacto y portátil, ideal para uso en escenarios, estudios, salas de ensayo o conferencias.
-CARACTERÍSTICAS PRINCIPALES:
-* Pie recto para micrófono
-* Altura regulable
-* Base tipo trípode
-* Diseño compacto y portátil
-* Largo del brazo: 750 mm
-* Modelo: MS02R
-* Marca: Senon
-INCLUYE:
-* 1 soporte / pie de micrófono recto
-* 1 base trípode
-* 1 clip de micrófono",in stock,new,35999.00 ARS,https://tecnoshow.vercel.app/#MLA4031541524,https://http2.mlstatic.com/D_NQ_NP_2X_952149-MLA112591309097_062026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_808818-MLA113920276465_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_871238-MLA113920539621_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_716506-MLA113920451971_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_858919-MLA111529605046_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_717658-MLA113920451985_062026-F.jpg",Senon,Micrófonos
-MLA4031459930,Pack 2 Soportes Para Bafle De Pared Moon Pbp02 Hasta 25kg,"El soporte para sistemas de reproducción sonora está diseñado para su instalación en superficies verticales o planos elevados como paredes y techos. Este dispositivo se compone de una estructura rígida fabricada íntegramente en hierro, material seleccionado por su alta resistencia mecánica y estabilidad estructural ante vibraciones.
-El diseño presenta una configuración de ajuste telescópico que permite modificar la extensión del brazo desde una longitud mínima de 20 cm hasta un máximo de 28 cm, facilitando el posicionamiento preciso del componente acústico. El sistema posee una capacidad de carga física de hasta 25 kg, garantizando una fijación estable y segura para equipos de audio de diversas dimensiones. La presentación consta de un conjunto de dos unidades, optimizadas para garantizar la compatibilidad mecánica con bafles estándar en configuraciones de audio profesional o doméstico.",in stock,new,69999.00 ARS,https://tecnoshow.vercel.app/#MLA4031459930,https://http2.mlstatic.com/D_NQ_NP_2X_805887-MLA109978242965_042026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_797064-MLA109978568313_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_676258-MLA109137484398_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_957128-MLA109977978569_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_858194-MLA109978421229_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_837969-MLA109978153843_042026-F.jpg",Moon,"Soportes, fundas y estructuras"
 MLA855506731,Cable Fibra Óptica Conector Tolskin Gold Calidad Premium,"Cable Fibra Optica Con Conector Tolskin Metálico de Muy Alta Calidad Con Conectores Gold y Cable de Milimetros.
 DESCRIPCIÓN
 Cable Fibra Optica Digital Toslink A Toslink Calidad Premium
@@ -805,14 +867,6 @@ MARCA: CABLELAB
 • Largo 100 metros.
 • Color negro.
 • Peso: 4.5 Kg.",in stock,new,229999.00 ARS,https://tecnoshow.vercel.app/#MLA4021899254,https://http2.mlstatic.com/D_NQ_NP_2X_874719-MLA117049307880_102026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_946395-MLA117049411500_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_672011-MLA117049587324_102026-F.jpg",Stagelab,Cables y conectores
-MLA4022044032,Máquina Humo Cirrus 1000 Tecshow Control Inalambrico Y Cable,"Tanto en casas, bares, salones o boliches el humo es el elemento perfecto para crear atmósferas especiales. La máquina Tecshow te ayudará a darle ese toque distinto a tus eventos, ¡que serán todo un éxito!
-¡Que empiece la fiesta!
-La potencia de 1000W la convierte en un equipo de uso profesional. Puede ambientar grandes espacios en pocos minutos, solo tendrás que ponerla a funcionar y conseguirás que se genere un efecto único en el lugar.
-Comodidad en tus manos
-Accioná la máquina desde cualquier sitio con su mando inalámbrico. Ganarás practicidad en lugares de largas distancias y podrás activarla automáticamente en el mejor momento de la noche.
-Control con DMX
-La principal ventaja de esta tecnología es que está diseñada para manejar todo el sistema de iluminación y efectos de un show a la vez. Incluso pemite sincronizar el humo de acuerdo al ritmo de la canción, generando experiencias de otro nivel.
-Garantía de fábrica: 30 días",in stock,new,229999.00 ARS,https://tecnoshow.vercel.app/#MLA4022044032,https://http2.mlstatic.com/D_NQ_NP_2X_986439-MLA101495827870_122025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_929191-MLA101495827876_122025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_699922-MLA101998747625_122025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_933758-MLA101998747633_122025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_982280-MLA101495778772_122025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_928907-MLA101998747639_122025-F.jpg",Tecshow,Máquinas de humo
 MLA915771544,Cable Balanceado Dmx -120 Ohms Importado 90 Metros Rollo,"Características principales
 Marca:Cablelab
 Modelo:CLM-3DMX
@@ -931,33 +985,6 @@ Con la DI100, su fuente de sonido alcanzará la consola balanceada y sin interfe
 - Componentes de alta calidad y construcción para durabilidad.",in stock,new,142999.00 ARS,https://tecnoshow.vercel.app/#MLA2472245528,https://http2.mlstatic.com/D_NQ_NP_2X_686039-MLA99880680119_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_798824-MLA99397345134_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_763004-MLA99880601015_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_725601-MLA99397178784_112025-F.jpg",Behringer,DJ y consolas
 MLA3354975044,Ficha Neutrik Nc3mx Conector Xlr Canon Macho A Cable 3 Pines Color Gris,"El producto en cuestión es el Neutrik Nc3mx, un conector XLR de género masculino, esencial para cualquier profesional del sonido o entusiasta del audio. Este conector XLR de alta calidad está diseñado para proporcionar conexiones seguras y sin interferencias, asegurando una transmisión de señal óptima en todo momento. La estructura de este conector está hecha de metal, lo que garantiza su durabilidad y resistencia al desgaste. Además, su cubierta de color negro le da un aspecto elegante y profesional. Este conector XLR macho es del modelo nc3mx, una de las opciones más populares y confiables de la marca Neutrik, reconocida por su compromiso con la calidad y la innovación en el campo del audio. Cada envase contiene una unidad de este conector, lo que facilita la compra de la cantidad exacta que necesitas para tu equipo de sonido. Con el Neutrik Nc3mx, puedes esperar un rendimiento de audio excepcional y una gran durabilidad.",in stock,new,22048.00 ARS,https://tecnoshow.vercel.app/#MLA3354975044,https://http2.mlstatic.com/D_NQ_NP_2X_865983-MLA99544794702_122025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_953902-MLU74141693659_012024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_778540-MLA91493712492_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_921749-MLA91493692910_092025-F.jpg",Neutrik,Cables y conectores
 MLA2144107919,Ficha Conector Mini Uhf Hembra Crimp A Rg-58 Adaptador Prof,CONECTOR MINI UHF HEMBRA CRIMP RG 58,in stock,new,8999.00 ARS,https://tecnoshow.vercel.app/#MLA2144107919,https://http2.mlstatic.com/D_NQ_NP_2X_991190-MLA118570351167_102026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_898712-MLA117002007814_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_826377-MLA118569582195_102026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_600456-MLA118569937501_102026-F.jpg",TecnoShow,Cables y conectores
-MLA2104022039,Bandeja para DJ Pioneer DJ Toca Discos PLX-500-K color negro,"PIONEER PLX-500-K (DISPONIBLE EN COLOR NEGRO)
-El PLX-500 hereda el diseño del plato profesional PLX-1000 y ofrece un sonido analógico, cálido y claro. El plato ideal si quieres comenzar a scratchear con vinilos o si simplemente quieres escuchar tu colección de vinilos en casa.
-Construcción sólida con una excelente amortiguación de vibraciones y reproducción de audio precisa, este giradiscos de motor de tracción directa, tiene una salida USB para que puedas realizar grabaciones digitales de tu colección de vinilos en nuestro rekordbox software gratuito. También puedes combinar el PLX-500 con rekordbox dvs Plus Pack, una mesa de mezclas compatible y el Vinilo de Control RB-VS1-K para reproducir y scratchear con archivos digitales.
-DISEÑO DE SONIDO EXCELENTE
-Como el PLX-1000, el PLX-500 está construido para producir sonido de vinilo de alta calidad. Un enrutamiento de audio más corto desde la aguja hasta la salida reduce la distorsión y las salidas de phono y línea permiten que puedas conectarlo directamente a un sistema de sonido o altavoces sin necesidad de un amplificador externo.
-GRABACIÓN DIGITAL FÁCIL
-Graba tu colección de vinilos en archivos digitales de alta calidad simplemente conectando el giradiscos a tu PC o Mac a través de la salida USB.
-Coloca tus carátulas de discos en la pantalla mientras escuchas tus vinilos gracias al soporte de carátulas dentro de la tapa.
-Pioneer PLX-500
--Motor: Corriente continua 3 velocidades: 33, 45 y 78 RPM
--Sistema de tracción: Servo tracción directa
--Plato: Aluminio fundido. Diámetro: 332 mm
--Control Anti Skating
--Pîtch/Tempo Control
--Mecanismo de acción directa
--Puerto USB para grabacion con Rekordbox (Incluye cable)
--Adaptador para singles
--Plato de aluminio fundido
--Freno electrónico
--Brazo con forma de S
--Iluminación Led: Proyector Luz Led 30w
--Relación señal/ruido 50 dB
--Peso ajustable
--Salida Phono/Line (RCA) (para usar con o sin amplificador externo)
-TERMINALES
--USB: 1 puerto USB B
--Salidas: 1 PHONO/LINE (RCA)",in stock,new,1199999.00 ARS,https://tecnoshow.vercel.app/#MLA2104022039,https://http2.mlstatic.com/D_NQ_NP_2X_609000-MLA99963191015_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_964596-MLA91476671532_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_992796-MLU76808430575_062024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_945368-MLA88109052194_072025-F.jpg",Pioneer DJ,DJ y consolas
 MLA1654844802,"Parlante Woofer 18"" Profesional Jahro 18JB1000 1000W RMS Negro","Parlantes JAHRO 18JB1000 * 18"" 1000 Watts RMS",in stock,new,618477.00 ARS,https://tecnoshow.vercel.app/#MLA1654844802,https://http2.mlstatic.com/D_NQ_NP_2X_943448-MLA99999913321_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_770642-MLA91957770657_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_730189-MLA91957800715_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_668052-MLA91957810593_092025-F.jpg",Jahro,Parlantes y amplificación
 MLA855505279,Cable Fibra Óptica Conector Tolskin Metálico Calidad Premium,"Cable Fibra Optica MaxCable Calidad Premium con cable de 6 Milimetros original para sonido de alta fidelidad y Conectores Toslink Metalicos Silver .
 Cable Fibra Optica Digital Toslink A Toslink Calidad Premium
@@ -1150,7 +1177,6 @@ ESPECIFICACIONES TÉCNICAS
 Incluye:
 1 consola SKP VZ-120II
 1 cable de alimentación",in stock,new,779999.00 ARS,https://tecnoshow.vercel.app/#MLA1126602305,https://http2.mlstatic.com/D_NQ_NP_2X_834545-MLA99874665263_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_616495-MLA109216623964_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_891503-MLA109253764431_032026-F.jpg",SKP Pro Audio,DJ y consolas
-MLA1413262813,"Antena Tv Digital Hdtv Interior Y Exterior 3,5dbi Coaxial","Antena Tv Digital Hdtv Interior Y Exterior 3,5dbi Coaxial",in stock,new,24148.00 ARS,https://tecnoshow.vercel.app/#MLA1413262813,https://http2.mlstatic.com/D_NQ_NP_2X_898517-MLA94165079436_102025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_832349-MLA94593616603_102025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_752317-MLA99967226171_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_804554-MLA99483056934_112025-F.jpg",Genérica,Video y pantallas
 MLA1531360984,Tacho PAR Tecshow Nebula 6 LED DMX RGBWA UV Iluminación Dj,"Par LED DMX para interior con 6 LEDs 6-en-1 de 12W. Nebula 6 es un par de LED que cuenta con tecnología 6-en-1 y modo UV para una mezcla de colores RGBWA + UV sin sombras multicolor. Su diseño liviano y ultra delgado lo hace ideal para aplicaciones arquitecturales. Dispone de un ángulo de haz de 25º, dimmer electrónico de 0-100% y operación silenciosa.",in stock,new,157498.00 ARS,https://tecnoshow.vercel.app/#MLA1531360984,https://http2.mlstatic.com/D_NQ_NP_2X_964906-MLA95227535270_102025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_605235-MLA80826039137_112024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_673230-MLA80380796851_112024-F.jpg",Tecshow,Iluminación
 MLA844302505,Micrófonos Behringer C-2 Condensador Cardioide color plateado,"2 micrófonos de condensador combinados para grabación en estudio estéreo y aplicaciones en vivo
 Ideal como micrófonos principales y de soporte para aplicaciones de estudio y en vivo.
@@ -1165,7 +1191,7 @@ Los micrófonos C-2 están diseñados para capturar la interpretación de un cor
 ¿Qué es un micrófono de condensador?
 Un micrófono de condensador es la opción ideal para capturar voces o instrumentos acústicos, ya sea en vivo o en escenarios de grabación. Por su propia naturaleza, los micrófonos de condensador son mucho más sensibles que los micrófonos dinámicos, lo que les permite captar incluso las señales más sutiles. Gracias a su patrón cardioide (en forma de corazón), los micrófonos C-2 captan la señal de su fuente mientras rechazan los sonidos fuera del eje que pueden arruinar una grabación perfecta. Otra diferencia entre los micrófonos de condensador y dinámicos es que contienen un circuito activo que requiere alimentación fantasma (+48 V CC) para funcionar. Puede alimentarlos desde cualquier mezclador Behringer XENYX equipado con alimentación phantom, además de disfrutar de los beneficios de nuestros preamplificadores de micrófono XENYX de última generación.
 Sonido que asombra
-Una vez conectado a su sistema de sonido, notará que estos micrófonos gemelos de calibre profesional tienen una respuesta de frecuencia excepcionalmente plana (un aumento promedio de 4 dB entre 1 kHz y 8 kHz). Para aquellos de ustedes que son nuevos en los micrófonos de condensador, esto básicamente significa que obtendrán un sonido ligeramente más brillante, que le dará la forma perfecta a los platillos y la microfonía aérea. Los pianos acústicos y los coros también se beneficiarán enormemente de esta respuesta de frecuencia. El patrón de captación cardioide proporciona una separación de fuente de sonido y un rechazo de retroalimentación sin igual. Los micrófonos C-2 contienen circuitos de entrada FET sin transformador de ruido ultra bajo que pueden manejar dinámicas extremas (de 20 Hz a 20 kHz) y tienen un nivel máximo de presión de sonido de 150 dB. Los micrófonos C-2 también cuentan con una atenuación de baja frecuencia conmutable para eliminar los infrasónicos (",in stock,new,219448.00 ARS,https://tecnoshow.vercel.app/#MLA844302505,https://http2.mlstatic.com/D_NQ_NP_2X_838004-MLA99931287873_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_899352-MLA99931415461_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_940282-MLA99931287891_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_779051-MLA95502111950_102025-F.jpg",Behringer,Micrófonos
+Una vez conectado a su sistema de sonido, notará que estos micrófonos gemelos de calibre profesional tienen una respuesta de frecuencia excepcionalmente plana (un aumento promedio de 4 dB entre 1 kHz y 8 kHz). Para aquellos de ustedes que son nuevos en los micrófonos de condensador, esto básicamente significa que obtendrán un sonido ligeramente más brillante, que le dará la forma perfecta a los platillos y la microfonía aérea. Los pianos acústicos y los coros también se beneficiarán enormemente de esta respuesta de frecuencia. El patrón de captación cardioide proporciona una separación de fuente de sonido y un rechazo de retroalimentación sin igual. Los micrófonos C-2 contienen circuitos de entrada FET sin transformador de ruido ultra bajo que pueden manejar dinámicas extremas (de 20 Hz a 20 kHz) y tienen un nivel máximo de presión de sonido de 150 dB. Los micrófonos C-2 también cuentan con una atenuación de baja frecuencia conmutable para eliminar los infrasónicos (",in stock,new,224999.00 ARS,https://tecnoshow.vercel.app/#MLA844302505,https://http2.mlstatic.com/D_NQ_NP_2X_838004-MLA99931287873_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_899352-MLA99931415461_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_940282-MLA99931287891_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_779051-MLA95502111950_102025-F.jpg",Behringer,Micrófonos
 MLA1456717644,Consola SKP Pro Audio VZ-100 II VZ Powered de mezcla,"Con esta consola de mezcla, vas a poder jugar, inventar y crear los sonidos más increíbles.
 Alimentación fantasma
 La alimentación fantasma, o alimentación phantom, proporciona corriente continua a los dispositivos que lo necesitan, por ejemplo un micrófono. Este tipo de alimentación hace que estos dispositivos se estandaricen y que sea más cómodo y práctico el proceso de instalación, ya que no requiere muchas fuentes de alimentación separadas.
@@ -1337,6 +1363,52 @@ Incluye:
 1 placa interface UMC202HD
 1 cable USB",in stock,new,398998.00 ARS,https://tecnoshow.vercel.app/#MLA2070482376,https://http2.mlstatic.com/D_NQ_NP_2X_920834-MLA99522485192_122025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_720978-MLA92547988976_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_751895-MLA92547969450_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_814579-MLA92547999152_092025-F.jpg",Behringer,DJ y consolas
 MLA1421315509,Linterna Frontal LED Recargable 350 Lm ALL PERSPECTIVES Cabeza USB A Prueba Agua,"Consigue la linterna ideal para todas tus necesidades. Fabricada con materiales resistentes y de calidad, se adapta a todas las situaciones en las que necesites una buena iluminación.",in stock,new,36750.00 ARS,https://tecnoshow.vercel.app/#MLA1421315509,https://http2.mlstatic.com/D_NQ_NP_2X_769695-MLA95139488388_102025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_752710-MLA97863967572_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_610020-MLU74272677170_022024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_678561-MLU74272677182_022024-F.jpg",All Perspectives Headlamp,Iluminación
+MLA1778994206,Soporte de Mesa para Micrófono con Brazo Articulado Moon Negro,"Soporte De Mesa Para Microfono Con Brazo Articulado Moon.
+-270 GRADOS DE ROTACION.
+-PIPETA
+-MATERIAL: METALICO (BASE Y ANDAMIO)
+-LONGITUD DEL BRAZO 38 CM X 38 CM
+-SOPORTA HASTA 4 KGS
+-PESO 1.5 KGs
+-SOPORTE PARA MICROFONO UNIVERSAL DE 45/50 mm DIAMETRO
+El soporte de mesa para micrófono con brazo articulado Moon es un accesorio diseñado para brindar una solución práctica y conveniente para sostener y posicionar un micrófono de manera estable en una mesa o escritorio, permite ajustar fácilmente la altura, el ángulo y la posición del micrófono según las necesidades del usuario. Esto proporciona flexibilidad y versatilidad en términos de posicionamiento del micrófono, lo que permite encontrar la posición óptima para una captación de sonido clara y precisa.",in stock,new,36750.00 ARS,https://tecnoshow.vercel.app/#MLA1778994206,https://http2.mlstatic.com/D_NQ_NP_2X_767121-MLA94036683788_102025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_625603-MLA94037030458_102025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_689162-MLA94037001190_102025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_854327-MLA99938153867_112025-F.jpg",Moon,Micrófonos
+MLA760879648,Liquido De Humo Usa Liquids 20 Litros Linea Disco Dj Liviano,"WORLD WIDE TRADE
+*************************************************************************************************************
+LÍQUIDO PARA MAQUINA DE HUMO X 4 UNIDADES - BIDÓN DE 5 LITROS: USA LIQUIDS [SMOKE DISCO DJ]
+Fluidos USA SMOKE DISCO & DJ línea completa de fluidos USA LIQUIDS para efectos especiales. Ofrecer un ligero efecto de niebla y de baja densidad fueron desarrollados para producciones de teatro, la televisión, con fines de entretenimiento, pequeños clubes y Deejay aplicaciones Móvil y conciertos.
+Fueron diseñados para su uso en las USA Fog Machines o cualquier máquina en el mercado que utilizan fluidos a base de agua, con posibilidades para una amplia gama de efectos, es una gran nube o una neblina imperceptible.
+Hace desarrollados casi 20 años, este líquido ha sido elaborado por la empresa con la necesidad del mercado exigente de los efectos especiales para el entretenimiento. La niebla desarrollado por COMPACTO GROUP ha surgido rápidamente entre los mejores en el mercado por su excelente rendimiento y calidad.",in stock,new,179999.00 ARS,https://tecnoshow.vercel.app/#MLA760879648,https://http2.mlstatic.com/D_NQ_NP_2X_890302-MLA79662211308_102024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_825423-MLA79912130195_102024-F.jpg,Usa Liquids,Máquinas de humo
+MLA3153632736,Morsa De Nudo Simple Stagelab Apa-021b,"Características:
+Morsa ultra-delgada de nudo simple
+Carga máx: 250kg.
+Material: aluminio
+Compatible con: caños de 2'
+Color: Negro
+APA-021B es una morsa de nudo simple especialmente diseñada para trabajo pesado, compatible con caños de 2"" de diámetro soporta hasta 250 Kgs.",in stock,new,36750.00 ARS,https://tecnoshow.vercel.app/#MLA3153632736,https://http2.mlstatic.com/D_NQ_NP_2X_959388-MLA100691166788_122025-F.jpg,,Stagelab,"Soportes, fundas y estructuras"
+MLA825000262,Micrófono Behringer C1 Condensador Cardioide Color Dorado,"MICRÓFONO CONDENSER BEHRINGER C1
+CARACTERÍSTICAS:
+Micrófono profesional de condensador de diafragma grande para una calidad de sonido extraordinaria
+Perfecto como micrófono principal o de apoyo para aplicaciones en estudio o en directo
+Respuesta de frecuencia extremadamente lineal y elevada resolución de sonido
+Característica cardioide para separación de las fuentes de sonido y rechazo de feedback excepcionales
+Circuito FET sin transformador de ruido ultra bajo
+Indicación de funcionamiento mediante alimentación fantasma por LED
+Conector de salida XLR bañado en oro para una transmisión del señal perfecta
+Construcción robusta en bronce niquelado satinado
+Soporte en suspensión rotable y estuche de transporte incluidos",in stock,new,209998.00 ARS,https://tecnoshow.vercel.app/#MLA825000262,https://http2.mlstatic.com/D_NQ_NP_2X_995549-MLA99506617098_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_923117-MLA82915226103_032025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_942923-MLA82628313778_032025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_656513-MLA82628313790_032025-F.jpg",Behringer,Micrófonos
+MLA1876099402,Micrófono Inalámbrico Apogee U11h Uhf De Mano Usb. Color Negro,"Apogee U11H
+Micrófono Inalambrico UHF con receptor USB
+Para un correcto funcionamiento debe conectar el receptor USB tipo pendrive a un puerto USB para su alimentación, luego el cable auxiliar a la entrada plug 3,5mm del receptor USB y el otro extremo a la consola, mixer, bafle potenciado, etc, que esté indicado con la palabra MIC
+Características
+- Sistema inalambrico de uso profesional
+- Micrófonos versátiles vocal y para instrumentos
+- Construcción robusta y ergonómica
+- Receptor UHF con alimentación USB
+Incluye:
+- Un micrófono cardioide inalámbrico.
+- Un receptor USB.
+- Cable jack 6.3mm / 3.5mm para conectar del receptor a la entrada de micrófono de tu PC, consola, cabezal, parlante potenciado, etc.
+- Anillo anti-deslizable de color para reconocimiento de micrófono.",in stock,new,146998.00 ARS,https://tecnoshow.vercel.app/#MLA1876099402,https://http2.mlstatic.com/D_NQ_NP_2X_723196-MLA99373464454_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_644002-MLU77132393952_062024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_863197-MLU77132727540_062024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_681486-MLU77345294641_062024-F.jpg",Apogee,Micrófonos
 MLA3168384374,Jbl Max 15 Bafle Potenciado Activo 350 Watts Rms Bluetooth,"Disfruta de un sonido potente y de alta calidad con el Parlante JBL MAX 15 en color negro. Este parlante cuenta con una potencia de salida de 350 W RMS, lo que garantiza un audio nítido y envolvente para tus eventos, reuniones o simplemente para disfrutar en casa. Con su conexión Bluetooth, podrás reproducir tu música favorita desde cualquier dispositivo compatible sin necesidad de cables. A pesar de no ser portátil ni inalámbrico, su diseño elegante y moderno se adapta perfectamente a cualquier espacio. Además, incluye múltiples conectores de entrada como XLR/TRS, Miniplug y Plug, lo que te permite conectar diferentes dispositivos y fuentes de audio. No esperes más para vivir una experiencia de sonido única con el Parlante JBL MAX 15.
 Caracteristicas:
 - Parlante potenciado de doble vía.
@@ -1390,45 +1462,6 @@ Especificaciones Técnicas:
 - Alimentación: 220V - 60/50 HZ.
 - Dimensiones: 68 x 43 x 35 cm (alto x alto x profundo)
 - Peso: 18,5 Kg",in stock,new,682498.00 ARS,https://tecnoshow.vercel.app/#MLA2012046088,https://http2.mlstatic.com/D_NQ_NP_2X_643212-MLA105178409737_012026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_917596-MLA91524086404_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_917333-MLA91921983695_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_914990-MLA105178128503_012026-F.jpg",SKP Pro Audio,Parlantes y amplificación
-MLA3605830256,Parlante Activo SKP Pro Audio SK-6PX Bluetooth Woofer 250W,"SKP Pro Audio SK-6PX ofrece un sonido natural, con una gran claridad y precisión, que se dispersa de manera uniforme. Un parlante que asegura potencia y calidad por igual en la reproducción de contenidos multimedia.
-Para toda ocasión
-Disfrutar de un amplio espectro de sonidos tanto en la reproducción de voces como de notas musicales es posible con este parlante woofer. Dejate asombrar con su excelente desempeño sonoro en películas, series y en tus playlists favoritas.
-Olvidate del amplificador
-Al ser activo solo necesitarás conectarlo a la fuente de sonido y el mismo equipo se encargará de amplificar y reproducir: ganarás practicidad y espacio, ya que además requiere menos cableado que uno pasivo. Es la solución más conveniente si querés producir música en tu casa o en un estudio, y también para DJs.
-Características:
-• Conectividad Bluetooth
-• 2 Vías Full Range
-• 4 Canales de Entrada
-• Posición de Monitoreo a 45°
-• Gabinete color Negro en PVC de Alto Impacto
-• Manijas Laterales para fácil manipulación
-• Entrada de Micrófono Plug 6,35mm + XLR (Canon Hembra)
-• Entrada de Línea RCA x 2 y XLR (Canon Hembra)
-• Salida de Línea Plug 6,35mm + XLR (Canon Macho)
-• Cuna Inferior para Montar Trípode
-• Trípode Incluido
-Especificaciones Técnicas:
-• Potencia RMS: 250W
-• Potencia Máxima: 1000W
-• Respuesta en Frecuencia: 40Hz – 18KHz
-• Sensibilidad: 96 dB(@1W/1m)
-• Nivel de Presión Sonora máximo: 126dB
-• Impedancia Woofer: 4 Ohms
-• Diámetro Woofer: 15” (38,1cm)
-• Imán: 50 Oz / Bobina: 2.5” Kapton VC
-• Impedancia Driver de compresión: 8 ohm
-• Driver de Altas Frecuencias de Titanio y 1,75""
-• Bocina con salida hiperbólica : 90º x 50º
-• Patrón directivo: Cardioide
-• Alimentación: 110 / 220V – 50 / 60Hz – Switch
-• Interruptor de Encendido Apagado
-Dimensiones y Peso:
-• Altura: 74,5cm
-• Frente: 53cm
-• Profundidad: 46,5cm
-• Peso Neto: 21,5Kg
-• Peso Embalado: 23,5Kg
-FOTOS A MODO DE ILUSTRACION",in stock,new,618450.00 ARS,https://tecnoshow.vercel.app/#MLA3605830256,https://http2.mlstatic.com/D_NQ_NP_2X_642662-MLA99988616875_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_829551-MLA91912710197_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_968447-MLA53007670585_122022-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_951647-MLU75115196779_032024-F.jpg",SKP Pro Audio,Parlantes y amplificación
 MLA899207459,Bafle Activo Lexsen X5 Con Bluetooth Tws Fx 150w Rms Color Negro,"Lexsen X5 ofrece un sonido natural, con una gran claridad y precisión, que se dispersa de manera uniforme. Un parlante que asegura potencia y calidad por igual en la reproducción de contenidos multimedia.
 Para toda ocasión
 Disfrutar de un amplio espectro de sonidos tanto en la reproducción de voces como de notas musicales es posible con este parlante woofer. Dejate asombrar con su excelente desempeño sonoro en películas, series y en tus playlists favoritas.
@@ -1854,7 +1887,6 @@ BOBINA MÓVIL: 1.5 pulgadas
 IMÁN: 30 OZ
 DIMENSIONES: 265 x 265 x 140 mm
 PESO: 2.4Kg",in stock,new,83998.00 ARS,https://tecnoshow.vercel.app/#MLA3309695038,https://http2.mlstatic.com/D_NQ_NP_2X_826882-MLA99509510982_112025-F.jpg,,Tecshow,Parlantes y amplificación
-MLA4014334288,Bafle Potenciado Behringer Eurolive B112w Bluetooth Color Negro,"Behringer B112W Wireless Altavoz de PA Activo Características clave Behringer B112W Wireless Altavoz de PA Activo Conectividad Bluetooth Sistema Ultra Compacto y Ligero 2 Entradas de Micrófono/Línea con Controles de Volumen Diseño Inclinado para su Uso como Monitor de Suelo Características Altavoz de refuerzo de sonido PA con potencia de 1000 W para directo y playback Sistema ultracompacto y ligero para ofrecer sonido excelente en todo momento Tecnología A2DP de alto rendimiento para reproducir audio desde cualquier dispositivo compatible con Bluetooth Se puede usar de modo inalámbrico con los micrófonos de Behringer (no incluidos) Mezclador de dos canales con entradas individuales Mic/Línea, controles de volumen y clips de LED Ecualizador de dos bandas con procesador de sonido integrado para control del sistema y protección del altavoz Tecnología de amplificador revolucionaria de clase D: potencia enorme, rendimiento acústico increíble y ligereza excelente Driver de 12'' Driver de compresión de 1'' para reproducción excepcional de alta frecuencia Dispersión ultra ancha Salida de línea adicional que permite conectar sistemas de altavoces adicionales Diseño versátil en forma de trapecio Asas ergonómicas para transporte fácil Componentes de alta calidad y construcción resistente",in stock,new,1199990.00 ARS,https://tecnoshow.vercel.app/#MLA4014334288,https://http2.mlstatic.com/D_NQ_NP_2X_767685-MLA105887494580_022026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_946935-MLA108022280187_032026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_985299-MLU74139442066_012024-F.jpg",Behringer,Parlantes y amplificación
 MLA1368820723,Bafle Caja Sublow Activo 18 350 W Rms Apogee A18 Negro,"Sumérgete en un mundo de sonido envolvente con el Parlante Apogee A18 en color negro. Este potente subwoofer de 350 W RMS te brinda una experiencia de audio de alta calidad, perfecta para disfrutar de tus películas, música y videojuegos favoritos. Con su diseño en formato de caja, el A18 se integra fácilmente en cualquier espacio, aportando estilo y elegancia a tu hogar. Gracias a su amplio rango de frecuencia, desde 35 Hz hasta 4.5 kHz, podrás apreciar cada detalle y matiz de tus contenidos favoritos, desde los graves más profundos hasta los agudos más nítidos. No esperes más para llevar tu experiencia auditiva al siguiente nivel con el Parlante Apogee A18.",in stock,new,1049999.00 ARS,https://tecnoshow.vercel.app/#MLA1368820723,https://http2.mlstatic.com/D_NQ_NP_2X_939393-MLA99504193194_112025-F.jpg,,Apogee,Parlantes y amplificación
 MLA3983806164,Amplificador Funcional Tecshow Dome Core 240 W Digital 100v Negro,"Amplificador Funcional Tecshow Dome Core 240 W Digital 100V Negro
 Tecshow Dome Core 240
@@ -2241,7 +2273,6 @@ BI AMPLIFICADO
 * SPL: 125Db.
 * Dimensiones: 430*415*650mm.
 * Peso: 21 Kg.",in stock,new,1049998.00 ARS,https://tecnoshow.vercel.app/#MLA1895510663,https://http2.mlstatic.com/D_NQ_NP_2X_612134-MLA113293579526_072026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_938509-MLA113291413538_072026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_914185-MLA113293163394_072026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_772197-MLA113291561654_072026-F.jpg",Platinum Pro,Parlantes y amplificación
-MLA1450712317,"Parlante tipo woofer JBL 18SW5P para auto/camioneta color negro de 8Ω 18"" x 18 ""","Parlante tipo woofer JBL 18SW5P para auto/camioneta color negro de 8Ω 18"" x 18 """,in stock,new,1039498.00 ARS,https://tecnoshow.vercel.app/#MLA1450712317,https://http2.mlstatic.com/D_NQ_NP_2X_914350-MLA99352113368_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_890840-MLA75618096929_042024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_668763-MLA75617852093_042024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_883216-MLA75461157946_042024-F.jpg",Jbl,Parlantes y amplificación
 MLA1374596523,Bafle Ciclos Amplificado Con Woofer 15  300 Watt Rms Usb Bt,"Bafle Amplificado! Woofer 15, 300w Rms Usb, Bt Potenciado",in stock,new,1016398.00 ARS,https://tecnoshow.vercel.app/#MLA1374596523,https://http2.mlstatic.com/D_NQ_NP_2X_919107-MLA117912231193_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_664646-MLA70117719408_062023-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_819743-MLA70138500597_062023-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_691628-MLA70138463675_062023-F.jpg",Ciclos,Parlantes y amplificación
 MLA1441702771,"Parlante Activo SKP Q10 MKII de 10"" y 1300W con Bluetooth","SKP Pro Audio Q10 MK2 ofrece un sonido natural, con gran claridad y precisión, que se dispersa de manera uniforme. Un parlante que asegura potencia y calidad en la reproducción de contenidos multimedia.
 Olvídate del amplificador
@@ -2460,46 +2491,6 @@ Protección: Cortocircuito Total / Cortocircuito Abierto /
 Prot. Termica / RF
 Peso: 10.5Kg
 Dimensiones: 482 x 88 x 350mm",in stock,new,629998.00 ARS,https://tecnoshow.vercel.app/#MLA1163454148,https://http2.mlstatic.com/D_NQ_NP_2X_711527-MLA117912464133_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_923002-MLA51430970644_092022-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_712805-MLA51430918885_092022-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_787229-MLA51430905941_092022-F.jpg",Apogee,Parlantes y amplificación
-MLA2104021585,Pioneer DJ DM40-BT,"DISEÑADO PARA DJ Y PRODUCTORES
-Los altavoces para monitores de sobremesa DM-40BT ofrecen un amplio rango de frecuencias y un sonido estéreo 3D, ideal tanto para productores como para DJs. Cuentan con un sistema de reflejo de graves con carga frontal compuesto por woofers de fibra de vidrio de 4 pulgadas, lo que proporciona una respuesta de graves potente y definida. El tweeter de cúpula blanda de 3/4 de pulgada incluye difusores convexos DECO, canalizando la gama de frecuencias de alta gama en todas las direcciones para una mejor dispersión. Esto le proporciona un amplio punto dulce y sonido estéreo 3D, sin importar su posición en la habitación.
-WIRELESS BLUETOOTH CONECTIVIDAD
-El DM-40BT también cuenta con conectividad integrada Bluetooth que le permite transmitir música de forma inalámbrica desde su dispositivo con Bluetooth. La tecnología Bluetooth le permite reproducir música desde su smartphone o dispositivo de tableta sin necesidad de un cable auxiliar. Los soportes aptX y AAC de Qualcomm garantizan una fidelidad de audio óptima gracias a la reproducción de sonido de alta calidad.
-CARACTERISTICAS:
--Pareja de altavoces de monitor de sobremesa
--Ideal para DJ y productores
--Wireless Bluetooth conectividad para transmitir música desde teléfonos inteligentes o tabletas
--Compatibilidad con Qualcomm aptX y AAC para una fidelidad de audio óptima durante la transmisión
--Sistema de reflejo de graves con carga frontal
--Los woofers de fibra de vidrio de 4 pulgadas proporcionan unos graves fuertes y contundentes.
--Tweeters de cúpula blanda de 3/4 con difusores convexos DECO
--Amplio punto dulce con sonido estéreo 3D
--Los amplificadores de clase AB proporcionan un sonido nítido y de baja distorsión.
--Bordes frontales curvados para minimizar la resonancia
--Salida de auriculares en el panel frontal y botón de volumen
-ESPECIFICACIONES:
--Tipo: Altavoces de monitor activos con reflejo de graves de 2 vías
--Tweeter: 3 cuartos pulgadas Soft Dome
--Woofer: Fibra de vidrio de 4 pulgadas
--Accesorios incluidos:
-Cable de alimentación
-Cable de altavoz de 2 m (para conexión de canal izquierdo/derecho)
-Cable convertidor de audio (miniclavija estéreo de 3,5 mm a RCA)
-Cojín inferior
-Instrucciones de uso
-FISICO Y AUDIO
--Dimensiones: Izquierda ch: 146 x 227 x 223 mm, Canal derecho 146 x 227 x 210 mm
--Peso: Izquierda ch: 2,7 kg, derecha ch: 2,2 kg
--Salida del amplificador: Amplificador clase A/B: 2 x 21 W / 4 ohms
--Rango de frecuencia: 70 - 30000 Hz
--Impedancia: 10 k ohmios
--Consumo: 35 W
--Consumo de energía (en espera): 0,3 W
-TERMINALES
--Salidas: 1 MONITOR DE AURICULARES (Mini-jack)
-BLUETOOTH
--Clase de especificación Bluetooth 2
--Códecs soportados: SBC, AAC, Qualcomm aptX, Qualcomm aptX Baja latencia
--Versión: Bluetooth Especificación Ver. 4.2",in stock,new,599999.00 ARS,https://tecnoshow.vercel.app/#MLA2104021585,https://http2.mlstatic.com/D_NQ_NP_2X_704430-MLA99501049014_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_763365-MLU78937594346_092024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_660774-MLU79176650083_092024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_696523-MLU79176650091_092024-F.jpg",Pioneer,Parlantes y amplificación
 MLA833882337,Dbx 215s Eq Ecualizador Grafico 15+15 Bandas Stereo 2canales,"DESCRIPCION;
 ECUALIZADOR DE 15 BANDAS Dbx 215s EQ
 Sonido excepcional y una gran fiabilidad. Cuando los profesionales necesitan un ecualizador, recurren a dbx. Con una trayectoria comprobada que abarca cuatro décadas, ecualizadores dbx ® son el estándar de la industria para hacer turismo, estudios, e instalaciones de audio. Con la herencia de dbx venerados ecualizadores Pro, el 215s satisface las necesidades de los entornos más exigentes de refuerzo de sonido, al tiempo que ofrece la simplicidad de controles sencillos.
@@ -2584,15 +2575,6 @@ Protección Corto Circuito: Si
 Protección AC/DC: Si
 Protección Temperatura: Si",in stock,new,524998.00 ARS,https://tecnoshow.vercel.app/#MLA679143399,https://http2.mlstatic.com/D_NQ_NP_2X_757338-MLA117912966263_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_684425-MLA43475399063_092020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_634304-MLA43475376886_092020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_925660-MLA31017285031_062019-F.jpg",Lexsen,Parlantes y amplificación
 MLA616945482,American Pro Apx 300 Ii Amplificador Potencia Audio Dj,American Pro Apx 300 Ii Amplificador Potencia Audio Dj,in stock,new,508198.00 ARS,https://tecnoshow.vercel.app/#MLA616945482,https://http2.mlstatic.com/D_NQ_NP_2X_839753-MLA116412568090_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_948023-MLA31577170259_072019-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_281911-MLA20676000492_042016-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_665052-MLA31577170258_072019-F.jpg",American Pro,Parlantes y amplificación
-MLA3112109386,Bafle Pasivo Gbr 15 2 Vias Driver Titanium 1000w Linea Pro,"BAFLE PASIVO 2 VIAS WOOFER 15”
-*2 VIAS 500W RMS 1000W PICO
-*WOOFER 15” + BOCINA CON DRIVER TITANIUM
-*INCLINACION PARA MONITOR
-*IMAN:60 Oz *BOBINA:3''KSV
-*FR:40-18Khz(-10dB) *EFICIENCIA:98dB
-*IMPEDANCIA:8 Ohm
-*DRIVER TITANIUM 1,75”
-*FR:45hz-20Khz",in stock,new,472499.00 ARS,https://tecnoshow.vercel.app/#MLA3112109386,https://http2.mlstatic.com/D_NQ_NP_2X_686662-MLA117912494711_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_813949-MLA109626944379_032026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_707020-MLA109628135297_032026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_844155-MLA108806017032_032026-F.jpg",Gbr,Parlantes y amplificación
 MLA3634636650,Subwoofer 21 Pulgadas Apogee Wf2101 600 Watts Parlante 96db Negro,"El transductor de bajas frecuencias Apogee se presenta como un componente electroacústico de tipo woofer pasivo, diseñado para aplicaciones de audio profesional. Este dispositivo cuenta con un diámetro de cono de 21 pulgadas, configurado para operar con una impedancia nominal de 8 ohms. Su arquitectura técnica permite una capacidad de gestión de energía con una potencia nominal de 600 Watts RMS, alcanzando una potencia de programa de 1200 Watts y una capacidad de pico de hasta 2400 Watts.
 El sistema incorpora un motor magnético basado en imán de ferrite, cuyas dimensiones físicas comprenden un diámetro externo de 22.5 cm, un diámetro interno de 20.5 cm y un espesor de 2 cm. La eficiencia del componente se traduce en una sensibilidad acústica de 96 dB. El diseño del producto está optimizado para su montaje en bafles, asegurando su compatibilidad con configuraciones de audio que requieran una reproducción precisa de frecuencias graves.",in stock,new,461998.00 ARS,https://tecnoshow.vercel.app/#MLA3634636650,https://http2.mlstatic.com/D_NQ_NP_2X_997760-MLA112158720103_052026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_915789-MLA111155082936_052026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_751544-MLA111155082946_052026-F.jpg",Apogee,Parlantes y amplificación
 MLA1382987993,Bafle Pasivo Sanrai De 12  300 Watt Rms Caja Plastico Inject,"Bafle Pasivo Sanray de 12 Pulgadas de 300 Watt Rms Caja Plastico Injectado.
@@ -2896,18 +2878,6 @@ Diámetro 1 ""
 -Máxima potencia: 150w
 -Sensibilidad: 106DB/w/M
 -Rango de frecuencia: 1.5-20KHZ",in stock,new,89248.00 ARS,https://tecnoshow.vercel.app/#MLA853343555,https://http2.mlstatic.com/D_NQ_NP_2X_643522-MLA116412366930_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_645005-MLA109234218070_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_755004-MLA41655989210_052020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_621162-MLA110081667351_042026-F.jpg",Leea,Parlantes y amplificación
-MLA1753398315,Pack 2 Tweeter Bala Jahro Jh09 150 W 8 Ohms,"El Tweeter Bala JAHRO JH09 ofrece agudos potentes, definidos y de alta fidelidad. Diseñado para sistemas de sonido profesional, refuerzos acústicos o car audio que exigen claridad y proyección.
-Con un rendimiento de 100 dB ±2 dB (1 W/1 m), garantiza una gran eficiencia sonora con excelente respuesta en frecuencias altas. Su construcción robusta y su bobina de 46,2 mm aseguran durabilidad y desempeño confiable en cualquier escenario.
-Características Técnicas:
-Impedancia: 8 Ohms
-Potencia RMS: 80 W
-Potencia máxima: 150 W
-Sensibilidad: 100 dB ±2 dB (1 W/1 m)
-Respuesta en frecuencia: 1.6 kHz – 20 kHz
-Diámetro de bobina: 46,2 mm
-Imán: 11 oz
-Medidas: 124 x 115 x 63 mm (Calado recomendado: 105mm)
-Garantía de fábrica: 30 días",in stock,new,83998.00 ARS,https://tecnoshow.vercel.app/#MLA1753398315,https://http2.mlstatic.com/D_NQ_NP_2X_982243-MLA110556724217_042026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_628755-MLA110556634049_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_755329-MLA109671984578_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_974381-MLA109671448566_042026-F.jpg",Jahro,Parlantes y amplificación
 MLA1895490261,Parlante Jahro 10 Pulgadas 4ohms 200w Pico,"Parlante de 10 pulgadas Jahro 200W Pico 80 RMS 4 ohms
 Ideal para armado de sonido en cajas automotor e instrumentos musicales
 Respuesta de 40 a 12000 hs
@@ -3035,18 +3005,6 @@ Tamaño del driver: 1 pulgada.
 Dimensiones: 90x90x68 mm.
 Peso: 0.7 Kg.
 Garantía de fábrica: 1 meses",in stock,new,50398.00 ARS,https://tecnoshow.vercel.app/#MLA3403814940,https://http2.mlstatic.com/D_NQ_NP_2X_923855-MLA112263419271_052026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_713818-MLA111517062910_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_852757-MLA112579139897_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_841167-MLA111241816948_052026-F.jpg",Tecshow,Parlantes y amplificación
-MLA1753339401,Tweeter Bala Jahro Jh09 150 W 8 Ohms Similar Jbl St304,"El Tweeter Bala JAHRO JH09 ofrece agudos potentes, definidos y de alta fidelidad. Diseñado para sistemas de sonido profesional, refuerzos acústicos o car audio que exigen claridad y proyección.
-Con un rendimiento de 100 dB ±2 dB (1 W/1 m), garantiza una gran eficiencia sonora con excelente respuesta en frecuencias altas. Su construcción robusta y su bobina de 46,2 mm aseguran durabilidad y desempeño confiable en cualquier escenario.
-Características Técnicas:
-Impedancia: 8 Ohms
-Potencia RMS: 80 W
-Potencia máxima: 150 W
-Sensibilidad: 100 dB ±2 dB (1 W/1 m)
-Respuesta en frecuencia: 1.6 kHz – 20 kHz
-Diámetro de bobina: 46,2 mm
-Imán: 11 oz
-Medidas: 124 x 115 x 63 mm (Calado recomendado: 105mm)
-Garantía de fábrica: 30 días",in stock,new,49999.00 ARS,https://tecnoshow.vercel.app/#MLA1753339401,https://http2.mlstatic.com/D_NQ_NP_2X_640519-MLA117912464035_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_628755-MLA110556634049_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_755329-MLA109671984578_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_974381-MLA109671448566_042026-F.jpg",Jahro,Parlantes y amplificación
 MLA883208590,Woofer Jahro Wc8 150w 8¨ Ohms Parlante Medio,"Parlante Medio 8 Yahro Wc8 150w 8ohms.
 ESPECIFICACIONES TECNICAS
 - Diametro de 8""
@@ -3062,16 +3020,6 @@ Tipo de divisor Pasivo 3 Vías
 Impedancia 8 Ohm
 Atenuacion 12 DB
 Cruce de Frecuencias 650 - 5600",in stock,new,44381.00 ARS,https://tecnoshow.vercel.app/#MLA1496898660,https://http2.mlstatic.com/D_NQ_NP_2X_640568-MLA117913227987_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_782360-MLA71526245397_092023-F.jpg,Ciclos,Parlantes y amplificación
-MLA1736396541,Par De Driver Leea N25 Neodiminio 150w 8 Ohms,"CARACTERISTICAS:
-POTENCIA : 150W / 30RMS
-IMPEDANCIA : 8 OHMS
-SENSIBILIDAD : 107 dB
-BOCA: 1""
-RESPUESTA EN FRECUENCIA: 2kHZ A 20KHZ
-DIAFRAGMA DE NEODIMINIO
-MEDIDAS: 5 CM DE DIÁMETRO
-5,8 CM DE ALTURA
-Garantía de fábrica: 30 días",in stock,new,42000.00 ARS,https://tecnoshow.vercel.app/#MLA1736396541,https://http2.mlstatic.com/D_NQ_NP_2X_748268-MLA117913345273_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_765807-MLA110080185479_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_984153-MLA109234155934_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_685702-MLA110081635165_042026-F.jpg",Leea,Parlantes y amplificación
 MLA853341496,Driver Leea Tdu25 Compression Tweeter 25mm 150w,"Características
 Marca:Leea
 Modelo:TDU25
@@ -3116,16 +3064,6 @@ Tamaño del driver: 1.35 pulgadas
 Dimensiones: 90x90x72 mm
 Peso: 1/2 Kg.
 Garantía de fábrica: 30 días",in stock,new,40948.00 ARS,https://tecnoshow.vercel.app/#MLA1812415281,https://http2.mlstatic.com/D_NQ_NP_2X_784591-MLA117912966173_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_875752-MLA111516562248_062026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_843766-MLA112262209429_052026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_643942-MLA111516916510_062026-F.jpg",Tecshow,Parlantes y amplificación
-MLA1736337745,Driver Leea N25 Neodiminio 150w 8 Ohms,"CARACTERISTICAS:
-POTENCIA : 150W / 30RMS
-IMPEDANCIA : 8 OHMS
-SENSIBILIDAD : 107 dB
-BOCA: 1""
-RESPUESTA EN FRECUENCIA: 2kHZ A 20KHZ
-DIAFRAGMA DE NEODIMINIO
-MEDIDAS: 5 CM DE DIÁMETRO
-5,8 CM DE ALTURA
-Garantía de fábrica: 30 días",in stock,new,31498.00 ARS,https://tecnoshow.vercel.app/#MLA1736337745,https://http2.mlstatic.com/D_NQ_NP_2X_828284-MLA117912231065_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_669384-MLA109231904566_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_740185-MLA110080183839_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_764591-MLA110079234431_042026-F.jpg",Leea,Parlantes y amplificación
 MLA729069676,Gbr Parlante Portatil Mini Mp3 Bluetoht Nuevo,"MINI BAFLE POTENCIADO CON MP3 3W
 BATERIA RECARGABLE INCLUIDA
 *RADIO FM *MP3
@@ -3162,29 +3100,6 @@ Te Adjunto Publicacion
 #858812568
 Corneta De Plastico Selenium Hm 1125 Rosca De 1 Kit 10 Uni",in stock,new,11999.00 ARS,https://tecnoshow.vercel.app/#MLA620334887,https://http2.mlstatic.com/D_NQ_NP_2X_791635-MLA75592312314_042024-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_815072-MLA44436851509_122020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_996886-MLA44436845710_122020-F.jpg",Selenium,Parlantes y amplificación
 MLA1654729744,Tacho PAR PLS Par Led 543 162W RGBW con Control DMX,"El Tacho PLS PAR 543 es un potente dispositivo de iluminación diseñado para ofrecer un rendimiento excepcional en eventos y espectáculos. Con 54 LEDs de 3W cada uno, este equipo proporciona una vibrante mezcla de colores RGBW, ideal para crear atmósferas dinámicas y atractivas. Su control DMX de 8 canales permite una fácil integración en sistemas de iluminación más complejos, mientras que su display facilita la configuración y el monitoreo. Este modelo, que no incluye filtro gel, cuenta con funciones de flash y strobo, añadiendo efectos visuales impactantes a tus presentaciones. Con una potencia de salida de 162W y un sistema de ventilación eficiente, el PLS PAR 543 es perfecto para largas jornadas de uso. Su diseño robusto y condición de nuevo garantizan una durabilidad y rendimiento óptimos, convirtiéndolo en una opción ideal para profesionales del entretenimiento y la iluminación.",in stock,new,157498.00 ARS,https://tecnoshow.vercel.app/#MLA1654729744,https://http2.mlstatic.com/D_NQ_NP_2X_862009-MLA114605074260_082026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_959446-MLA99956854997_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_765615-MLA93499524727_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_856750-MLA93499291773_092025-F.jpg",Pls,Iluminación
-MLA3360477120,Bañador Led Compacto Nebula Quad 14 Tecshow,"**NEBULA QUAD 14**
-Ideal para escenarios, eventos y aplicaciones donde se requiera una iluminación versátil y de alto rendimiento, el Nebula Quad 14 es la elección perfecta para crear ambientes vibrantes y profesionales.
-Bañador LED compacto – 14 LEDs 4-en-1 de 6W
-14 LEDs 4-en-1 RGBW de 6W
-Ángulo de haz: 25º
-Diseño delgado
-Nebula Quad 14 es un bañador LED liviano y compacto que incorpora 14 LEDs 4-en-1 de 6W. Ideal para cobertura de espacios o creación de efectos, Nebula Quad 14 posee tecnología LED de cuatro colores que permite una mezcla RGBW suave sin sombras multicolores.
-**Ficha Técnica - Nebula Quad 14**
-Fuente & Óptica
-Fuente de Luz: 14 LEDs 4-en-1 de 6W cada uno
-Vida Útil: 50,000 horas
-Ángulo de Haz: 25º
-Efectos & Funciones
-Dimmer: Rango completo de 0-100% para todos los colores
-Efecto Estrobo: Incluido
-Programas Integrados: Variados efectos preprogramados
-Tecnología LED 4-en-1: Mezcla suave RGBW sin sombras multicolores
-Control
-Canales DMX: 4/8
-Modos de Operación: Automático, audiorítmico, control remoto y DMX
-Físico
-Dimensiones: 180x80x155 mm
-Peso: 0.90 kg",in stock,new,82999.00 ARS,https://tecnoshow.vercel.app/#MLA3360477120,https://http2.mlstatic.com/D_NQ_NP_2X_614845-MLA118519888873_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_794472-MLA118519044035_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_817079-MLA97123899673_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_992399-MLA97123997009_112025-F.jpg",Tecshow,Iluminación
 MLA1648037909,"Lampara Osram 64653 Elc 250w Gx 5,3 Fibra Opt-proyector","Ilumina tus espacios con la lámpara Osram 64653 ELC 24V 250W GX 5,3, ideal para proyectores y sistemas de fibra óptica. Esta lámpara dicroica de alta calidad te ofrece una potencia de 250W y un color de luz blanco, perfecto para realzar la belleza de tus ambientes y brindarte una iluminación nítida y brillante. La marca Osram es reconocida mundialmente por su excelencia en productos de iluminación, garantizándote durabilidad y eficiencia en cada uso. No esperes más para disfrutar de la mejor iluminación en tus proyectos, elige la lámpara Osram 64653 ELC 24V 250W GX 5,3 y transforma tus espacios.",in stock,new,80664.00 ARS,https://tecnoshow.vercel.app/#MLA1648037909,https://http2.mlstatic.com/D_NQ_NP_2X_897114-MLA99450370284_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_888591-MLA79340769614_092024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_606362-MLA79340672428_092024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_932134-MLA79340905670_092024-F.jpg",Osram,Iluminación
 MLA2471813892,Cabezal Móvil Tecshow Molly Beam 150W LED RGBW Ángulo 3º Effecto Visual,"Cabezal móvil beam compacto
 1 LED blanco de 150W
@@ -4052,19 +3967,6 @@ Equipos revisados y limpiados después de descolgar.
 El precio es por cada equipo, el precio se multiplica la cantidad que compres
 HAY 6 EN TOTAL POR RENOVACION DE EQUIPOS
 Ideal para boliches, salones de fiestas, teatros, shows, empresas venta y alquiler de equipos profesionales.",in stock,new,734968.00 ARS,https://tecnoshow.vercel.app/#MLA744451115,https://http2.mlstatic.com/D_NQ_NP_2X_617766-MLA117912230911_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_921911-MLA20663379580_042016-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_189811-MLA20663382535_042016-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_993911-MLA20663379618_042016-F.jpg",Pr,Iluminación
-MLA1961131243,Combo 6 Spot 18 Led Proton 180w 6 En 1 Uv Luz Negra Gbr,"Spot compacto
-EXCELENTE POTENCIA PRECIO COMBO
-COMBO 6 SPOT GBR LED PAR 500 DMX
-CON UV LUZ NEGRA Y AMBAR
-*SPOT COMPACTO RGBW
-*18 LED X 10W
-* ALTA POTENICA*FAN
-*Programable DMX512 4/8 ch
-*Colores: RGB /*Dimmer / Flash
-*Modo Auto / Audio*Display Digital
-*Master / Esclavo *Angulo 45
-*Dim:23*11*24 cm
-*Peso 1,5 kg",in stock,new,669990.00 ARS,https://tecnoshow.vercel.app/#MLA1961131243,https://http2.mlstatic.com/D_NQ_NP_2X_670074-MLA115777815531_082026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_768279-MLA115778107623_082026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_967466-MLA114429513196_082026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_785123-MLA115778107619_082026-F.jpg",TecnoShow,Iluminación
 MLA764540267,Martin Pro 218 Roboscan Protocolo Martin Robot Usado,"Martin Pro 218 Roboscan Protocolo Martin Usado
 Este escáner compacto de 200W es una chispa de energía y dinámica con una plantilla de 14 gobos fijos, 3 gobos de iris especiales y una gran cantidad de colores que crean efectos espectaculares.
 Caracteristicas
@@ -4792,19 +4694,6 @@ ESPECIFICACIONES:
 • Dimmer: 2 CPU
 • IP20
 • Automático, DMX512 y Audiorrítmico",in stock,new,125998.00 ARS,https://tecnoshow.vercel.app/#MLA3164386954,https://http2.mlstatic.com/D_NQ_NP_2X_677916-MLA116412481158_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_759448-MLA110173234279_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_989560-MLA110173292353_042026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_990266-MLA110173828139_042026-F.jpg",Gbr,Iluminación
-MLA3783751350,Spot 18 Led Proton Par 500 180w 6 En 1 Con Uv Luz Negra Gbr,"Spot compacto
-EXCELENTE POTENCIA
-SPOT GBR LED PAR 500 DMX
-CON UV LUZ NEGRA Y AMBAR
-*SPOT COMPACTO RGBW
-*18 LED X 10W
-* ALTA POTENICA*FAN
-*Programable DMX512 4/8 ch
-*Colores: RGB /*Dimmer / Flash
-*Modo Auto / Audio*Display Digital
-*Master / Esclavo *Angulo 45
-*Dim:23*11*24 cm
-*Peso 1,5 kg",in stock,new,119999.00 ARS,https://tecnoshow.vercel.app/#MLA3783751350,https://http2.mlstatic.com/D_NQ_NP_2X_839247-MLA115778637105_082026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_952263-MLA114429308444_082026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_923922-MLA114429513188_082026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_785123-MLA115778107619_082026-F.jpg",Gbr,Iluminación
 MLA764540686,Par Led Proton Dmx 18x1 Reales  Tecshow,"Cosmo Par 18 Led.
 Spot compacto rgb de 18 led por 1W de alta potencia y rendimiento. Compatible y programable con DMX512 7 ch. Utiliza los sistemas de color RGB, Dimmer o Flash.
 Trabajar en los modos auto o auto display digital
@@ -5022,19 +4911,6 @@ No incluye ficha a 220 tiene cable pelado
 Incluye gancho para colgar la esfera.",in stock,new,39999.00 ARS,https://tecnoshow.vercel.app/#MLA1895828207,https://http2.mlstatic.com/D_NQ_NP_2X_674563-MLA114543323401_072026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_800583-MLA114544895935_072026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_963855-MLA113300663514_072026-F.jpg",Gbr,Iluminación
 MLA1804004477,Pack 2 Parábola Par 36 Con Zócalo Para Lámpara Bipin,"Pack 2 Parábola Par 36 Con Zócalo Para Lámpara Bipin Sin Lampara
 Garantía de fábrica: 30 días",in stock,new,39898.00 ARS,https://tecnoshow.vercel.app/#MLA1804004477,https://http2.mlstatic.com/D_NQ_NP_2X_984243-MLA82451054514_022025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_747259-MLA82451357588_022025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_868571-MLA82736641973_022025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_994979-MLA82736651845_022025-F.jpg",Telstar,Iluminación
-MLA1895849705,"Motor Esfera De Espejos Hasta 40cm 1,5rpm Con Enchufe","Motor Esfera 1.5RPM 220V
-Soporte hasta 30kg
-Recomendable para esferas de hasta 40cm de diametrp
-Descripción:
-Motor eléctrico de bola de espejos giratoria. Se monta en el techo con tornillos.
-Fácil de instalar y usar.
-Perfecto para DJ, bandas, pubs, bodas, banquetes, clubes nocturnos, discotecas o cualquier otra ocasión para brindar un ambiente deslumbrante e impresionante.
-Especificación:
-Diámetro: 11 cm / 4,33 pulgadas
-Material: Metal
-El paquete incluye:
-Motor de bola de espejo de 1 pieza
-Garantía de fábrica: 30 días",in stock,new,37798.00 ARS,https://tecnoshow.vercel.app/#MLA1895849705,https://http2.mlstatic.com/D_NQ_NP_2X_949282-MLA114545695001_072026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_933777-MLA113301135284_072026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_695972-MLA113300126262_072026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_657548-MLA114542964183_072026-F.jpg",Genérico,Iluminación
 MLA1731070699,Dicroica Led Rgb 12v Coriente Continua,"Lampara Dicroica 12V RGB
 con 2 filtros diferentes
 Filtro tipo Frost
@@ -5174,7 +5050,6 @@ MLA1479080443,Parábola Par 36 Repuesto Para Lámpara Bipin Sin Lampara,Parábol
 MLA671821096,Parábola Par 64 Reemplazo Óptica Lámpara Par 64 Sin Lampara,"Parábola par 64 reemplazo Optica lámpara par 64 Sin Lampara
 Reemplaza La lampara tradicional Por esta Parabola y Ahorra en El reemplazo de La Lampara a la Hora de Trabajar es muy Importante Ahorrar",in stock,new,11548.00 ARS,https://tecnoshow.vercel.app/#MLA671821096,https://http2.mlstatic.com/D_NQ_NP_2X_911626-MLA82737978097_022025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_740674-MLA92045474663_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_628778-MLA82738105165_022025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_945114-MLA27361897930_052018-F.jpg",TecnoShow,Iluminación
 MLA3284250878,Vidrio Repuesto Para Parabola Par 64 Diferentes Modelos,Vidrio repuesto para par 64 diferentes modelos ; has abierto ; haz medio ; haz cerrado ; narrow ;very narrow,in stock,new,9999.00 ARS,https://tecnoshow.vercel.app/#MLA3284250878,https://http2.mlstatic.com/D_NQ_NP_2X_889136-MLA117913345129_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_965577-MLA82737759127_022025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_687786-MLA82452029782_022025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_961277-MLA82737681017_022025-F.jpg",Kupo,Iluminación
-MLA3190963540,Auricular Profesional Behringer Hpm1100bk Monitoreo Studio Color Negro,"En la calle, en el colectivo o en la oficina, ten siempre a mano tus audífonos Behringer y ¡escápate de la rutina por un rato! Vas a poder disfrutar de la música que más te gusta y de tus podcasts favoritos cuando quieras y donde quieras.",in stock,new,47248.00 ARS,https://tecnoshow.vercel.app/#MLA3190963540,https://http2.mlstatic.com/D_NQ_NP_2X_912619-MLA99382614178_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_662479-MLA91980680805_092025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_615030-MLA91581768380_092025-F.jpg",Behringer,Auriculares
 MLA1660149640,Auriculares Behringer HPM1000 BK color negro,"Auricular Behringer Hpm-1000 p/ Dj, Estudio o en tu Casa
 Ya sea que esté mezclando una grabación, supervisando una línea de bajo o simplemente disfrutando de su MP3 favorito, quiere auriculares que ofrezcan una respuesta de frecuencia amplia y un rango dinámico alto. Los auriculares HPM1000 ofrecen increíbles prestaciones de alta resolución.
 ESPECIFICACIONES TECNICAS
@@ -5201,7 +5076,7 @@ MLA3347205130,Auricular De Estudio Behringer Hpm1100 Over Ear Color Gris,"- Aud�
 - Diseño ligero con acolchado confortable y diadema ajustable.
 - Rendimiento optimizado  para utilizar con un amplio rango de dispositivos de audio.
 - Cable extra largo de 2 metros.
-- Plug de 3.5 mm (1/8”) con adaptador de 6.3 mm (1/4”).",in stock,new,41998.00 ARS,https://tecnoshow.vercel.app/#MLA3347205130,https://http2.mlstatic.com/D_NQ_NP_2X_873386-MLA99466339546_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_991732-MLA96085279689_102025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_691253-MLA96085131061_102025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_775377-MLA96085279705_102025-F.jpg",Behringer,Auriculares
+- Plug de 3.5 mm (1/8”) con adaptador de 6.3 mm (1/4”).",in stock,new,39999.00 ARS,https://tecnoshow.vercel.app/#MLA3347205130,https://http2.mlstatic.com/D_NQ_NP_2X_873386-MLA99466339546_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_991732-MLA96085279689_102025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_691253-MLA96085131061_102025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_775377-MLA96085279705_102025-F.jpg",Behringer,Auriculares
 MLA1747084925,Auricular Sennheiser Mx80 Negros Con Miniplug Negro,"Auricular Sennheiser MX80 ideal para reproductor portátil.
 Los auriculares Sennheiser MX 80 ofrecen versatilidad y comodidad. Son aptos para sistemas de audio portátiles como celulares y reproductores de mp3. Su sonido estéreo brinda bajos potentes ideales para cualquier estilo de música estando en movimiento.
 ESPECIFICACIONES TÉCNICAS:
@@ -5238,45 +5113,6 @@ ESPECIFICACIONES:
 MLA1450651093,Auricular Dj Cerrado Profesional Plegable Behringer Bdj1000 Color Negro,"En la calle, en el colectivo o en la oficina, tené siempre a mano tus auriculares Behringer y ¡escapate de la rutina por un rato! Vas a poder disfrutar de la música que más te gusta y de tus podcasts favoritos cuando quieras y donde quieras.
 El formato perfecto para vos
 El diseño over-ear brinda una comodidad insuperable gracias a sus suaves almohadillas. Al mismo tiempo, su sonido envolvente del más alto nivel se convierte en el protagonista de la escena.",in stock,new,92398.00 ARS,https://tecnoshow.vercel.app/#MLA1450651093,https://http2.mlstatic.com/D_NQ_NP_2X_932978-MLA99432259946_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_624919-MLA79642765637_092024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_631471-MLA79642765643_092024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_705749-MLA79642687751_092024-F.jpg",Behringer,Auriculares
-MLA740522372,Monitor In Ear Moon Ma01 Iew Intraural Uhf Inalambrico,"Monitor In Ear Moon Ma01 Iew Intraural Uhf Inalambrico
-Características
-Marca Moon
-Modelo MA01 IEW
-MONITOR IN EAR MOON MA01 IEW INTRAURAL UHF INALAMBRICO
-CARACTERISTICAS TECNICAS:
-De diseño ergonómico y terminado profesional.
-Posee un alcance de hasta 40 metros,
-el receptor posee control de ganancia,
-indicador de señal.
-Frecuencias: 600 Mhz
-Funciona con dos pilas AA (5 horas de duración)
-Incluye:
-1 Base Trasmisora
-1 Receptor (Bodypackj
-1 Auricular estereo
-1 Antena
-1 Fuente de alimentación
-1 Estuche de metal
-ESPECIFICACIONES TECNICAS:
-Frecuencia de trabajo: 600Mhz
-Distancia de opracion: 40m
-Distorsión: 1 ºlo.
-Salida auricular: 200mW /
-16 Ohms por canal.
-Relación señal/ruido: > 100dB.
-Estabilidad: 10 ppm.
-Sensibilidad: 2.0uV.
-Transmisor:
-Distorsión: < 1 ºlo. Potencia: 1 OmW.
-Entrada de potencia: l 2v 85m.
-Dimensiones: 38 x 212 x 96mm
-Peso: 605gr
-Alimetación: 12 a 18V 300mA
-Entrada: XLR (Cannon) y RCA
-Bodypack:
-Peso: l00gr
-Alimentacion: 2 pilas AA
-Duracion de las baterias: 5Hs.",in stock,new,466640.00 ARS,https://tecnoshow.vercel.app/#MLA740522372,https://http2.mlstatic.com/D_NQ_NP_2X_925909-MLA41525867838_042020-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_827137-MLA41525892100_042020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_915540-MLA41525881472_042020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_931396-MLA41525892117_042020-F.jpg",Moon,Auriculares
 MLA4014103476,Auriculares Shure Se 215 K Bt 1 La Plata Color Negro,"Los SE215K BT1 son auriculares in ear que ofrecen un sonido cristalino y graves profundos, además de la libertad de conexión inalámbrica y la simplicidad del Bluetooth.
 Hasta 10 m de alcance.
 Hasta 8 horas de audio con una sola carga.
@@ -5298,29 +5134,6 @@ Características principales:
 Peso del paquete: 0.55 kg
 Medidas del paquete: 19 x 16 x 9 cm
 Garantía de fábrica: 30 días",in stock,new,157498.00 ARS,https://tecnoshow.vercel.app/#MLA1892776939,https://http2.mlstatic.com/D_NQ_NP_2X_907612-MLA114487418553_072026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_650757-MLA113247924400_072026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_636993-MLA113248456294_072026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_877052-MLA114487060917_072026-F.jpg",Monster,Auriculares
-MLA3168246272,Behringer P1 Sistema De Monitoreo Personal Color Negro,"AMPLIFICADOR AURICULARES BEHRINGER POWERPLAY P1
-CARACTERISTICAS:
--Salida de Auriculares de Alta Potencia.
--Entradas XLR-3 Dual.
--Funciona con una Bateria de 9V Solo.
--Hasta 12 horas de Operacion.
--Instalación Rápida y Fácil
-ESPECIFICACIONES:
--Amplificador de monitor in-ear monitor amplifier para monitorización personal
--Salida de auriculares de alta potencia
--Entradas duales XLR para dos canales mono u operación estéreo
--Operación conmutable estéreo/mono con función mix
--Controles de nivel, balance y mix
--Funciona hasta 12 horas en una batería de 9 V (no incluida)
--Control de batería con indicadores duales de LED
--Opera con fuente de alimentación BEHRINGER PSU-SB DC (no incluida)
--Límites integrados para protegerle
--Clip incluido
--Se monta fácilmente en un soporte de micrófono
--Chasis de metal resistente
--Construcción extremadamente resistente
--Diseñado por BEHRINGER Alemania
-Garantía de fábrica: 30 días",in stock,new,157498.00 ARS,https://tecnoshow.vercel.app/#MLA3168246272,https://http2.mlstatic.com/D_NQ_NP_2X_743107-MLA116412568192_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_630421-MLA90681292226_082025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_735754-MLA91070785787_082025-F.jpg",Behringer,Auriculares
 MLA3347277672,Kit Stanton: 1 Funda + 1 Cable + 1 Vincha + 1 Par Almohadillas,"Funda Original Stanton de Terciopelo para Auriculares
 Elegante funda original de la marca Stanton, confeccionada en suave terciopelo de alta calidad. Ideal para proteger tus auriculares del polvo, rayones y golpes leves, manteniéndolos siempre en excelente estado.
 Características:
@@ -5339,9 +5152,6 @@ Control de nivel de salida para cada canal
 Incluye adaptador de corriente de 12V DC
 Dimensiones: 46,5 x 103,6 x 57,2mm (Alto x Ancho x Profundo)",in stock,new,94498.00 ARS,https://tecnoshow.vercel.app/#MLA764056612,https://http2.mlstatic.com/D_NQ_NP_2X_674087-MLA116412481090_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_867580-MLA47849491347_102021-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_885818-MLA47849478545_102021-F.jpg",TecnoShow,Auriculares
 MLA758324173,Parlante Repuesto Para Auricular Stanton Cerrado Dj Pro-3000,Parlante Repuesto Para Auricular Stanton Cerrado Dj Pro-3000,in stock,new,63523.00 ARS,https://tecnoshow.vercel.app/#MLA758324173,https://http2.mlstatic.com/D_NQ_NP_2X_617271-MLA28695377437_112018-F.jpg,,TecnoShow,Auriculares
-MLA907092607,Auriculares Behringer Hpm1000 Black Dj Profesional Cerrado,"En la calle, en el colectivo o en la oficina, tené siempre a mano tus auriculares Behringer y ¡escapate de la rutina por un rato! Vas a poder disfrutar de la música que más te gusta y de tus podcasts favoritos cuando quieras y donde quieras.
-El formato perfecto para vos
-El diseño over-ear te brinda una comodidad insuperable gracias a sus almohadillas. Al mismo tiempo, su sonido envolvente del más alto nivel se convierte en el protagonista de la escena.",in stock,new,51973.00 ARS,https://tecnoshow.vercel.app/#MLA907092607,https://http2.mlstatic.com/D_NQ_NP_2X_785543-MLA93570687966_102025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_840260-MLA41020340685_032020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_811524-MLA41021065236_032020-F.jpg",Behringer,Auriculares
 MLA1260369993,Stanton Dj 3000 Cable Repuesto Original Nuevo Para Auricular,"Cable de Repuesto Original Para Auricular Stanton DJ3000
 Especificaciones:
 Cable tipo espiralado con conector Plug Stereo 6.3 formato redondo en un extremo y conector Plug Stereo 3.5 formato rectangulat con traba en el otro extremo",in stock,new,41998.00 ARS,https://tecnoshow.vercel.app/#MLA1260369993,https://http2.mlstatic.com/D_NQ_NP_2X_961986-MLA117913345223_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_611915-MLA110976674480_052026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_849809-MLA110976674478_052026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_636320-MLA111949150573_052026-F.jpg",Stanton,Auriculares
@@ -5670,51 +5480,6 @@ creatividad real con efectos que suenan asombrosamente bien.
 - Incluye cable USB (tipo C a A) así como Ableton Live Lite, Pro
 Tools First, Focusrite Red 2 & - Red 3 Plug-in Suite, Softube Time & Tone
 Bundle y un instrumento Software de 4 XLN",in stock,new,969999.00 ARS,https://tecnoshow.vercel.app/#MLA1380518709,https://http2.mlstatic.com/D_NQ_NP_2X_984420-MLA99964521055_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_706838-MLU78004095788_082024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_835580-MLU74086480141_012024-F.jpg",Focusrite,DJ y consolas
-MLA1751620819,Consola Novik Neo NVK 20M USB de mezcla,"Incluye DSP con 99 efectos internos de 24 bits y reproductor compatible con USB y SD (MP3, WAV, WMA) para reproducir pistas directamente desde memoria. Con funciones PFL y silencio en todos los canales, entradas de línea balanceadas y construcción metálica resistente, la NVK-20M es una solución integral para instalaciones fijas y móviles.
-Características:
-- 20 canales con alimentación Phantom +48V
-- Preamplificadores de micrófono
-- 20 entradas de línea
-- Insertos en todos los canales
-- Ecualizador de 3 bandas y filtro pasa altos por canal
-- Ecualizador estéreo de 7 bandas en los canales principales de mezcla
-- Reproductor MP3 incorporado con pantalla LCD y control de ecualizador individual
-- Compatible con memorias USB y SD
-- Salida estéreo de sub-grupos
-- DSP con 99 efectos internos
-- Faders para una mezcla balanceada
-- Salida a monitor a través de auriculares con función PFL
-- Función PFL y Silencio en todos los canales
-- Compatible con formatos MP3/WAV/WMA
-Especificaciones técnicas:
-- Entradas de micrófono: XLR balanceadas
-- Impedancia de entrada de micrófono: 2.6 KOhms balanceada
-- Máximo nivel de entrada de micrófono: 12dBu
-- Rango de ganancia de micrófono: 5dB a 60dB
-- Entrada de línea: ¼¨ TRS balanceada
-- Impedancia de entrada de línea: 20 KOhms balanceada
-- Máximo nivel de entrada de línea: 30dBu
-- Rango de entrada de línea: -10dB a 40dB
-- Relación Señal / Ruido: 110dB / 112dBA
-- Distorsión THD+N: 0.005% / 0.004%
-- Respuesta en frecuencia: < 10Hz- 90kHz> 0dB/-1dB
-- Ecualizador por canal: Low 80 Hz ±15dB, Mid 2.5 kHz ±15dB, High 12 kHz ±15dB
-- Filtro pasa altos: 100 Hz
-- Ecualizador Principal: 63Hz, 200Hz, 500Hz, 1kHz, 4kHz, 6.3kHz y 16kHz ±12dB
-- Salida auxiliar: ¼¨ TRS desbalanceada
-- Impedancia de salida auxiliar: 120 Ohms desbalanceada
-- Máximo nivel de salida auxiliar: 22dBu
-- Salida principal: XLR y ¼¨ TRS balanceada
-- Máximo nivel de salida principal: 28dBu balanceada / 22dBu desbalanceada
-- Salida de auriculares: ¼¨ TRS desbalanceada
-- Máximo nivel de salida de auriculares: 19dBu
-- Reproductor MP3 con Bluetooth
-- Formatos de audio compatibles: MP3, WAV, WMA
-- DSP con conversor 24 bit Sygma-Delta
-- Frecuencia de muestreo: 48kHz
-- Alimentación: 90V - 240V – 60/50 Hz
-- Consumo: 45W
-- Peso: 12.60 kg",in stock,new,878999.00 ARS,https://tecnoshow.vercel.app/#MLA1751620819,https://http2.mlstatic.com/D_NQ_NP_2X_788125-MLA99516463264_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_925101-MLU76214302593_052024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_899925-MLU76033362230_052024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_641674-MLU76033362234_052024-F.jpg",Novik Neo,DJ y consolas
 MLA1749979317,Behringer Xenyx 1002sfx Mezcladora 10 Canales Efectos Y Usb,"El mezclador analógico XENYX 1002SFX cuenta con 10 entradas para transmisión, podcasting o aplicaciones en vivo.
 - Preamplificadores de micrófono XENYX con alimentación fantasma de 48 V.
 - La serie XENYX ""S"" se puede conectar a cualquier computadora o dispositivo móvil.
@@ -5854,27 +5619,6 @@ Características:
 - Controlado por iPad / Android Tablet
 - 16x XLR/jack entradas combo
 ========================================",in stock,new,2299999.00 ARS,https://tecnoshow.vercel.app/#MLA2307316988,https://http2.mlstatic.com/D_NQ_NP_2X_959643-MLA100013100701_122025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_646758-MLA46333689726_062021-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_667848-MLA100571376064_122025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_625691-MLA100571405922_122025-F.jpg",Midas,DJ y consolas
-MLA805303679,Dbx Driverack Pa 2 Crosovers Digital Procesador By Harman,"Dbx Pa2 DriveRack Pa 2 Crosovers Digital Procesador Harman
-Características
-Marca :Dbx
-Modelo :Pa2
-Tipo de divisor : Activo
-DBX DriveRack PA2 220V.
-SISTEMA INTEGRAL PARA CONTROL DE ALTAVOCES
-CROSSOVER, USB, ECUALIZADOR, COMPRESOR, LIMITADOR, DELAY, CONTROL REMOTO MÓVIL
-CALIDAD ÚNICA Y LEGENDARIA DBX
-El nuevo sistema de gestión de altavoces Driverack PA2, de dbx, permite optimizar un sistema de altavoces con rapidez y precisión de cara a obtener la mejor calidad de sonido posible. El PA2 es un sistema ideal para bandas, músicos y artistas que llevan su propio equipo y también para una gran variedad de instalaciones de sonido, puesto que facilita más que nunca la configuración de un sistema de altavoces y su control en tiempo real desde un portátil o dispositivo móvil Android®, iOS®, Mac®, o Windows®.
-- TODO LO QUE NECESITAS PARA OBTENER EL MÁXIMO PROVECHO DE SU PA. AHORA, CON UN CONTROL COMPLETO DE SU DISPOSITIVO MÓVIL.
-El DriveRack PA2 proporciona todo el procesamiento que necesita entre el mezclador y los amplificadores para optimizar y proteger sus altavoces. Con los últimos avances en algoritmos propietarios AutoEQ™ y AFS™ de dbx, un nuevo módulo de retardo de entrada para retrasar el sistema FOH a la línea de fondo, el control de Ethernet a través de un dispositivo Android®, iOS®, Mac® o Windows® y actualiza Wizards, PA2 DriveRack continúa el legado de los procesadores DriveRack con un gran sonido, potentes y asequibles de control de altavoces, para toda una nueva generación.
-- AUTOEQ™
-Nuevo, mejorado algoritmo AutoEQ asegura una experiencia extremadamente preciso, rápido y no invasivo EQ automático.
-Con la RTA Mic ""escuchar"" a su habitación, la nueva, actualizada DriveRack algoritmo AutoEQ PA2 establece niveles de los altavoces y la sala de ecualización automática en cuestión de segundos. Esto significa ajustes habitaciones ahora se pueden hacer muy rápidamente, sin someter a la audiencia a los molestos largas emisiones de ruido rosa.
-- AFS ENHANCED™ ELIMINACIÓN COMENTARIOS
-Enhanced AFS™ algoritmo para la eliminación de realimentación más rápido, más preciso, sin afectar negativamente el tono de su sistema.
-Nada resulta audiencias lejos como retroalimentación de audio molesto y potencialmente dolorosa. Afortunadamente, los ingenieros dbx han revisado su ya estelar algoritmo de supresión avanzada de realimentación y el hecho que funcione aún mejor. El PA2 DriveRack escucha y se anticipa a la retroalimentación y ajusta la salida del altavoz automáticamente antes de que incluso tiene una oportunidad, mientras que nunca alterar su sonido.
-- ACTUALIZACIÓN DE FUNCIONES PARA LA CONFIGURACIÓN DEL ASISTENTE
-Wizards Actualizado hace que la configuración inicial sea fácil, mientras que asegura que las afinaciones de los altavoces y otros ajustes estén al día.
-Funciones del asistente en el DriveRack PA2 te guían facilmente,los procesos paso a paso para ayudarle a obtener el máximo rendimiento de su sistema de altavoces. Le ayuda a configurar",in stock,new,1399999.00 ARS,https://tecnoshow.vercel.app/#MLA805303679,https://http2.mlstatic.com/D_NQ_NP_2X_643328-MLA31666014178_082019-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_927152-MLA31666029507_082019-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_655187-MLA118513302959_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_694445-MLA118513010309_092026-F.jpg",Dbx,DJ y consolas
 MLA1126309209,Consola Behringer QX1832USB Xenyx de mezcla,"El Xenyx QX1832USB es un mezclador de 16 entradas y 3/2 buses con preamplificadores y compresores de micrófono Xenyx, una interfaz de audio USB y una opción inalámbrica. Está equipado con el ecualizador de 3 bandas ""británico"" de Behringer y faders de cono de 60 mm y controles giratorios sellados.
 El procesador Klark Teknik FX integrado cuenta con 100 presets predefinidos. Con la inclusión de un ecualizador gráfico estéreo de 9 bandas, detección de realimentación FBQ, enrutamiento flexible y otras características orientadas a SR, Behringer ha diseñado un mezclador compacto muy competente.
 Características de Behringer Xenyx QX1832USB de un vistazo:
@@ -6210,45 +5954,6 @@ Con su alimentación fantasma, esta mezcladora es ideal para aquellos que necesi
 Además, su consumo energético de solo 8 W la convierte en una opción eficiente y amigable con el medio ambiente. No solo estarás obteniendo un producto de alta calidad, sino que también estarás contribuyendo a la conservación de energía.
 En resumen, la mezcladora Behringer Xenyx 502s Analoga 5 Entradas Msi es la elección perfecta para aquellos que buscan una mezcladora confiable y versátil. Con su marca reconocida, conectividad USB y alimentación fantasma, esta mezcladora te brindará una experiencia de audio excepcional. No pierdas la oportunidad de mejorar tu experiencia musical con la Xenyx 502s.
 Garantía de fábrica: 30 días",in stock,new,242548.00 ARS,https://tecnoshow.vercel.app/#MLA1495493388,https://http2.mlstatic.com/D_NQ_NP_2X_728166-MLA116412568308_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_827375-MLU71266334483_082023-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_747806-MLU71266570751_082023-F.jpg",Behringer,DJ y consolas
-MLA3189350482,Consola Behringer Xenyx 502s De Mezcla,"Mixer Consola Behringer Xenyx 502S
-El Behringer Xenyx 502S es una herramienta poderosa y asequible para creadores de contenido principiantes y profesionales en movimiento. 5 canales de sonido nítido y galardonado con amplio control auditivo permiten a los podcasters, jugadores y transmisores en vivo dirigir fácilmente el audio para aplicaciones de creación eficientes.
-***Ideal para grabaciones, sonido en vivo, cantantes, escuelas, bandas, salas de ensayo, pubs, bares, salones de fiestas, karaoke, fiestas, casamientos, cumpleaños, conferencias, oratorias, eventos, charlas, aniversarios, animaciones, dj, comuniones, etc***
-ESPECIFICACIONES
-- Control de ganancia
-- Control de graves y agudos
-- Control de paneo canal 1
-- Control de balanceo entre izquierda y derecha en los canales 2, 3, 4 y 5
-- Control de nivel en todos los canales
-- Control de volumen general ""MAIN MIX""
-Entradas:
-- 1 canal XLR balanceado con preamplificador Xenyx
-- 5 canales plug 6,3mm balanceado
-- 1 entrada RCA ""STREAM...""
-Salidas:
-- 2 salidas mono balanceadas plug 6,3mm ""MAIN OUT""
-- 1 salida estereo para auricular ""PHONES"" con control de volumen
-- 1 salida RCA ""STREAM...""
-- Indicadores leds de señal
-- Boton STREAM TO PHONES para monitorizar la entrada por RCA hacia la salida PHONES
-- Boton STREAM TO MIX para asignar lo conectado por RCA o USB a la mezcla principal
-- Conector USB tipo B de entrada y salida de señal desde una PC
-Dimensiones:
-- Largo: 17,5cm
-- Ancho: 13,5cm
-- Alto: 4,8mm
-- Peso: 577g
-Incluye:
-1 consola Behringer Xenyx 502 S
-1 manual de usuario
-1 fuente de alimentación
-Preguntas frecuentes:
-1 - Tiene phantom power?
-- No, este modelo no cuenta con alimentación phantom power
-2 - Tiene puerto USB para pendrive?
-- No, no cuenta con puerto USB para pendrive
-3 - Tiene interface USB? Lo puedo usar en Windows y Mac?
-- Cuenta con interface USB y es compatible con Windows y Mac
-Garantía de fábrica: 30 días",in stock,new,229999.00 ARS,https://tecnoshow.vercel.app/#MLA3189350482,https://http2.mlstatic.com/D_NQ_NP_2X_900528-MLA116412367166_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_625865-MLA100065735261_122025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_827375-MLU71266334483_082023-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_966605-MLA91553491474_092025-F.jpg",Behringer,DJ y consolas
 MLA1746766153,"Consola Mixer Sanrai Dj48 Con Bluetooth, Usb Y Efectos Dsp","Consola Mixer Sanrai DJ48 con Bluetooth, USB y Efectos DSP
 La consola mezcladora Sanrai DJ28/DJ48 es una opción práctica y versátil para quienes buscan calidad de sonido en presentaciones en vivo, estudios caseros, salas de conferencia, bares o eventos familiares. Su diseño compacto y fácil de usar la convierte en una herramienta ideal tanto para profesionales como para principiantes.
 Características principales:
@@ -6279,19 +5984,6 @@ Fácil de usar y transportar
 Diseño resistente y duradero
 Ideal para pequeñas presentaciones y uso doméstico o profesional
 Garantía de fábrica: 30 días",in stock,new,178498.00 ARS,https://tecnoshow.vercel.app/#MLA3182900942,https://http2.mlstatic.com/D_NQ_NP_2X_793054-MLA117913169777_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_792427-MLA109507943778_042026-F.jpg,Sanrai,DJ y consolas
-MLA868940844,Behringer Um2 - Interfaz De Audio Usb 2x2,"Características
-Marca Behringer
-Audiophile 2x2 Interfaz de audio USB con preamplificador de micrófono XENYX
-Interfaz de audio USB 2x2 para grabar micrófonos e instrumentos
-Audiophile resolución de 48 kHz para una calidad de audio profesional
-Compatible con el software de grabación popular que incluye Avid Pro Tools *, Ableton Live *, Steinberg Cubase *, etc.
-Transmite 2 entradas / 2 salidas con latencia ultra baja a su computadora, compatible con Mac OS X * y Windows XP * o superior
-Preamplificador de micrófono XENYX con tecnología V +48 de última generación comparable a los preamplificadores boutique independientes
-Potente salida de phones
-Indicaciones de estado, señal y clip para una visión general perfecta
-Puerto USB para conexión y alimentación
-Software gratuito de grabación, edición y podcasting de audio más 150 plug-ins de instrumentos / efectos descargables en behringer.com
-Diseñado en Alemania.",in stock,new,178497.00 ARS,https://tecnoshow.vercel.app/#MLA868940844,https://http2.mlstatic.com/D_NQ_NP_2X_919535-MLA117912231047_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_984111-MLA42745162062_072020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_957877-MLA42745118980_072020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_924818-MLA42745162064_072020-F.jpg",TecnoShow,DJ y consolas
 MLA881234262,Mixer Bat 2020 Mp3 Gbr Para Dj De 3 Canales Usb Sd Card,"Bat 2020 Mp3 Gbr
 Características principales
 Marca GBR
@@ -6380,8 +6072,6 @@ ESPECIFICACIONES TECNICAS:
 - Salida (paralelo): Jack 50k no balanceada
 - Salida balanceada : Jack XLR 600 balanceado
 - Chasis de acero",in stock,new,59999.00 ARS,https://tecnoshow.vercel.app/#MLA844838457,https://http2.mlstatic.com/D_NQ_NP_2X_941442-MLA41188739473_032020-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_797676-MLA41188739465_032020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_631765-MLA41188747344_032020-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_916928-MLA41188712985_032020-F.jpg",Moon,DJ y consolas
-MLA2055217473,Estuche Porta Compacs Cd/dvd Capacidad 40cd - Amarillo,"El estuche porta discos Procare en color amarillo está pensado para quienes desean mantener su colección ordenada, protegida y siempre a mano. Su diseño rígido ayuda a resguardar cada disco frente al polvo, los rayones y los golpes leves, aportando firmeza en el uso diario.
-Con capacidad para 40 discos, ofrece una solución práctica para el hogar, la oficina o el archivo personal. El modelo 7102L combina un formato cómodo con una presentación vistosa que facilita su identificación en estanterías o escritorios, mientras organiza CD y DVD de forma eficiente.",in stock,new,59999.00 ARS,https://tecnoshow.vercel.app/#MLA2055217473,https://http2.mlstatic.com/D_NQ_NP_2X_904707-MLA117032012001_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_785465-MLA115591202702_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_653195-MLA117031190825_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_771273-MLA115591967142_092026-F.jpg",ProCare,DJ y consolas
 MLA3283466770,Soporte Metalico Ajustable Notebook Dj Profesional Gbr,"Presentamos el Soporte GBR para Notebook y Bandeja DJ Profesional Regulable modelo SC100, diseñado para proporcionar una solución práctica y versátil para los usuarios de notebooks y profesionales de la música. Fabricado en metal resistente, este soporte garantiza durabilidad y estabilidad, ideal para utilizar en presentaciones o para trabajar en diversas posiciones.
 Con un enfoque en la ergonomía, el SC100 permite una elevación de hasta 40 cm y cuenta con cuatro posiciones ajustables, lo que facilita encontrar la altura perfecta para su uso. Su diseño vertical y antideslizante asegura que su equipo permanezca seguro y firme, reduzca la fatiga durante largos períodos de trabajo y mejore la experiencia general del usuario.
 Sus dimensiones compactas, con un largo de 25,5 cm y un ancho de 23 cm, hacen que este soporte sea fácil de transportar y almacenar. Su peso de solo 2,7 kg lo convierte en una opción ligera y accesible para quienes necesitan movilidad sin sacrificar calidad.
@@ -6433,3 +6123,199 @@ MODO DE USO
 COLOCAR EL LIQUIDO EN EL DEPOSITO DE LA MAQUINA DE HUMO SEGUN INDICACIONES DEL FABRICANTE Y UTILIZAR NORMALMENTE.
 CONTENIDO DEL PAQUETE
 • 1 LIQUIDO DE HUMO GBR 1 LITRO",in stock,new,9999.00 ARS,https://tecnoshow.vercel.app/#MLA3769062526,https://http2.mlstatic.com/D_NQ_NP_2X_713683-MLA47974487684_102021-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_600661-MLA102258335714_122025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_959280-MLA102767445035_122025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_772065-MLA102767414765_122025-F.jpg",Gbr,Máquinas de humo
+MLA3634636670,Máquina de humo GBR Konor 1500 Pro,"DETALLE DEL PRODUCTO:
+MAQUINA DE HUMO KONOR 1500 PRO
+• Potencia: 1500w.
+• 9 LEDs de 3w. cada uno RGB.
+• Salida: 20.000 pies x minuto.
+• CARGA: 2,50 Litros.
+• Precalentamiento 3 minutos.
+• CONTROL REMOTO INALAMBRICO.
+• CONTROL ELECTRÓNICO DE TEMPERATURA.
+• HORQUILLA PARA COLGAR.
+• DIMENSIONES: 495 x 255 x 190 MM.
+• PESO: 5,9 KG.
+Esta máquina de humo es ideal para eventos y espectáculos, proporcionando una potente salida de humo que alcanza hasta 5 metros de distancia. Con un consumo de fluido eficiente y un tiempo de calentamiento de solo 3 minutos, está diseñada para un uso continuo y dinámico. Además, cuenta con un sistema DMX, permitiendo su integración en configuraciones de iluminación más complejas. Su diseño en color gris y su peso ligero facilitan su transporte y montaje, mientras que el control remoto inalámbrico ofrece comodidad y versatilidad en su operación.",in stock,new,472499.00 ARS,https://tecnoshow.vercel.app/#MLA3634636670,https://http2.mlstatic.com/D_NQ_NP_2X_675434-MLA97351346939_112025-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_631945-MLA91492738264_092025-F.jpg,Gbr,Máquinas de humo
+MLA1341370319,Máquina de humo PLS F-1000 color negro,"Máquina de Humo 900W PLS F-1000 con Control Inalámbrico Negro
+Efectos únicos
+Gracias a su potencia de 900W, es ideal para espacios medianos, como bares y pubs. Puede ser utilizada también para lograr ambientes originales y misteriosos en estudios de fotografía y pequeños teatros.
+Comodidad en tus manos
+Accioná la máquina desde cualquier sitio con su mando inalámbrico. Ganarás practicidad en lugares de largas distancias y podrás activarla automáticamente en el mejor momento de la noche.
+Características:
+- 900 Watts de potencia
+- Salida de 10.000 cm3/Min
+- Capacidad del tanque de 0.8 Litros
+- Con control remoto común y control remoto inalámbrico
+- Peso: 4.5 Kgs.",in stock,new,219999.00 ARS,https://tecnoshow.vercel.app/#MLA1341370319,https://http2.mlstatic.com/D_NQ_NP_2X_678698-MLA99469932158_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_881066-MLU78317844497_082024-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_762036-MLA107749609905_022026-F.jpg",Pls,Máquinas de humo
+MLA2471790460,Máquina de humo GBR Konor 600 color negro,"MÁQUINA DE HUMO KONOR 600
+Máquina de humo 400w. de alta performance. Compacta y ligera. Emite densas nubes para realzar cualquier tipo de show de luces. Utiliza líquido para humo.
+- 400W.
+- Salida: 1000 pies x minuto.
+- CARGA: 0,25 Lts.
+- CONTROL REMOTO DE CABLE.
+- U DE AGARRE.
+- DIMENSIONES: 240 x 120 x 120 MM.
+- PESO: 1,30 KG.
+Esta máquina cuenta con un tiempo de calentamiento de solo 3 minutos, lo que permite un uso rápido y eficiente. Su capacidad del tanque es de 250 mL, ideal para sesiones prolongadas. Además, su diseño compacto facilita su transporte y almacenamiento. La distancia del humo puede alcanzar entre 1 m y 2 m, ofreciendo versatilidad en diferentes entornos.",in stock,new,99999.00 ARS,https://tecnoshow.vercel.app/#MLA2471790460,https://http2.mlstatic.com/D_NQ_NP_2X_883016-MLA99456730544_112025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_733944-MLU73202406505_122023-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_740675-MLU73118518756_122023-F.jpg",Gbr,Máquinas de humo
+MLA1648064111,Máquina Humo Inalambrica Gran Caudal 1500w El Gris,"*1500W
+*SALIDA: 20000 PIES X MIN
+*CARGA: 2,5 L
+*PRECALENTAMIENTO 3 MIN
+*REMOTO ALAMBRICO
+*REMOTO INALAMBRICO
+*U DE AGARRE
+*DIM: 465*255*190 MM
+*PESO: 5,4 KG
+La máquina de humo inalámbrica de gran caudal, modelo KONOR 1500, es ideal para crear atmósferas envolventes en eventos y espectáculos. Con una potencia de 1500 W, ofrece una impresionante salida de 20,000 pies por minuto, asegurando una dispersión rápida y eficiente del humo. Su capacidad de carga de 2,5 litros permite un uso prolongado sin necesidad de recargas frecuentes. El precalentamiento de solo 3 minutos garantiza que esté lista para funcionar en poco tiempo. Incluye control remoto con cable e inalámbrico, brindando flexibilidad y comodidad en su operación. Su diseño compacto y ligero, con un peso de 5,4 kg, facilita su transporte y manejo.",in stock,new,370350.00 ARS,https://tecnoshow.vercel.app/#MLA1648064111,https://http2.mlstatic.com/D_NQ_NP_2X_777512-MLA104909754658_012026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_667099-MLA104909521382_012026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_956094-MLA103743434033_012026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_686583-MLA103228118250_012026-F.jpg",Gbr,Máquinas de humo
+MLA2063167713,Máquina De Humo Led Multiposicion +liquido De Regalo 2000w,"CONOCE LO NUEVO DE GBR INCREIBLE MAQUINA DE HUMO MULTI POSICION
+COMBO MAQUINA DE HUMO GBR V2000 DMX + HUMO X1 LT GBR
+*2000W*12 LED 3W RGBW
+*CORTE INMEDIATO
+*SALIDA: 18000 PIES X MIN
+*CARGA: 2,5 L
+*DMX512 5CH / DISPLAY DIGITAL
+*CONTROL ELECTRONICO DE TEMP.
+*REMOTO INALAMBRICO
+*CONTROL MANUAL
+*DIM:410*300*185 MM
+*PESO: 6,9 KG",in stock,new,799999.00 ARS,https://tecnoshow.vercel.app/#MLA2063167713,https://http2.mlstatic.com/D_NQ_NP_2X_894605-MLA117195431007_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_700326-MLA117195694487_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_713510-MLA117195635061_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_662481-MLA117195932271_092026-F.jpg",Gbr,Máquinas de humo
+MLA764539967,Konor 1500 Pro Maquina De Humo Inalambrico Y Con Cable Nuevo,"MAQUINA DE HUMO KONOR 1500 PRO
+• Somos distribuidores OFICIALES de toda la línea GBR.
+• Potencia: 1500w.
+• 9 LEDs de 3w. cada uno RGB.
+• Salida: 20.000 pies x minuto.
+• CARGA: 2,50 Litros.
+• Precalentamiento 3 minutos.
+• CONTROL REMOTO INALAMBRICO.
+• CONTROL ELECTRÓNICO DE TEMPERATURA.
+• HORQUILLA PARA COLGAR.
+• DIMENSIONES: 495 x 255 x 190 MM.
+• PESO: 5,9 KG.",in stock,new,472498.00 ARS,https://tecnoshow.vercel.app/#MLA764539967,https://http2.mlstatic.com/D_NQ_NP_2X_768847-MLA116412371784_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_851760-MLA27542022872_062018-F.jpg,Gbr,Máquinas de humo
+MLA3637006344,Maquina De Humo Konor 1200 Pro Dmx Led 1200w Gbr Control Cab,"Maquina de Humo GBR 1200Pro
+Potencia
+1.200 W
+Consumo de fluido
+5 l/min
+Con luces
+Sí
+Con DMX
+Sí
+Con control remoto inalámbrico
+Sí
+Con control remoto con cable
+No
+Incluye líquido
+No
+Cantidad de controles remotos
+2
+Distancia del humo
+2 m - 3 m
+Volumen de salida
+50.000 cfm
+Tiempo de calentamiento
+3 m
+Con temporizador
+Sí
+Cantidad de luces LED
+0
+Capacidad del tanque
+1 L",in stock,new,349999.00 ARS,https://tecnoshow.vercel.app/#MLA3637006344,https://http2.mlstatic.com/D_NQ_NP_2X_785516-MLA114855572135_072026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_636639-MLA114855926907_072026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_930236-MLA114855453311_072026-F.jpg",Gbr,Máquinas de humo
+MLA730581851,Maquina De Humo Gbr Konor 1500 Inalambrica Y Con Cable Nuevo,"MAQUINA DE HUMO KONOR 1500
+• Somos distribuidores OFICIALES de toda la línea GBR.
+• Potencia: 1500w.
+• Salida: 20.000 pies x minuto.
+• CARGA: 2,50 Litros.
+• Precalentamiento 3 minutos.
+• CONTROL REMOTO INALAMBRICO.
+• CONTROL REMOTO MANUAL.
+• CONTROL ELECTRÓNICO DE TEMPERATURA.
+• HORQUILLA PARA COLGAR.
+• DIMENSIONES: 495 x 255 x 190 MM.
+• PESO: 5,4 KG.",in stock,new,339999.00 ARS,https://tecnoshow.vercel.app/#MLA730581851,https://http2.mlstatic.com/D_NQ_NP_2X_655387-MLA117912498631_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_929969-MLA27541984378_062018-F.jpg,Gbr,Máquinas de humo
+MLA764539950,Maquina De Humo Gbr Konor 900 Pro Control Remoto Inalambrico,"Maquina De Humo Gbr Konor 900 Pro
+-900W
+- 6 LED 3W RGB
+- Salida : 5000 pies x min
+- CARGA: 1 L
+- REMOTO INALAMBRICO
+- U DE AGARRE
+- DIMENSIONES:350*200*200 MM
+- PESO: 3.1 KG",in stock,new,299999.00 ARS,https://tecnoshow.vercel.app/#MLA764539950,https://http2.mlstatic.com/D_NQ_NP_2X_965472-MLA31063415426_062019-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_747948-MLA31063422192_062019-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_929292-MLA72693351894_112023-F.jpg",Gbr,Máquinas de humo
+MLA1341393871,Martín Rush SM650 Máquina de Humo 650W Control Remoto Con Cable Negra,"La Martin Rush SM650 es una máquina de humo de 650W ideal para eventos y fiestas en Argentina. Esta máquina de alta calidad de la reconocida marca MARTIN RUSH te permitirá crear un ambiente único y misterioso en tus eventos, gracias a su potente salida de humo. Aunque no cuenta con luces, DMX ni control remoto inalámbrico, su sencillez de uso y eficiencia la convierten en una opción perfecta para aquellos que buscan una solución práctica y efectiva para generar humo en sus eventos. No esperes más y lleva tus fiestas al siguiente nivel con la Martin Rush SM650.",in stock,new,289999.00 ARS,https://tecnoshow.vercel.app/#MLA1341393871,https://http2.mlstatic.com/D_NQ_NP_2X_961990-MLA99984362095_112025-F.jpg,,Martin Rush,Máquinas de humo
+MLA734341536,Liquido De Humo Usa Liquids Profesional Caja De 4 Bidon 5 Lt,"Liquido De Humo Usa Liquids Profesional
+Caja de 4 Bidones 5 Litros",in stock,new,249999.00 ARS,https://tecnoshow.vercel.app/#MLA734341536,https://http2.mlstatic.com/D_NQ_NP_2X_847991-MLA116412480996_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_870906-MLA71718018129_092023-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_947309-MLA71667534978_092023-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_697729-MLA71717928681_092023-F.jpg",Usa Liquids,Máquinas de humo
+MLA764539955,Maquina De Humo Gbr Konor 900 Control  Inalambrico Y Cable,"Maquina De Humo Gbr Konor 900
+- 900W
+- Salida : 5000 pies x min
+- CARGA: 1 L
+- REMOTO ALAMBRICO
+- REMOTO INALAMBRICO
+- U DE AGARRE
+- DIMENSIONES:350*200*200 MM
+- PESO: 3.1 KG",in stock,new,230998.00 ARS,https://tecnoshow.vercel.app/#MLA764539955,https://http2.mlstatic.com/D_NQ_NP_2X_774759-MLA94074110597_102025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_662032-MLA31604666378_072019-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_912628-MLA27542075604_062018-F.jpg",Gbr,Máquinas de humo
+MLA734340240,Liquido De Burbujas Usa Liquids 4 Bidones De 5 Litros Bubble,"PACK X 4 UNIDADES
+LÍQUIDO DE BURBUJAS
+BUBBLE - 5 LITROS (20 en TOTAL)
+Nuestros Fluidos premium burbujas se producen bajo los más altos estándares de calidad del mercado, lograr un alto concepto del mercado profesional más exigente.
+Desarrollado para producir un flujo continuo y uniforme de burbujas, mas duraderos y en grandes cantidades, que hacen a nuestras burbujas un producto líder en el mercado.
+MK2 SRL
+• Tienda de Instrumentos Musicales, Sistemas de Sonido e Iluminación Profesional.
+• Más de 20 años de experiencia en el rubro.
+• Somos MERCADO LIDER PLATINUM (la calificación más alta de Mercado Libre).
+• Somos un Local a la calle ubicado en el centro (zona peatonal) de la Ciudad Capital de La Rioja.
+• 100% de calificaciones positivas avalan nuestro servicio.
+• NO cobramos adicional de despacho ni embalaje.
+•",in stock,new,179999.00 ARS,https://tecnoshow.vercel.app/#MLA734340240,https://http2.mlstatic.com/D_NQ_NP_2X_876069-MLA53029366062_122022-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_674225-MLA48604401359_122021-F.jpg,Usa Liquids,Máquinas de humo
+MLA3769065582,Pack 4 Liquidos De Humo Profesional 5 Lts Dj Boliche Eventos,"Pack 4 Bidones
+LÍQUIDO PARA MÁQUINA DE HUMO GBR BIDÓN 5 LITROS
+CARACTERÍSTICAS:
+• MARCA: GBR
+• CONTENIDO: 5 LITROS
+• PRESENTACIÓN: BIDÓN
+• LÍQUIDO PARA MÁQUINAS DE HUMO
+• GENERA HUMO PARA EFECTOS DE ILUMINACIÓN Y AMBIENTACIÓN
+• IDEAL PARA DISCOTECAS, DJ, FIESTAS, EVENTOS Y ESCENARIOS
+• APTO PARA MÁQUINAS DE HUMO COMPATIBLES CON LÍQUIDO A BASE DE AGUA
+• LISTO PARA USAR
+• USO PROFESIONAL Y PARTICULAR
+IDEAL PARA UTILIZAR EN CONJUNTO CON LUCES LED, LÁSER, CABEZALES MÓVILES Y OTROS EFECTOS DE ILUMINACIÓN, PERMITIENDO RESALTAR LOS HACES DE LUZ Y MEJORAR EL EFECTO VISUAL.
+CONTENIDO DE LA COMPRA:
+• 1 BIDÓN DE LÍQUIDO PARA MÁQUINA DE HUMO GBR DE 5 LITROS",in stock,new,119999.00 ARS,https://tecnoshow.vercel.app/#MLA3769065582,https://http2.mlstatic.com/D_NQ_NP_2X_866577-MLA114585996456_082026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_682613-MLA114584877552_082026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_985775-MLA115946888147_082026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_812976-MLA115944204683_082026-F.jpg",Gbr,Máquinas de humo
+MLA1729402383,Bomba Gbr Maquina De Humo 1500-3000 Y Otras Marcas,"BOMBA GBR
+220-240V 48w
+Ideal para maquinas de humo de 1500 a 3000w",in stock,new,103949.00 ARS,https://tecnoshow.vercel.app/#MLA1729402383,https://http2.mlstatic.com/D_NQ_NP_2X_664570-MLA117913345249_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_662817-MLA109874983587_032026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_894818-MLA109039092886_032026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_774487-MLA109877904799_032026-F.jpg",Gbr,Máquinas de humo
+MLA1729525181,Bomba Repuesto Gbr Maquina De Humo 1200-1500 Y Otras Marcas,"BOMBA GBR
+220-240V 31w
+Ideal para maquinas de humo de 1200 a 1500w",in stock,new,83999.00 ARS,https://tecnoshow.vercel.app/#MLA1729525181,https://http2.mlstatic.com/D_NQ_NP_2X_606364-MLA117912464613_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_830984-MLA109880776793_032026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_788007-MLA109880596775_032026-F.jpg",Gbr,Máquinas de humo
+MLA616940494,Liquido Maquina De Humo - Usa Liquids Profesional Bidon 5 L,"Liquido Maquina De Humo - Usa Liquids Profesional Bidon 5 L
+TECNOSHOWI",in stock,new,65999.00 ARS,https://tecnoshow.vercel.app/#MLA616940494,https://http2.mlstatic.com/D_NQ_NP_2X_935875-MLA117913179761_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_636721-MLA70974950442_082023-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_871278-MLA71010883871_082023-F.jpg",Usa Liquids,Máquinas de humo
+MLA3127730672,Bomba Repuesto Maquina De Humo 600 800 900 Mlb Fog Pls Y Mas,"BOMBA GBR 18 WATT
+TENSION 220-240V CONSUMO  18W
+Ideal para maquinas de humo de 600 W , 900w Y 1000w",in stock,new,52498.00 ARS,https://tecnoshow.vercel.app/#MLA3127730672,https://http2.mlstatic.com/D_NQ_NP_2X_824351-MLA117913227375_092026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_845195-MLA109878981643_032026-F.jpg,Gbr,Máquinas de humo
+MLA616942298,Liquido De Burbujas Usa Liquids 5 Litros Profesional Bubble,Liquido De Burbujas Usa Liquids 5 Litros Profesional Bubble,in stock,new,48999.00 ARS,https://tecnoshow.vercel.app/#MLA616942298,https://http2.mlstatic.com/D_NQ_NP_2X_944246-MLA116412367146_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_806847-MLA114023814900_072026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_689186-MLA114023934774_072026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_643980-MLA114023434288_072026-F.jpg",TecnoShow,Máquinas de humo
+MLA1729509867,Bomba Repuesto Maquina De Humo 600- 400 Mlb Fog Pls Y Mas,"BOMBA GBR
+220-240V 11W
+Ideal para maquinas de humo de 600w /400w",in stock,new,41998.00 ARS,https://tecnoshow.vercel.app/#MLA1729509867,https://http2.mlstatic.com/D_NQ_NP_2X_720699-MLA117912231057_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_660576-MLA109045825340_032026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_857612-MLA109878947693_032026-F.jpg",Gbr,Máquinas de humo
+MLA1508620154,"Control Inalambrico Maquina De Humo Gbr, Antari,mlb Tecshow","Control Inalambrico Maquina De Humo Gbr, Antari,mlb Tecshow
+Garantía de fábrica: 30 días",in stock,new,41998.00 ARS,https://tecnoshow.vercel.app/#MLA1508620154,https://http2.mlstatic.com/D_NQ_NP_2X_886858-MLA117912231217_092026-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_887008-MLA71656689144_092023-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_976955-MLA71656709060_092023-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_857584-MLA71656718892_092023-F.jpg",Gbr,Máquinas de humo
+MLA1976637175,Pack 4 Liquido De Humo 1 Lt Linea Classic Gbr El Mejor,"COMBO X4 LÍQUIDO DE HUMO PROFESIONAL 1 LITRO C/U
+LÍQUIDO DE HUMO DE ALTA CALIDAD PARA MÁQUINAS DE HUMO
+IDEAL PARA EVENTOS, BOLICHES, FIESTAS, DJ, ESCENARIOS Y SHOWS
+CONTENIDO DEL COMBO
+4 BOTELLAS DE 1 LITRO CADA UNA
+TOTAL: 4 LITROS
+CARACTERÍSTICAS
+HUMO DENSO Y BLANCO
+NO TÓXICO
+NO DEJA RESIDUOS
+NO DAÑA LA MÁQUINA
+AROMA NEUTRO
+APTO PARA TODO TIPO DE MÁQUINAS DE HUMO
+USO PROFESIONAL Y HOGAREÑO
+APLICACIONES
+BOLICHES
+EVENTOS
+FIESTAS
+ESCENARIOS
+CABINAS DE DJ
+TEATROS",in stock,new,37999.00 ARS,https://tecnoshow.vercel.app/#MLA1976637175,https://http2.mlstatic.com/D_NQ_NP_2X_933519-MLA82149427551_012025-F.jpg,"https://http2.mlstatic.com/D_NQ_NP_2X_690114-MLA105430601675_012026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_810955-MLA105430601887_012026-F.jpg,https://http2.mlstatic.com/D_NQ_NP_2X_922729-MLA104862703960_012026-F.jpg",Gbr,Máquinas de humo

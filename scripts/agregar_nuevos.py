@@ -49,7 +49,17 @@ for a in activos:
          'link': d.get('link', ''), 'vendidos': '', 'calificacion': ''}
     nuevos.append(r)
 
+# Lo que estaba en la página con stock pero ya no está activo en Mercado Libre (pausado/terminado) pasa a "No".
+# Solo si el listado vino completo (para no apagar productos por un listado cortado).
+activos_skus = {a['sku'] for a in activos}
+sin_stock = []
+con_stock = sum(1 for r in cat_rows if r.get('stock') == 'Sí' and r['sku'].startswith('MLA'))
+if len(activos_skus) >= 0.8 * con_stock:
+    for r in cat_rows:
+        if r['sku'].startswith('MLA') and r['sku'] not in activos_skus and r.get('stock') == 'Sí':
+            r['stock'] = 'No'; sin_stock.append(r['sku'])
+
 json.dump(nuevos + cat_rows, open(RUTA, 'w'), ensure_ascii=False, separators=(',', ':'))
 print(json.dumps({'nuevos': [(r['sku'], r['nombre'], r['categoria']) for r in nuevos],
-                  'volvieron_a_stock': vuelven, 'precios_cambiados': len(precios), 'faltan_detalle': sin_detalle},
+                  'volvieron_a_stock': vuelven, 'sin_stock': sin_stock,'precios_cambiados': len(precios), 'faltan_detalle': sin_detalle},
                  ensure_ascii=False, indent=1))
