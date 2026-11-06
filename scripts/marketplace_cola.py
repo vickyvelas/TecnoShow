@@ -15,6 +15,14 @@ def norm(s):
 STOP = set('de con para y el la los las en a por marca modelo color negro negra pulgadas watt watts w rms pro profesional led leds usb bluetooth bt si esta publicado es porque disponible'.split())
 tok = lambda s: {t for t in norm(s).split() if t not in STOP and len(t) > 1}
 mod = lambda T: {t for t in T if re.search(r'\d', t) and re.search(r'[a-z]', t)}
+fix = lambda s: re.sub(r'(\d)[.,](\d{3})', r'\1\2', s)
+NOK = {'de', 'x', 'con', 'por', 'y', 'a', 'en', 'la', 'el', 'mts', 'pack', 'kit', 'w', 'hz', 'mm', 'cm', 'ip', 'par'}
+def keys(s):  # modelos: "pl1530", "apx1200", "hm1125" (sin watts)
+    w = norm(fix(s)).split(); K = set()
+    for i, t in enumerate(w):
+        if re.search(r'\d', t) and re.search(r'[a-z]', t) and len(t) >= 4 and not re.fullmatch(r'\d+w', t): K.add(t)
+        if i + 1 < len(w) and re.fullmatch(r'[a-z]{1,4}', t) and t not in NOK and re.fullmatch(r'\d{2,5}[a-z]?', w[i + 1]): K.add(t + w[i + 1])
+    return K
 def score(a, b):
     T, F = tok(a), tok(b); j = len(T & F) / max(1, len(T | F))
     return j + (0.5 if mod(T) & mod(F) else 0)
@@ -41,7 +49,8 @@ if len(sys.argv) > 2 and sys.argv[1] == '--existe':
     fb = [l.strip() for l in open(sys.argv[2]) if l.strip()]
     cola = json.load(open(COLA)); n = 0
     for x in cola:
-        if x['sku'] not in hechos and max([score(x['nombre'], f) for f in fb] or [0]) >= 1.0:
+        K = keys(x['nombre'])
+        if x['sku'] not in hechos and (max([score(x['nombre'], f) for f in fb] or [0]) >= 1.0 or any(K & keys(f) for f in fb)):
             P['ya_estaban'].append(x['sku']); n += 1
     json.dump(P, open(PUB, 'w'), indent=1); print(n, 'ya estaban'); sys.exit()
 ok = {r['sku']: r for r in rows if r.get('stock') == 'Sí' and num(r.get('precio')) > 0 and r.get('imagenes')}
