@@ -10,7 +10,7 @@ let res='NO';if(!e&&L.length==2&&fotos&&F('Título').value){let b=B('Siguiente')
 D.sku+' '+res+' '+e+' '+L.join(',')+' fotos='+fotos"""
 p=json.load(open('scripts/marketplace/publicados.json'))
 c=json.load(open('scripts/marketplace/cola.json'))
-h=set(p['publicados'])|set(p['ya_estaban'])|set(p.get('revisar',[]))
+h=set(p["publicados"])|set(p["ya_estaban"])|set(p.get("revisar",[]))|set(p.get("rechazados_por_facebook",[]))
 pend=[x for x in c if x['sku'] not in h]
 i=int(sys.argv[1])
 x=pend[i]
