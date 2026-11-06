@@ -28,8 +28,6 @@ def score(a, b):
     return j + (0.5 if mod(T) & mod(F) else 0)
 ORDEN = ['Parlantes y amplificación', 'Iluminación', 'DJ y consolas', 'Micrófonos', 'Máquinas de humo', 'Auriculares', 'Instrumentos',
          'Video y pantallas', 'Soportes, fundas y estructuras', 'Accesorios', 'Electrónica y repuestos', 'Otros', 'Cables y conectores']
-CATFB = {'Iluminación': 'Electrónica e informática', 'Video y pantallas': 'Electrónica e informática', 'Máquinas de humo': 'Electrónica e informática',
-         'Electrónica y repuestos': 'Electrónica e informática', 'Otros': 'Varios', 'Accesorios': 'Varios'}
 usado = lambda r: re.search(r'\busad[oa]s?\b|\bdemo\b|exhibici', (r['nombre'] + ' ' + r.get('descripcion', '')).lower())
 def desc(r):
     d = re.sub(r'[=¯_/\\*]{4,}', ' ', r.get('descripcion', '')).strip()
@@ -55,7 +53,7 @@ if len(sys.argv) > 2 and sys.argv[1] == '--existe':
     json.dump(P, open(PUB, 'w'), indent=1); print(n, 'ya estaban'); sys.exit()
 ok = {r['sku']: r for r in rows if r.get('stock') == 'Sí' and num(r.get('precio')) > 0 and r.get('imagenes')}
 def item(r):
-    return dict(sku=r['sku'], cat=r['categoria'], catfb=CATFB.get(r['categoria'], 'Instrumentos musicales'), nombre=r['nombre'].strip()[:99],
+    return dict(sku=r['sku'], cat=r['categoria'], catfb='Instrumentos musicales' if r['categoria'] == 'Instrumentos' else 'Electrónica e informática', nombre=r['nombre'].strip()[:99],
                 marca=(r.get('marca') or '')[:20], precio=num(r['precio']), estado='Usado - Como nuevo' if usado(r) else 'Nuevo',
                 desc=desc(r), imgs=[i.strip() for i in r['imagenes'].split(',') if i.strip()][:5], link=r['link'])
 prev = json.load(open(COLA)) if os.path.exists(COLA) else []
