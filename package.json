@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "python3 scripts/listas_csv.py || true",
     "build": "vite build",
     "preview": "vite preview"
   },
