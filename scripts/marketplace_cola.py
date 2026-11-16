@@ -31,6 +31,8 @@ ORDEN = ['Parlantes y amplificación', 'Iluminación', 'DJ y consolas', 'Micróf
 usado = lambda r: re.search(r'\busad[oa]s?\b|\bdemo\b|exhibici', (r['nombre'] + ' ' + r.get('descripcion', '')).lower())
 def desc(r):
     d = re.sub(r'[=¯_/\\*]{4,}', ' ', r.get('descripcion', '')).strip()
+    m = re.search(r'(?im)^.*(fervanero|preguntas frecuentes).*$', d)  # texto copiado de otros vendedores
+    if m: d = d[:m.start()].strip()
     d = re.sub(r'\n{3,}', '\n\n', d)
     if len(d) > 900: d = d[:900]; d = d[:d.rfind('\n') if d.rfind('\n') > 400 else d.rfind(' ')].rstrip() + '…'
     return (d + '\n\n' if d else '') + '💸 10% OFF pagando por transferencia.\n📍 Salta 1577, Ciudad de Mendoza.\n🛒 También en Mercado Libre: ' + r['link']
@@ -52,8 +54,16 @@ if len(sys.argv) > 2 and sys.argv[1] == '--existe':
             P['ya_estaban'].append(x['sku']); n += 1
     json.dump(P, open(PUB, 'w'), indent=1); print(n, 'ya estaban'); sys.exit()
 ok = {r['sku']: r for r in rows if r.get('stock') == 'Sí' and num(r.get('precio')) > 0 and r.get('imagenes')}
+CATFB = [(r'pantal[oó]n|campera|chaqueta|remera|buzo\b|botas?\b|zapatill', 'Ropa y calzado'),
+         (r'guantes|casco|golf|ski\b|snowboard|camping|bicicleta', 'Deportes y actividades al aire libre'),
+         (r'peine|alisador|barba|secador de pelo|planchita|depilad|afeitad', 'Salud y belleza')]
+def catfb(r):
+    if r['categoria'] == 'Instrumentos': return 'Instrumentos musicales'
+    for pat, c in CATFB:
+        if re.search(pat, r['nombre'].lower()): return c
+    return 'Electrónica e informática'
 def item(r):
-    return dict(sku=r['sku'], cat=r['categoria'], catfb='Instrumentos musicales' if r['categoria'] == 'Instrumentos' else 'Electrónica e informática', nombre=r['nombre'].strip()[:99],
+    return dict(sku=r['sku'], cat=r['categoria'], catfb=catfb(r), nombre=r['nombre'].strip()[:99],
                 marca=(r.get('marca') or '')[:20], precio=num(r['precio']), estado='Usado - Como nuevo' if usado(r) else 'Nuevo',
                 desc=desc(r), imgs=[i.strip() for i in r['imagenes'].split(',') if i.strip()][:5], link=r['link'])
 prev = json.load(open(COLA)) if os.path.exists(COLA) else []
