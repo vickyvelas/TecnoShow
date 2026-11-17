@@ -55,7 +55,7 @@ if len(sys.argv) > 2 and sys.argv[1] == '--existe':
     json.dump(P, open(PUB, 'w'), indent=1); print(n, 'ya estaban'); sys.exit()
 ok = {r['sku']: r for r in rows if r.get('stock') == 'Sí' and num(r.get('precio')) > 0 and r.get('imagenes')}
 CATFB = [(r'pantal[oó]n|campera|chaqueta|remera|buzo\b|botas?\b|zapatill', 'Ropa y calzado'),
-         (r'guantes|casco|golf|ski\b|snowboard|camping|bicicleta', 'Deportes y actividades al aire libre'),
+         (r'guantes|casco|golf|p[aá]del|paleta|raqueta|ski\b|snowboard|camping|bicicleta', 'Deportes y actividades al aire libre'),
          (r'peine|alisador|barba|secador de pelo|planchita|depilad|afeitad', 'Salud y belleza')]
 def catfb(r):
     if r['categoria'] == 'Instrumentos': return 'Instrumentos musicales'
