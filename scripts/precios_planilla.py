@@ -16,10 +16,14 @@ for sku, (med, precios, ids) in res.items():
     dif = p / med - 1
     est = 'Muy alto' if dif > UMBRAL else 'Muy barato' if dif < -UMBRAL else 'Bien'
     pr = (precios + [''] * 5)[:5]
-    filas.append([x['nombre'], p, med, round(dif, 3), est, *pr, x['link'], hoy])
+    filas.append([x['nombre'], p, med, round(dif * 100), est, *pr, x['link'], hoy])
 filas.sort(key=lambda f: (orden[f[4]], -abs(f[3])))
 os.makedirs('scripts/precios', exist_ok=True)
-json.dump(filas, open('scripts/precios/filas.json', 'w'), ensure_ascii=False)
+import csv
+with open('scripts/precios/precios.csv', 'w', newline='') as fh:
+    w = csv.writer(fh)
+    w.writerow(['Producto', 'Mi precio', 'Mediana ML', 'Diferencia %', 'Estado', 'Precio 1', 'Precio 2', 'Precio 3', 'Precio 4', 'Precio 5', 'Link', 'Actualizado'])
+    w.writerows(filas)
 baratos = [{'sku': s, 'nombre': cat[s]['nombre'], 'precio': int(float(cat[s]['precio'])), 'mediana': v[0]}
            for s, v in res.items() if s in cat and int(float(cat[s]['precio'])) < v[0] * (1 - UMBRAL)]
 prev = set()
