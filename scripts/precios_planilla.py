@@ -12,6 +12,7 @@ orden = {'Muy barato': 0, 'Muy alto': 1, 'Bien': 2}
 filas = []
 def referencia(precios):
     s = sorted(precios)[:5]
+    if not s: return None, []
     if s[-1] > s[0] * 1.5: s = s[:2]
     return round(sum(s) / len(s)), s
 for sku, (_, precios, ids) in res.items():
@@ -19,12 +20,14 @@ for sku, (_, precios, ids) in res.items():
     if not x: continue
     p = int(float(x['precio']))
     med, precios = referencia(precios)
+    pr = (precios + [''] * 5)[:5]
+    if med is None:
+        filas.append([x['nombre'], p, '', '', 'Sin iguales en ML', *pr, x['link'], hoy]); continue
     res[sku][0] = med
     dif = p / med - 1
     est = 'Muy alto' if dif > UMBRAL else 'Muy barato' if dif < -UMBRAL else 'Bien'
-    pr = (precios + [''] * 5)[:5]
     filas.append([x['nombre'], p, med, round(dif * 100), est, *pr, x['link'], hoy])
-filas.sort(key=lambda f: (orden[f[4]], -abs(f[3])))
+filas.sort(key=lambda f: (orden.get(f[4], 3), -abs(f[3] or 0)))
 os.makedirs('scripts/precios', exist_ok=True)
 import csv
 with open('scripts/precios/precios.csv', 'w', newline='') as fh:
@@ -32,7 +35,7 @@ with open('scripts/precios/precios.csv', 'w', newline='') as fh:
     w.writerow(['Producto', 'Mi precio', 'Referencia ML', 'Diferencia %', 'Estado', 'Precio 1', 'Precio 2', 'Precio 3', 'Precio 4', 'Precio 5', 'Link', 'Actualizado'])
     w.writerows(filas)
 baratos = [{'sku': s, 'nombre': cat[s]['nombre'], 'precio': int(float(cat[s]['precio'])), 'mediana': v[0]}
-           for s, v in res.items() if s in cat and int(float(cat[s]['precio'])) < v[0] * (1 - UMBRAL)]
+           for s, v in res.items() if s in cat and v[0] and int(float(cat[s]['precio'])) < v[0] * (1 - UMBRAL)]
 prev = set()
 if os.path.exists('scripts/precios/baratos.json'):
     prev = {b['sku'] for b in json.load(open('scripts/precios/baratos.json'))}

@@ -25,17 +25,23 @@ window.__P={hechos:0,total:0,captcha:false,fin:false,res:{}};
     const q=toks(x.nombre).slice(0,7);const p=+x.precio;
     const miPid=(x.link.match(/\/p\/(MLA\d+)/)||[])[1]||'';const miUsado=/usado/i.test(x.nombre);const miMulti=multi(x.nombre);
     const marca=toks(x.marca||'')[0];
-    const h=await fetch('https://listado.mercadolibre.com.ar/'+q.join('-')+'_NoIndex_True').then(r=>r.text());
-    if(/captcha|account-verification/.test(h.slice(0,5000))&&!h.includes('"metadata"')){P.captcha=true;return}
     const clave=q.filter(t=>/\d/.test(t)&&t.length>1);if(marca&&q.includes(marca))clave.push(marca);
-    const seen=new Set();
-    const ok=parse(h).filter(r=>{if(mios.has(r.id)||/tecno ?show/i.test(r.s)||r.p===p||seen.has(r.id))return false;seen.add(r.id);
-      if(r.usado!==miUsado||multi(r.t)!==miMulti)return false;
-      if(r.p<p*0.35||r.p>p*3)return false;
-      if(miPid&&r.pid)return r.pid===miPid;
-      const tt=new Set(toks(r.t));const hit=q.filter(t=>tt.has(t)).length/q.length;
-      return hit>=0.75&&clave.every(t=>tt.has(t))}).sort((a,b)=>a.p-b.p).slice(0,5);
-    if(ok.length>=2)P.res[x.sku]=[0,ok.map(r=>r.p),ok.map(r=>r.id)];
+    const buscar=async(qq,minHit)=>{
+      const h=await fetch('https://listado.mercadolibre.com.ar/'+qq.join('-')+'_NoIndex_True').then(r=>r.text());
+      if(/captcha|account-verification/.test(h.slice(0,5000))&&!h.includes('"metadata"')){P.captcha=true;return []}
+      const seen=new Set();
+      return parse(h).filter(r=>{if(mios.has(r.id)||/tecno ?show/i.test(r.s)||r.p===p||seen.has(r.id))return false;seen.add(r.id);
+        if(r.usado!==miUsado||multi(r.t)!==miMulti)return false;
+        if(r.p<p*0.35||r.p>p*3)return false;
+        if(miPid&&r.pid)return r.pid===miPid;
+        const tt=new Set(toks(r.t));const hit=q.filter(t=>tt.has(t)).length/q.length;
+        return hit>=minHit&&clave.every(t=>tt.has(t))})};
+    let ok=await buscar(q,0.75);
+    // segunda búsqueda más corta (marca + modelo) si la primera trajo pocos
+    if(ok.length<2&&!P.captcha){const corta=[...new Set([marca,...q.slice(0,2),...clave].filter(Boolean))].slice(0,5);
+      if(corta.join()!==q.join()){const ids=new Set(ok.map(r=>r.id));ok=ok.concat((await buscar(corta,0.5)).filter(r=>!ids.has(r.id)))}}
+    ok=ok.sort((a,b)=>a.p-b.p).slice(0,5);
+    P.res[x.sku]=[0,ok.map(r=>r.p),ok.map(r=>r.id)];
   };
   let i=0;const worker=async()=>{while(i<items.length&&!P.captcha){const x=items[i++];
     try{await una(x)}catch(e){}P.hechos++;await new Promise(r=>setTimeout(r,400))}};
