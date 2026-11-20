@@ -167,7 +167,7 @@ main .wrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;paddi
 .btn.ml{background:var(--grad);color:#fff}
 .btn.ghost{background:var(--surface-2);color:var(--link)}
 .btn svg{width:20px;height:20px}
-.dest{margin:4px 0 18px}.dest .rel{grid-auto-flow:column;grid-auto-columns:minmax(170px,200px);grid-template-columns:none;overflow-x:auto;padding-bottom:6px}.dest h2,.todos{font-size:18px;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+.dest{margin:4px 0 18px}.car{position:relative}.carb{position:absolute;top:40%;z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid #ddd;background:#fff;box-shadow:0 2px 6px #0002;font-size:22px;cursor:pointer;left:-8px}.carb.nx{left:auto;right:-8px}.dest .rel{scroll-behavior:smooth;scrollbar-width:none}.dest .rel{grid-auto-flow:column;grid-auto-columns:minmax(170px,200px);grid-template-columns:none;overflow-x:auto;padding-bottom:6px}.dest h2,.todos{font-size:18px;margin:0 0 10px;display:flex;align-items:center;gap:10px}
 .dest .vermas{font-size:13px;border:1px solid var(--line,#ddd);background:#fff;border-radius:14px;padding:3px 10px;cursor:pointer}
 .perks{display:grid;gap:8px;margin-top:6px;font-size:14px;color:var(--muted)}
 .perks div{display:flex;gap:8px;align-items:flex-start}
@@ -517,11 +517,14 @@ function chips(){
   return c.length?`<div class="chips">${c.map(([k,l])=>`<span class="chip">${esc(l)}<button data-rm="${k}" aria-label="Quitar filtro">×</button></span>`).join("")}</div>`:"";
 }
 const FUERTES=["Parlantes y amplificación","DJ y consolas","Iluminación"];
+window.carMover=function(b,d){const r=b.parentNode.querySelector(".rel");const w=r.clientWidth*.8;
+  if(d>0&&r.scrollLeft+r.clientWidth>=r.scrollWidth-5)r.scrollTo({left:0,behavior:"smooth"});else r.scrollBy({left:d*w,behavior:"smooth"})}
+setInterval(()=>{const r=document.querySelector(".dest .rel");if(!r||r.matches(":hover"))return;carMover(r,1)},4500);
 function destacados(){
   const of=P.filter(p=>p.of&&p.a&&p.p).sort((a,b)=>b.p-a.p).slice(0,12);
   const fu=P.filter(p=>p.a&&p.p&&FUERTES.includes(p.c)&&!p.of).sort((a,b)=>((b.s||0)>0)-((a.s||0)>0)||b.p-a.p).slice(0,12);
   const uno=l=>{const v=new Set();return l.filter(p=>{const k=norm(p.t).slice(0,30);return v.has(k)?0:v.add(k)})};
-  const fila=(t,l,extra)=>l.length?`<section class="dest"><h2>${t}${extra||""}</h2><div class="rel">${l.map(card).join("")}</div></section>`:"";
+  const fila=(t,l,extra)=>l.length?`<section class="dest"><h2>${t}${extra||""}</h2><div class="car"><button class="carb" onclick="carMover(this,-1)" aria-label="Anterior">‹</button><div class="rel">${l.map(card).join("")}</div><button class="carb nx" onclick="carMover(this,1)" aria-label="Siguiente">›</button></div></section>`:"";
   return fila("🔥 Ofertas",uno(of),` <button class="vermas" onclick="document.querySelector('#cats .ofertas').click()">Ver todas</button>`)+fila("Equipos destacados",uno(fu))+`<h2 class="todos">Todos los productos</h2>`;
 }
 function renderList(){
