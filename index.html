@@ -167,6 +167,7 @@ main .wrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;paddi
 .btn.ml{background:var(--grad);color:#fff}
 .btn.ghost{background:var(--surface-2);color:var(--link)}
 .btn svg{width:20px;height:20px}
+.segs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}.segs button{border:1px solid #d6d6e7;background:#fff;border-radius:18px;padding:8px 14px;font-weight:600;cursor:pointer}.segs button:hover{background:#f1f0ff}
 .dest{margin:4px 0 18px}.car{position:relative}.carb{position:absolute;top:40%;z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid #ddd;background:#fff;box-shadow:0 2px 6px #0002;font-size:22px;cursor:pointer;left:-8px}.carb.nx{left:auto;right:-8px}.dest .rel{scroll-behavior:smooth;scrollbar-width:none}.dest .rel{grid-auto-flow:column;grid-auto-columns:minmax(170px,200px);grid-template-columns:none;overflow-x:auto;padding-bottom:6px}.dest h2,.todos{font-size:18px;margin:0 0 10px;display:flex;align-items:center;gap:10px}
 .dest .vermas{font-size:13px;border:1px solid var(--line,#ddd);background:#fff;border-radius:14px;padding:3px 10px;cursor:pointer}
 .perks{display:grid;gap:8px;margin-top:6px;font-size:14px;color:var(--muted)}
@@ -435,7 +436,7 @@ const norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""
 const waIcon='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>';
 
 let P=[],byId={},CATS=[],META={};
-const st={cat:"",sub:"",brand:"",q:"",min:null,max:null,stock:true,oferta:false,free:false,sort:"rel",page:1,showAll:{}};
+const st={cat:"",sub:"",brand:"",q:"",min:null,max:null,stock:true,seg:"",oferta:false,free:false,sort:"rel",page:1,showAll:{}};
 try{const s=localStorage.getItem("ts_stock2");if(s!==null)st.stock=s==="1"}catch(e){}
 
 function thumbStyle(p){
@@ -471,6 +472,7 @@ function base(ignore){
   return P.filter(p=>{
     if(st.stock&&!p.a) return false;
     if(st.oferta&&!p.of) return false;
+    if(st.seg&&!SEG[st.seg].f(p)) return false;
     if(ignore!=="cat"&&st.cat&&p.c!==st.cat) return false;
     if(ignore!=="sub"&&st.sub&&p.sc!==st.sub) return false;
     if(ignore!=="brand"&&st.brand&&p.b!==st.brand) return false;
@@ -497,7 +499,7 @@ function facet(title,key,stKey,list){
   return `<div class="fgroup"><h3>${title}</h3><ul>${c.slice(0,lim).map(([k,n])=>`<li><button data-f="${stKey}" data-v="${esc(k)}" aria-pressed="${st[stKey]===k}">${esc(key==="c"?catL(k):k)} <span>(${n})</span></button></li>`).join("")}</ul>${c.length>lim?`<button class="more" data-more="${stKey}">Mostrar más</button>`:""}</div>`;
 }
 function renderSide(total){
-  const title=st.q?esc(st.q):(st.sub||catL(st.cat)||(st.oferta?"Ofertas":"Todos los productos"));
+  const title=st.seg?SEG[st.seg].t:st.q?esc(st.q):(st.sub||catL(st.cat)||(st.oferta?"Ofertas":"Todos los productos"));
   $("#side").innerHTML=`<h2>${title}</h2><div class="count">${total.toLocaleString("es-AR")} resultados</div>
    <div class="fgroup">
      <label class="toggle"><span>Solo productos en stock</span><input type="checkbox" id="fStock" ${st.stock?"checked":""}></label>
@@ -511,11 +513,18 @@ function renderSide(total){
 }
 function chips(){
   const c=[];
-  if(st.oferta)c.push(["oferta","Ofertas"]);
+  if(st.oferta)c.push(["oferta","Ofertas"]);if(st.seg)c.push(["seg",SEG[st.seg].t]);
   if(st.q)c.push(["q",`“${st.q}”`]);if(st.cat)c.push(["cat",st.cat]);if(st.sub)c.push(["sub",st.sub]);if(st.brand)c.push(["brand",st.brand]);
   if(st.min!=null||st.max!=null)c.push(["price",`${st.min!=null?fmt(st.min):"$ 0"} a ${st.max!=null?fmt(st.max):"más"}`]);
   return c.length?`<div class="chips">${c.map(([k,l])=>`<span class="chip">${esc(l)}<button data-rm="${k}" aria-label="Quitar filtro">×</button></span>`).join("")}</div>`:"";
 }
+const tiene=(p,re)=>re.test(p._s);
+const SEG={
+  dj:{t:"Para DJ",f:p=>["DJ y consolas","Auriculares","Máquinas de humo"].includes(p.c)||(p.c==="Iluminación"&&tiene(p,/cabezal|laser|strobo|flash|beam|spider|par led|efecto/))},
+  bandas:{t:"Para bandas",f:p=>["Micrófonos","Instrumentos"].includes(p.c)||(p.c==="Parlantes y amplificación"&&tiene(p,/consola|mixer|mezcla|potencia|monitor|bafle|amplificador|crossover|ecualizador/))||tiene(p,/atril|pie de microfono|direct box|caja directa/)},
+  eventos:{t:"Para salones y eventos",f:p=>["Parlantes y amplificación","Iluminación","Máquinas de humo","Video y pantallas"].includes(p.c)||tiene(p,/truss|tripode|soporte de bafle|pie de bafle/)},
+  iglesias:{t:"Para iglesias",f:p=>tiene(p,/microfono|consola|mixer|mezcla|bafle|parlante|columna|line array|potencia|monitor|in ear|ecualizador/)&&!tiene(p,/dj|auricular/)}
+};
 const FUERTES=["Parlantes y amplificación","DJ y consolas","Iluminación"];
 window.carMover=function(b,d){const r=b.parentNode.querySelector(".rel");const w=r.clientWidth*.8;
   if(d>0&&r.scrollLeft+r.clientWidth>=r.scrollWidth-5)r.scrollTo({left:0,behavior:"smooth"});else r.scrollBy({left:d*w,behavior:"smooth"})}
@@ -525,12 +534,13 @@ function destacados(){
   const fu=P.filter(p=>p.a&&p.p&&FUERTES.includes(p.c)&&!p.of).sort((a,b)=>((b.s||0)>0)-((a.s||0)>0)||b.p-a.p).slice(0,12);
   const uno=l=>{const v=new Set();return l.filter(p=>{const k=norm(p.t).slice(0,30);return v.has(k)?0:v.add(k)})};
   const fila=(t,l,extra)=>l.length?`<section class="dest"><h2>${t}${extra||""}</h2><div class="car"><button class="carb" onclick="carMover(this,-1)" aria-label="Anterior">‹</button><div class="rel">${l.map(card).join("")}</div><button class="carb nx" onclick="carMover(this,1)" aria-label="Siguiente">›</button></div></section>`:"";
-  return fila("🔥 Ofertas",uno(of),` <button class="vermas" onclick="document.querySelector('#cats .ofertas').click()">Ver todas</button>`)+fila("Equipos destacados",uno(fu))+`<h2 class="todos">Todos los productos</h2>`;
+  const segs=`<div class="segs">${Object.entries(SEG).map(([k,v])=>`<button data-seg="${k}">${v.t}</button>`).join("")}</div>`;
+  return segs+fila("🔥 Ofertas",uno(of),` <button class="vermas" onclick="document.querySelector('#cats .ofertas').click()">Ver todas</button>`)+fila("Equipos destacados",uno(fu))+`<h2 class="todos">Todos los productos</h2>`;
 }
 function renderList(){
   document.querySelector("main .wrap").classList.remove("solo");
-  $("#strip").hidden=!!(st.q||st.cat||st.sub||st.brand||st.oferta)||st.page>1;
-  const inicio=!(st.q||st.cat||st.sub||st.brand||st.oferta||st.min!=null||st.max!=null)&&st.page===1&&st.sort==="rel";
+  $("#strip").hidden=!!(st.seg||st.q||st.cat||st.sub||st.brand||st.oferta)||st.page>1;
+  const inicio=!(st.seg||st.q||st.cat||st.sub||st.brand||st.oferta||st.min!=null||st.max!=null)&&st.page===1&&st.sort==="rel";
   const list=sorted(base());
   renderSide(list.length);
   const pages=Math.max(1,Math.ceil(list.length/PER));
@@ -641,13 +651,14 @@ document.addEventListener("click",e=>{
   if(t.dataset.f){const k=t.dataset.f,v=t.dataset.v;st[k]=st[k]===v?"":v;if(k==="cat"){st.sub="";st.brand=""}if(k==="sub")st.brand=st.brand;closeF();go();}
   else if(t.dataset.more){st.showAll[t.dataset.more]=true;renderSide(base().length)}
   else if(t.dataset.rm){const k=t.dataset.rm;if(k==="price"){st.min=st.max=null}else if(k==="free")st.free=false;else if(k==="oferta")st.oferta=false;else if(k==="q"){st.q="";$("#q").value=""}else st[k]="";go()}
+  else if(t.dataset.seg){Object.assign(st,{seg:t.dataset.seg,cat:"",sub:"",brand:"",q:"",oferta:false});$("#q").value="";go()}
   else if(t.dataset.pg){st.page=+t.dataset.pg;renderList();window.scrollTo({top:0})}
-  else if(t.dataset.o&&t.closest("#cats")){Object.assign(st,{oferta:true,cat:"",sub:"",brand:"",q:""});$("#q").value="";go()}
-  else if(t.dataset.c!==undefined&&t.closest("#cats")){st.oferta=false;st.cat=t.dataset.c;st.sub=t.dataset.s||"";st.brand="";st.q="";$("#q").value="";go()}
+  else if(t.dataset.o&&t.closest("#cats")){Object.assign(st,{seg:"",oferta:true,cat:"",sub:"",brand:"",q:""});$("#q").value="";go()}
+  else if(t.dataset.c!==undefined&&t.closest("#cats")){st.oferta=false;st.seg="";st.cat=t.dataset.c;st.sub=t.dataset.s||"";st.brand="";st.q="";$("#q").value="";go()}
   else if(t.id==="back"){history.length>1&&document.referrer!==null?history.back():go(); if(!location.hash) renderList()}
-  else if(t.dataset.nav==="ofertas"){e.preventDefault();Object.assign(st,{oferta:true,cat:"",sub:"",brand:"",q:""});$("#q").value="";go();setNav("")}
-  else if(t.dataset.nav==="home"){e.preventDefault();Object.assign(st,{cat:"",sub:"",brand:"",q:"",min:null,max:null,free:false,oferta:false});$("#q").value="";go();setNav("")}
-  else if(t.id==="home"){e.preventDefault();Object.assign(st,{cat:"",sub:"",brand:"",q:"",min:null,max:null,free:false,oferta:false});$("#q").value="";go()}
+  else if(t.dataset.nav==="ofertas"){e.preventDefault();Object.assign(st,{seg:"",oferta:true,cat:"",sub:"",brand:"",q:""});$("#q").value="";go();setNav("")}
+  else if(t.dataset.nav==="home"){e.preventDefault();Object.assign(st,{seg:"",cat:"",sub:"",brand:"",q:"",min:null,max:null,free:false,oferta:false});$("#q").value="";go();setNav("")}
+  else if(t.id==="home"){e.preventDefault();Object.assign(st,{seg:"",cat:"",sub:"",brand:"",q:"",min:null,max:null,free:false,oferta:false});$("#q").value="";go()}
   else if(t.id==="openF"){$("#side").classList.add("open");$("#scrim").classList.add("open")}
 });
 function closeF(){$("#side").classList.remove("open");$("#scrim").classList.remove("open")}
@@ -828,6 +839,8 @@ function start(items,act){
   const usados=new Set();
   P.forEach(p=>{let b=norm(p.t).replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,80).replace(/-+$/,"")||"producto",sl=b,k=2;while(usados.has(sl))sl=b+"-"+(k++);usados.add(sl);p.slug=sl;
     byId[sl]=p;if(!byId[p.id])byId[p.id]=p;p._s=norm([p.t,p.b,p.sc,p.c,p.id].join(" "))});
+  {const best=new Map();P.forEach(p=>{const k=norm(p.t).replace(/[^a-z0-9]/g,"");const b=best.get(k);if(!b||(p.a-b.a||(p.s||0)-(b.s||0))>0)best.set(k,p)});
+   const keep=new Set(best.values());P.forEach(p=>{if(!keep.has(p)){const b=best.get(norm(p.t).replace(/[^a-z0-9]/g,""));byId[p.slug]=b;byId[p.id]=byId[p.id]===p?b:byId[p.id]}});P=P.filter(p=>keep.has(p))}
   CATS=CATS_ORDEN.filter(c=>P.some(p=>p.c===c));
   const liq=P.some(p=>p.sc==="Líquidos");
   $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button><button data-o="1" class="ofertas">Ofertas</button>`+CATS.filter(c=>!["Accesorios","Otros"].includes(c)).map(c=>`<button data-c="${esc(c)}">${esc(catL(c))}</button>`+(c==="Máquinas de humo"&&liq?`<button data-c="${esc(c)}" data-s="Líquidos">Líquidos</button>`:"")).join("");
