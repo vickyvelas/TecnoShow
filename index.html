@@ -167,6 +167,8 @@ main .wrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;paddi
 .btn.ml{background:var(--grad);color:#fff}
 .btn.ghost{background:var(--surface-2);color:var(--link)}
 .btn svg{width:20px;height:20px}
+.dest{margin:4px 0 18px}.dest .rel{grid-auto-flow:column;grid-auto-columns:minmax(170px,200px);grid-template-columns:none;overflow-x:auto;padding-bottom:6px}.dest h2,.todos{font-size:18px;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+.dest .vermas{font-size:13px;border:1px solid var(--line,#ddd);background:#fff;border-radius:14px;padding:3px 10px;cursor:pointer}
 .perks{display:grid;gap:8px;margin-top:6px;font-size:14px;color:var(--muted)}
 .perks div{display:flex;gap:8px;align-items:flex-start}
 .perks b{color:var(--fg);font-weight:600}
@@ -358,9 +360,9 @@ main .wrap.solo .side{display:none}
       <p>Audio profesional, iluminación, DJ, micrófonos y pantallas LED. Atendemos en Salta 1577, Ciudad de Mendoza, y enviamos a todo el país.</p>
     </div>
     <div class="facts">
-      <div class="fact"><b>40 años</b><span>de experiencia en el rubro</span></div>
-      <div class="fact"><b id="factN">+800</b><span>productos publicados</span></div>
-      <div class="fact"><b>Envíos</b><span>a todo el país</span></div>
+      <div class="fact"><b>Garantía</b><span>30 días en todos los productos</span></div>
+      <div class="fact"><b>Envíos</b><span>a todo el país: Correo Argentino, OCA, Vía Cargo o el que elijas</span></div>
+      <div class="fact"><b>Cuotas</b><span>y todos los medios de pago</span></div>
       <div class="fact hot"><b>10% OFF</b><span>por transferencia comprando por WhatsApp</span></div>
     </div>
   </div>
@@ -433,7 +435,7 @@ const norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""
 const waIcon='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>';
 
 let P=[],byId={},CATS=[],META={};
-const st={cat:"",sub:"",brand:"",q:"",min:null,max:null,stock:false,oferta:false,free:false,sort:"rel",page:1,showAll:{}};
+const st={cat:"",sub:"",brand:"",q:"",min:null,max:null,stock:true,oferta:false,free:false,sort:"rel",page:1,showAll:{}};
 try{const s=localStorage.getItem("ts_stock2");if(s!==null)st.stock=s==="1"}catch(e){}
 
 function thumbStyle(p){
@@ -514,9 +516,18 @@ function chips(){
   if(st.min!=null||st.max!=null)c.push(["price",`${st.min!=null?fmt(st.min):"$ 0"} a ${st.max!=null?fmt(st.max):"más"}`]);
   return c.length?`<div class="chips">${c.map(([k,l])=>`<span class="chip">${esc(l)}<button data-rm="${k}" aria-label="Quitar filtro">×</button></span>`).join("")}</div>`:"";
 }
+const FUERTES=["Parlantes y amplificación","DJ y consolas","Iluminación"];
+function destacados(){
+  const of=P.filter(p=>p.of&&p.a&&p.p).sort((a,b)=>b.p-a.p).slice(0,12);
+  const fu=P.filter(p=>p.a&&p.p&&FUERTES.includes(p.c)&&!p.of).sort((a,b)=>((b.s||0)>0)-((a.s||0)>0)||b.p-a.p).slice(0,12);
+  const uno=l=>{const v=new Set();return l.filter(p=>{const k=norm(p.t).slice(0,30);return v.has(k)?0:v.add(k)})};
+  const fila=(t,l,extra)=>l.length?`<section class="dest"><h2>${t}${extra||""}</h2><div class="rel">${l.map(card).join("")}</div></section>`:"";
+  return fila("🔥 Ofertas",uno(of),` <button class="vermas" onclick="document.querySelector('#cats .ofertas').click()">Ver todas</button>`)+fila("Equipos destacados",uno(fu))+`<h2 class="todos">Todos los productos</h2>`;
+}
 function renderList(){
   document.querySelector("main .wrap").classList.remove("solo");
   $("#strip").hidden=!!(st.q||st.cat||st.sub||st.brand||st.oferta)||st.page>1;
+  const inicio=!(st.q||st.cat||st.sub||st.brand||st.oferta||st.min!=null||st.max!=null)&&st.page===1&&st.sort==="rel";
   const list=sorted(base());
   renderSide(list.length);
   const pages=Math.max(1,Math.ceil(list.length/PER));
@@ -533,6 +544,7 @@ function renderList(){
     <button class="filt-btn" id="openF">Filtros</button>
     <label>Ordenar por <select id="sort"><option value="rel">Más relevantes</option><option value="lo">Menor precio</option><option value="hi">Mayor precio</option><option value="az">Nombre A–Z</option></select></label></div>
     ${chips()}
+    ${inicio?destacados():""}
     ${slice.length?`<div class="grid">${slice.map(card).join("")}</div>`:st.oferta?`<div class="empty">Todavía no hay ofertas publicadas. <a href="https://wa.me/${WA}?text=${encodeURIComponent("Hola TecnoShow! Qué ofertas tienen hoy?")}" target="_blank" rel="noopener">Escribinos</a> y te contamos las promos del momento.</div>`:`<div class="empty">No encontramos productos con esos filtros. Probá quitando alguno o <a href="https://wa.me/${WA}" target="_blank" rel="noopener">consultanos por WhatsApp</a>.</div>`}
     ${pg}`;
   $("#sort").value=st.sort;
@@ -545,6 +557,7 @@ function loadBundle(n){
   if(!bundleCache[n]) bundleCache[n]=fetch(`${META.galDir}/g${n}.json`).then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>{delete bundleCache[n];return null});
   return bundleCache[n];
 }
+const mlLink=p=>{const m=/^MLA(\d+)$/.exec(p.id);return m&&/\/p\/MLA/.test(p.u)?`https://articulo.mercadolibre.com.ar/MLA-${m[1]}`:"https://"+p.u};
 function renderProduct(id){
   const p=byId[id]; if(!p){location.hash="";return}
   const showImgs=(imgs,src)=>{if(!imgs.length)return;const gm=$("#gmain");
@@ -576,9 +589,12 @@ function renderProduct(id){
       ${p.a?"":`<p style="margin:0;color:var(--muted);font-size:14px">Por ahora no tenemos stock de este producto. Escribinos y te avisamos cuando reingresa o te ofrecemos una alternativa.</p>`}
       <div class="buy">
         <a class="btn wa" href="https://wa.me/${WA}?text=${msg}" target="_blank" rel="noopener">${waIcon} ${p.a&&p.p?"Comprar por WhatsApp con 10% OFF":"Consultar por WhatsApp"}</a>
-        ${p.u?`<a class="btn ${p.a?"ml":"ghost"}" href="https://${p.u}" target="_blank" rel="noopener">${p.a?"Comprar en Mercado Libre":"Ver publicación en Mercado Libre"}</a>`:""}
+        ${p.u?`<a class="btn ${p.a?"ml":"ghost"}" href="${mlLink(p)}" target="_blank" rel="noopener">${p.a?"Comprar en Mercado Libre":"Ver publicación en Mercado Libre"}</a>`:""}
       </div>
       <div class="perks">
+        <div><b>Garantía:</b> 30 días</div>
+        <div><b>Envíos a todo el país:</b> Correo Argentino, OCA, Vía Cargo o el transporte que necesites</div>
+        <div><b>Pagos:</b> todos los medios de pago y cuotas</div>
         <div><b>Retiro en el local:</b> Salta 1577, Ciudad de Mendoza</div>
         <div><b>Asesoramiento</b> de 40 años en audio, video e iluminación</div>
       </div>
@@ -811,8 +827,7 @@ function start(items,act){
     byId[sl]=p;if(!byId[p.id])byId[p.id]=p;p._s=norm([p.t,p.b,p.sc,p.c,p.id].join(" "))});
   CATS=CATS_ORDEN.filter(c=>P.some(p=>p.c===c));
   const liq=P.some(p=>p.sc==="Líquidos");
-  $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button><button data-o="1" class="ofertas">Ofertas</button>`+(REELS_ON?`<a class="reels-tab" href="#reels">▶ Reels</a>`:"")+CATS.map(c=>`<button data-c="${esc(c)}">${esc(catL(c))}</button>`+(c==="Máquinas de humo"&&liq?`<button data-c="${esc(c)}" data-s="Líquidos">Líquidos</button>`:"")).join("");
-  $("#factN").textContent="+"+(Math.floor(P.length/100)*100);
+  $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button><button data-o="1" class="ofertas">Ofertas</button>`+CATS.filter(c=>!["Accesorios","Otros"].includes(c)).map(c=>`<button data-c="${esc(c)}">${esc(catL(c))}</button>`+(c==="Máquinas de humo"&&liq?`<button data-c="${esc(c)}" data-s="Líquidos">Líquidos</button>`:"")).join("");
   if(act){armarReels();const v=location.hash.slice(1);if(v!=="reels"&&$("#rv").hidden)route();return}
   route();
   cargarReels();
