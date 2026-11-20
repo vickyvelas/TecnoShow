@@ -15,7 +15,13 @@ def referencia(precios):
     if not s: return None, []
     if s[-1] > s[0] * 1.5: s = s[:2]
     return round(sum(s) / len(s)), s
-for sku, (_, precios, ids) in res.items():
+# excluir.json: {sku: [ids de otros vendedores que NO son el mismo producto]} (revisado por fotos)
+excl = json.load(open('scripts/precios/excluir.json')) if os.path.exists('scripts/precios/excluir.json') else {}
+for sku, v in res.items():
+    precios, ids = v[1], v[2]
+    if sku in excl:
+        keep = [i for i, id_ in enumerate(ids) if id_ not in excl[sku]]
+        precios = [precios[i] for i in keep]; ids = [ids[i] for i in keep]
     x = cat.get(sku)
     if not x: continue
     p = int(float(x['precio']))
