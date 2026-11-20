@@ -56,7 +56,8 @@ if len(sys.argv) > 2 and sys.argv[1] == '--existe':
 ok = {r['sku']: r for r in rows if r.get('stock') == 'Sí' and num(r.get('precio')) > 0 and r.get('imagenes')}
 CATFB = [(r'pantal[oó]n|campera|chaqueta|remera|buzo\b|botas?\b|zapatill', 'Ropa y calzado'),
          (r'guantes|casco|golf|p[aá]del|paleta|raqueta|ski\b|snowboard|camping|bicicleta', 'Deportes y actividades al aire libre'),
-         (r'peine|alisador|barba|secador de pelo|planchita|depilad|afeitad', 'Salud y belleza')]
+         (r'peine|alisador|barba|secador de pelo|planchita|depilad|afeitad', 'Salud y belleza'),
+         (r'alicate|pinza|destornillador|soldador|esta[ñn]o|pelacable|crimpead|llave (de )?tubo|martillo', 'Herramientas')]
 def catfb(r):
     if r['categoria'] == 'Instrumentos': return 'Instrumentos musicales'
     for pat, c in CATFB:
