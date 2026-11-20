@@ -1,320 +1,98 @@
 [
 {
-"sku": "MLA1123872884",
-"nombre": "Parlante Ionify Loud 15 Portátil Con Bateria Bluetooth Luces",
-"precio": 199999,
-"mediana": 299999
+"sku": "MLA1106050261",
+"nombre": "Ficha Db37 Macho Chasis A 90 Grados Para Soldar A Placa",
+"precio": 5248,
+"mediana": 7150
 },
 {
-"sku": "MLA1151610660",
-"nombre": "Filtro Antipop Microfono Tipo Esponja Goma Espuma",
-"precio": 7348,
-"mediana": 13999
-},
-{
-"sku": "MLA1260369993",
-"nombre": "Stanton Dj 3000 Cable Repuesto Original Nuevo Para Auricular",
-"precio": 41998,
-"mediana": 72226
-},
-{
-"sku": "MLA1374572231",
-"nombre": "Morsa De Acero Para Iluminacion (pack 2 Unid) Jk4 M401 Xpro",
-"precio": 51973,
-"mediana": 102990
-},
-{
-"sku": "MLA1420718193",
-"nombre": "Stanton Dj 3000 Vincha De Repuesto Completa Sin Parlantes",
-"precio": 36750,
-"mediana": 72226
-},
-{
-"sku": "MLA1506627280",
-"nombre": "Ficha Xlr Canon Hembra 90 O 3 Contactos A Cable (pack De 2)",
-"precio": 31498,
+"sku": "MLA1387975923",
+"nombre": "Ficha Xlr Canon Hembra 90 O 3 Contactos A Cable (pack 5 Uni)",
+"precio": 38848,
 "mediana": 77952
 },
 {
-"sku": "MLA1508620154",
-"nombre": "Control Inalambrico Maquina De Humo Gbr, Antari,mlb Tecshow ",
-"precio": 41998,
-"mediana": 107115
+"sku": "MLA1450651093",
+"nombre": "Auricular Dj Cerrado Profesional Plegable Behringer Bdj1000 Color Negro",
+"precio": 92398,
+"mediana": 189025
 },
 {
-"sku": "MLA1746955625",
-"nombre": "Tacho PAR LED RGB PLS PL-543 54 Luces 3W DMX512 7 Canales Estrobo",
-"precio": 146998,
-"mediana": 239019
+"sku": "MLA1475698623",
+"nombre": "Par Parlante Skp Sk-105 Audio Funcional 75w Color Negro",
+"precio": 349648,
+"mediana": 416400
 },
 {
-"sku": "MLA1770873625",
-"nombre": "Cuerdas Bajo Sit Powerwound Medium Light",
-"precio": 52498,
-"mediana": 77473
+"sku": "MLA1729545315",
+"nombre": "Bafle Potenciado Con Ruedas Subarray 1500 Subwoofer",
+"precio": 1899999,
+"mediana": 2367074
 },
 {
-"sku": "MLA1785621415",
-"nombre": "Woofer Tecshow 18 Pulgadas 400W RMS Altavoz Pasivo Negro",
-"precio": 209998,
-"mediana": 324896
+"sku": "MLA3189411848",
+"nombre": "Cable Midi Premiun De Un Metro Con Ficha A 90 Grados",
+"precio": 15748,
+"mediana": 20699
 },
 {
-"sku": "MLA1841379549",
-"nombre": "Pack 5 Conector Uhf Hembra Chasis So239 Soldable",
-"precio": 39999,
-"mediana": 69674
+"sku": "MLA3277238926",
+"nombre": "Linterna Multifuncion Led Alta Potencia Recargable 5 Efectos",
+"precio": 157498,
+"mediana": 329999
 },
 {
-"sku": "MLA1845641397",
-"nombre": "Ficha Din 3 Patas Macho Plástico Pack 10 Unidades",
+"sku": "MLA3304365736",
+"nombre": "Pack 2 Cables Microfono Xlr Canon 1 Mt Metro Moon",
+"precio": 36750,
+"mediana": 44500
+},
+{
+"sku": "MLA3389735546",
+"nombre": "Parlante 2 En 1 Portátil Bluetooth Magnético Jahro Jhr-f11",
+"precio": 94999,
+"mediana": 214224
+},
+{
+"sku": "MLA3769059910",
+"nombre": "Liquido De Humo Profesional 5 Lts Dj Boliche Eventos Show",
 "precio": 35999,
-"mediana": 77275
+"mediana": 49999
 },
 {
-"sku": "MLA1850367293",
-"nombre": "Pack 4 Jack 1/4 Auricular Estéreo 7 Pines Con Carcasa",
-"precio": 36750,
-"mediana": 54185
+"sku": "MLA4073829424",
+"nombre": "Bafle Monitor 15 Activo Array 700 Plus Platinum Pro",
+"precio": 899999,
+"mediana": 1372107
 },
 {
-"sku": "MLA1932510727",
-"nombre": "Parlante Notabrick NOTABRICK Inalámbrico Portátil, con Bluetooth y Resistencia al Agua IPX6",
-"precio": 141748,
-"mediana": 351999
+"sku": "MLA616940494",
+"nombre": "Liquido Maquina De Humo - Usa Liquids Profesional Bidon 5 L",
+"precio": 65999,
+"mediana": 78740
 },
 {
-"sku": "MLA1974041066",
-"nombre": "Conzola Gbr Xm12 Mixer De Sonido 12 Canales Usb Mp3 Efectos",
-"precio": 524998,
-"mediana": 629000
+"sku": "MLA657860083",
+"nombre": "Cargador Powerbank Vivitar 2200mah Usb Rápido",
+"precio": 8999,
+"mediana": 18009
 },
 {
-"sku": "MLA1976637175",
-"nombre": "Pack 4 Liquido De Humo 1 Lt Linea Classic Gbr El Mejor",
-"precio": 37999,
-"mediana": 52249
+"sku": "MLA764540237",
+"nombre": "Jbl Selenium 250 X Driver 1 Pulgada Con Rosca Rms 100w",
+"precio": 167998,
+"mediana": 198500
 },
 {
-"sku": "MLA2051878683",
-"nombre": "Bolsa Almacenamiento Platillo De 20 Pulgadas",
-"precio": 58999,
-"mediana": 148041
-},
-{
-"sku": "MLA2168969063",
-"nombre": "Combo 2 Sparta X L Cabezal Móvil Doble Cara: Wash & Strobo",
-"precio": 1799999,
-"mediana": 2549000
-},
-{
-"sku": "MLA2391243096",
-"nombre": "Laser 5w Rgb Full Color Dmx Ilda Grafico Mdpro",
-"precio": 1049998,
-"mediana": 1489999
-},
-{
-"sku": "MLA3112005608",
-"nombre": "Bafle Activo Gbr Pl 1230 Dsp Bluetooth Sonido Potente",
-"precio": 729749,
-"mediana": 957599
-},
-{
-"sku": "MLA3205399754",
-"nombre": "Ficha Xlr Canon Macho 90 º 3 Contactos A Cable (pack De 10)",
-"precio": 99999,
-"mediana": 161686
-},
-{
-"sku": "MLA3205745502",
-"nombre": "Micrófonos Behringer C-2 Condensador Cardioide Color Platead",
-"precio": 219448,
-"mediana": 424301
-},
-{
-"sku": "MLA3205799222",
-"nombre": "Jbl Woofer 15cv5 150w Rms Color Negro",
-"precio": 262498,
-"mediana": 374953
-},
-{
-"sku": "MLA3283466770",
-"nombre": "Soporte Metalico Ajustable Notebook Dj Profesional Gbr",
-"precio": 52498,
-"mediana": 64624
-},
-{
-"sku": "MLA3381593074",
-"nombre": "Pack 2 Morsa Para Efectos De Iluminación M404",
-"precio": 36750,
-"mediana": 95990
-},
-{
-"sku": "MLA3381707268",
-"nombre": "Morsas X-pro Clamp Acero M409 Pack 2 Unidades",
-"precio": 36750,
-"mediana": 67140
-},
-{
-"sku": "MLA3453253678",
-"nombre": "Efecto Led Dual Gem Led American Dj",
-"precio": 524998,
-"mediana": 781465
-},
-{
-"sku": "MLA3453757586",
-"nombre": "Soporte De Parlante Samson Para Bafle Ls50p",
-"precio": 89999,
-"mediana": 181501
-},
-{
-"sku": "MLA3472191584",
-"nombre": "Conector Tnc Hembra A Rosca P/chasis 4 Agujeros Soldable X5",
-"precio": 41998,
-"mediana": 63875
-},
-{
-"sku": "MLA3483030640",
-"nombre": "Pack 5 Conector Bnc Macho A Cable Coaxil Metalico Crimpeable",
-"precio": 36750,
-"mediana": 65651
-},
-{
-"sku": "MLA3483034306",
-"nombre": "Ficha Conector Din 3 Pines Patas Macho Rosca Pack 5",
-"precio": 36750,
-"mediana": 53637
-},
-{
-"sku": "MLA3483036486",
-"nombre": "Conector Ficha Serie Db-9 Db9 Hembra 9 Pin Pack 5",
-"precio": 36750,
-"mediana": 49366
-},
-{
-"sku": "MLA3649421646",
-"nombre": "Cuerdas para Guitarra Eléctrica Framus Light 9 de Acero Niquelado",
-"precio": 25198,
-"mediana": 29735
-},
-{
-"sku": "MLA3776178976",
-"nombre": "Cabezal Movil Beam Led 4 Dual 200 Watt Rgbw 4 En 1 Gbr",
-"precio": 499999,
-"mediana": 755000
-},
-{
-"sku": "MLA4014135596",
-"nombre": "Ficha Conector Bnc Hembra A Tnc Macho Coaxial Profesional",
-"precio": 29999,
-"mediana": 76397
-},
-{
-"sku": "MLA4018370116",
-"nombre": "Ficha Conector Mini-uhf Macho Para Cable Rg58 Adaptador Prof",
-"precio": 9999,
-"mediana": 13308
-},
-{
-"sku": "MLA603660529",
-"nombre": "Caja Db Technologies Arena 12 Usada En Demo 12   Y Driver 1 ",
-"precio": 1050000,
-"mediana": 1546124
-},
-{
-"sku": "MLA620334887",
-"nombre": "Corneta De Plastico Selenium Hm 1125 Rosca De 1 Pulgada",
-"precio": 11999,
-"mediana": 25952
-},
-{
-"sku": "MLA622082364",
-"nombre": "Cable Canon Canon Xlr 1 Mts Audiolab Tipo Neutrik Oferta",
-"precio": 15999,
-"mediana": 21578
-},
-{
-"sku": "MLA735090699",
-"nombre": "Consola Dmx Operator Gbr 192 Canales Dmx 512 Conzola Dmx",
-"precio": 146998,
-"mediana": 175000
-},
-{
-"sku": "MLA744451115",
-"nombre": "Pr Solo 250 Cabezal Móvil Pr Lighting 10 Canales Dmx Usado",
-"precio": 734968,
-"mediana": 1200000
-},
-{
-"sku": "MLA764540460",
-"nombre": "Paño De Bandeja Giradiscos Marca Stanton",
+"sku": "MLA897428264",
+"nombre": "Cable Canon Macho/ Canon Hembra 6mts Profesional Mono",
 "precio": 20998,
-"mediana": 36500
+"mediana": 44999
 },
 {
-"sku": "MLA779579730",
-"nombre": "Jbl Selenium Repuesto Para Driver  Rpd 220 Ti Driver 1  ",
-"precio": 59999,
-"mediana": 112128
-},
-{
-"sku": "MLA833882337",
-"nombre": "Dbx 215s Eq Ecualizador Grafico 15+15 Bandas Stereo 2canales",
-"precio": 589999,
-"mediana": 1409000
-},
-{
-"sku": "MLA849553370",
-"nombre": "Tripode De Parlante Samson Ls2 Para Bafle ( Precio Unitario)",
-"precio": 77999,
-"mediana": 179507
-},
-{
-"sku": "MLA858767853",
-"nombre": "Conector Bnc Hembra Para Chasis 4 Agujeros Metalico Soldable",
-"precio": 4999,
-"mediana": 5920
-},
-{
-"sku": "MLA858815522",
-"nombre": "Conector Rca Hembra A Macho Codo 90º Plastico Kit De 10 Unid",
-"precio": 39999,
-"mediana": 87999
-},
-{
-"sku": "MLA863514932",
-"nombre": "Cable Midi Maxcable De 1 Metro Con Ficha A 90 Grados Premiun",
-"precio": 11999,
-"mediana": 22412
-},
-{
-"sku": "MLA863992105",
-"nombre": "Conector Tipo N Hembra Hembra Empalme Prolongación\nAdaptador",
-"precio": 5248,
-"mediana": 13900
-},
-{
-"sku": "MLA871810417",
-"nombre": "Ficha Derivador 90° En L Tnc Macho A Tnc Hembra Cctv A Rosca",
-"precio": 4999,
-"mediana": 7950
-},
-{
-"sku": "MLA884817992",
-"nombre": "Neutrik Nc3fx Conector Xlr Canon Hembra A Cable 3pin Kit 4 U",
-"precio": 73498,
-"mediana": 90000
-},
-{
-"sku": "MLA910207137",
-"nombre": "Conector Adaptador Bnc Macho A F Hembra Metalico Cromado",
-"precio": 5248,
-"mediana": 6650
-},
-{
-"sku": "MLA915766373",
-"nombre": "Laser A Bateria Ionify Btl-150  Con Parlante Y Bluetooth",
-"precio": 57748,
-"mediana": 141941
+"sku": "MLA897438800",
+"nombre": "Cable Canon Macho/ Canon Hembra 10mts Profesional Mono",
+"precio": 26248,
+"mediana": 49999
 }
 ]
