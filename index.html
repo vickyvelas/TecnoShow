@@ -823,6 +823,8 @@ function aItem(f,i){
   const o={id:g("sku")||("prod-"+i),t,p:num(g("precio")),a:hayStock(g("stock"))};
   const pp=num(g("precio_anterior"));if(pp>o.p&&o.p)o.pp=pp;
   o.of=/^(s|x|1|oferta)/i.test(norm(g("oferta")))||!!o.pp?1:0;
+  // Ofertas: se les bajó 20%; si no está cargado el precio anterior, se calcula
+  if(o.of&&!o.pp&&o.p)o.pp=Math.round(o.p/0.8);
   o.c=categoria(g("categoria"),g("subcategoria"),t);
   let sc=g("subcategoria");if(sc.includes(" - "))sc=sc.split(" - ").pop().trim();o.sc=sc?sc.charAt(0).toUpperCase()+sc.slice(1):o.c;
   if(g("marca"))o.b=g("marca");
