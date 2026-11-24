@@ -755,7 +755,7 @@ function armarReels(){
   // videos que están en tus publicaciones de Mercado Libre
   (Array.isArray(RAW_REELS[2])?RAW_REELS[2]:[]).forEach(e=>{const p=byId[e.sku];if(p)add(p,[p],e.video,e.th)});
   // primero los de Mercado Libre (arrancan solos), después los de Drive
-  REELS=mezclar(out.filter(r=>esHls(r.src))).concat(mezclar(out.filter(r=>!esHls(r.src))));
+  {const hls=r=>/\.m3u8$/.test(r.src);REELS=mezclar(out.filter(hls)).concat(mezclar(out.filter(r=>!hls(r))))}
 }
 function cargarReels(){
   if(reelsPedidos){armarReels();return}reelsPedidos=true;
