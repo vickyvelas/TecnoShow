@@ -301,6 +301,10 @@ main .wrap.solo .side{display:none}
 .reelv-box.h .reelv-frame{aspect-ratio:16/9;max-height:calc(100dvh - 150px)}
 .reelv-frame{position:relative}
 .reelv-frame iframe{width:100%;height:100%;border:0;display:block}
+.reelv-frame video,.rp-frame video{width:100%;height:100%;object-fit:contain;background:#000;display:block}
+.wm{position:absolute;right:10px;bottom:56px;width:28%;max-width:150px;opacity:.55;pointer-events:none;user-select:none;z-index:3;filter:drop-shadow(0 1px 2px #0008)}
+.wm-tile{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.10;background:url(logo.png) center/42% no-repeat}
+.rp-frame{position:relative}
 .rv-block{position:absolute;top:0;right:0;width:72px;height:72px;z-index:2}
 .reel-t img.vid{object-fit:cover;padding:0;background:#000}
 .rp{display:grid;grid-template-columns:minmax(0,auto) minmax(0,340px);justify-content:center;gap:18px;align-items:center;margin:4px 0 26px}
@@ -689,6 +693,7 @@ function videoSrc(u){
   if(m)return `https://www.instagram.com/${m[1]==="reels"?"reel":m[1]}/${m[2]}/embed`;
   m=u.match(/drive\.google\.com\/file\/d\/([\w-]+)/)||u.match(/drive\.google\.com\/.*[?&]id=([\w-]+)/);
   if(m)return `https://drive.google.com/file/d/${m[1]}/preview`;
+  if(/^https:\/\/http2\.mlstatic\.com\/.+\.m3u8$/.test(u))return u;
   m=u.match(/(?:youtube\.com\/(?:shorts\/|watch\?v=)|youtu\.be\/)([\w-]{6,})/);
   if(m)return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
   return "";
@@ -706,8 +711,8 @@ function armarReels(){
   if(!RAW_REELS)return;const [rows,ex]=RAW_REELS;
   const col=(f,re)=>{const k=Object.keys(f).find(k=>re.test(norm(k)));return k?String(f[k]||"").trim():""};
   const out=[],vistos=new Set();
-  const add=(p,ps,u)=>{const src=videoSrc(u);if(!p||!src||vistos.has(src))return;vistos.add(src);const id=driveId(u);
-    out.push({p,ps,src,th:id?`https://drive.google.com/thumbnail?id=${id}&sz=w480`:"",h:false})};
+  const add=(p,ps,u,th)=>{const src=videoSrc(u);if(!p||!src||vistos.has(src))return;vistos.add(src);const id=driveId(u);
+    out.push({p,ps,src,th:th||(id?`https://drive.google.com/thumbnail?id=${id}&sz=w480`:""),h:false})};
   (Array.isArray(rows)?rows:[]).forEach(f=>{
     if(/^(no|ocultar|borrar)/.test(norm(col(f,/mostrar|ocultar|estado/))))return;
     const p=buscarProducto(col(f,/producto/));const ig=col(f,/instagram/);
@@ -717,6 +722,8 @@ function armarReels(){
     const ps=[].concat(e.productos||e.producto||[]).map(buscarProducto).filter(Boolean);
     if(ps.length)add(ps.find(x=>x.a)||ps[0],ps,e.video);
   });
+  // videos que están en tus publicaciones de Mercado Libre
+  (Array.isArray(RAW_REELS[2])?RAW_REELS[2]:[]).forEach(e=>{const p=byId[e.sku];if(p)add(p,[p],e.video,e.th)});
   REELS=mezclar(out);
 }
 function cargarReels(){
@@ -724,10 +731,18 @@ function cargarReels(){
   const planilla=REELS_SHEET.startsWith("__")?Promise.resolve([]):hoja(REELS_SHEET);
   // reels.json: videos vinculados a mano (un video puede ir a varias publicaciones del mismo producto)
   const extra=fetch("reels.json").then(r=>r.ok?r.json():[]).catch(()=>[]);
-  Promise.all([planilla,extra]).then(d=>{RAW_REELS=d;armarReels();if(REELS.length&&$("#rv").hidden)route()});
+  const ml=fetch("reels-ml.json").then(r=>r.ok?r.json():[]).catch(()=>[]);
+  Promise.all([planilla,extra,ml]).then(d=>{RAW_REELS=d;armarReels();if(REELS.length&&$("#rv").hidden)route()});
 }
 const reelThumb=(r,i)=>`<button class="reel-t" data-reel="${i}" aria-label="Ver video: ${esc(r.p.t)}">${r.th?`<img class="vid" src="${esc(r.th)}" alt="" loading="lazy">`:(r.p.ph&&r.p.ph[0]?`<img src="${esc(r.p.ph[0])}" alt="" loading="lazy">`:"")}<i class="play"></i><span>${esc(r.p.t)}</span></button>`;
-const reelFrame=r=>`<iframe src="${r.src}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video: ${esc(r.p.t)}"></iframe>${/drive\.google/.test(r.src)?'<i class="rv-block" aria-hidden="true"></i>':""}`;
+const esHls=s=>/\.m3u8$/.test(s);
+const reelFrame=r=>(esHls(r.src)?`<video playsinline autoplay controls controlslist="nodownload noremoteplayback noplaybackrate" disablepictureinpicture disableremoteplayback oncontextmenu="return false" poster="${esc(r.th||"")}" data-hls="${esc(r.src)}"></video>`:`<iframe src="${r.src}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video: ${esc(r.p.t)}"></iframe>${/drive\.google/.test(r.src)?'<i class="rv-block" aria-hidden="true"></i>':""}`)+`<img class="wm" src="logo.png" alt="" aria-hidden="true" draggable="false"><i class="wm-tile" aria-hidden="true"></i>`;
+let hlsLib=null;
+const soltar=b=>{const v=b&&b.querySelector("video");if(v&&v._h)v._h.destroy()};
+function montarVideo(box){const v=box&&box.querySelector("video[data-hls]");if(!v)return;const src=v.dataset.hls;
+  if(v.canPlayType("application/vnd.apple.mpegurl")){v.src=src;v.play().catch(()=>{});return}
+  (hlsLib||(hlsLib=new Promise((ok,no)=>{const sc=document.createElement("script");sc.src="hls.min.js";sc.onload=()=>ok(window.Hls);sc.onerror=no;document.head.appendChild(sc)})))
+   .then(H=>{if(!H||!H.isSupported()||!v.isConnected)return;const h=new H();h.loadSource(src);h.attachMedia(v);v._h=h;v.play().catch(()=>{})}).catch(()=>{})}
 function reelsRow(){
   if(!REELS.length)return "";
   return `<section class="reels" aria-label="Reels"><div class="reels-h"><h2>Reels</h2><small>Mirá los productos funcionando</small></div>
@@ -736,12 +751,12 @@ function reelsRow(){
 function abrirReel(i){
   if(!REELS.length)return;ri=(i+REELS.length)%REELS.length;const r=REELS[ri],p=r.p;
   document.querySelector(".reelv-box").classList.toggle("h",!!r.h);
-  $("#rvF").innerHTML=reelFrame(r);
+  soltar($("#rvF"));$("#rvF").innerHTML=reelFrame(r);montarVideo($("#rvF"));
   $("#rvI").innerHTML=`<div><b>${esc(p.t)}</b><small>${p.a&&p.p?fmt(p.p)+" · 10% OFF por transferencia":"Consultá disponibilidad"}</small></div><a href="#${p.slug}" id="rvGo">Ver producto</a>`;
   $("#rvP").hidden=$("#rvN").hidden=REELS.length<2;
   $("#rv").hidden=false;document.body.style.overflow="hidden";
 }
-function cerrarReel(){$("#rv").hidden=true;$("#rvF").innerHTML="";document.body.style.overflow=""}
+function cerrarReel(){soltar($("#rvF"));$("#rv").hidden=true;$("#rvF").innerHTML="";document.body.style.overflow=""}
 $("#rvX").onclick=cerrarReel;$("#rvP").onclick=()=>abrirReel(ri-1);$("#rvN").onclick=()=>abrirReel(ri+1);
 $("#rv").addEventListener("click",e=>{if(e.target.id==="rv")cerrarReel();if(e.target.id==="rvGo")cerrarReel()});
 document.addEventListener("keydown",e=>{if($("#rv").hidden){if($("#rpF")&&!/INPUT|TEXTAREA|SELECT/.test((document.activeElement||{}).tagName||"")){if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();verReel(rpi+1)}if(e.key==="ArrowUp"||e.key==="ArrowLeft"){e.preventDefault();verReel(rpi-1)}}return}if(e.key==="Escape")cerrarReel();if(e.key==="ArrowRight")abrirReel(ri+1);if(e.key==="ArrowLeft")abrirReel(ri-1)});
@@ -752,7 +767,7 @@ document.addEventListener("keydown",e=>{if($("#rv").hidden){if($("#rpF")&&!/INPU
 let rpi=0;
 function verReel(i){
   if(!REELS.length||!$("#rpF"))return;rpi=(i+REELS.length)%REELS.length;const r=REELS[rpi],p=r.p;
-  $("#rpF").innerHTML=reelFrame(r);
+  soltar($("#rpF"));$("#rpF").innerHTML=reelFrame(r);montarVideo($("#rpF"));
   $("#rpI").innerHTML=`<small>Video ${rpi+1} de ${REELS.length}</small><b>${esc(p.t)}</b><small>${p.a&&p.p?fmt(p.p)+" · 10% OFF por transferencia":"Consultá disponibilidad"}</small><a href="#${p.slug}">Ver producto</a>`;
   document.querySelectorAll("#rpG [data-rp]").forEach(b=>b.setAttribute("aria-current",String(+b.dataset.rp===rpi)));
 }
