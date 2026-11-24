@@ -754,7 +754,8 @@ function armarReels(){
   });
   // videos que están en tus publicaciones de Mercado Libre
   (Array.isArray(RAW_REELS[2])?RAW_REELS[2]:[]).forEach(e=>{const p=byId[e.sku];if(p)add(p,[p],e.video,e.th)});
-  REELS=mezclar(out);
+  // primero los de Mercado Libre (arrancan solos), después los de Drive
+  REELS=mezclar(out.filter(r=>esHls(r.src))).concat(mezclar(out.filter(r=>!esHls(r.src))));
 }
 function cargarReels(){
   if(reelsPedidos){armarReels();return}reelsPedidos=true;
@@ -817,7 +818,7 @@ function verReel(i){
 function renderReels(){
   $("#strip").hidden=true;$("#side").innerHTML="";document.querySelector("main .wrap").classList.add("solo");
   if(!REELS.length){$("#view").innerHTML=`<section class="reels-page"><div class="reels-h"><h2>Reels</h2></div><div class="empty">${reelsPedidos&&RAW_REELS?"Pronto vas a ver acá videos de nuestros productos.":"Cargando videos…"}</div></section>`;window.scrollTo(0,0);return}
-  mezclar(REELS);rpi=0;
+  rpi=0;
   $("#view").innerHTML=`<section class="reels-page"><div class="reels-h"><h2>Reels</h2><small>Mirá los productos funcionando</small></div>
   <div class="rp"><div class="rp-stage"><div class="rp-frame" id="rpF"></div><div class="rp-nav"><button id="rpP" aria-label="Video anterior">▲</button><button id="rpN" aria-label="Video siguiente">▼</button></div></div><div class="rp-info" id="rpI"></div></div>
   <h3 class="rp-more">Más videos</h3><div class="reels-grid" id="rpG">${REELS.map((r,i)=>reelThumb(r,i).replace('data-reel=','data-rp=')).join("")}</div></section>`;
