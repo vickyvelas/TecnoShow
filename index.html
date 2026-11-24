@@ -365,6 +365,7 @@ main .wrap.solo .side{display:none}
 @media (max-width:900px){.rp{grid-template-columns:1fr;justify-items:center}.rp-info{height:auto;width:100%;max-width:520px}
  .reelv-box{flex-direction:column!important;max-width:100%;width:100%!important}.reelv-box .reelv-frame{height:auto;max-height:calc(100dvh - 190px);width:100%}
  .reelv-info{width:100%;max-height:150px}.reelv-info .ip-fotos,.reelv-info .ip-d,.reelv-info .ip-at{display:none}}
+.snd{position:absolute;left:10px;top:10px;z-index:4;border:0;border-radius:18px;background:rgba(0,0,0,.6);color:#fff;font-weight:600;font-size:13px;padding:7px 12px;cursor:pointer}
 </style>
 
 </head>
@@ -765,10 +766,10 @@ function cargarReels(){
 }
 const reelThumb=(r,i)=>`<button class="reel-t" data-reel="${i}" aria-label="Ver video: ${esc(r.p.t)}">${r.th?`<img class="vid" src="${esc(r.th)}" alt="" loading="lazy">`:(r.p.ph&&r.p.ph[0]?`<img src="${esc(r.p.ph[0])}" alt="" loading="lazy">`:"")}<i class="play"></i><span>${esc(r.p.t)}</span></button>`;
 const esHls=s=>/\.m3u8$/.test(s);
-const reelFrame=r=>(esHls(r.src)?`<video playsinline autoplay controls controlslist="nodownload noremoteplayback noplaybackrate" disablepictureinpicture disableremoteplayback oncontextmenu="return false" poster="${esc(r.th||"")}" data-hls="${esc(r.src)}"></video>`:`<iframe src="${r.src}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video: ${esc(r.p.t)}"></iframe>${/drive\.google/.test(r.src)?'<i class="rv-block" aria-hidden="true"></i>':""}`)+`<img class="wm" src="logo.png" alt="" aria-hidden="true" draggable="false"><i class="wm-tile" aria-hidden="true"></i>`;
+const reelFrame=r=>(esHls(r.src)?`<video playsinline autoplay muted loop controls controlslist="nodownload noremoteplayback noplaybackrate" disablepictureinpicture disableremoteplayback oncontextmenu="return false" poster="${esc(r.th||"")}" data-hls="${esc(r.src)}"></video><button class="snd" onclick="const v=this.parentNode.querySelector('video');v.muted=false;v.play();this.remove()">🔊 Activar sonido</button>`:`<iframe src="${r.src}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video: ${esc(r.p.t)}"></iframe>${/drive\.google/.test(r.src)?'<i class="rv-block" aria-hidden="true"></i>':""}`)+`<img class="wm" src="logo.png" alt="" aria-hidden="true" draggable="false"><i class="wm-tile" aria-hidden="true"></i>`;
 let hlsLib=null;
 const soltar=b=>{const v=b&&b.querySelector("video");if(v&&v._h)v._h.destroy()};
-function montarVideo(box){const v=box&&box.querySelector("video[data-hls]");if(!v)return;const src=v.dataset.hls;
+function montarVideo(box){const v=box&&box.querySelector("video[data-hls]");if(!v)return;const src=v.dataset.hls;v.muted=true;
   if(v.canPlayType("application/vnd.apple.mpegurl")){v.src=src;v.play().catch(()=>{});return}
   (hlsLib||(hlsLib=new Promise((ok,no)=>{const sc=document.createElement("script");sc.src="hls.min.js";sc.onload=()=>ok(window.Hls);sc.onerror=no;document.head.appendChild(sc)})))
    .then(H=>{if(!H||!H.isSupported()||!v.isConnected)return;const h=new H();h.loadSource(src);h.attachMedia(v);v._h=h;v.play().catch(()=>{})}).catch(()=>{})}
