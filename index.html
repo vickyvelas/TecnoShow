@@ -207,16 +207,16 @@ main .wrap{display:grid;grid-template-columns:190px minmax(0,1fr);gap:18px;paddi
 .btn.ch{background:#fff;color:var(--fg);border:1px solid var(--line)}
 .btn.ch svg{color:#25d366}
 /* footer */
-footer{background:var(--surface-2);color:var(--muted);font-size:12.5px;border-top:1px solid var(--line)}
+footer{background:var(--surface-2);color:var(--muted);font-size:12px;line-height:1.35;border-top:1px solid var(--line)}
 footer:before{content:"";display:block;height:3px;background:var(--grad)}
-footer .wrap{display:grid;grid-template-columns:1.2fr 1fr 1.3fr;gap:20px;padding-block:16px;align-items:start}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr auto;gap:18px;padding-block:10px;align-items:start}
 footer h4{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.08em;color:var(--fg);font-size:13px;margin:0 0 6px}
-footer p{margin:0 0 3px}
-footer .num{font-family:var(--f-display);font-size:20px;color:var(--fg);font-weight:700;letter-spacing:.02em;user-select:all}
+footer p{margin:0 0 1px}
+footer .num{font-family:var(--f-display);font-size:17px;color:var(--fg);font-weight:700;letter-spacing:.02em;user-select:all}
 footer a{color:var(--link)}
 .qrs{display:flex;gap:14px;flex-wrap:wrap}
 .qrs figure{margin:0;text-align:center;font-size:12px}
-.qrs img{width:160px;height:160px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px;display:block;margin-bottom:6px}
+.qrs img{width:120px;height:120px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px;display:block;margin-bottom:6px}
 .legal{border-top:1px solid var(--line);padding-block:12px;padding-inline:16px;font-size:12px;color:var(--muted);text-align:center}
 
 main .wrap.solo{grid-template-columns:minmax(0,1fr)}
@@ -348,8 +348,8 @@ main .wrap.solo .side{display:none}
 .reels-top{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:#fff;background:var(--grad);font-weight:700;font-size:14px;padding:9px 16px;border-radius:22px;white-space:nowrap;flex:none}.reels-top i{width:0;height:0;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent}
 @media (max-width:900px){.reels-top{display:none}}
 @media (max-width:760px){.brand small{display:none}.brand img{height:26px}.search input{padding:7px 14px;font-size:15px}.promo{font-size:12px;padding:4px 10px}.ig-top{transform:scale(.8)}.top .wrap{padding-block:6px;row-gap:6px}}
-.review .btn,.review a.btn{padding:7px 14px!important;font-size:13px!important}footer img[src="logo.png"]{max-height:34px;width:auto}
-@media (max-width:760px){.qrs img{width:140px;height:140px}}
+.review .btn,.review a.btn{padding:7px 14px!important;font-size:13px!important}footer img[src="logo.png"]{max-height:26px;width:auto}footer .qrs{gap:10px}footer .qrs figure{font-size:11px}footer .qrs img{margin-bottom:2px;padding:3px}
+@media (max-width:760px){.qrs img{width:110px;height:110px}}
 </style>
 
 </head>
@@ -413,7 +413,7 @@ main .wrap.solo .side{display:none}
   <div class="wrap">
     <div>
       <img src="logo.png" alt="TecnoShow" width="160" height="42" style="height:42px;width:auto;margin-bottom:10px">
-      <p>Audio, tecnología, iluminación, sonido profesional y pantallas LED. 40 años de experiencia en Cuyo.</p>
+      <p>40 años de experiencia en Cuyo.</p>
       <p>Salta 1577, Ciudad de Mendoza · <a href="https://www.google.com/maps/search/?api=1&query=Tecnoshow%20Salta%201577%20Mendoza&query_place_id=ChIJR26k8CEJfpYRD_7q823Gb1I" target="_blank" rel="noopener">Cómo llegar</a></p>
       <p>Lunes a viernes de 10 a 17 hs</p>
       <p>Email: <span style="user-select:all">tecnoshow@hotmail.com.ar</span></p>
