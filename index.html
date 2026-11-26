@@ -420,6 +420,9 @@ main .wrap.solo .side{display:none}
 .marcas{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;margin:0 0 18px;padding:4px 0}.marcas::-webkit-scrollbar{display:none}
 .marcas button{flex:none;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 18px;font:900 15px/1 var(--f-display,system-ui);letter-spacing:.03em;text-transform:uppercase;color:#23233a;cursor:pointer;transition:transform .15s,box-shadow .15s}
 .marcas button:hover{transform:translateY(-2px);box-shadow:0 6px 16px #0001;color:var(--violet)}
+.bmark{padding:2px 4px!important;height:26px;display:flex;align-items:center}.bmark img{height:20px;width:auto;max-width:64px;object-fit:contain;display:block}
+.bmark.st{height:34px}.bmark.st img{height:28px;max-width:110px}
+.marcas button{padding:8px 14px!important;height:60px;display:flex;align-items:center}.marcas button img{height:42px;width:auto;max-width:120px;object-fit:contain;display:block}
 </style>
 
 </head>
@@ -546,7 +549,7 @@ function priceHTML(p,big){
 }
 function card(p){
   return `<a class="card${p.a?"":" out"}" href="#${p.slug}" data-id="${p.slug}">
-    <div class="thumb" data-i="0">${p.b&&!/^(gen[eé]ric|otr|sin marca)/i.test(p.b)?`<span class="bmark">${esc(p.b)}</span>`:""}${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.of&&p.a?'<span class="tag of">OFERTA</span>':""}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
+    <div class="thumb" data-i="0">${logoDe(p.b)?`<span class="bmark"><img src="${logoDe(p.b)}" alt="${esc(p.b)}" loading="lazy"></span>`:""}${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.of&&p.a?'<span class="tag of">OFERTA</span>':""}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
     <div class="cbody">
       <div class="ctitle">${esc(p.t)}</div>
       ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span>${p.s?`<span>+${p.s} vendidos</span>`:""}</div>`:(p.s?`<div class="rating">+${p.s} vendidos</div>`:"")}
@@ -623,9 +626,9 @@ function destacados(){
   const uno=l=>{const v=new Set();return l.filter(p=>{const k=norm(p.t).slice(0,30);return v.has(k)?0:v.add(k)})};
   const fila=(t,l,extra)=>l.length?`<section class="dest"><h2>${t}${extra||""}</h2><div class="car"><button class="carb" onclick="carMover(this,-1)" aria-label="Anterior">‹</button><div class="rel">${l.map(card).join("")}</div><button class="carb nx" onclick="carMover(this,1)" aria-label="Siguiente">›</button></div></section>`:"";
   const segs=`<div class="segs">${Object.entries(SEG).map(([k,v])=>`<button data-seg="${k}">${v.t}</button>`).join("")}</div>`;
-  const cnt={};P.forEach(x=>{if(x.a&&x.b&&!/^(gen[eé]ric|otr|sin marca)/i.test(x.b))cnt[x.b]=(cnt[x.b]||0)+1});
-  const marcas=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,14);
-  const mk=marcas.length?`<div class="marcas">${marcas.map(([m])=>`<button data-f="brand" data-v="${esc(m)}">${esc(m)}</button>`).join("")}</div>`:"";
+  const cnt={};P.forEach(x=>{if(x.a&&logoDe(x.b))cnt[x.b]=(cnt[x.b]||0)+1});
+  const vist=new Set();const marcas=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).filter(([m])=>{const l=logoDe(m);return vist.has(l)?0:vist.add(l)});
+  const mk=marcas.length?`<div class="marcas">${marcas.map(([m])=>`<button data-f="brand" data-v="${esc(m)}" title="${esc(m)}"><img src="${logoDe(m)}" alt="${esc(m)}" loading="lazy"></button>`).join("")}</div>`:"";
   return segs+mk+fila("🔥 Ofertas",uno(of),` <button class="vermas" onclick="document.querySelector('#cats .ofertas').click()">Ver todas</button>`)+fila("Equipos destacados",uno(fu))+`<h2 class="todos">Todos los productos</h2>`;
 }
 function renderList(){
@@ -685,7 +688,7 @@ function renderProduct(id){
     </div>
     <div class="pinfo">
       <h1>${esc(p.t)}</h1>
-      <div class="bline">${p.b&&!/^(gen[eé]ric|otr|sin marca)/i.test(p.b)?`<span class="bmark st">${esc(p.b)}</span>`:""}<small>Cód. ${esc(p.id)}</small>${p.s?`<small class="vend">+${p.s} vendidos</small>`:""}${p.r?`<small><b>${p.r.toFixed(1)}</b> <span class="stars">${stars(p.r)}</span></small>`:""}</div>
+      <div class="bline">${logoDe(p.b)?`<span class="bmark st"><img src="${logoDe(p.b)}" alt="${esc(p.b)}"></span>`:""}<small>Cód. ${esc(p.id)}</small>${p.s?`<small class="vend">+${p.s} vendidos</small>`:""}${p.r?`<small><b>${p.r.toFixed(1)}</b> <span class="stars">${stars(p.r)}</span></small>`:""}</div>
       <div class="tags"><span>Nuevo</span><span>Garantía 30 días</span></div>
       ${p.a&&p.p?`<div class="paybox">
         <div class="po"><b>Tarjeta o Mercado Pago</b>${p.pp&&p.pp>p.p*1.03?`<s>${fmt(p.pp)}</s>`:""}<div class="pbig">${fmt(p.p)}</div><span>Pagalo en cuotas con todas las tarjetas</span></div>
@@ -941,6 +944,8 @@ const IC={
  "Electrónica y repuestos":'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
  "Ofertas":'<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
  "Todo":'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'};
+const LOGOS={"behringer": "https://http2.mlstatic.com/D_NQ_NP_656832-MLA74823735604_032024-F.jpg", "jbl": "https://http2.mlstatic.com/D_NQ_NP_710134-MLA74823677628_032024-F.jpg", "shure": "https://http2.mlstatic.com/D_NQ_NP_645284-MLA74823735472_032024-F.jpg", "pioneerdj": "https://http2.mlstatic.com/D_NQ_NP_754217-MLA77118509153_062024-F.jpg", "pioneer": "https://http2.mlstatic.com/D_NQ_NP_754217-MLA77118509153_062024-F.jpg", "audiotechnica": "https://http2.mlstatic.com/D_NQ_NP_765593-MLA74823740442_032024-F.jpg", "sennheiser": "https://http2.mlstatic.com/D_NQ_NP_771622-MLA112261544810_062026-F.jpg", "nisuta": "https://http2.mlstatic.com/D_NQ_NP_828251-MLA97549666661_112025-F.jpg", "tecnoshow": "logo.png"};
+const logoDe=b=>LOGOS[String(b||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"")]||"";
 const CORTO={"Parlantes y amplificación":"Audio Pro","DJ y consolas":"DJ","Máquinas de humo":"Humo","Video y pantallas":"Video","Cables y conectores":"Cables","Soportes, fundas y estructuras":"Soportes","Electrónica y repuestos":"Electrónica"};
 const ico=c=>IC[c]?`<svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[c]}</svg>`:"";
 function megaCats(){
