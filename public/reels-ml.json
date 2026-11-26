@@ -288,5 +288,45 @@
 "sku": "MLA1546561160",
 "video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/32c76b00-9676-4c90-8a22-480bd1014c9d/mt9pe7.m3u8",
 "th": "https://http2.mlstatic.com/D_NQ_NP_901500-MLA117036397357_092026-B.jpg"
+},
+{
+"sku": "MLA2104048141",
+"video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/49031be7-9677-4a50-a302-9f16f0ee1933/tJG2JO.m3u8",
+"th": "https://http2.mlstatic.com/D_NQ_NP_921159-MLA119479940753_102026-B.jpg"
+},
+{
+"sku": "MLA2104049287",
+"video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/98885119-03cb-4176-ba15-d6b29424e4dd/zUTxqq.m3u8",
+"th": "https://http2.mlstatic.com/D_NQ_NP_925159-MLA117855412084_102026-B.jpg"
+},
+{
+"sku": "MLA1540377586",
+"video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/f5a3f0cd-4190-46b2-9fd8-4b2b85a83f60/JJG8GC.m3u8",
+"th": "https://http2.mlstatic.com/D_NQ_NP_856706-MLA117194561883_092026-B.jpg"
+},
+{
+"sku": "MLA874008504",
+"video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/abedf91a-7db0-4139-8cf1-78c4471d6666/VEGCCD.m3u8",
+"th": "https://http2.mlstatic.com/D_NQ_NP_898387-MLA115700535676_092026-B.jpg"
+},
+{
+"sku": "MLA1441702771",
+"video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/ad2e3b6e-6ead-4bc3-892e-6497161f5ad5/ErkXIA.m3u8",
+"th": "https://http2.mlstatic.com/D_NQ_NP_634442-MLA117149209285_092026-B.jpg"
+},
+{
+"sku": "MLA1475736875",
+"video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/9ffba614-fe90-445c-a3d6-0d94f82830ad/DFKZuI.m3u8",
+"th": "https://http2.mlstatic.com/D_NQ_NP_692788-MLA117142341859_092026-B.jpg"
+},
+{
+"sku": "MLA1413198393",
+"video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/98db45ae-1a19-4348-aeb7-0972c3d66449/jyaRc8.m3u8",
+"th": "https://http2.mlstatic.com/D_NQ_NP_978270-MLA117141472757_092026-B.jpg"
+},
+{
+"sku": "MLA1391698497",
+"video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/4b38d7ed-1186-4824-8f80-b1eab5584fd8/QKx8fu.m3u8",
+"th": "https://http2.mlstatic.com/D_NQ_NP_883786-MLA115596706430_092026-B.jpg"
 }
 ]
