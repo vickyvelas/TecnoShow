@@ -6,22 +6,10 @@
 "mediana": 170000
 },
 {
-"sku": "MLA1380518709",
-"nombre": "Interfaz de audio Focusrite Scarlett 2i2 Studio roja y negra 3.ª gen",
-"precio": 969999,
-"mediana": 1380298
-},
-{
 "sku": "MLA1450651093",
 "nombre": "Auricular Dj Cerrado Profesional Plegable Behringer Bdj1000 Color Negro",
-"precio": 92398,
+"precio": 99999,
 "mediana": 189025
-},
-{
-"sku": "MLA1508620154",
-"nombre": "Control Inalambrico Maquina De Humo Gbr, Antari,mlb Tecshow ",
-"precio": 41998,
-"mediana": 113534
 },
 {
 "sku": "MLA1543868326",
@@ -51,7 +39,7 @@
 "sku": "MLA1770761097",
 "nombre": "Cuerdas Guitarra Acustica Premiun Sit Royal Bronze Pro Light",
 "precio": 30448,
-"mediana": 46808
+"mediana": 49017
 },
 {
 "sku": "MLA1778994206",
@@ -60,16 +48,16 @@
 "mediana": 47746
 },
 {
-"sku": "MLA1803975237",
-"nombre": "Par Driver De Titanio Td130 Tecshow 1 Pulgada 30w Rms",
-"precio": 41998,
-"mediana": 53490
-},
-{
 "sku": "MLA2051878683",
 "nombre": "Bolsa Almacenamiento Platillo De 20 Pulgadas",
 "precio": 58999,
-"mediana": 142153
+"mediana": 143390
+},
+{
+"sku": "MLA2143932313",
+"nombre": "Ficha Conector Mini-uhf Macho A Cable Coaxial Adaptador Prof",
+"precio": 9999,
+"mediana": 16500
 },
 {
 "sku": "MLA2168969063",
@@ -78,10 +66,10 @@
 "mediana": 2549000
 },
 {
-"sku": "MLA2191221579",
-"nombre": "Cuerdas De Guitarra Criolla Excelsior Eg700 Tensión Media",
-"precio": 11999,
-"mediana": 16733
+"sku": "MLA2287036191",
+"nombre": "Ficha Conector Coaxial Rf Mini Uhf Macho A N Hembra",
+"precio": 8999,
+"mediana": 16500
 },
 {
 "sku": "MLA3112005608",
@@ -94,12 +82,6 @@
 "nombre": "Jbl Woofer 15cv5 150w Rms Color Negro",
 "precio": 262498,
 "mediana": 374953
-},
-{
-"sku": "MLA3304426952",
-"nombre": "Cable Microfono Audio Dmx Gbr 3 Mts Metros Canon Xlr Pro",
-"precio": 41998,
-"mediana": 84499
 },
 {
 "sku": "MLA3453757586",
@@ -138,16 +120,16 @@
 "mediana": 20749
 },
 {
-"sku": "MLA735895636",
-"nombre": "Movil Moving Led 600 Cabezal Movil",
-"precio": 389999,
-"mediana": 839539
+"sku": "MLA850389690",
+"nombre": "Ficha Adaptador Xlr Canon Hembra A Xlr Canon Hembra Metalico",
+"precio": 7348,
+"mediana": 10104
 },
 {
-"sku": "MLA764540460",
-"nombre": "Paño De Bandeja Giradiscos Marca Stanton",
-"precio": 20998,
-"mediana": 36500
+"sku": "MLA856346771",
+"nombre": "Conector Pl259 Uhf Codo A 90 Macho / Hembra Metalico A Rosca",
+"precio": 9999,
+"mediana": 18573
 },
 {
 "sku": "MLA861793576",
@@ -171,13 +153,19 @@
 "sku": "MLA873003979",
 "nombre": " Adaptador Plug 3.5 Hembra Mono A Rca Macho Mono Plástico ",
 "precio": 2004,
-"mediana": 3268
+"mediana": 3159
 },
 {
 "sku": "MLA897428139",
 "nombre": "Cable Canon Macho/ Canon Hembra 1mt Profesional Mono",
 "precio": 10498,
 "mediana": 13791
+},
+{
+"sku": "MLA897428264",
+"nombre": "Cable Canon Macho/ Canon Hembra 6mts Profesional Mono",
+"precio": 20998,
+"mediana": 44999
 },
 {
 "sku": "MLA915766373",
