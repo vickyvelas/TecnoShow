@@ -436,6 +436,7 @@ main .wrap.solo .side{display:none}
 .intro-h button{background:none;border:0;color:#fff;font-size:22px;cursor:pointer;line-height:1}
 .intro-v{aspect-ratio:16/9;background:#000}
 @media (max-width:760px){.intro-box{width:86vw;border-radius:12px}.intro-h{padding:8px 12px}.intro-h b{font-size:15px}.intro-h button{font-size:18px}}.intro-v iframe{width:100%;height:100%;border:0;display:block}
+.cats button.conocenos{color:#fff;font-weight:600}
 </style>
 
 </head>
@@ -970,7 +971,7 @@ const CORTO={"Parlantes y amplificación":"Audio Pro","DJ y consolas":"DJ","Máq
 const ico=c=>IC[c]?`<svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[c]}</svg>`:"";
 function megaCats(){
   const subs={};P.forEach(p=>{if(!p.a)return;(subs[p.c]=subs[p.c]||{})[p.sc||""]=(subs[p.c][p.sc||""]||0)+1});
-  return `<button data-c="" aria-pressed="true">${ico("Todo")}Todo</button><button data-o="1" class="ofertas">${ico("Ofertas")}Ofertas</button>`+
+  return `<button data-c="" aria-pressed="true">${ico("Todo")}Todo</button><button data-o="1" class="ofertas">${ico("Ofertas")}Ofertas</button><button class="conocenos" onclick="abrirIntro()" aria-label="Conocenos: video del local">${ico("Video y pantallas")}Conocenos</button>`+
    CATS.filter(c=>!["Accesorios","Otros"].includes(c)).map(c=>{const ss=Object.entries(subs[c]||{}).filter(([k])=>k).sort((a,b)=>b[1]-a[1]);
     return `<div class="cat-it"><button data-c="${esc(c)}">${ico(c)}${esc(CORTO[c]||catL(c))}</button>${ss.length>1?`<div class="mega"><div class="mega-in">${ss.slice(0,12).map(([k,n])=>`<button data-c="${esc(c)}" data-s="${esc(k)}"><span>${esc(k)}</span><small>${n}</small></button>`).join("")}<button data-c="${esc(c)}" class="mega-all">Ver todo ${esc(catL(c))} →</button></div></div>`:""}</div>`}).join("");
 }
@@ -1064,15 +1065,14 @@ pCopia.then(copia=>{
   <div class="intro-box"><div class="intro-h"><b id="introT">Conocenos desde adentro</b><button id="introX" aria-label="Cerrar">✕</button></div>
   <div class="intro-v" id="introV"></div></div></div>
 <script>
-(function(){let visto=false;try{visto=sessionStorage.getItem("introVisto")==="1"}catch(e){}
- if(visto)return;
- setTimeout(function(){var d=document.getElementById("intro");if(!d)return;
+window.abrirIntro=function(){var d=document.getElementById("intro");if(!d)return;
   document.getElementById("introV").innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/ms-Q03S98pI?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1" title="Conocé TecnoShow por dentro" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
-  d.hidden=false;try{sessionStorage.setItem("introVisto","1")}catch(e){}
-  var cerrar=function(){d.hidden=true;document.getElementById("introV").innerHTML=""};
-  document.getElementById("introX").onclick=cerrar;d.onclick=function(e){if(e.target===d)cerrar()};
-  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!d.hidden)cerrar()});
- },900);})();
+  d.hidden=false;try{sessionStorage.setItem("introVisto","1")}catch(e){}};
+(function(){var d=document.getElementById("intro");var cerrar=function(){d.hidden=true;document.getElementById("introV").innerHTML=""};
+ document.getElementById("introX").onclick=cerrar;d.onclick=function(e){if(e.target===d)cerrar()};
+ document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!d.hidden)cerrar()});
+ var visto=false;try{visto=sessionStorage.getItem("introVisto")==="1"}catch(e){}
+ if(!visto)setTimeout(window.abrirIntro,900);})();
 </script>
 </body>
 </html>
