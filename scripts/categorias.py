@@ -23,6 +23,7 @@ OVERRIDES={ # revisados a mano
  'MLA1803973171':'Micrófonos','MLA764539487':'Instrumentos','MLA731247567':'Soportes, fundas y estructuras',
  'MLA1434513602':'Soportes, fundas y estructuras','MLA2055217473':'DJ y consolas',
  'MLA1779007360':'Video y pantallas','MLA1410102498':'Video y pantallas','MLA1893000823':'Otros','MLA4031444148':'Instrumentos',
+ 'MLA2268325851':'Otros',
 }
 def cat(title):
     t=n(title)
