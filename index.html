@@ -428,6 +428,13 @@ main .wrap.solo .side{display:none}
 .gthumbs .gvid{position:relative;background-color:#111;background-size:cover}.gvid i{position:absolute;inset:0;margin:auto;width:24px;height:24px;border-radius:50%;background:rgba(0,0,0,.65)}.gvid i:after{content:"";position:absolute;left:9px;top:6px;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent}
 .ip-bt a{display:inline-flex;align-items:center;gap:7px;flex:0 0 auto}.ip-wa{background:#25d366!important;color:#08331a!important}.ip-wa svg{width:18px;height:18px}
 .pcard-c .btn{align-self:center;padding:10px 22px;border-radius:24px}.btn.wa svg{width:19px;height:19px}
+.intro{position:fixed;inset:0;z-index:200;background:rgba(5,5,15,.72);display:flex;align-items:center;justify-content:center;padding:16px}
+.intro[hidden]{display:none}
+.intro-box{width:min(880px,100%);background:#0f0f18;border-radius:14px;overflow:hidden;box-shadow:0 20px 60px #0008}
+.intro-h{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;color:#fff}
+.intro-h b{font-family:var(--f-display);font-size:20px;text-transform:uppercase;font-style:italic;letter-spacing:.02em}
+.intro-h button{background:none;border:0;color:#fff;font-size:22px;cursor:pointer;line-height:1}
+.intro-v{aspect-ratio:16/9;background:#000}.intro-v iframe{width:100%;height:100%;border:0;display:block}
 </style>
 
 </head>
@@ -1052,5 +1059,19 @@ pCopia.then(copia=>{
 </script>
 
 
+<div id="intro" class="intro" hidden role="dialog" aria-modal="true" aria-labelledby="introT">
+  <div class="intro-box"><div class="intro-h"><b id="introT">Conocenos desde adentro</b><button id="introX" aria-label="Cerrar">✕</button></div>
+  <div class="intro-v" id="introV"></div></div></div>
+<script>
+(function(){let visto=false;try{visto=sessionStorage.getItem("introVisto")==="1"}catch(e){}
+ if(visto)return;
+ setTimeout(function(){var d=document.getElementById("intro");if(!d)return;
+  document.getElementById("introV").innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/ms-Q03S98pI?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1" title="Conocé TecnoShow por dentro" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  d.hidden=false;try{sessionStorage.setItem("introVisto","1")}catch(e){}
+  var cerrar=function(){d.hidden=true;document.getElementById("introV").innerHTML=""};
+  document.getElementById("introX").onclick=cerrar;d.onclick=function(e){if(e.target===d)cerrar()};
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!d.hidden)cerrar()});
+ },900);})();
+</script>
 </body>
 </html>
