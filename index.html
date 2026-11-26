@@ -370,6 +370,56 @@ main .wrap.solo .side{display:none}
  .reelv-box{flex-direction:column!important;max-width:100%;width:100%!important}.reelv-box .reelv-frame{height:auto;max-height:calc(100dvh - 190px);width:100%}
  .reelv-info{width:100%;max-height:150px}.reelv-info .ip-fotos,.reelv-info .ip-d,.reelv-info .ip-at{display:none}}
 .snd{position:absolute;left:10px;top:10px;z-index:4;border:0;border-radius:18px;background:rgba(0,0,0,.6);color:#fff;font-weight:600;font-size:13px;padding:7px 12px;cursor:pointer}
+/* menú de categorías con íconos y subcategorías al pasar el mouse */
+.cats{background:#12121a;border-top:0}
+.cats button{color:#d9d9e6;display:inline-flex;align-items:center;gap:6px}
+.cats button:hover{color:#fff}
+.cats button[aria-pressed="true"]{color:#fff;border-bottom-color:#7c5cff}
+.cats button.ofertas{color:#111;background:#ffc21a;border-radius:6px;margin:5px 4px;padding:4px 10px;border-bottom:0;font-weight:700}
+.cats button.ofertas[aria-pressed="true"]{color:#111;outline:2px solid #fff}
+.ci{width:16px;height:16px;flex:none;opacity:.9}
+.cat-it{position:relative;flex:none;display:flex}
+.mega{display:none;position:absolute;top:100%;left:0;z-index:60;padding-top:4px}
+.mega-in{background:#16161f;border-radius:0 0 10px 10px;box-shadow:0 14px 30px #0006;min-width:250px;padding:8px 0}
+.mega-in button{display:flex!important;width:100%;justify-content:space-between;gap:16px;padding:9px 16px!important;font-size:13.5px!important;color:#eee!important;border:0!important;text-align:left}
+.mega-in button small{color:#8f8fa3}
+.mega-in button:hover{background:#22222e;color:#fff!important}
+.mega-in .mega-all{color:#9d86ff!important;font-weight:600;border-top:1px solid #2a2a36!important;margin-top:4px}
+@media (hover:hover) and (min-width:901px){.cats .wrap{overflow:visible;flex-wrap:wrap}.cat-it:hover .mega,.cat-it:focus-within .mega{display:block}}
+/* tarjeta de producto */
+.bmark{position:absolute;top:8px;right:8px;z-index:2;background:#fff;border:1px solid var(--line);border-radius:6px;padding:2px 7px;font:800 10.5px/1.3 var(--f-display,system-ui);letter-spacing:.04em;text-transform:uppercase;color:#1d1d2b;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card .tag.of{left:8px;right:auto}
+.cbody .prev{color:var(--muted);font-size:12px;text-decoration:none}.cbody .prev{text-decoration:line-through}.cbody .prev .off{text-decoration:none;display:inline-block;margin-left:6px;color:#0a8a3a;font-weight:700}
+.cbody .price{font-size:21px;font-weight:600;line-height:1.1;margin-top:2px}
+.pt{display:flex;align-items:center;gap:6px;font-size:12px;color:#0a8a3a;font-weight:600}.pt em{font-style:normal;background:#e3f6e9;color:#0a7a33;border-radius:4px;padding:1px 6px;font-size:11px}
+.pcard{font-size:12px;color:var(--muted);margin-top:3px}
+.pills{display:flex;gap:4px;margin-top:4px}.pills em{font-style:normal;font-size:11px;font-weight:600;color:#0a7a33;background:#e3f6e9;border-radius:4px;padding:1px 6px}
+.envio{font-size:11.5px;color:#0a7a33;font-weight:600;margin-top:4px}
+.cbody .transf{display:none}
+/* ficha de producto */
+.crumbs{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:12.5px;color:var(--muted);margin:2px 0 10px}
+.crumbs button{background:none;border:0;padding:0;color:var(--muted);cursor:pointer;font-size:12.5px}.crumbs button:hover{color:var(--fg);text-decoration:underline}
+.crumbs .back{color:var(--violet);font-weight:600;margin-right:6px}.crumbs span{color:#c2187a;font-weight:600;max-width:420px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (min-width:1200px){.pv{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) 280px}.pv>.sec{grid-column:1/-1}}
+@media (max-width:1199px){.pside{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px}}
+@media (max-width:700px){.pside{grid-template-columns:1fr}}
+.bline{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:12.5px;color:var(--muted)}.bmark.st{position:static;font-size:12px;padding:3px 9px}.bline .vend{color:#d9480f;font-weight:600}
+.tags{display:flex;gap:6px}.tags span{font-size:11.5px;border:1px solid var(--line);border-radius:12px;padding:2px 9px;color:var(--muted)}.tags span:first-child{border-color:#e03131;color:#e03131}
+.paybox{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.po{padding:12px 14px;display:flex;flex-direction:column;gap:2px}.po+.po{border-top:1px solid var(--line)}
+.po b{font-size:13px;display:flex;align-items:center;gap:8px}.po b em{font-style:normal;background:#0a8a3a;color:#fff;border-radius:4px;font-size:10.5px;padding:1px 7px}
+.po s{color:var(--muted);font-size:12px}.po .pbig{font-size:22px;font-weight:600}.po span{font-size:12px;color:var(--muted)}
+.po.best{background:#f3fbf5}.po.best .pbig{font-size:30px;color:#0b0b14}.po.best span{color:#0a7a33;font-weight:600}
+.pside{display:flex;flex-direction:column;gap:12px;min-width:0}
+.pcard-c{border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+.pcard-c .who{display:flex;align-items:center;gap:10px}.pcard-c .who img{width:46px;height:46px;object-fit:contain;border:1px solid var(--line);border-radius:50%;padding:4px;background:#fff}
+.pcard-c .who small{display:flex;align-items:center;gap:5px;color:#0a8a3a;font-size:12px}.pcard-c .who small i{width:7px;height:7px;border-radius:50%;background:#2fb344}
+.pcard-c p{margin:0;font-size:12.5px;color:var(--muted)}.pcard-c .btn{justify-content:center}.pcard-c .resp{text-align:center;color:var(--muted);font-size:11px}
+.pcard-c h3{margin:0;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.pli{list-style:none;margin:0;padding:0;display:grid;gap:10px}.pli li{display:flex;flex-direction:column;font-size:12.5px;padding-left:14px;position:relative}.pli li:before{content:"";position:absolute;left:0;top:6px;width:7px;height:7px;border-radius:50%;background:var(--violet)}.pli b{color:#0a7a33}.pli span{color:var(--muted)}
+.marcas{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;margin:0 0 18px;padding:4px 0}.marcas::-webkit-scrollbar{display:none}
+.marcas button{flex:none;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 18px;font:900 15px/1 var(--f-display,system-ui);letter-spacing:.03em;text-transform:uppercase;color:#23233a;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.marcas button:hover{transform:translateY(-2px);box-shadow:0 6px 16px #0001;color:var(--violet)}
 </style>
 
 </head>
@@ -489,14 +539,14 @@ function priceHTML(p,big){
   if(!p.a) return `<div class="nostock">Sin stock</div><div class="ask">Consultá disponibilidad</div>`;
   if(!p.p) return `<div class="ask">Consultar precio</div>`;
   let h="";
-  if(p.pp&&p.pp>p.p) h+=`<div class="prev">${fmt(p.pp)}</div>`;
-  h+=`<div class="price">${fmt(p.p)}${p.pp&&p.pp>p.p?`<span class="off">${Math.round((1-p.p/p.pp)*100)}% OFF</span>`:""}</div>`;
-  h+=`<div class="transf">${fmt(Math.round(p.p*0.9))} <span>con transferencia</span></div>`;
+  if(p.pp&&p.pp>p.p*1.03) h+=`<div class="prev">${fmt(p.pp)}<span class="off">${Math.round((1-p.p/p.pp)*100)}% OFF</span></div>`;
+  h+=`<div class="price">${fmt(Math.round(p.p*0.9))}</div><div class="pt"><span>con transferencia</span><em>10% OFF</em></div>`;
+  h+=`<div class="pcard">${fmt(p.p)} con tarjeta</div><div class="pills"><em class="cuo">Cuotas con tarjeta</em></div><div class="envio">Envíos a todo el país</div>`;
   return h;
 }
 function card(p){
   return `<a class="card${p.a?"":" out"}" href="#${p.slug}" data-id="${p.slug}">
-    <div class="thumb" data-i="0">${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.of&&p.a?'<span class="tag of">OFERTA</span>':""}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
+    <div class="thumb" data-i="0">${p.b&&!/^(gen[eé]ric|otr|sin marca)/i.test(p.b)?`<span class="bmark">${esc(p.b)}</span>`:""}${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.of&&p.a?'<span class="tag of">OFERTA</span>':""}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
     <div class="cbody">
       <div class="ctitle">${esc(p.t)}</div>
       ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span>${p.s?`<span>+${p.s} vendidos</span>`:""}</div>`:(p.s?`<div class="rating">+${p.s} vendidos</div>`:"")}
@@ -573,7 +623,10 @@ function destacados(){
   const uno=l=>{const v=new Set();return l.filter(p=>{const k=norm(p.t).slice(0,30);return v.has(k)?0:v.add(k)})};
   const fila=(t,l,extra)=>l.length?`<section class="dest"><h2>${t}${extra||""}</h2><div class="car"><button class="carb" onclick="carMover(this,-1)" aria-label="Anterior">‹</button><div class="rel">${l.map(card).join("")}</div><button class="carb nx" onclick="carMover(this,1)" aria-label="Siguiente">›</button></div></section>`:"";
   const segs=`<div class="segs">${Object.entries(SEG).map(([k,v])=>`<button data-seg="${k}">${v.t}</button>`).join("")}</div>`;
-  return segs+fila("🔥 Ofertas",uno(of),` <button class="vermas" onclick="document.querySelector('#cats .ofertas').click()">Ver todas</button>`)+fila("Equipos destacados",uno(fu))+`<h2 class="todos">Todos los productos</h2>`;
+  const cnt={};P.forEach(x=>{if(x.a&&x.b&&!/^(gen[eé]ric|otr|sin marca)/i.test(x.b))cnt[x.b]=(cnt[x.b]||0)+1});
+  const marcas=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,14);
+  const mk=marcas.length?`<div class="marcas">${marcas.map(([m])=>`<button data-f="brand" data-v="${esc(m)}">${esc(m)}</button>`).join("")}</div>`:"";
+  return segs+mk+fila("🔥 Ofertas",uno(of),` <button class="vermas" onclick="document.querySelector('#cats .ofertas').click()">Ver todas</button>`)+fila("Equipos destacados",uno(fu))+`<h2 class="todos">Todos los productos</h2>`;
 }
 function renderList(){
   document.querySelector("main .wrap").classList.remove("solo");
@@ -624,32 +677,36 @@ function renderProduct(id){
   const half=Math.ceil(specs.length/2);
   const tbl=rows=>`<table><tbody>${rows.map(([k,v])=>`<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</tbody></table>`;
   $("#side").innerHTML="";document.querySelector("main .wrap").classList.add("solo");
-  $("#view").innerHTML=`<button class="back" id="back">‹ Volver al listado</button>
+  $("#view").innerHTML=`<nav class="crumbs"><button class="back" id="back">‹ Volver</button><button data-c="${esc(p.c)}">${esc(catL(p.c))}</button>${p.sc&&norm(p.sc)!==norm(p.c)?`<i>›</i><button data-c="${esc(p.c)}" data-s="${esc(p.sc)}">${esc(p.sc)}</button>`:""}<i>›</i><span>${esc(p.t)}</span></nav>
   <article class="pv${p.a?"":" out"}">
     <div class="gallery">
       <div class="gthumbs" id="gthumbs"></div>
       <div class="gmain" id="gmain"><span class="loading" hidden>Cargando fotos…</span></div>
     </div>
     <div class="pinfo">
-      ${p.s?`<div class="cond">+${p.s} vendidos</div>`:""}
       <h1>${esc(p.t)}</h1>
-      ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span></div>`:""}
-      ${priceHTML(p)}
+      <div class="bline">${p.b&&!/^(gen[eé]ric|otr|sin marca)/i.test(p.b)?`<span class="bmark st">${esc(p.b)}</span>`:""}<small>Cód. ${esc(p.id)}</small>${p.s?`<small class="vend">+${p.s} vendidos</small>`:""}${p.r?`<small><b>${p.r.toFixed(1)}</b> <span class="stars">${stars(p.r)}</span></small>`:""}</div>
+      <div class="tags"><span>Nuevo</span><span>Garantía 30 días</span></div>
+      ${p.a&&p.p?`<div class="paybox">
+        <div class="po"><b>Tarjeta o Mercado Pago</b>${p.pp&&p.pp>p.p*1.03?`<s>${fmt(p.pp)}</s>`:""}<div class="pbig">${fmt(p.p)}</div><span>Pagalo en cuotas con todas las tarjetas</span></div>
+        <div class="po best"><b>Transferencia <em>Mejor precio</em></b><div class="pbig">${fmt(Math.round(p.p*0.9))}</div><span>10% OFF comprando por WhatsApp</span></div>
+      </div>`:priceHTML(p)}
       ${REELS.some(r=>r.ps.includes(p))?`<button class="pv-video" data-reel="${REELS.findIndex(r=>r.ps.includes(p))}">▶ Ver video del producto</button>`:""}
-      ${p.a&&p.p?`<div class="transf-box"><b>10% OFF pagando por transferencia</b><span>Comprando por WhatsApp te queda en <strong>${fmt(Math.round(p.p*0.9))}</strong></span></div>`:""}
       ${p.a?"":`<p style="margin:0;color:var(--muted);font-size:14px">Por ahora no tenemos stock de este producto. Escribinos y te avisamos cuando reingresa o te ofrecemos una alternativa.</p>`}
       <div class="buy">
         <a class="btn wa" href="https://wa.me/${WA}?text=${msg}" target="_blank" rel="noopener">${waIcon} ${p.a&&p.p?"Comprar por WhatsApp con 10% OFF":"Consultar por WhatsApp"}</a>
         ${p.u?`<a class="btn ${p.a?"ml":"ghost"}" href="${mlLink(p)}" target="_blank" rel="noopener">${p.a?"Comprar en Mercado Libre":"Ver publicación en Mercado Libre"}</a>`:""}
       </div>
-      <div class="perks">
-        <div><b>Garantía:</b> 30 días</div>
-        <div><b>Envíos a todo el país:</b> Correo Argentino, OCA, Vía Cargo o el transporte que necesites</div>
-        <div><b>Pagos:</b> todos los medios de pago y cuotas</div>
-        <div><b>Retiro en el local:</b> Salta 1577, Ciudad de Mendoza</div>
-        <div><b>Asesoramiento</b> de 40 años en audio, video e iluminación</div>
-      </div>
     </div>
+    <aside class="pside">
+      <div class="pcard-c"><div class="who"><img src="logo.png" alt=""><div><b>TecnoShow</b><small><i></i> Atención por WhatsApp</small></div></div>
+        <p>Consultanos compatibilidades, armado de equipos, financiación y envíos.</p>
+        <a class="btn wa" href="https://wa.me/${WA}?text=${msg}" target="_blank" rel="noopener">${waIcon} Escribinos</a><small class="resp">Te respondemos en el día</small></div>
+      <div class="pcard-c"><h3>Envíos y retiro</h3>
+        <ul class="pli"><li><b>Envíos a todo el país</b><span>Correo Argentino, OCA, Vía Cargo o el transporte que necesites</span></li>
+        <li><b>Retiro en el local</b><span>Salta 1577, Ciudad de Mendoza</span></li>
+        <li><b>Garantía de 30 días</b><span>Y 40 años de experiencia asesorándote</span></li></ul></div>
+    </aside>
     ${specs.length?`<section class="sec"><h2>Características del producto</h2><div class="specs">${tbl(specs.slice(0,half))}${tbl(specs.slice(half))}</div></section>`:""}
     <section class="sec" id="descSec" hidden><h2>Descripción</h2><div class="desc" id="desc"></div></section>
     ${rel.length?`<section class="sec"><h2>Productos relacionados</h2><div class="rel">${rel.map(card).join("")}</div></section>`:""}
@@ -692,7 +749,7 @@ document.addEventListener("click",e=>{
   else if(t.dataset.seg){Object.assign(st,{seg:t.dataset.seg,cat:"",sub:"",brand:"",q:"",oferta:false});$("#q").value="";go()}
   else if(t.dataset.pg){st.page=+t.dataset.pg;renderList();window.scrollTo({top:0})}
   else if(t.dataset.o&&t.closest("#cats")){Object.assign(st,{seg:"",oferta:true,cat:"",sub:"",brand:"",q:""});$("#q").value="";go()}
-  else if(t.dataset.c!==undefined&&t.closest("#cats")){st.oferta=false;st.seg="";st.cat=t.dataset.c;st.sub=t.dataset.s||"";st.brand="";st.q="";$("#q").value="";go()}
+  else if(t.dataset.c!==undefined&&(t.closest("#cats")||t.closest(".crumbs"))){st.oferta=false;st.seg="";st.cat=t.dataset.c;st.sub=t.dataset.s||"";st.brand="";st.q="";$("#q").value="";go()}
   else if(t.id==="back"){history.length>1&&document.referrer!==null?history.back():go(); if(!location.hash) renderList()}
   else if(t.dataset.nav==="ofertas"){e.preventDefault();Object.assign(st,{seg:"",oferta:true,cat:"",sub:"",brand:"",q:""});$("#q").value="";go();setNav("")}
   else if(t.dataset.nav==="home"){e.preventDefault();Object.assign(st,{seg:"",cat:"",sub:"",brand:"",q:"",min:null,max:null,free:false,oferta:false});$("#q").value="";go();setNav("")}
@@ -869,6 +926,29 @@ function csv(t){
 const hoja=id=>fetch(`https://docs.google.com/spreadsheets/d/${id}/export?format=csv`).then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{if(/^\s*</.test(t))throw 0;return csv(t)})
   .catch(()=>fetch(`https://opensheet.elk.sh/${id}/1`).then(r=>r.ok?r.json():[])).then(d=>Array.isArray(d)?d:[]).catch(()=>[]);
 const CATS_ORDEN=["Parlantes y amplificación","Iluminación","Auriculares","DJ y consolas","Máquinas de humo","Micrófonos","Video y pantallas","Cables y conectores","Soportes, fundas y estructuras","Instrumentos","Electrónica y repuestos","Accesorios","Otros"];
+const IC={
+ "Parlantes y amplificación":'<rect x="6" y="2" width="12" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><circle cx="12" cy="6.5" r="1.2"/>',
+ "Iluminación":'<path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z"/>',
+ "Auriculares":'<path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/>',
+ "DJ y consolas":'<rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="3"/><path d="M15 9v6M18 9v6"/>',
+ "Máquinas de humo":'<path d="M6 19a4 4 0 0 1 0-8 6 6 0 0 1 11.5-1.5A4.5 4.5 0 1 1 18 19Z"/>',
+ "Líquidos":'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/>',
+ "Micrófonos":'<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/>',
+ "Video y pantallas":'<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
+ "Cables y conectores":'<path d="M7 2v5M11 2v5M5 7h8v4a4 4 0 0 1-8 0V7ZM9 15v3a3 3 0 0 0 6 0v-6a3 3 0 0 1 6 0v10"/>',
+ "Soportes, fundas y estructuras":'<path d="M12 3v10M12 13l-6 8M12 13l6 8M12 13v8M8 3h8"/>',
+ "Instrumentos":'<path d="M19 3l2 2-6.5 6.5M14.5 11.5a4 4 0 1 1-5.6 5.6l-2.4 2.4A3 3 0 1 1 2.3 15.3l2.4-2.4a4 4 0 0 1 5.6-5.6Z"/><circle cx="9" cy="15" r="1.3"/>',
+ "Electrónica y repuestos":'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+ "Ofertas":'<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+ "Todo":'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'};
+const CORTO={"Parlantes y amplificación":"Audio Pro","DJ y consolas":"DJ","Máquinas de humo":"Humo","Video y pantallas":"Video","Cables y conectores":"Cables","Soportes, fundas y estructuras":"Soportes","Electrónica y repuestos":"Electrónica"};
+const ico=c=>IC[c]?`<svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[c]}</svg>`:"";
+function megaCats(){
+  const subs={};P.forEach(p=>{if(!p.a)return;(subs[p.c]=subs[p.c]||{})[p.sc||""]=(subs[p.c][p.sc||""]||0)+1});
+  return `<button data-c="" aria-pressed="true">${ico("Todo")}Todo</button><button data-o="1" class="ofertas">${ico("Ofertas")}Ofertas</button>`+
+   CATS.filter(c=>!["Accesorios","Otros"].includes(c)).map(c=>{const ss=Object.entries(subs[c]||{}).filter(([k])=>k).sort((a,b)=>b[1]-a[1]);
+    return `<div class="cat-it"><button data-c="${esc(c)}">${ico(c)}${esc(CORTO[c]||catL(c))}</button>${ss.length>1?`<div class="mega"><div class="mega-in">${ss.slice(0,12).map(([k,n])=>`<button data-c="${esc(c)}" data-s="${esc(k)}"><span>${esc(k)}</span><small>${n}</small></button>`).join("")}<button data-c="${esc(c)}" class="mega-all">Ver todo ${esc(catL(c))} →</button></div></div>`:""}</div>`}).join("");
+}
 const CAT_LABEL={"Parlantes y amplificación":"Audio: parlantes y potencias","DJ y consolas":"DJ"};
 const catL=c=>CAT_LABEL[c]||c;
 const REGLAS=[["Máquinas de humo",["liquido","maquina de humo","maquina de burbuja","maquina de niebla","fluido"]],["Soportes, fundas y estructuras",["soporte","tripode","truss","morsa","clamp","funda","estuche"]],["Video y pantallas",["pantalla","video","proyector","camara"]],["Iluminación",["luz","luces","led","laser","foco","lampara","iluminacion","strobo","cabezal","esfera"]],["Micrófonos",["microfono"]],["Auriculares",["auricular"]],["DJ y consolas",["consola","mixer","mezcladora","dj","controlador","interfaz"]],["Parlantes y amplificación",["parlante","bafle","amplificador","potencia","driver","subwoofer","monitor"]],["Cables y conectores",["cable","conector","ficha","plug","adaptador","canon","xlr"]]];
@@ -908,7 +988,7 @@ function start(items,act){
    const keep=new Set(best.values());P.forEach(p=>{if(!keep.has(p)){const b=best.get(norm(p.t).replace(/[^a-z0-9]/g,""));byId[p.slug]=b;byId[p.id]=byId[p.id]===p?b:byId[p.id]}});P=P.filter(p=>keep.has(p))}
   CATS=CATS_ORDEN.filter(c=>P.some(p=>p.c===c));
   const liq=P.some(p=>p.sc==="Líquidos");
-  $("#cats").innerHTML=`<button data-c="" aria-pressed="true">Todo</button><button data-o="1" class="ofertas">Ofertas</button>`+CATS.filter(c=>!["Accesorios","Otros"].includes(c)).map(c=>`<button data-c="${esc(c)}">${esc(catL(c))}</button>`+(c==="Máquinas de humo"&&liq?`<button data-c="${esc(c)}" data-s="Líquidos">Líquidos</button>`:"")).join("");
+  $("#cats").innerHTML=megaCats();
   if(act){armarReels();const v=location.hash.slice(1);if(v!=="reels"&&$("#rv").hidden)route();return}
   route();
   cargarReels();
