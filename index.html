@@ -88,7 +88,7 @@ button{font:inherit;cursor:pointer}
 /* layout */
 main .wrap{display:grid;grid-template-columns:190px minmax(0,1fr);gap:18px;padding-block:22px 40px}
 .side h2{font-size:17px;font-weight:600;margin:0 0 2px;line-height:1.15}
-.side .count{color:var(--muted);font-size:12px;margin-bottom:10px}
+.side .count{color:var(--muted);font-size:12px;margin-bottom:6px}
 .fgroup{margin-bottom:14px}
 .fgroup h3{font-size:13px;margin:0 0 8px;font-weight:600}
 .fgroup ul{list-style:none;margin:0;padding:0;display:grid;gap:3px}
@@ -462,7 +462,7 @@ footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
 /* hero carrusel de bienvenida: escenas con productos en acción */
 .hero{position:relative;overflow:hidden;background:#07060f;user-select:none;touch-action:pan-y}
 .hero-track{display:flex;transition:transform .8s cubic-bezier(.65,0,.2,1)}
-.hs{flex:0 0 100%;position:relative;height:clamp(360px,33vw,480px);overflow:hidden;color:#fff;isolation:isolate}
+.hs{flex:0 0 100%;position:relative;height:clamp(270px,23vw,350px);overflow:hidden;color:#fff;isolation:isolate}
 .hs .bg{position:absolute;inset:0;background:var(--hbg);z-index:-3}
 .hs .bg:after{content:"";position:absolute;left:-10%;right:-10%;bottom:-38%;height:60%;background:radial-gradient(closest-side,var(--hglow),transparent);opacity:.8}
 .hs .haze{position:absolute;inset:-20%;z-index:-2;background:radial-gradient(40% 30% at 30% 60%,rgba(255,255,255,.07),transparent),radial-gradient(35% 25% at 70% 40%,rgba(255,255,255,.06),transparent);animation:haze 14s ease-in-out infinite alternate}
@@ -473,16 +473,16 @@ footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
 .hs .ht{width:min(50%,640px);text-align:center}
 .hs.izq .ht{left:clamp(60px,8vw,140px);translate:0 -54%;text-align:left;width:min(46%,600px)}
 .hs .kick{display:inline-block;font-family:var(--f-display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(11px,.95vw,14px);padding:5px 14px;border-radius:30px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);margin-bottom:10px}
-.hs h2{font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(36px,5vw,78px);line-height:.86;margin:0;text-shadow:0 6px 30px rgba(0,0,0,.5)}
+.hs h2{font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(30px,3.8vw,60px);line-height:.86;margin:0;text-shadow:0 6px 30px rgba(0,0,0,.5)}
 .hs h2 em{font-style:italic;color:var(--hacc)}
-.hs .off{display:block;font-family:var(--f-display);font-style:italic;font-weight:800;line-height:.8;font-size:clamp(84px,11vw,170px);letter-spacing:-.02em;background:linear-gradient(180deg,#fff 20%,#ffe27a 60%,#ffb000);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(255,220,120,.55)) drop-shadow(0 0 50px rgba(255,170,0,.35));animation:prende 3.2s ease-in-out infinite}
+.hs .off{display:block;font-family:var(--f-display);font-style:italic;font-weight:800;line-height:.8;font-size:clamp(66px,8vw,124px);letter-spacing:-.02em;background:linear-gradient(180deg,#fff 20%,#ffe27a 60%,#ffb000);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(255,220,120,.55)) drop-shadow(0 0 50px rgba(255,170,0,.35));animation:prende 3.2s ease-in-out infinite}
 .hs .off small{font-size:.42em;margin-left:.08em}
 @keyframes prende{0%,100%{filter:drop-shadow(0 0 14px rgba(255,220,120,.45)) drop-shadow(0 0 40px rgba(255,170,0,.25))}50%{filter:drop-shadow(0 0 26px rgba(255,240,180,.9)) drop-shadow(0 0 80px rgba(255,170,0,.55))}}
-.strip .hs p,.hs p{color:#fff;opacity:.92;margin:10px auto 16px;font-size:clamp(13px,1.1vw,17px);max-width:44ch;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.strip .hs p,.hs p{color:#fff;opacity:.92;margin:8px auto 12px;font-size:clamp(12px,1vw,15px);max-width:44ch;text-shadow:0 2px 10px rgba(0,0,0,.6)}
 .hs.izq p{margin-inline:0}
 .hs .pill{display:inline-block;margin-top:12px;background:linear-gradient(90deg,#ffd200,#ff9500);color:#121028;font-family:var(--f-display);font-weight:800;font-style:italic;font-size:clamp(18px,1.9vw,28px);padding:4px 16px;border-radius:8px;box-shadow:0 0 30px rgba(255,190,0,.45);transform:rotate(-2deg)}
 .hs .ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.hs.izq .ctas{justify-content:flex-start}
-.hs .cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#121028;border:0;border-radius:40px;padding:11px 22px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
+.hs .cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#121028;border:0;border-radius:40px;padding:9px 20px;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
 .hs .cta.wa{background:#25d366;color:#fff}
 .hs .cta:hover{transform:translateY(-2px)}
 /* productos recortados */
@@ -509,7 +509,7 @@ footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
 @keyframes abanico{from{transform:rotate(calc(var(--r,0deg) - 10deg))}to{transform:rotate(calc(var(--r,0deg) + 10deg))}}
 @keyframes titila{50%{opacity:.6}}
 /* humo */
-.humo{position:absolute;z-index:-1;left:var(--ox,50%);top:var(--oy,10%);width:70%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,rgba(235,240,255,.8),rgba(235,240,255,.3) 60%,transparent);filter:blur(14px);opacity:0;animation:humo 6s ease-out infinite;animation-delay:var(--dl,0s)}
+.humo{position:absolute;z-index:-1;left:var(--ox,50%);top:var(--oy,10%);width:70%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,var(--fc,rgba(235,240,255,.8)),rgba(235,240,255,.25) 60%,transparent);filter:blur(14px);opacity:0;animation:humo var(--hd,6s) ease-out infinite;animation-delay:var(--dl,0s)}
 @keyframes humo{0%{transform:translate(0,0) scale(.3);opacity:.9}100%{transform:translate(var(--tx,320%),var(--ty,-120%)) scale(4);opacity:0}}
 .flash{position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 50% at 50% 30%,rgba(255,255,255,.35),transparent);opacity:0;animation:flash 2.4s infinite}
 @keyframes flash{0%,88%,100%{opacity:0}90%{opacity:1}93%{opacity:0}95%{opacity:.8}}
@@ -561,12 +561,12 @@ footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
 .strip.conhero .wrap{display:block;padding-block:12px}
 .sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (max-width:760px){
- .hs{height:470px}
+ .hs{height:380px}
  .hs .ht,.hs.izq .ht{left:50%;top:22px;translate:-50% 0;width:calc(100% - 32px);text-align:center}
  .hs.izq p{margin-inline:auto}.hs.izq .ctas{justify-content:center}
- .hs h2{font-size:38px}.hs .off{font-size:92px}.strip .hs p{display:block;font-size:13px;margin:6px auto 10px}
+ .hs h2{font-size:32px}.hs .off{font-size:70px}.strip .hs p{display:block;font-size:12px;margin:4px auto 8px}.hs .ht,.hs.izq .ht{top:14px}.hs .kick{font-size:10px;padding:3px 10px}
  .hs .cta{padding:9px 16px;font-size:14px}
- .hs .pr{height:calc(var(--h,62%) * .62)}
+ .hs .pr{height:calc(var(--h,62%) * .55)}
  .hs .pr.l{left:calc(var(--x,3%) - 2%)}.hs .pr.r{right:calc(var(--x,3%) - 2%)}
  .hero-nav{display:none}.eq{width:80%}
 }
@@ -1176,12 +1176,16 @@ const WA_OFF="https://wa.me/5492614189999?text=Hola%20TecnoShow!%20Quiero%20comp
 const bm=(c,o)=>[0,1,2].map(i=>`<i class="beam" style="--bc:${c[i%c.length]};--ox:${o.x};--oy:${o.y};--r:${o.r+(i-1)*14}deg;--d:${5+i*1.3}s;--dl:${-i*1.7}s"></i>`).join("");
 const lz=(c,o,n=9,ap=40)=>`<span class="laser" style="--ox:${o.x};--oy:${o.y};--r:${o.r}deg;--d:${o.d||4}s">${Array.from({length:n},(_,i)=>`<i style="--lc:${c[i%c.length]};transform:rotate(${(i-(n-1)/2)*ap/(n-1)}deg)"></i>`).join("")}</span>`;
 const on=(o)=>[0,1,2].map(i=>`<i class="onda" style="--ox:${o.x};--oy:${o.y};--dl:${-i*.66}s"></i>`).join("");
-const hu=(o)=>[0,1,2,3,4].map(i=>`<i class="humo" style="--ox:${o.x};--oy:${o.y};--tx:${o.tx};--ty:${o.ty};--dl:${-i*1.2}s"></i>`).join("");
+const hu=(o,n=5)=>Array.from({length:n},(_,i)=>`<i class="humo" style="--ox:${o.x};--oy:${o.y};--tx:${o.tx};--ty:${o.ty};--hd:${o.d||6}s;--dl:${-i*(o.d||6)/n}s${o.c?`;--fc:${o.c[i%o.c.length]}`:""}"></i>`).join("");
 const HERO=[
  {cls:"luces",bg:"radial-gradient(90% 80% at 50% 110%,#3a1060 0%,#170a35 45%,#05040c 100%)",acc:"#ffd23f",gl:"rgba(140,60,255,.55)",
   ps:[{id:"MLA1647963781",img:"768978-MLA95969502530_102025-F.webp",cl:"l paneo",h:"66%",x:"4%",fx:bm(["#ffffff","#7fd4ff","#ff5ce1"],{x:"72%",y:"10%",r:42})+`<i class="lente" style="--ox:72%;--oy:10%"></i>`},
       {id:"MLA3383525922",img:"715282-MLA117912464081_092026-F.webp",cl:"r paneo",h:"60%",x:"4%",fx:bm(["#ffffff","#ffe06b","#7fd4ff"],{x:"30%",y:"24%",r:-42})+`<i class="lente" style="--ox:30%;--oy:24%"></i>`}],
   t:`<span class="kick">Cabezales móviles beam</span><span class="off">10%<small>OFF</small></span><p>Pagando por transferencia y comprando por WhatsApp. Iluminá tu fiesta como un profesional.</p><div class="ctas"><button class="cta" data-hc="Iluminación">Ver iluminación ›</button><a class="cta wa" href="${WA_OFF}" target="_blank" rel="noopener">Pedir mi 10% OFF</a></div>`},
+ {cls:"humo-sl izq",bg:"radial-gradient(70% 90% at 30% 110%,#7a1fff 0%,#2a0a5e 40%,#05030c 100%)",acc:"#c49bff",gl:"rgba(170,90,255,.55)",
+  extra:`<i class="beam" style="--bc:#a66bff;--ox:12%;--oy:105%;--r:30deg;--d:7s"></i><i class="beam" style="--bc:#38d9ff;--ox:30%;--oy:105%;--r:-20deg;--d:8s;--dl:-3s"></i>`,
+  ps:[{id:"MLA3634636670",img:"675434-MLA97351346939_112025-F.webp",cl:"r vibra",h:"58%",x:"5%",fx:hu({x:"8%",y:"52%",tx:"-260%",ty:"-35%",d:5,c:["rgba(225,205,255,.85)","rgba(200,235,255,.8)","rgba(255,255,255,.85)"]},8)}],
+  t:`<span class="kick">Máquinas de humo GBR Konor</span><h2>Humo que <em>llena</em> la pista</h2><p>Máquinas de humo con y sin control inalámbrico, líquidos y efectos. 10% OFF por transferencia.</p><div class="ctas"><button class="cta" data-hc="Máquinas de humo">Ver máquinas de humo ›</button></div>`},
  {cls:"sonido retumba",bg:"radial-gradient(90% 90% at 50% 120%,#0b3aa8 0%,#061a52 40%,#02040e 100%)",acc:"#38d9ff",gl:"rgba(0,180,255,.5)",
   ps:[{id:"MLA1720716041",img:"651019-MLA108650141116_032026-F.webp",cl:"l golpe",h:"80%",x:"5%",fx:on({x:"50%",y:"35%"})},
       {id:"MLA1729517487",img:"936282-MLA117912494797_092026-F.webp",cl:"r golpe",h:"70%",x:"4%",fx:on({x:"50%",y:"45%"})}],
