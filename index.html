@@ -1238,21 +1238,19 @@ function heroInit(){
     ${s.ps.map(p=>`<a class="pr ${p.cl}" ${prod(p.id)} style="--h:${p.h};--x:${p.x||"3%"};--b:${p.b||"3%"}">${p.fx||""}<img data-cut="${ML+p.img}" alt="" draggable="false"></a>`).join("")}
     <div class="ht">${s.t}</div></div>`).join("")}</div>
   <button class="hero-nav p" aria-label="Anterior">‹</button><button class="hero-nav n" aria-label="Siguiente">›</button>
-  <div class="hero-dots">${HERO.map((_,i)=>`<button aria-label="Ir a la ${i+1}"${i?"":' class="on"'}></button>`).join("")}</div>
-  <button class="hero-pause" aria-label="Pausar">❚❚</button>`;
+  <div class="hero-dots">${HERO.map((_,i)=>`<button aria-label="Ir a la ${i+1}"${i?"":' class="on"'}></button>`).join("")}</div>`;
   el.querySelectorAll("img[data-cut]").forEach(im=>recortar(im.dataset.cut).then(u=>{im.src=u;im.onload=()=>im.parentNode.classList.add("ok")}).catch(()=>im.parentNode.remove()));
-  const tr=$("#heroT"),dots=[...el.querySelectorAll(".hero-dots button")],pb=el.querySelector(".hero-pause");
+  const tr=$("#heroT"),dots=[...el.querySelectorAll(".hero-dots button")];
   const ir=i=>{heroI=(i+n)%n;tr.style.transform=`translateX(${-heroI*100}%)`;dots.forEach((d,j)=>d.classList.toggle("on",j===heroI));[...tr.children].forEach((c,j)=>{c.setAttribute("aria-hidden",j!==heroI);c.classList.toggle("act",j===heroI)})};
   const auto=()=>{clearInterval(heroT);if(!heroPaused)heroT=setInterval(()=>{if(!el.matches(":hover")&&!document.hidden)ir(heroI+1)},6500)};
   el.querySelector(".p").onclick=()=>{ir(heroI-1);auto()};el.querySelector(".n").onclick=()=>{ir(heroI+1);auto()};
   dots.forEach((d,i)=>d.onclick=()=>{ir(i);auto()});
-  pb.onclick=()=>{heroPaused=!heroPaused;pb.textContent=heroPaused?"▶":"❚❚";pb.setAttribute("aria-label",heroPaused?"Reproducir":"Pausar");auto()};
   el.addEventListener("click",e=>{const b=e.target.closest("[data-hc],[data-hq]");if(!b)return;
     if(b.dataset.hq){$("#q").value=b.dataset.hq;$("#searchForm").requestSubmit();return}
     const c=document.querySelector(`#cats button[data-c="${CSS.escape(b.dataset.hc)}"]`);if(c)c.click()});
   let x0=null;el.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
   el.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>45){ir(heroI+(dx<0?1:-1));auto()}});
-  if(matchMedia("(prefers-reduced-motion:reduce)").matches){heroPaused=true;pb.textContent="▶"}
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches){heroPaused=true}
   ir(0);auto();
 }
 function start(items,act){
