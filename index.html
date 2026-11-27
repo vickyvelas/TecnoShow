@@ -459,51 +459,82 @@ footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
 .segs button{display:inline-flex;align-items:center;justify-content:center;gap:8px}.segs button svg{width:20px;height:20px;color:var(--violet);flex:none;pointer-events:none}
 .intro-v{min-height:0;overflow:hidden}.intro-v video,.intro-v iframe{position:absolute;inset:0;height:100%!important}
 .intro-box{width:min(380px,100%)!important}@media (max-width:760px){.intro-box{width:66vw!important}}
-/* hero carrusel de bienvenida */
-.hero{position:relative;overflow:hidden;background:#0d0b1e;user-select:none;touch-action:pan-y}
-.hero-track{display:flex;transition:transform .7s cubic-bezier(.6,0,.2,1)}
-.hs{flex:0 0 100%;position:relative;height:clamp(300px,30vw,430px);overflow:hidden;color:#fff;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;padding-inline:clamp(56px,7vw,130px);gap:20px}
-.hs:before{content:"";position:absolute;inset:0;background:var(--hbg);z-index:0}
-.hs .beam{position:absolute;top:-30%;width:38%;height:160%;background:linear-gradient(180deg,rgba(255,255,255,.28),transparent 70%);clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);transform-origin:50% 0;opacity:.35;z-index:0;animation:beam 7s ease-in-out infinite alternate;mix-blend-mode:screen}
-.hs .beam.b2{left:52%;animation-delay:-3s;animation-duration:9s}.hs .beam.b1{left:20%}
-@keyframes beam{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
-.hs .glow{position:absolute;width:60vw;height:60vw;max-width:800px;max-height:800px;right:-8%;bottom:-70%;border-radius:50%;background:radial-gradient(closest-side,var(--hglow),transparent);z-index:0}
-.hs .ht{position:relative;z-index:2;max-width:560px}
-.hs .kick{display:inline-block;font-family:var(--f-display);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:clamp(11px,1vw,14px);padding:5px 12px;border-radius:30px;background:rgba(255,255,255,.14);backdrop-filter:blur(4px);margin-bottom:10px}
-.hs h2{font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(34px,5.2vw,80px);line-height:.88;margin:0;letter-spacing:-.01em;text-shadow:0 4px 30px rgba(0,0,0,.25)}
+/* hero carrusel de bienvenida: escenas con productos en acción */
+.hero{position:relative;overflow:hidden;background:#07060f;user-select:none;touch-action:pan-y}
+.hero-track{display:flex;transition:transform .8s cubic-bezier(.65,0,.2,1)}
+.hs{flex:0 0 100%;position:relative;height:clamp(360px,33vw,480px);overflow:hidden;color:#fff;isolation:isolate}
+.hs .bg{position:absolute;inset:0;background:var(--hbg);z-index:-3}
+.hs .bg:after{content:"";position:absolute;left:-10%;right:-10%;bottom:-38%;height:60%;background:radial-gradient(closest-side,var(--hglow),transparent);opacity:.8}
+.hs .haze{position:absolute;inset:-20%;z-index:-2;background:radial-gradient(40% 30% at 30% 60%,rgba(255,255,255,.07),transparent),radial-gradient(35% 25% at 70% 40%,rgba(255,255,255,.06),transparent);animation:haze 14s ease-in-out infinite alternate}
+@keyframes haze{to{transform:translate(4%,-3%) scale(1.08)}}
+/* texto */
+.hs .ht{position:absolute;z-index:6;left:50%;top:50%;translate:-50% -54%;}
+.hs.dj .ht{top:36%}
+.hs .ht{width:min(50%,640px);text-align:center}
+.hs.izq .ht{left:clamp(60px,8vw,140px);translate:0 -54%;text-align:left;width:min(46%,600px)}
+.hs .kick{display:inline-block;font-family:var(--f-display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(11px,.95vw,14px);padding:5px 14px;border-radius:30px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);margin-bottom:10px}
+.hs h2{font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(36px,5vw,78px);line-height:.86;margin:0;text-shadow:0 6px 30px rgba(0,0,0,.5)}
 .hs h2 em{font-style:italic;color:var(--hacc)}
-.hs p,.strip .hs p{color:inherit;margin:12px 0 18px;font-size:clamp(13px,1.15vw,17px);opacity:.9;max-width:40ch}
-.hs .cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#121028;border:0;border-radius:40px;padding:11px 22px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s}
+.hs .off{display:block;font-family:var(--f-display);font-style:italic;font-weight:800;line-height:.8;font-size:clamp(84px,11vw,170px);letter-spacing:-.02em;background:linear-gradient(180deg,#fff 20%,#ffe27a 60%,#ffb000);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(255,220,120,.55)) drop-shadow(0 0 50px rgba(255,170,0,.35));animation:prende 3.2s ease-in-out infinite}
+.hs .off small{font-size:.42em;margin-left:.08em}
+@keyframes prende{0%,100%{filter:drop-shadow(0 0 14px rgba(255,220,120,.45)) drop-shadow(0 0 40px rgba(255,170,0,.25))}50%{filter:drop-shadow(0 0 26px rgba(255,240,180,.9)) drop-shadow(0 0 80px rgba(255,170,0,.55))}}
+.strip .hs p,.hs p{color:#fff;opacity:.92;margin:10px auto 16px;font-size:clamp(13px,1.1vw,17px);max-width:44ch;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.hs.izq p{margin-inline:0}
+.hs .pill{display:inline-block;margin-top:12px;background:linear-gradient(90deg,#ffd200,#ff9500);color:#121028;font-family:var(--f-display);font-weight:800;font-style:italic;font-size:clamp(18px,1.9vw,28px);padding:4px 16px;border-radius:8px;box-shadow:0 0 30px rgba(255,190,0,.45);transform:rotate(-2deg)}
+.hs .ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.hs.izq .ctas{justify-content:flex-start}
+.hs .cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#121028;border:0;border-radius:40px;padding:11px 22px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
+.hs .cta.wa{background:#25d366;color:#fff}
 .hs .cta:hover{transform:translateY(-2px)}
-.hs .hp{position:relative;z-index:1;height:100%;display:flex;align-items:center;justify-content:center}
-.hs .hp a{position:absolute;display:block;border-radius:50%;background:#fff;box-shadow:0 18px 50px rgba(0,0,0,.35),0 0 0 6px rgba(255,255,255,.12);overflow:hidden;animation:flota 5s ease-in-out infinite;transition:transform .3s}
-.hs .hp a img{width:100%;height:100%;object-fit:contain;padding:12%;mix-blend-mode:multiply}
-.hs .hp a:nth-child(1){width:clamp(170px,19vw,300px);aspect-ratio:1;left:50%;top:50%;margin:calc(clamp(170px,19vw,300px)/-2) 0 0 calc(clamp(170px,19vw,300px)/-2);z-index:3}
-.hs .hp a:nth-child(2){width:clamp(110px,12vw,190px);aspect-ratio:1;left:6%;top:12%;animation-delay:-1.6s;z-index:2}
-.hs .hp a:nth-child(3){width:clamp(110px,12vw,190px);aspect-ratio:1;right:4%;bottom:8%;animation-delay:-3.2s;z-index:2}
-@keyframes flota{0%,100%{translate:0 0}50%{translate:0 -10px}}
-.hs .big{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:clamp(120px,17vw,260px);line-height:.8;color:#121028;text-shadow:6px 6px 0 rgba(255,255,255,.5);position:relative;z-index:2}
-.hs .big small{font-size:.35em;display:block;text-align:right;letter-spacing:.02em}
-.hs.claro{color:#121028}.hs.claro .kick{background:rgba(18,16,40,.1)}.hs.claro .cta{background:#121028;color:#fff}.hs.claro h2{text-shadow:none}
-.hero-nav{position:absolute;top:50%;translate:0 -50%;z-index:5;width:clamp(40px,4vw,64px);aspect-ratio:1;border-radius:50%;border:0;background:#fff;color:#d3123a;font-size:30px;line-height:1;box-shadow:0 6px 20px rgba(0,0,0,.25);display:grid;place-items:center;padding:0 0 4px}
-.hero-nav.p{left:clamp(8px,1.5vw,24px)}.hero-nav.n{right:clamp(8px,1.5vw,24px)}
-.hero-dots{position:absolute;bottom:14px;left:50%;translate:-50% 0;display:flex;gap:8px;z-index:5;align-items:center}
-.hero-dots button{width:10px;height:10px;border-radius:10px;border:0;padding:0;background:rgba(255,255,255,.55);transition:width .3s,background .3s}
+/* productos recortados */
+.hs .pr{position:absolute;z-index:3;display:block;height:var(--h,62%);bottom:var(--b,3%);opacity:0;transition:opacity .8s,translate .8s;isolation:isolate}
+.hs .pr.ok{opacity:1}
+.hs .pr img{height:100%;width:auto;display:block;filter:drop-shadow(0 20px 30px rgba(0,0,0,.6))}
+.hs .pr.l{left:var(--x,3%)}.hs .pr.r{right:var(--x,3%)}.hs .pr.c{left:50%;translate:-50% 0}
+.hs .pr:after{content:"";position:absolute;left:5%;right:5%;bottom:-6%;height:12%;background:radial-gradient(closest-side,rgba(0,0,0,.7),transparent);z-index:-1}
+/* haces de luz (beams) */
+.beam{position:absolute;z-index:-1;left:var(--ox,50%);top:var(--oy,20%);width:clamp(50px,5vw,90px);height:250%;translate:-50% -100%;transform-origin:50% 100%;background:linear-gradient(0deg,var(--bc,#fff) 0%,color-mix(in srgb,var(--bc,#fff) 50%,transparent) 30%,transparent 90%);clip-path:polygon(44% 100%,56% 100%,100% 0,0 0);mix-blend-mode:screen;filter:blur(1.5px);opacity:.75;animation:barre var(--d,6s) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+.beam:before{content:"";position:absolute;left:50%;bottom:-4%;width:40%;aspect-ratio:1;translate:-50% 0;border-radius:50%;background:radial-gradient(closest-side,#fff,var(--bc,#fff) 40%,transparent);filter:blur(2px)}
+@keyframes barre{from{transform:rotate(calc(var(--r,0deg) - 16deg))}to{transform:rotate(calc(var(--r,0deg) + 16deg))}}
+/* sonido: ondas y golpe */
+.onda{position:absolute;z-index:-1;left:var(--ox,50%);top:var(--oy,50%);width:60%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;border:3px solid var(--hacc);opacity:0;animation:onda 2s cubic-bezier(.2,.6,.4,1) infinite;animation-delay:var(--dl,0s)}
+@keyframes onda{0%{transform:scale(.4);opacity:.9}100%{transform:scale(4.2);opacity:0}}
+.golpe img{animation:golpe .5s cubic-bezier(.3,0,.3,1) infinite}
+@keyframes golpe{0%,100%{transform:scale(1)}12%{transform:scale(1.035)}}
+.eq{position:absolute;z-index:1;bottom:0;left:50%;translate:-50% 0;width:min(46%,600px);height:22%;display:flex;gap:4px;align-items:flex-end;opacity:.55}
+.eq i{flex:1;background:linear-gradient(0deg,var(--hacc),transparent);border-radius:3px 3px 0 0;animation:eq .9s ease-in-out infinite alternate;height:30%}
+@keyframes eq{to{height:100%}}
+.hs.retumba .ht{animation:retumba .5s infinite}
+@keyframes retumba{0%,100%{transform:none}10%{transform:translateY(-2px) scale(1.01)}}
+/* láser */
+.laser{position:absolute;z-index:-1;left:var(--ox,50%);top:var(--oy,50%);width:0;height:0;animation:abanico var(--d,4s) ease-in-out infinite alternate}
+.efectos .laser{opacity:.7}.laser i{position:absolute;left:0;top:-1px;width:180vw;max-width:2600px;height:2px;transform-origin:0 50%;background:linear-gradient(90deg,#fff,var(--lc,#39ff6a) 6%,transparent 70%);box-shadow:0 0 6px var(--lc,#39ff6a);mix-blend-mode:screen;animation:titila .18s steps(2) infinite}
+@keyframes abanico{from{transform:rotate(calc(var(--r,0deg) - 10deg))}to{transform:rotate(calc(var(--r,0deg) + 10deg))}}
+@keyframes titila{50%{opacity:.6}}
+/* humo */
+.humo{position:absolute;z-index:-1;left:var(--ox,50%);top:var(--oy,10%);width:50%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,rgba(235,240,255,.55),rgba(235,240,255,.18) 60%,transparent);filter:blur(14px);opacity:0;animation:humo 6s ease-out infinite;animation-delay:var(--dl,0s)}
+@keyframes humo{0%{transform:translate(0,0) scale(.3);opacity:.9}100%{transform:translate(var(--tx,320%),var(--ty,-120%)) scale(4);opacity:0}}
+.flash{position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 50% at 50% 30%,rgba(255,255,255,.35),transparent);opacity:0;animation:flash 2.4s infinite}
+@keyframes flash{0%,88%,100%{opacity:0}90%{opacity:1}93%{opacity:0}95%{opacity:.8}}
+/* controles */
+.hero-nav{position:absolute;top:50%;translate:0 -50%;z-index:9;width:clamp(40px,4vw,60px);aspect-ratio:1;border-radius:50%;border:0;background:#fff;color:#d3123a;font-size:30px;line-height:1;box-shadow:0 6px 20px rgba(0,0,0,.35);display:grid;place-items:center;padding:0 0 4px}
+.hero-nav.p{left:clamp(8px,1.2vw,20px)}.hero-nav.n{right:clamp(8px,1.2vw,20px)}
+.hero-dots{position:absolute;bottom:12px;left:50%;translate:-50% 0;display:flex;gap:8px;z-index:9;align-items:center}
+.hero-dots button{width:10px;height:10px;border-radius:10px;border:0;padding:0;background:rgba(255,255,255,.5);transition:width .3s,background .3s}
 .hero-dots button.on{width:34px;background:#fff}
-.hero-pause{position:absolute;right:clamp(14px,2vw,30px);bottom:10px;z-index:5;background:none;border:0;color:#fff;font-size:18px;opacity:.85;width:32px;height:32px}
-.strip .facts{margin-top:0}
+.hero-pause{position:absolute;right:clamp(14px,2vw,30px);bottom:8px;z-index:9;background:none;border:0;color:#fff;font-size:16px;opacity:.85;width:32px;height:32px}
 .strip.conhero .wrap{display:block;padding-block:12px}
 .sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (max-width:760px){
- .hs{grid-template-columns:1fr;grid-template-rows:auto 1fr;height:400px;padding:22px 20px 40px;align-items:start;gap:0}
- .hs h2{font-size:40px}.hs p{margin:8px 0 12px;font-size:13px}.hs .cta{padding:9px 18px;font-size:14px}
- .hs .hp a:nth-child(1){width:160px;margin:-80px 0 0 -80px}.hs .hp a:nth-child(2),.hs .hp a:nth-child(3){width:96px}
- .hs .hp a:nth-child(2){left:4%;top:6%}.hs .hp a:nth-child(3){right:4%;bottom:6%}
- .hs .big{font-size:130px;text-align:center}
- .hero-nav{display:none}
- .hs .beam{width:70%}
+ .hs{height:470px}
+ .hs .ht,.hs.izq .ht{left:50%;top:22px;translate:-50% 0;width:calc(100% - 32px);text-align:center}
+ .hs.izq p{margin-inline:auto}.hs.izq .ctas{justify-content:center}
+ .hs h2{font-size:38px}.hs .off{font-size:92px}.strip .hs p{display:block;font-size:13px;margin:6px auto 10px}
+ .hs .cta{padding:9px 16px;font-size:14px}
+ .hs .pr{height:calc(var(--h,62%) * .62)}
+ .hs .pr.l{left:calc(var(--x,3%) - 2%)}.hs .pr.r{right:calc(var(--x,3%) - 2%)}
+ .hero-nav{display:none}.eq{width:80%}
 }
-@media (prefers-reduced-motion:reduce){.hs .beam,.hs .hp a{animation:none}.hero-track{transition:none}}
+@media (prefers-reduced-motion:reduce){.hs *,.hs *:before{animation:none!important}.hero-track{transition:none}}
 </style>
 
 </head>
@@ -1080,38 +1111,79 @@ function aItem(f,i){
   const s=num(g("vendidos"));if(s)o.s=s;const r=parseFloat(g("calificacion"));if(r)o.r=r;
   return o;
 }
+const ML="https://http2.mlstatic.com/D_NQ_NP_2X_";
+const WA_OFF="https://wa.me/5492614189999?text=Hola%20TecnoShow!%20Quiero%20comprar%20con%20el%2010%25%20OFF%20por%20transferencia";
+const bm=(c,o)=>[0,1,2].map(i=>`<i class="beam" style="--bc:${c[i%c.length]};--ox:${o.x};--oy:${o.y};--r:${o.r+(i-1)*14}deg;--d:${5+i*1.3}s;--dl:${-i*1.7}s"></i>`).join("");
+const lz=(c,o,n=9,ap=40)=>`<span class="laser" style="--ox:${o.x};--oy:${o.y};--r:${o.r}deg;--d:${o.d||4}s">${Array.from({length:n},(_,i)=>`<i style="--lc:${c[i%c.length]};transform:rotate(${(i-(n-1)/2)*ap/(n-1)}deg)"></i>`).join("")}</span>`;
+const on=(o)=>[0,1,2].map(i=>`<i class="onda" style="--ox:${o.x};--oy:${o.y};--dl:${-i*.66}s"></i>`).join("");
+const hu=(o)=>[0,1,2,3,4].map(i=>`<i class="humo" style="--ox:${o.x};--oy:${o.y};--tx:${o.tx};--ty:${o.ty};--dl:${-i*1.2}s"></i>`).join("");
 const HERO=[
- {k:"Iluminación",h:"Luces que <em>prenden</em> la pista",p:"Cabezales móviles, láser y efectos para que tu fiesta brille.",c:"Iluminación",re:/cabez|beam|laser|láser|spot/,bg:"radial-gradient(120% 90% at 80% 110%,#ff7a18 0%,#d4145a 38%,#5b1aa8 70%,#120a2e 100%)",acc:"#ffd23f",gl:"rgba(255,200,60,.45)",beam:1},
- {k:"Sonido profesional",h:"Sonido que <em>se siente</em>",p:"Bafles, line array, subwoofers y potencias para cualquier evento.",c:"Parlantes y amplificación",re:/bafle|array|subwoofer|parlante/,bg:"linear-gradient(120deg,#040b2c 0%,#0b3aa8 50%,#00c2ff 120%)",acc:"#5ee7ff",gl:"rgba(0,194,255,.5)"},
- {k:"DJ y consolas",h:"Armá tu <em>set</em>",p:"Controladoras, mixers y consolas para mezclar como un pro.",c:"DJ y consolas",re:/controlador dj|ddj|xdj|mixer|mezcl|consola/,no:/luces|dmx|lite-puter/,bg:"linear-gradient(115deg,#0c0c0c 0%,#1d1d1d 45%,#ff5e00 130%)",acc:"#ff8a1f",gl:"rgba(255,94,0,.5)",beam:1},
- {k:"Micrófonos",h:"Que te <em>escuchen</em> bien",p:"Inalámbricos, de mano y de vincha para shows, iglesias y eventos.",c:"Micrófonos",re:/inal|micr/,bg:"linear-gradient(120deg,#2a0845 0%,#6441a5 55%,#ff4fd8 130%)",acc:"#ff9cf0",gl:"rgba(255,79,216,.45)"},
- {k:"Efectos",h:"Humo que <em>impacta</em>",p:"Máquinas de humo, niebla y líquidos para cada show.",c:"Máquinas de humo",re:/humo|niebla|fog|haze/,bg:"linear-gradient(120deg,#002b36 0%,#036b6b 50%,#2ef2c2 130%)",acc:"#7dffe0",gl:"rgba(46,242,194,.45)",beam:1},
- {promo:1,k:"Pagando por transferencia",h:"Comprá por <em>WhatsApp</em>",p:"10% OFF por transferencia, cuotas con todos los medios de pago y envíos a todo el país.",bg:"linear-gradient(120deg,#ffd200 0%,#ffb300 60%,#ff8a00 100%)",acc:"#d4145a",gl:"rgba(255,255,255,.5)"}
+ {cls:"luces",bg:"radial-gradient(90% 80% at 50% 110%,#3a1060 0%,#170a35 45%,#05040c 100%)",acc:"#ffd23f",gl:"rgba(140,60,255,.55)",
+  ps:[{id:"MLA1647963781",img:"768978-MLA95969502530_102025-F.webp",cl:"l",h:"66%",x:"4%",fx:bm(["#ffffff","#7fd4ff","#ff5ce1"],{x:"60%",y:"16%",r:42})},
+      {id:"MLA3383525922",img:"715282-MLA117912464081_092026-F.webp",cl:"r",h:"60%",x:"4%",fx:bm(["#ffffff","#ffe06b","#7fd4ff"],{x:"42%",y:"22%",r:-42})}],
+  t:`<span class="kick">Cabezales móviles beam</span><span class="off">10%<small>OFF</small></span><p>Pagando por transferencia y comprando por WhatsApp. Iluminá tu fiesta como un profesional.</p><div class="ctas"><button class="cta" data-hc="Iluminación">Ver iluminación ›</button><a class="cta wa" href="${WA_OFF}" target="_blank" rel="noopener">Pedir mi 10% OFF</a></div>`},
+ {cls:"sonido retumba",bg:"radial-gradient(90% 90% at 50% 120%,#0b3aa8 0%,#061a52 40%,#02040e 100%)",acc:"#38d9ff",gl:"rgba(0,180,255,.5)",
+  ps:[{id:"MLA1720716041",img:"651019-MLA108650141116_032026-F.webp",cl:"l golpe",h:"80%",x:"5%",fx:on({x:"50%",y:"35%"})},
+      {id:"MLA1729517487",img:"770122-MLA109879378677_032026-F.webp",cl:"r golpe",h:"70%",x:"4%",fx:on({x:"50%",y:"45%"})}],
+  extra:`<div class="eq">${Array.from({length:28},(_,i)=>`<i style="animation-delay:${-((i*37)%90)/100}s;animation-duration:${.5+((i*13)%7)/10}s"></i>`).join("")}</div>`,
+  t:`<span class="kick">Line array · Subwoofers</span><h2>Sonido que <em>retumba</em></h2><span class="pill">10% OFF por transferencia</span><p>Sistemas line array, subs y potencias para boliches, fiestas y eventos.</p><div class="ctas"><button class="cta" data-hq="array">Ver line array ›</button></div>`},
+ {cls:"dj",bg:"radial-gradient(80% 70% at 50% 100%,#ff5e00 0%,#7a1d00 35%,#0a0605 75%)",acc:"#ff9a3c",gl:"rgba(255,94,0,.5)",
+  ps:[{id:"MLA4239937564",img:"657659-MLA96420355278_102025-F.webp",cl:"c",h:"46%",b:"-4%"}],
+  extra:`<i class="flash"></i>`+lz(["#39ff6a","#00e1ff"],{x:"18%",y:"-2%",r:65,d:3.5},9,50)+lz(["#ff2bd6","#39ff6a"],{x:"82%",y:"-2%",r:115,d:4.2},9,50),
+  t:`<span class="kick">DJ · Controladoras · Mixers</span><h2>Armá tu <em>set</em></h2><p>Pioneer, controladoras y consolas para mezclar como un pro. 10% OFF por transferencia.</p><div class="ctas"><button class="cta" data-hc="DJ y consolas">Ver DJ ›</button></div>`},
+ {cls:"efectos",bg:"radial-gradient(90% 80% at 50% 110%,#0b5c63 0%,#062a33 45%,#02080b 100%)",acc:"#5dffb1",gl:"rgba(40,255,190,.35)",
+  ps:[{id:"MLA2063167713",img:"894605-MLA117195431007_092026-F.webp",cl:"l",h:"52%",x:"6%",fx:hu({x:"50%",y:"8%",tx:"160%",ty:"-90%"})},
+      {id:"MLA3164492660",img:"869287-MLA116376916327_082026-F.webp",cl:"r",h:"46%",x:"6%",fx:lz(["#39ff6a","#ff2b2b","#00b3ff"],{x:"30%",y:"55%",r:200,d:3},11,60)}],
+  t:`<span class="kick">Humo · Láser · Efectos</span><h2>Efectos que <em>impactan</em></h2><p>Máquinas de humo y láser para que tu show no pase desapercibido.</p><div class="ctas"><button class="cta" data-hc="Máquinas de humo">Ver humo ›</button><button class="cta" data-hq="laser">Ver láser ›</button></div>`},
+ {cls:"micros izq",bg:"radial-gradient(90% 90% at 80% 100%,#c2187a 0%,#4a0d63 45%,#0b0414 100%)",acc:"#ff8ee8",gl:"rgba(255,60,200,.45)",
+  ps:[{id:"MLA1531388249",img:"703089-MLA100007990879_122025-F.webp",cl:"r",h:"64%",x:"10%",fx:on({x:"50%",y:"30%"})}],
+  t:`<span class="kick">Micrófonos inalámbricos</span><h2>Que te <em>escuchen</em> bien</h2><p>De mano, vincha y corbatero para shows, iglesias y eventos. 10% OFF por transferencia.</p><div class="ctas"><button class="cta" data-hc="Micrófonos">Ver micrófonos ›</button></div>`}
 ];
+/* recorta el fondo blanco de la foto (relleno desde los bordes) y la ajusta al producto */
+const cutCache={};
+function recortar(url){
+  if(cutCache[url])return cutCache[url];
+  return cutCache[url]=new Promise((ok,no)=>{const im=new Image();im.crossOrigin="anonymous";im.decoding="async";
+    im.onload=()=>{try{
+      const M=720,k=Math.min(1,M/Math.max(im.width,im.height)),w=Math.round(im.width*k),h=Math.round(im.height*k);
+      const c=document.createElement("canvas");c.width=w;c.height=h;const x=c.getContext("2d",{willReadFrequently:true});x.drawImage(im,0,0,w,h);
+      const d=x.getImageData(0,0,w,h),a=d.data,seen=new Uint8Array(w*h),st=[];
+      const blanco=i=>{const r=a[i*4],g=a[i*4+1],b=a[i*4+2];return Math.min(r,g,b)>228&&Math.max(r,g,b)-Math.min(r,g,b)<22};
+      for(let X=0;X<w;X++){st.push(X,(h-1)*w+X)}for(let Y=0;Y<h;Y++){st.push(Y*w,Y*w+w-1)}
+      while(st.length){const i=st.pop();if(seen[i]||!blanco(i))continue;seen[i]=1;a[i*4+3]=0;const X=i%w;
+        if(X>0)st.push(i-1);if(X<w-1)st.push(i+1);if(i>=w)st.push(i-w);if(i<w*(h-1))st.push(i+w)}
+      for(let i=0;i<w*h;i++){if(seen[i])continue;const X=i%w;const v=(X>0&&seen[i-1])||(X<w-1&&seen[i+1])||(i>=w&&seen[i-w])||(i<w*(h-1)&&seen[i+w]);
+        if(v){const m=Math.min(a[i*4],a[i*4+1],a[i*4+2]);if(m>170)a[i*4+3]=Math.round(255*(255-m)/85)}}
+      let x0=w,y0=h,x1=0,y1=0;for(let Y=0;Y<h;Y++)for(let X=0;X<w;X++)if(a[(Y*w+X)*4+3]>20){if(X<x0)x0=X;if(X>x1)x1=X;if(Y<y0)y0=Y;if(Y>y1)y1=Y}
+      if(x1<=x0||y1<=y0)return no();
+      x.putImageData(d,0,0);const o=document.createElement("canvas");o.width=x1-x0+1;o.height=y1-y0+1;o.getContext("2d").drawImage(c,x0,y0,o.width,o.height,0,0,o.width,o.height);
+      o.toBlob(b=>b?ok(URL.createObjectURL(b)):no(),"image/png")}catch(e){no(e)}};
+    im.onerror=no;im.src=url+"?cut=1"});
+}
 let heroI=0,heroT=null,heroPaused=false;
 function heroInit(){
-  const el=$("#hero");if(!el||el.dataset.ok)return;
-  const fotos=s=>{const l=P.filter(p=>p.a&&p.ph&&p.ph[0]&&(!s.c||p.c===s.c)&&s.re.test(norm(p.t))&&!(s.no&&s.no.test(norm(p.t)))).sort((a,b)=>((b.s||0)>0)-((a.s||0)>0)||b.p-a.p);
-    const v=new Set();return l.filter(p=>{const k=norm(p.t).slice(0,18);return v.has(k)?0:v.add(k)}).slice(0,3)};
-  const sl=HERO.map(s=>{if(s.promo)return {...s,ps:[]};return {...s,ps:fotos(s)}}).filter(s=>s.promo||s.ps.length);
-  if(!sl.length)return;el.dataset.ok=1;
-  el.innerHTML=`<div class="hero-track" id="heroT">${sl.map((s,i)=>`<div class="hs${s.promo?" claro":""}" role="group" aria-roledescription="diapositiva" aria-label="${i+1} de ${sl.length}" style="--hbg:${s.bg};--hacc:${s.acc};--hglow:${s.gl}"${i?' aria-hidden="true"':""}>
-    ${s.beam?'<i class="beam b1"></i><i class="beam b2"></i>':""}<i class="glow"></i>
-    <div class="ht"><span class="kick">${s.k}</span><h2>${s.h}</h2><p>${s.p}</p>${s.promo?`<a class="cta" href="https://wa.me/5492614189999?text=Hola%20TecnoShow!%20Quiero%20comprar%20con%20el%2010%25%20OFF%20por%20transferencia" target="_blank" rel="noopener">Escribinos ›</a>`:`<button class="cta" data-hc="${esc(s.c)}">Ver ${esc(catL(s.c)).toLowerCase()} ›</button>`}</div>
-    <div class="hp">${s.promo?`<div class="big">10%<small>OFF</small></div>`:s.ps.map(p=>`<a href="#${p.slug}" title="${esc(p.t)}"><img src="${esc(p.ph[0])}" alt="${esc(p.t)}" ${i?'loading="lazy"':""} decoding="async" draggable="false"></a>`).join("")}</div></div>`).join("")}</div>
+  const el=$("#hero");if(!el||el.dataset.ok)return;el.dataset.ok=1;const n=HERO.length;
+  const prod=id=>{const p=byId[id];return p&&p.slug?`href="#${p.slug}" title="${esc(p.t)}"`:'href="#" tabindex="-1"'};
+  el.innerHTML=`<div class="hero-track" id="heroT">${HERO.map((s,i)=>`<div class="hs ${s.cls}" role="group" aria-roledescription="diapositiva" aria-label="${i+1} de ${n}" style="--hbg:${s.bg};--hacc:${s.acc};--hglow:${s.gl}"${i?' aria-hidden="true"':""}>
+    <i class="bg"></i><i class="haze"></i>${s.extra||""}
+    ${s.ps.map(p=>`<a class="pr ${p.cl}" ${prod(p.id)} style="--h:${p.h};--x:${p.x||"3%"};--b:${p.b||"3%"}">${p.fx||""}<img data-cut="${ML+p.img}" alt="" draggable="false"></a>`).join("")}
+    <div class="ht">${s.t}</div></div>`).join("")}</div>
   <button class="hero-nav p" aria-label="Anterior">‹</button><button class="hero-nav n" aria-label="Siguiente">›</button>
-  <div class="hero-dots">${sl.map((_,i)=>`<button aria-label="Ir a la ${i+1}"${i?"":' class="on"'}></button>`).join("")}</div>
+  <div class="hero-dots">${HERO.map((_,i)=>`<button aria-label="Ir a la ${i+1}"${i?"":' class="on"'}></button>`).join("")}</div>
   <button class="hero-pause" aria-label="Pausar">❚❚</button>`;
-  const n=sl.length,tr=$("#heroT"),dots=[...el.querySelectorAll(".hero-dots button")],pb=el.querySelector(".hero-pause");
+  el.querySelectorAll("img[data-cut]").forEach(im=>recortar(im.dataset.cut).then(u=>{im.src=u;im.onload=()=>im.parentNode.classList.add("ok")}).catch(()=>im.parentNode.remove()));
+  const tr=$("#heroT"),dots=[...el.querySelectorAll(".hero-dots button")],pb=el.querySelector(".hero-pause");
   const ir=i=>{heroI=(i+n)%n;tr.style.transform=`translateX(${-heroI*100}%)`;dots.forEach((d,j)=>d.classList.toggle("on",j===heroI));[...tr.children].forEach((c,j)=>c.setAttribute("aria-hidden",j!==heroI))};
-  const auto=()=>{clearInterval(heroT);if(!heroPaused)heroT=setInterval(()=>{if(!el.matches(":hover")&&!document.hidden)ir(heroI+1)},5500)};
+  const auto=()=>{clearInterval(heroT);if(!heroPaused)heroT=setInterval(()=>{if(!el.matches(":hover")&&!document.hidden)ir(heroI+1)},6500)};
   el.querySelector(".p").onclick=()=>{ir(heroI-1);auto()};el.querySelector(".n").onclick=()=>{ir(heroI+1);auto()};
   dots.forEach((d,i)=>d.onclick=()=>{ir(i);auto()});
   pb.onclick=()=>{heroPaused=!heroPaused;pb.textContent=heroPaused?"▶":"❚❚";pb.setAttribute("aria-label",heroPaused?"Reproducir":"Pausar");auto()};
-  el.addEventListener("click",e=>{const b=e.target.closest("[data-hc]");if(!b)return;const c=document.querySelector(`#cats button[data-c="${CSS.escape(b.dataset.hc)}"]`);if(c)c.click()});
+  el.addEventListener("click",e=>{const b=e.target.closest("[data-hc],[data-hq]");if(!b)return;
+    if(b.dataset.hq){$("#q").value=b.dataset.hq;$("#searchForm").requestSubmit();return}
+    const c=document.querySelector(`#cats button[data-c="${CSS.escape(b.dataset.hc)}"]`);if(c)c.click()});
   let x0=null;el.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
   el.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>45){ir(heroI+(dx<0?1:-1));auto()}});
-  if(matchMedia("(prefers-reduced-motion:reduce)").matches)heroPaused=true,pb.textContent="▶";
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches){heroPaused=true;pb.textContent="▶"}
   auto();
 }
 function start(items,act){
