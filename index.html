@@ -540,6 +540,17 @@ footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
 .hs.act .off{animation:sube .8s cubic-bezier(.2,.8,.2,1) .12s both,prende 3.2s ease-in-out 1s infinite}
 .hs.act .pill{animation:sube .8s cubic-bezier(.2,.8,.2,1) .24s both,pill 1s ease-in-out 1s infinite}
 @keyframes pill{0%,100%{transform:rotate(-2deg) scale(1)}50%{transform:rotate(-2deg) scale(1.06)}}
+
+/* botón flotante de WhatsApp */
+.wa-float{position:fixed;right:clamp(16px,2vw,28px);bottom:clamp(16px,2vw,28px);z-index:60;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.28);transition:transform .2s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:34px;height:34px}
+.wa-float:before{content:"";position:absolute;inset:0;border-radius:50%;background:#25d366;z-index:-1;animation:wapulso 2.2s ease-out infinite}
+@keyframes wapulso{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+.wa-float span{position:absolute;right:72px;white-space:nowrap;background:#fff;color:#121028;font-weight:600;font-size:14px;padding:7px 12px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.15);opacity:0;pointer-events:none;transition:opacity .2s}
+.wa-float:hover span{opacity:1}
+@media (max-width:760px){.wa-float{width:54px;height:54px;bottom:calc(72px + env(safe-area-inset-bottom,0px));right:14px}.wa-float svg{width:30px;height:30px}}
+@media (prefers-reduced-motion:reduce){.wa-float:before{animation:none}}
 /* controles */
 .hero-nav{position:absolute;top:50%;translate:0 -50%;z-index:9;width:clamp(40px,4vw,60px);aspect-ratio:1;border-radius:50%;border:0;background:#fff;color:#d3123a;font-size:30px;line-height:1;box-shadow:0 6px 20px rgba(0,0,0,.35);display:grid;place-items:center;padding:0 0 4px}
 .hero-nav.p{left:clamp(8px,1.2vw,20px)}.hero-nav.n{right:clamp(8px,1.2vw,20px)}
@@ -653,6 +664,7 @@ footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
   <div class="legal"><b>10% OFF pagando por transferencia y comprando por WhatsApp.</b> Precios y stock sujetos a cambios. Las compras se realizan por Mercado Libre o por WhatsApp.</div>
 </footer>
 
+<a class="wa-float" href="https://wa.me/5492614189999?text=Hola%20TecnoShow!" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><span>¿Te ayudamos? Escribinos</span><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg></a>
 <nav class="bnav" id="bnav" aria-label="Accesos rápidos">
   <a href="#" data-nav="home" aria-current="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Inicio</a>
   <a href="#reels" data-nav="reels" class="rl"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></i>Reels</a>
