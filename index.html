@@ -594,7 +594,7 @@ function priceHTML(p,big){
 }
 function card(p){
   return `<a class="card${p.a?"":" out"}" href="#${p.slug}" data-id="${p.slug}">
-    <div class="thumb" data-i="0">${logoDe(p.b)?`<span class="bmark"><img src="${logoDe(p.b)}" alt="${esc(p.b)}" loading="lazy"></span>`:""}${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.of&&p.a?'<span class="tag of">OFERTA</span>':""}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
+    <div class="thumb" data-i="0">${logoP(p)?`<span class="bmark"><img src="${logoP(p)}" alt="${esc(p.b)}" loading="lazy"></span>`:""}${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.of&&p.a?'<span class="tag of">OFERTA</span>':""}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
     <div class="cbody">
       <div class="ctitle">${esc(p.t)}</div>
       ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span>${p.s?`<span>+${p.s} vendidos</span>`:""}</div>`:(p.s?`<div class="rating">+${p.s} vendidos</div>`:"")}
@@ -741,7 +741,7 @@ function renderProduct(id){
     </div>
     <div class="pinfo">
       <h1>${esc(p.t)}</h1>
-      <div class="bline">${logoDe(p.b)?`<span class="bmark st"><img src="${logoDe(p.b)}" alt="${esc(p.b)}"></span>`:""}<small>Cód. ${esc(p.id)}</small>${p.s?`<small class="vend">+${p.s} vendidos</small>`:""}${p.r?`<small><b>${p.r.toFixed(1)}</b> <span class="stars">${stars(p.r)}</span></small>`:""}</div>
+      <div class="bline">${logoP(p)?`<span class="bmark st"><img src="${logoP(p)}" alt="${esc(p.b)}"></span>`:""}<small>Cód. ${esc(p.id)}</small>${p.s?`<small class="vend">+${p.s} vendidos</small>`:""}${p.r?`<small><b>${p.r.toFixed(1)}</b> <span class="stars">${stars(p.r)}</span></small>`:""}</div>
       <div class="tags"><span>Nuevo</span><span>Garantía 30 días</span></div>
       ${p.a&&p.p?`<div class="paybox">
         <div class="po"><b>Tarjeta o Mercado Pago</b>${p.pp&&p.pp>p.p*1.03?`<s>${fmt(p.pp)}</s>`:""}<div class="pbig">${fmt(p.p)}</div><span>Pagalo en cuotas con todas las tarjetas</span></div>
@@ -999,6 +999,9 @@ const IC={
  "Todo":'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'};
 const LOGOS={"behringer": "https://http2.mlstatic.com/D_NQ_NP_656832-MLA74823735604_032024-F.jpg", "jbl": "https://http2.mlstatic.com/D_NQ_NP_710134-MLA74823677628_032024-F.jpg", "shure": "https://http2.mlstatic.com/D_NQ_NP_645284-MLA74823735472_032024-F.jpg", "pioneerdj": "https://http2.mlstatic.com/D_NQ_NP_754217-MLA77118509153_062024-F.jpg", "pioneer": "https://http2.mlstatic.com/D_NQ_NP_754217-MLA77118509153_062024-F.jpg", "audiotechnica": "https://http2.mlstatic.com/D_NQ_NP_765593-MLA74823740442_032024-F.jpg", "sennheiser": "https://http2.mlstatic.com/D_NQ_NP_771622-MLA112261544810_062026-F.jpg", "nisuta": "https://http2.mlstatic.com/D_NQ_NP_828251-MLA97549666661_112025-F.jpg", "tecnoshow": "logo.png", "gbr": "marcas/gbr.png", "gbrplatinumpro": "marcas/gbr.png", "tecshow": "marcas/tecshow.png", "americanpro": "marcas/americanpro.png", "ampro": "marcas/americanpro.png", "tecshowamericanpro": "marcas/tecshow.png", "tecshowamericanproampro": "marcas/tecshow.png", "stagelabampro": "marcas/americanpro.png", "moon": "marcas/moon.png", "moonproaudio": "marcas/moon.png", "moonaudio": "marcas/moon.png", "skp": "marcas/skp.png", "skpproaudio": "marcas/skp.png", "samson": "marcas/samson.png", "neutrik": "marcas/neutrik.png", "allenheath": "marcas/allenheath.png", "das": "marcas/das.png", "dasaudio": "marcas/das.png", "tevelam": "marcas/tevelam.png", "tevelan": "marcas/tevelam.png", "lexsen": "marcas/lexsen.png", "apogee": "marcas/apogee.png", "maxcable": "marcas/maxcable.png", "jahro": "marcas/jahro.png"};
 const logoDe=b=>LOGOS[String(b||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"")]||"";
+const logoP=p=>{if(p._lg!==undefined)return p._lg;let l=logoDe(p.b);
+  if(!l){for(const w of String(p.t||"").split(/[\s\/,()\-]+/)){l=logoDe(w);if(l)break}}
+  return p._lg=l};
 const CORTO={"Parlantes y amplificación":"Audio Pro","DJ y consolas":"DJ","Máquinas de humo":"Humo","Video y pantallas":"Video","Cables y conectores":"Cables","Soportes, fundas y estructuras":"Soportes","Electrónica y repuestos":"Electrónica"};
 const ico=c=>IC[c]?`<svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[c]}</svg>`:"";
 function megaCats(){
