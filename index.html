@@ -457,7 +457,7 @@ footer .qrs img{background:#fff}footer .qrs figure{color:#b9b9cc}
 @media (max-width:760px){.fben .wrap{grid-template-columns:1fr 1fr!important}}
 footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
 .segs button{display:inline-flex;align-items:center;justify-content:center;gap:8px}.segs button svg{width:20px;height:20px;color:var(--violet);flex:none;pointer-events:none}
-.intro-v{min-height:0;overflow:hidden}.intro-v video,.intro-v iframe{position:absolute;inset:0;height:100%!important}
+.intro-v{min-height:0;overflow:hidden;position:relative!important}.intro-v video,.intro-v iframe{position:absolute;inset:0;height:100%!important}
 .intro-box{width:min(380px,100%)!important}@media (max-width:760px){.intro-box{width:66vw!important}}
 /* hero carrusel de bienvenida: escenas con productos en acción */
 .hero{position:relative;overflow:hidden;background:#07060f;user-select:none;touch-action:pan-y}
@@ -571,6 +571,26 @@ footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
  .hero-nav{display:none}.eq{width:80%}
 }
 @media (prefers-reduced-motion:reduce){.hs *,.hs *:before{animation:none!important}.hero-track{transition:none}}
+.intro-bt{display:flex;gap:10px;align-items:center}.intro-bt button{background:none;border:0;color:#fff;font-size:20px;cursor:pointer;line-height:1}
+.intro-box{resize:horizontal;overflow:hidden;min-width:260px;max-width:96vw}
+.intro-box.big{width:min(1100px,94vw)!important}
+/* logos sin recuadro */
+.bmark{background:none!important;border:0!important;padding:0!important;height:30px!important}
+.bmark img{height:26px!important;max-width:90px!important;filter:drop-shadow(0 0 1.5px rgba(255,255,255,.95)) drop-shadow(0 0 3px rgba(255,255,255,.8))}
+.bmark.st{height:40px!important}.bmark.st img{height:36px!important;max-width:150px!important}
+.marcas button{background:none!important;border:0!important;box-shadow:none!important}.marcas button img{height:48px!important;max-width:140px!important}
+.bmark{height:44px!important;top:6px!important;right:6px!important}.bmark img{height:40px!important;max-width:130px!important}
+.bmark.st{height:56px!important}.bmark.st img{height:52px!important;max-width:200px!important}
+.marcas{gap:22px!important}.marcas button{height:80px!important}.marcas button img{height:64px!important;max-width:190px!important}
+@media (max-width:760px){.bmark img{height:30px!important;max-width:96px!important}.marcas button img{height:46px!important;max-width:140px!important}.marcas button{height:60px!important}}
+html,body{overflow-x:clip;max-width:100%}
+@media (hover:hover) and (min-width:901px){.cats .wrap{flex-wrap:nowrap!important;overflow:visible!important}
+ .cats .wrap>button{flex:none}.cat-it{flex:1 1 auto;min-width:34px}.cat-it>button{min-width:0;max-width:100%;padding:6px 7px!important}
+ .cat-it .cl{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .cat-it:hover{flex:0 0 auto;position:relative;z-index:5}.cat-it:hover>button{background:#22222e}}
+@media (hover:none),(max-width:900px){.cats .wrap{overflow-x:auto!important;flex-wrap:nowrap!important}}
+.cats .wrap{gap:0!important}.cats button{gap:4px!important}
+@media (hover:hover) and (min-width:901px){.cats .wrap>button{padding:6px 6px!important}.cat-it>button{padding:6px 4px!important}.cats button.ofertas{margin:5px 3px!important;padding:3px 8px!important}.ci{width:15px;height:15px}}
 </style>
 
 </head>
@@ -705,7 +725,7 @@ function priceHTML(p,big){
 }
 function card(p){
   return `<a class="card${p.a?"":" out"}" href="#${p.slug}" data-id="${p.slug}">
-    <div class="thumb" data-i="0">${logoDe(p.b)?`<span class="bmark"><img src="${logoDe(p.b)}" alt="${esc(p.b)}" loading="lazy"></span>`:""}${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.of&&p.a?'<span class="tag of">OFERTA</span>':""}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
+    <div class="thumb" data-i="0">${logoP(p)?`<span class="bmark"><img src="${logoP(p)}" alt="${esc(p.b)}" loading="lazy"></span>`:""}${p.ph&&p.ph[0]?`<img src="${esc(p.ph[0])}" alt="${esc(p.t)}" loading="lazy" decoding="async">`:""}${p.a?"":'<span class="tag out">Sin stock · Consultar</span>'}${p.of&&p.a?'<span class="tag of">OFERTA</span>':""}${p.ph&&p.ph.length>1?`<button class="tnav prev" data-nav="-1" aria-label="Foto anterior">‹</button><button class="tnav next" data-nav="1" aria-label="Foto siguiente">›</button><span class="tdots">${p.ph.map((_,i)=>`<i${i?"":' class="on"'}></i>`).join("")}</span>`:""}</div>
     <div class="cbody">
       <div class="ctitle">${esc(p.t)}</div>
       ${p.r?`<div class="rating"><b>${p.r.toFixed(1)}</b><span class="stars">${stars(p.r)}</span>${p.s?`<span>+${p.s} vendidos</span>`:""}</div>`:(p.s?`<div class="rating">+${p.s} vendidos</div>`:"")}
@@ -852,7 +872,7 @@ function renderProduct(id){
     </div>
     <div class="pinfo">
       <h1>${esc(p.t)}</h1>
-      <div class="bline">${logoDe(p.b)?`<span class="bmark st"><img src="${logoDe(p.b)}" alt="${esc(p.b)}"></span>`:""}<small>Cód. ${esc(p.id)}</small>${p.s?`<small class="vend">+${p.s} vendidos</small>`:""}${p.r?`<small><b>${p.r.toFixed(1)}</b> <span class="stars">${stars(p.r)}</span></small>`:""}</div>
+      <div class="bline">${logoP(p)?`<span class="bmark st"><img src="${logoP(p)}" alt="${esc(p.b)}"></span>`:""}<small>Cód. ${esc(p.id)}</small>${p.s?`<small class="vend">+${p.s} vendidos</small>`:""}${p.r?`<small><b>${p.r.toFixed(1)}</b> <span class="stars">${stars(p.r)}</span></small>`:""}</div>
       <div class="tags"><span>Nuevo</span><span>Garantía 30 días</span></div>
       ${p.a&&p.p?`<div class="paybox">
         <div class="po"><b>Tarjeta o Mercado Pago</b>${p.pp&&p.pp>p.p*1.03?`<s>${fmt(p.pp)}</s>`:""}<div class="pbig">${fmt(p.p)}</div><span>Pagalo en cuotas con todas las tarjetas</span></div>
@@ -1108,15 +1128,18 @@ const IC={
  "Electrónica y repuestos":'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
  "Ofertas":'<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
  "Todo":'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'};
-const LOGOS={"behringer": "https://http2.mlstatic.com/D_NQ_NP_656832-MLA74823735604_032024-F.jpg", "jbl": "https://http2.mlstatic.com/D_NQ_NP_710134-MLA74823677628_032024-F.jpg", "shure": "https://http2.mlstatic.com/D_NQ_NP_645284-MLA74823735472_032024-F.jpg", "pioneerdj": "https://http2.mlstatic.com/D_NQ_NP_754217-MLA77118509153_062024-F.jpg", "pioneer": "https://http2.mlstatic.com/D_NQ_NP_754217-MLA77118509153_062024-F.jpg", "audiotechnica": "https://http2.mlstatic.com/D_NQ_NP_765593-MLA74823740442_032024-F.jpg", "sennheiser": "https://http2.mlstatic.com/D_NQ_NP_771622-MLA112261544810_062026-F.jpg", "nisuta": "https://http2.mlstatic.com/D_NQ_NP_828251-MLA97549666661_112025-F.jpg", "tecnoshow": "logo.png", "gbr": "marcas/gbr.png", "gbrplatinumpro": "marcas/gbr.png", "tecshow": "marcas/tecshow.png", "americanpro": "marcas/americanpro.png", "ampro": "marcas/americanpro.png", "tecshowamericanpro": "marcas/tecshow.png", "tecshowamericanproampro": "marcas/tecshow.png", "stagelabampro": "marcas/americanpro.png", "moon": "marcas/moon.png", "moonproaudio": "marcas/moon.png", "moonaudio": "marcas/moon.png", "skp": "marcas/skp.png", "skpproaudio": "marcas/skp.png", "samson": "marcas/samson.png", "neutrik": "marcas/neutrik.png", "allenheath": "marcas/allenheath.png", "das": "marcas/das.png", "dasaudio": "marcas/das.png", "tevelam": "marcas/tevelam.png", "tevelan": "marcas/tevelam.png", "lexsen": "marcas/lexsen.png", "apogee": "marcas/apogee.png", "maxcable": "marcas/maxcable.png", "jahro": "marcas/jahro.png"};
+const LOGOS={"behringer": "marcas/behringer.png", "jbl": "marcas/jbl.png", "shure": "marcas/shure.png", "pioneerdj": "marcas/pioneerdj.png", "pioneer": "marcas/pioneerdj.png", "audiotechnica": "marcas/audiotechnica.png", "sennheiser": "marcas/sennheiser.png", "nisuta": "marcas/nisuta.png", "tecnoshow": "logo.png", "gbr": "marcas/gbr.png", "gbrplatinumpro": "marcas/gbr.png", "tecshow": "marcas/tecshow.png", "americanpro": "marcas/americanpro.png", "ampro": "marcas/americanpro.png", "tecshowamericanpro": "marcas/tecshow.png", "tecshowamericanproampro": "marcas/tecshow.png", "stagelabampro": "marcas/americanpro.png", "moon": "marcas/moon.png", "moonproaudio": "marcas/moon.png", "moonaudio": "marcas/moon.png", "skp": "marcas/skp.png", "skpproaudio": "marcas/skp.png", "samson": "marcas/samson.png", "neutrik": "marcas/neutrik.png", "allenheath": "marcas/allenheath.png", "das": "marcas/das.png", "dasaudio": "marcas/das.png", "tevelam": "marcas/tevelam.png", "tevelan": "marcas/tevelam.png", "lexsen": "marcas/lexsen.png", "apogee": "marcas/apogee.png", "maxcable": "marcas/maxcable.png", "jahro": "marcas/jahro.png"};
 const logoDe=b=>LOGOS[String(b||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"")]||"";
+const logoP=p=>{if(p._lg!==undefined)return p._lg;let l=logoDe(p.b);
+  if(!l){for(const w of String(p.t||"").split(/[\s\/,()\-]+/)){l=logoDe(w);if(l)break}}
+  return p._lg=l};
 const CORTO={"Parlantes y amplificación":"Audio Pro","DJ y consolas":"DJ","Máquinas de humo":"Humo","Video y pantallas":"Video","Cables y conectores":"Cables","Soportes, fundas y estructuras":"Soportes","Electrónica y repuestos":"Electrónica"};
 const ico=c=>IC[c]?`<svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[c]}</svg>`:"";
 function megaCats(){
   const subs={};P.forEach(p=>{if(!p.a)return;(subs[p.c]=subs[p.c]||{})[p.sc||""]=(subs[p.c][p.sc||""]||0)+1});
   return `<button data-c="" aria-pressed="true">${ico("Todo")}Todo</button><button data-o="1" class="ofertas">${ico("Ofertas")}Ofertas</button><button class="conocenos" onclick="abrirIntro()" aria-label="Conocenos: video del local">${ico("Video y pantallas")}Conocenos</button>`+
    CATS.filter(c=>!["Accesorios","Otros"].includes(c)).map(c=>{const ss=Object.entries(subs[c]||{}).filter(([k])=>k).sort((a,b)=>b[1]-a[1]);
-    return `<div class="cat-it"><button data-c="${esc(c)}">${ico(c)}${esc(CORTO[c]||catL(c))}</button>${ss.length>1?`<div class="mega"><div class="mega-in">${ss.slice(0,12).map(([k,n])=>`<button data-c="${esc(c)}" data-s="${esc(k)}"><span>${esc(k)}</span><small>${n}</small></button>`).join("")}<button data-c="${esc(c)}" class="mega-all">Ver todo ${esc(catL(c))} →</button></div></div>`:""}</div>`}).join("");
+    return `<div class="cat-it"><button data-c="${esc(c)}" title="${esc(catL(c))}">${ico(c)}<span class="cl">${esc(CORTO[c]||catL(c))}</span></button>${ss.length>1?`<div class="mega"><div class="mega-in">${ss.slice(0,12).map(([k,n])=>`<button data-c="${esc(c)}" data-s="${esc(k)}"><span>${esc(k)}</span><small>${n}</small></button>`).join("")}<button data-c="${esc(c)}" class="mega-all">Ver todo ${esc(catL(c))} →</button></div></div>`:""}</div>`}).join("");
 }
 const CAT_LABEL={"Parlantes y amplificación":"Audio: parlantes y potencias","DJ y consolas":"DJ"};
 const catL=c=>CAT_LABEL[c]||c;
@@ -1280,7 +1303,7 @@ pCopia.then(copia=>{
 
 
 <div id="intro" class="intro" hidden role="dialog" aria-modal="true" aria-labelledby="introT">
-  <div class="intro-box"><div class="intro-h"><b id="introT">Conocenos desde adentro</b><button id="introX" aria-label="Cerrar">✕</button></div>
+  <div class="intro-box"><div class="intro-h"><b id="introT">Conocenos desde adentro</b><span class="intro-bt"><button id="introG" aria-label="Agrandar video" title="Agrandar" onclick="document.querySelector('.intro-box').classList.toggle('big')">⤢</button><button id="introX" aria-label="Cerrar">✕</button></span></div>
   <div class="intro-v" id="introV"></div></div></div>
 <script>
 window.abrirIntro=function(){var d=document.getElementById("intro");if(!d)return;
