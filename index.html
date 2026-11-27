@@ -511,7 +511,7 @@ footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
 @keyframes abanico{from{transform:rotate(calc(var(--r,0deg) - 10deg))}to{transform:rotate(calc(var(--r,0deg) + 10deg))}}
 @keyframes titila{50%{opacity:.6}}
 /* humo */
-.humo{position:absolute;z-index:-1;left:var(--ox,50%);top:var(--oy,10%);width:50%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,rgba(235,240,255,.55),rgba(235,240,255,.18) 60%,transparent);filter:blur(14px);opacity:0;animation:humo 6s ease-out infinite;animation-delay:var(--dl,0s)}
+.humo{position:absolute;z-index:-1;left:var(--ox,50%);top:var(--oy,10%);width:70%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,rgba(235,240,255,.8),rgba(235,240,255,.3) 60%,transparent);filter:blur(14px);opacity:0;animation:humo 6s ease-out infinite;animation-delay:var(--dl,0s)}
 @keyframes humo{0%{transform:translate(0,0) scale(.3);opacity:.9}100%{transform:translate(var(--tx,320%),var(--ty,-120%)) scale(4);opacity:0}}
 .flash{position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 50% at 50% 30%,rgba(255,255,255,.35),transparent);opacity:0;animation:flash 2.4s infinite}
 @keyframes flash{0%,88%,100%{opacity:0}90%{opacity:1}93%{opacity:0}95%{opacity:.8}}
@@ -1119,12 +1119,12 @@ const on=(o)=>[0,1,2].map(i=>`<i class="onda" style="--ox:${o.x};--oy:${o.y};--d
 const hu=(o)=>[0,1,2,3,4].map(i=>`<i class="humo" style="--ox:${o.x};--oy:${o.y};--tx:${o.tx};--ty:${o.ty};--dl:${-i*1.2}s"></i>`).join("");
 const HERO=[
  {cls:"luces",bg:"radial-gradient(90% 80% at 50% 110%,#3a1060 0%,#170a35 45%,#05040c 100%)",acc:"#ffd23f",gl:"rgba(140,60,255,.55)",
-  ps:[{id:"MLA1647963781",img:"768978-MLA95969502530_102025-F.webp",cl:"l",h:"66%",x:"4%",fx:bm(["#ffffff","#7fd4ff","#ff5ce1"],{x:"60%",y:"16%",r:42})},
-      {id:"MLA3383525922",img:"715282-MLA117912464081_092026-F.webp",cl:"r",h:"60%",x:"4%",fx:bm(["#ffffff","#ffe06b","#7fd4ff"],{x:"42%",y:"22%",r:-42})}],
+  ps:[{id:"MLA1647963781",img:"768978-MLA95969502530_102025-F.webp",cl:"l",h:"66%",x:"4%",fx:bm(["#ffffff","#7fd4ff","#ff5ce1"],{x:"72%",y:"10%",r:42})},
+      {id:"MLA3383525922",img:"715282-MLA117912464081_092026-F.webp",cl:"r",h:"60%",x:"4%",fx:bm(["#ffffff","#ffe06b","#7fd4ff"],{x:"30%",y:"24%",r:-42})}],
   t:`<span class="kick">Cabezales móviles beam</span><span class="off">10%<small>OFF</small></span><p>Pagando por transferencia y comprando por WhatsApp. Iluminá tu fiesta como un profesional.</p><div class="ctas"><button class="cta" data-hc="Iluminación">Ver iluminación ›</button><a class="cta wa" href="${WA_OFF}" target="_blank" rel="noopener">Pedir mi 10% OFF</a></div>`},
  {cls:"sonido retumba",bg:"radial-gradient(90% 90% at 50% 120%,#0b3aa8 0%,#061a52 40%,#02040e 100%)",acc:"#38d9ff",gl:"rgba(0,180,255,.5)",
   ps:[{id:"MLA1720716041",img:"651019-MLA108650141116_032026-F.webp",cl:"l golpe",h:"80%",x:"5%",fx:on({x:"50%",y:"35%"})},
-      {id:"MLA1729517487",img:"770122-MLA109879378677_032026-F.webp",cl:"r golpe",h:"70%",x:"4%",fx:on({x:"50%",y:"45%"})}],
+      {id:"MLA1729517487",img:"936282-MLA117912494797_092026-F.webp",cl:"r golpe",h:"70%",x:"4%",fx:on({x:"50%",y:"45%"})}],
   extra:`<div class="eq">${Array.from({length:28},(_,i)=>`<i style="animation-delay:${-((i*37)%90)/100}s;animation-duration:${.5+((i*13)%7)/10}s"></i>`).join("")}</div>`,
   t:`<span class="kick">Line array · Subwoofers</span><h2>Sonido que <em>retumba</em></h2><span class="pill">10% OFF por transferencia</span><p>Sistemas line array, subs y potencias para boliches, fiestas y eventos.</p><div class="ctas"><button class="cta" data-hq="array">Ver line array ›</button></div>`},
  {cls:"dj",bg:"radial-gradient(80% 70% at 50% 100%,#ff5e00 0%,#7a1d00 35%,#0a0605 75%)",acc:"#ff9a3c",gl:"rgba(255,94,0,.5)",
@@ -1132,7 +1132,7 @@ const HERO=[
   extra:`<i class="flash"></i>`+lz(["#39ff6a","#00e1ff"],{x:"18%",y:"-2%",r:65,d:3.5},9,50)+lz(["#ff2bd6","#39ff6a"],{x:"82%",y:"-2%",r:115,d:4.2},9,50),
   t:`<span class="kick">DJ · Controladoras · Mixers</span><h2>Armá tu <em>set</em></h2><p>Pioneer, controladoras y consolas para mezclar como un pro. 10% OFF por transferencia.</p><div class="ctas"><button class="cta" data-hc="DJ y consolas">Ver DJ ›</button></div>`},
  {cls:"efectos",bg:"radial-gradient(90% 80% at 50% 110%,#0b5c63 0%,#062a33 45%,#02080b 100%)",acc:"#5dffb1",gl:"rgba(40,255,190,.35)",
-  ps:[{id:"MLA2063167713",img:"894605-MLA117195431007_092026-F.webp",cl:"l",h:"52%",x:"6%",fx:hu({x:"50%",y:"8%",tx:"160%",ty:"-90%"})},
+  ps:[{id:"MLA2063167713",img:"894605-MLA117195431007_092026-F.webp",cl:"l",h:"52%",x:"6%",fx:hu({x:"24%",y:"14%",tx:"150%",ty:"-70%"})},
       {id:"MLA3164492660",img:"869287-MLA116376916327_082026-F.webp",cl:"r",h:"46%",x:"6%",fx:lz(["#39ff6a","#ff2b2b","#00b3ff"],{x:"30%",y:"55%",r:200,d:3},11,60)}],
   t:`<span class="kick">Humo · Láser · Efectos</span><h2>Efectos que <em>impactan</em></h2><p>Máquinas de humo y láser para que tu show no pase desapercibido.</p><div class="ctas"><button class="cta" data-hc="Máquinas de humo">Ver humo ›</button><button class="cta" data-hq="laser">Ver láser ›</button></div>`},
  {cls:"micros izq",bg:"radial-gradient(90% 90% at 80% 100%,#c2187a 0%,#4a0d63 45%,#0b0414 100%)",acc:"#ff8ee8",gl:"rgba(255,60,200,.45)",
