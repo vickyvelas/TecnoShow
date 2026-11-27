@@ -558,7 +558,12 @@ footer .legal{border-top:1px solid #23232f!important;color:#8d8da3!important}
 .hero-dots button{width:10px;height:10px;border-radius:10px;border:0;padding:0;background:rgba(255,255,255,.5);transition:width .3s,background .3s}
 .hero-dots button.on{width:34px;background:#fff}
 .hero-pause{position:absolute;right:clamp(14px,2vw,30px);bottom:8px;z-index:9;background:none;border:0;color:#fff;font-size:16px;opacity:.85;width:32px;height:32px}
-.strip.conhero .wrap{display:block;padding-block:12px}
+.strip.conhero .wrap{display:block;padding-block:8px}
+.strip.conhero .facts{gap:8px}
+.strip.conhero .fact{padding:5px 12px;border-radius:8px}
+.strip.conhero .fact b{font-size:15px}
+.strip.conhero .fact span{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:760px){.strip.conhero .fact{width:auto;max-width:200px}.strip.conhero .fact b{font-size:14px;white-space:nowrap}.strip.conhero .fact span{white-space:normal;font-size:11px}}
 .sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (max-width:760px){
  .hs{height:380px}
@@ -622,7 +627,7 @@ html,body{overflow-x:clip;max-width:100%}
     </div>
     <div class="facts">
       <div class="fact"><b>Garantía</b><span>30 días en todos los productos</span></div>
-      <div class="fact"><b>Envíos</b><span>a todo el país: Correo Argentino, OCA, Vía Cargo o el que elijas</span></div>
+      <div class="fact"><b>Envíos a todo el país</b><span>Correo Argentino, OCA, Vía Cargo o el que elijas</span></div>
       <div class="fact"><b>Cuotas</b><span>y todos los medios de pago</span></div>
       <div class="fact hot"><b>10% OFF</b><span>por transferencia comprando por WhatsApp</span></div>
     </div>
