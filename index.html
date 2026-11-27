@@ -1091,7 +1091,7 @@ pCopia.then(copia=>{
   <div class="intro-v" id="introV"></div></div></div>
 <script>
 window.abrirIntro=function(){var d=document.getElementById("intro");if(!d)return;
-  document.getElementById("introV").innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/ms-Q03S98pI?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1" title="Conocé TecnoShow por dentro" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  document.getElementById("introV").innerHTML='<video src="conocenos.mp4" poster="conocenos.jpg" autoplay muted playsinline controls controlslist="nodownload noplaybackrate" disablepictureinpicture oncontextmenu="return false"></video><img class="wm" src="logo.png" alt="" aria-hidden="true"><button class="snd" onclick="var v=this.parentNode.querySelector(\'video\');v.muted=false;v.play();this.remove()">🔊 Activar sonido</button>';
   d.hidden=false;try{sessionStorage.setItem("introVisto","1")}catch(e){}};
 (function(){var d=document.getElementById("intro");var cerrar=function(){d.hidden=true;document.getElementById("introV").innerHTML=""};
  document.getElementById("introX").onclick=cerrar;d.onclick=function(e){if(e.target===d)cerrar()};
